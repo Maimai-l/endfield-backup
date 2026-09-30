@@ -236,157 +236,37 @@ main{min-width:0}
 .tip--2 b{font:14px/1.3 var(--font-medium);font-weight:400}
 .tip--2 span{font-size:12px;color:#a6a6a6}
 /* 路径 */
+.sx{display:inline-block;width:3px;height:3px;margin:0 .5em;background:currentColor;vertical-align:.3em}
 .path{font:13px var(--font-medium);color:var(--color-text-primary);display:flex;align-items:center;gap:6px}
-.path::before{content:"//";font-family:var(--font-en);color:var(--color-text-secondary)}
+.path > span + span::before{content:"";display:inline-block;width:1px;height:11px;margin:0 8px 0 2px;background:var(--color-text-tertiary);transform:skewX(-20deg);vertical-align:-1px}
+.path::before{content:"";width:9px;height:12px;margin-right:2px;background:linear-gradient(var(--color-text-secondary),var(--color-text-secondary)) 1px 0/1px 100% no-repeat,linear-gradient(var(--color-text-secondary),var(--color-text-secondary)) 6px 0/1px 100% no-repeat;transform:skewX(-20deg)}
 /* 面板十字标记 */
 .stage::before,.stage::after{content:"";position:absolute;width:11px;height:11px;pointer-events:none;
   background:linear-gradient(var(--color-text-tertiary),var(--color-text-tertiary)) center/11px 1px no-repeat,linear-gradient(var(--color-text-tertiary),var(--color-text-tertiary)) center/1px 11px no-repeat}
 .stage::before{right:-6px;top:-6px}.stage::after{left:-6px;bottom:-6px}
 @media (max-width:640px){.entry-body{flex-wrap:wrap;padding-left:16px}}
 
-/* ===== 主控台：取自游戏主菜单的三维环形面板 ===== */
-/* 深色场景：局部固定为深色 token，浅色主题下同样呈现深色 */
-.scene{--color-bg-page:#131315;--color-bg-surface:#1f1f22;--color-bg-raised:#1f1f22;--color-bg-muted:#35373c;--color-state-hover:#2e2e2e;--color-state-pressed:#383838;
-  --color-text-primary:#ededed;--color-text-secondary:#a6a6a6;--color-text-tertiary:#999999;--color-border-subtle:#35373c;--color-border-strong:#ededed;--color-focus-ring:#fffa00;--grid-line:#1a1a1d;
-  color:#ededed;background-color:#131315}
-/* 立体入口磁贴 */
-/* 立体入口磁贴：SVG 形状 —— 圆角、半透明磨砂、背板；左列两侧边沿圆环弯曲 */
-.t3{--lift:0px;position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:128px;height:84px;border:0;padding:0;background:none;cursor:pointer;color:#191919;font:15px/1 var(--font-medium);outline:none}
-.t3 > .shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:-1;pointer-events:none}
-.t3 .shape .bp{fill:rgba(150,150,152,.4);stroke:rgba(225,225,225,.5);stroke-width:1.2}
-.t3 .shape .rim{fill:rgba(200,200,202,.34);stroke:rgba(236,236,236,.92);stroke-width:1.3;transition:stroke var(--duration-base) ease}
-.t3 .shape .hl{fill:none;stroke:rgba(255,255,255,.75);stroke-width:1}
-.t3 .shape .fr{fill:rgba(218,218,218,.9);stroke:none;transition:fill var(--duration-base) ease}
-.t3 .ico{position:relative;display:grid;place-items:center;width:38px;height:38px}
-.t3 .ico .ic{width:26px;height:26px;stroke-width:1.8}
-.t3[aria-current="true"] .ico::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:5px solid #fffa00}
-.t3:not(:disabled):hover .shape .fr,.t3.is-hover .shape .fr{fill:rgba(240,240,240,.96)}
-.t3:focus-visible .shape .rim{stroke:#fffa00;stroke-width:2.5}
-.t3:disabled{color:#626262;cursor:not-allowed}
-.t3:disabled{color:#585858}.t3:disabled .shape .fr{fill:rgba(130,130,132,.55)}.t3:disabled .shape .hl{stroke:rgba(255,255,255,.25)}
-.t3--sm{width:108px;height:80px;font-size:14px}.t3--sm .ico .ic{width:24px;height:24px}
-.t3 .badge{right:9px;top:7px}
-.sph .t3,.sph .at{--D:600px;transform:translate(-50%,-50%) translateZ(var(--D)) rotateY(var(--yaw)) rotateX(var(--pitch)) translateZ(calc(var(--lift,0px) - var(--D)));transform-origin:50% 50%;transition:transform var(--duration-slow) ease}
-.sph .t3:not(:disabled):hover,.sph .t3.is-hover,.sph .at:not(:disabled):hover{--lift:24px}
-.sph .t3{width:116px;height:78px;font-size:14px}.sph .t3 .ico{width:34px;height:34px}.sph .t3 .ico .ic{width:23px;height:23px}
-.sph .t3--sm{width:100px;height:72px;font-size:13px}.sph .t3--sm .ico .ic{width:21px;height:21px}
-.sph-demo .t3{width:128px;height:84px;font-size:15px}.sph-demo .t3--sm{width:108px;height:80px}
-/* 弧形主操作磁贴：底边沿圆环弯曲的扇形，半透明黄 + 底部纯黄带 */
-.atiles{display:flex;flex-wrap:wrap;gap:6px}
-.at{--lift:0px;position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:240px;height:86px;padding:0 20px 24px 52px;border:0;background:none;cursor:pointer;color:#191919;font:19px/1 var(--font-medium);outline:none}
-.at[data-side="r"]{padding:0 52px 24px 20px;justify-content:flex-end}
-.at > .shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:-1;pointer-events:none}
-.at .shape .body{fill:#fffa00;stroke:none;transition:fill var(--duration-base) ease}
-.at .shape .strip{fill:none;stroke:#191919;stroke-width:1}
-.at .shape .mark{fill:#191919}
-.at .ic{width:28px;height:28px;stroke-width:1.8}
-.at:not(:disabled):hover .shape .body,.at.is-hover .shape .body{fill:#efe701}
-.at:not(:disabled):active .shape .body{fill:#e6de01}
-.at:focus-visible .shape .body{stroke:#ffffff;stroke-width:2}
-.at:disabled{color:#999999;cursor:not-allowed}
-.at:disabled{color:#858585}.at:disabled .shape .body{fill:#35373c}.at:disabled .shape .strip{stroke:#585858}
-.at .badge{right:auto;left:auto}
-.at[data-side="l"] .badge{right:14px;top:-4px}.at[data-side="r"] .badge{left:14px;top:-4px}
-.sph .at{width:200px;height:78px;font-size:17px;padding:0 16px 22px 44px}.sph .at[data-side="r"]{padding:0 44px 22px 16px}
 /* 额度胶囊：当前值 / 上限 + 补充操作 */
-.rpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 5px 0 42px;border-radius:20px;background:#2e2e2e;border:1px solid #414348;color:#ededed;flex:none}
-.rpill > .ic{position:absolute;left:6px;top:50%;width:28px;height:28px;transform:translateY(-50%);stroke-width:1.8}
+.rpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 5px 0 42px;border-radius:20px;background:var(--color-bg-surface);border:1px solid var(--color-border-subtle);color:var(--color-text-primary);flex:none}
+.rpill > .ic{position:absolute;left:10px;top:50%;width:22px;height:22px;transform:translateY(-50%);stroke-width:1.8}
 .rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
-.rpill .v small{font-size:12px;color:#a6a6a6;margin-left:2px}
-.rpill .u{font-size:12px;color:#a6a6a6;margin-left:-4px}
-.rpill .sep{width:1px;height:20px;background:#626262;margin-left:2px}
-.rplus{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
+.rpill .v small{font-size:12px;color:var(--color-text-secondary);margin-left:2px}
+.rpill .u{font-size:12px;color:var(--color-text-secondary);margin-left:-4px}
+.rpill .sep{width:1px;height:20px;background:var(--color-border-subtle);margin-left:2px}
+.rplus{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:var(--color-text-primary);color:var(--color-bg-page);cursor:pointer;transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
 .rplus .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
-.rplus:hover{background:#fffa00}.rplus:hover .ic{transform:rotate(90deg)}
-.rplus:active{background:#e6de01}
-.rplus:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
-.rpill.is-full .v{color:#fdfd1f}
-.rpill--light{background:#fafafa;border-color:#d9d9d9;color:#191919}
-.rpill--light .v small,.rpill--light .u{color:#666666}.rpill--light .sep{background:#d9d9d9}
-.rpill--light .rplus{background:#191919;color:#ffffff}.rpill--light .rplus:hover{background:#fffa00;color:#191919}
-.rpill--light .rplus:focus-visible{outline-color:#191919}
+.rplus:hover{background:var(--y-300);color:#191919}.rplus:hover .ic{transform:rotate(90deg)}
+.rplus:active{background:var(--y-500);color:#191919}
+.rplus:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
+.rpill.is-full{border-color:var(--color-border-strong)}
 /* 指标徽章：名称 + 大号数值 + 说明按钮 */
-.ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 22px;border-radius:22px;background:#1f1f22;border:1px solid #35373c;color:#ededed;flex:none}
-.ipill::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:3px;border-radius:1px;background:#fffa00}
-.ipill .l{font:14px var(--font-medium)}
+.ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 22px;border-radius:22px;background:var(--color-bg-surface);border:1px solid var(--color-border-subtle);color:var(--color-text-primary);flex:none}
+.ipill::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:3px;border-radius:1px;background:var(--color-checked)}
+.ipill .l{font:14px var(--font-medium);color:var(--color-text-secondary)}
 .ipill .v{font:30px/1 var(--font-numeric);font-variant-numeric:tabular-nums;min-width:1ch;text-align:center}
-.ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer}
-.ibtn-i:hover{background:#fffa00}.ibtn-i:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
-.ibtn-i .ic{stroke-width:2.4}
-/* 账户卡：头像 + 名称 + 档位数值 + 到下一档的进度 */
-.pcard{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:0 18px;align-items:center;width:440px;max-width:100%;padding:16px 18px 16px 20px;border-radius:14px;background:#1f1f22;border:1px solid #35373c;color:#ededed}
-.pcard::before{content:"";position:absolute;left:46%;top:-1px;right:-1px;bottom:40%;border-top:1.5px solid #fffa00;border-right:1.5px solid #fffa00;border-top-right-radius:14px;pointer-events:none}
-.pcard::after{content:"";position:absolute;right:-3px;top:30%;height:40%;width:4px;border-radius:2px;background:#fffa00}
-.pcard .pic{position:relative;width:84px;height:96px;background:linear-gradient(135deg,#d9d9d9 0 45%,#858585 45% 70%,#fffa00 70%)}
-.pcard .pic::before,.pcard .pic::after{content:"";position:absolute;width:10px;height:10px;border:1.5px solid #ededed}
-.pcard .pic::before{left:-6px;top:-6px;border-right:0;border-bottom:0}.pcard .pic::after{right:-6px;bottom:-6px;border-left:0;border-top:0}
-.pcard .who{display:flex;flex-direction:column;gap:5px;min-width:0}
-.pcard .nm{font:18px/1.2 var(--font-medium)}
-.pcard .lv{display:flex;align-items:flex-end;gap:12px}
-.pcard .lv b{font:40px/1 var(--font-numeric);font-weight:400}
-.pcard .lv span{display:flex;flex-direction:column;align-items:flex-end;margin-left:auto;font-size:12px;color:#a6a6a6}
-.pcard .lv span i{font:13px var(--font-numeric);font-style:normal;color:#fdfd1f}
-.pcard .bar{height:3px;background:#414348}.pcard .bar i{display:block;height:100%;width:var(--v);background:#fffa00}
-.pcard code{color:#999999;font-size:11px}
-.go-y{display:inline-flex;align-items:center;justify-content:center;width:60px;height:38px;border-radius:19px;border:1px solid #414348;padding:0;background:#131315;color:#fffa00;cursor:pointer;transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
-.go-y .ic{width:18px;height:18px;stroke-width:2.2;transition:transform var(--duration-slow) ease}
-.go-y:hover{background:#fffa00;color:#191919}.go-y:hover .ic{transform:translateX(3px)}
-.go-y:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
-.pcard--sm{width:280px;grid-template-columns:56px minmax(0,1fr) auto;gap:0 14px;padding:12px 14px 12px 16px}
-.pcard--sm .pic{width:56px;height:64px}.pcard--sm .nm{font-size:15px}.pcard--sm .lv b{font-size:28px}
-.pcard--sm .go-y{width:44px;height:32px}.pcard--sm code{display:none}
-/* 连接线 */
-.links{inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.ctab td{font:13px/1.55 var(--font-body)!important;color:var(--color-text-secondary)!important}
-.ctab td:first-child{color:var(--color-text-primary)!important;font-family:var(--font-medium)!important}
-.ctab td:nth-child(2){white-space:nowrap}
-@media (max-width:520px){.pcard{grid-template-columns:60px minmax(0,1fr) auto;gap:0 12px;padding:12px}.pcard .pic{width:60px;height:70px}.pcard .lv b{font-size:30px}.pcard .go-y{width:44px;height:32px}}
-.links line{stroke:#414348;stroke-width:1}
-.sight line{stroke:#585858;stroke-dasharray:3 4}
-  background:linear-gradient(180deg,#f2f2f2,#d9d9d9);box-shadow:inset 0 0 0 1px #b3b3b3,inset 0 0 0 4px #e6e6e6,inset 0 0 0 5px #cccccc,0 0 8px rgba(0,0,0,.5);
-  transform:translateX(var(--tx)) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(var(--tz));transition:transform var(--duration-slow) ease,background var(--duration-base) ease}
-/* 环形仪表 */
-.ring{position:relative;width:var(--d,220px);aspect-ratio:1;flex:none}
-.ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.ring .rd{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center}
-.ring .rd span{font-size:13px;color:#a6a6a6}
-.ring .rd b{font:calc(var(--d,220px) * .2)/1 var(--font-numeric);font-weight:400;color:#ededed;font-variant-numeric:tabular-nums}
-.ring .rd b small{font-size:.36em;color:#999999;margin-left:2px}
-.ring .rd em{font:12px var(--font-tech);font-style:normal;color:#999999}
-/* 球面布局：视点位于球心，磁贴放在同一球面上并朝向视点。每块只指定水平角 --yaw 与垂直角 --pitch，
-   位置由 translateZ(D) rotateY rotateX translateZ(-D) 计算，因此同列上下对称、间距一致 */
-.sph-fit{position:relative;width:100%;overflow:hidden;height:calc(var(--H) * var(--k,1));border-radius:var(--radius-md)}
-.sph-stage{position:absolute;left:0;top:0;width:var(--W);height:var(--H);transform:scale(var(--k,1));transform-origin:0 0;overflow:hidden;background:#131315;color:#ededed;font-size:14px;perspective:700px;perspective-origin:50% var(--oy,45%)}
-.sph-stage > *{position:absolute}
-.sph{left:50%;top:var(--oy,45%);width:0;height:0;transform-style:preserve-3d}
-.sph > *,.sph [data-arc] > *{position:absolute;left:0;top:0}
-.sph [data-arc]{width:0;height:0;transform-style:preserve-3d}
-.gyro{width:480px;height:480px;border:1px solid #35373c;border-radius:50%;transform:translate(-50%,-50%) rotateX(78deg);pointer-events:none}
-.gyro--b{transform:translate(-50%,-50%) rotateY(78deg)}
-.gyro::after{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;background:#fffa00}
-.sph-stage .topo{inset:0;background:url(assets/textures/wave-bg.png) center/900px no-repeat;filter:brightness(.25);pointer-events:none}
-.sph-stage .guide{border:1px dashed #414348;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
-.sph-stage .eye{width:15px;height:15px;transform:translate(-50%,-50%);background:linear-gradient(#858585,#858585) center/15px 1px no-repeat,linear-gradient(#858585,#858585) center/1px 15px no-repeat}
-.sph-stage .note{font:11px/1.5 var(--font-tech);color:#999999}
-.c-ring{left:300px;top:88px;width:400px;height:400px}
-.c-ring .disk{position:absolute;inset:26px;border-radius:50%;overflow:hidden;background:#1f1f22;background-image:linear-gradient(#26272b 1px,transparent 1px),linear-gradient(90deg,#26272b 1px,transparent 1px);background-size:28px 28px}
-.c-ring .zone{position:absolute;left:84px;top:78px;width:180px;height:176px;background:repeating-linear-gradient(-45deg,#fffa00 0 3px,#e6de01 3px 6px);clip-path:polygon(18% 6%,62% 0,70% 18%,96% 22%,100% 58%,78% 64%,74% 96%,30% 100%,20% 78%,0 70%,4% 30%)}
-.c-ring .zlabel{position:absolute;left:0;right:0;top:156px;text-align:center;font:19px var(--font-medium);color:#191919}
-.c-sys{left:24px;top:16px;display:flex;gap:12px}
-.c-sys .sysb{position:relative;display:grid;place-items:center;width:40px;height:40px;border:0;border-bottom:2px solid #626262;background:none;color:#ededed;cursor:pointer;padding:0}
-.c-sys .sysb:hover{color:#fffa00;border-bottom-color:#fffa00}.c-sys .sysb:focus-visible{outline:2px solid #fffa00}
-.c-sys .sysb .ic{width:22px;height:22px}.c-sys .badge{right:0;top:2px}
-.c-res{left:50%;top:18px;transform:translateX(-50%);display:flex;gap:12px}
-.c-close{right:24px;top:18px}
-.c-info{right:24px;top:578px}
-.c-pcard{left:16px;top:540px}
-/* 读数胶囊 */
-/* 档案卡 */
-/* 主操作磁贴 */
-  transform:rotateX(26deg) rotateY(var(--ry));transform-origin:50% 100%;transition:transform var(--duration-slow) ease,background-color var(--duration-base) ease;box-shadow:0 0 10px rgba(0,0,0,.5)}
-/* 组合示例 */
-
-.icf{fill:currentColor;stroke:none}
+.ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--color-text-primary);padding:0;background:var(--color-bg-page);color:var(--color-text-primary);cursor:pointer;transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
+.ibtn-i:hover{background:var(--color-text-primary);color:var(--color-bg-page)}.ibtn-i:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
+.ibtn-i .ic{stroke-width:2.2}
 
 /* ===== 盘点 ===== */
 .inv-sum{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
@@ -438,7 +318,7 @@ main{min-width:0}
 .cr-meta{padding:8px 12px 10px;display:flex;flex-direction:column;gap:4px;font:11px/1.4 var(--font-tech);color:var(--color-text-secondary)}
 .cr-meta .badge-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-body);font-size:12px}
 .pass,.fail{color:var(--color-text-primary)}
-.cr-meta .pass,.cr-meta .fail{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-medium)}
+.cr-meta .pass,.cr-meta .fail{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-medium);white-space:nowrap;flex:none}
 
 /* ===== 交互状态 ===== */
 .states{display:flex;flex-direction:column;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page);overflow:hidden}
@@ -459,7 +339,7 @@ main{min-width:0}
   box-shadow:var(--btn-shadow,none);transition:background-color var(--duration-base) ease,color var(--duration-base) ease,border-color var(--duration-base) ease}
 .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/textures/button-texture.png) center/cover no-repeat;mix-blend-mode:soft-light;opacity:var(--tex,0);pointer-events:none}
 /* 左侧竖条：静止时为按钮高度的一半，悬停时向上下延伸，按下时贴满内边距 */
-/* 标志性竖条（源站 Button）：只用于纯文字的主要、强调、危险按钮。静止为 2px 竖条，悬停时变为指向右侧的三角，同时圆角 2px → 6px；带图标的按钮不显示竖条，由图标执行动作 */
+/* 标志性竖条（源站 Button）：只用于纯文字的主要、强调、危险按钮。静止为 2px 竖条，悬停时变为指向右侧的三角，同时圆角从 2px 变为 6px；带图标的按钮不显示竖条，由图标执行动作 */
 .btn::after{content:"";display:var(--tick,none);position:absolute;left:5px;top:50%;width:6px;height:55%;transform:translateY(-50%);background:var(--btn-tick);clip-path:polygon(0 0,34% 0,34% 100%,0 100%);transition:clip-path var(--duration-base) ease}
 .btn:has(.lbl > .ic){--tick:none;--tick-pad:0px}
 .btn:not(:disabled):not(.is-disabled):hover,.btn.is-hover{background-color:var(--btn-bg-h);border-color:var(--btn-bd-h,var(--btn-bd,transparent))}
@@ -479,7 +359,7 @@ main{min-width:0}
 .btn:disabled,.btn.is-disabled{--btn-bg:var(--color-bg-disabled);--btn-fg:var(--color-text-disabled);--btn-bd:var(--color-border-subtle);--btn-tick:var(--color-text-disabled);--tex:0;--btn-shadow:none;cursor:not-allowed}
 .btn--ghost:disabled,.btn--ghost.is-disabled{--btn-bg:transparent;--btn-bd:transparent}
 .btn .lbl{display:inline-flex;align-items:center;gap:6px}
-/* 图标动作：加号悬停转 90°，箭头悬停右移，关闭悬停转 90°，刷新点击转一周 */
+/* 图标动作：加号悬停转 90 度，箭头悬停右移，关闭悬停转 90 度，刷新点击转一周 */
 .btn .ic,.rbtn .ic{transition:transform var(--duration-slow) ease}
 .btn:not(:disabled):hover .ic--plus,.btn.is-hover .ic--plus,.btn:not(:disabled):hover .ic--close,.btn.is-hover .ic--close{transform:rotate(90deg)}
 .btn:not(:disabled):hover .ic--arrow,.btn.is-hover .ic--arrow{transform:translateX(3px)}
@@ -515,14 +395,13 @@ main{min-width:0}
 .spin--track{border-color:var(--color-border-subtle);border-top-color:var(--color-text-primary)}
 .spin--16{width:16px;height:16px}.spin--20{width:20px;height:20px}.spin--32{width:32px;height:32px;border-width:3px}
 @keyframes rot{to{transform:rotate(360deg)}}
-.skel{display:block;height:12px;border-radius:var(--radius-sm);background:var(--color-bg-muted);position:relative;overflow:hidden}
-.skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--color-state-hover),transparent);transform:translateX(-100%);animation:shimmer 1.2s ease-in-out infinite}
-@keyframes shimmer{to{transform:translateX(100%)}}
+.skel{display:block;height:12px;border-radius:var(--radius-sm);background:var(--color-bg-muted);animation:pulse 1.2s ease-in-out infinite alternate}
+@keyframes pulse{to{background:var(--color-state-hover)}}
 
 /* ===== 表单 ===== */
 .field{display:flex;flex-direction:column;gap:4px;width:280px;max-width:100%;min-width:0}
 .field-label{font:13px/1.4 var(--font-medium);display:flex;gap:4px}
-.field-label .req{color:var(--color-text-secondary)}
+.field-label .req{margin-left:4px;padding:0 4px;border:1px solid var(--color-border-control);border-radius:var(--radius-sm);font:11px/16px var(--font-body);color:var(--color-text-secondary)}
 .field-help{font-size:13px;line-height:1.4;color:var(--color-text-secondary);display:flex;justify-content:space-between;gap:8px}
 .field-help .count{font:12px var(--font-tech);color:var(--color-text-tertiary)}
 .field-err{color:var(--color-error-text);display:flex;gap:6px;align-items:flex-start;justify-content:flex-start}
@@ -725,7 +604,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .pg:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:1px}
 .pg[aria-current="page"]{background:var(--color-checked);color:var(--color-on-checked)}
 .pg:disabled{color:var(--color-text-disabled);background:none;cursor:not-allowed}
-.pg-gap{min-width:24px;text-align:center;color:var(--color-text-tertiary)}
+.pg-gap{display:inline-grid;place-items:center;min-width:24px;height:32px;color:var(--color-text-tertiary)}
 .pager .total{color:var(--color-text-secondary);margin-right:8px}
 .pager .total b{font:13px var(--font-numeric);font-weight:400;color:var(--color-text-primary)}
 .pager .jump{display:inline-flex;align-items:center;gap:6px;margin-left:12px;color:var(--color-text-secondary)}
@@ -737,7 +616,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0;padding:0;list-style:none;font-size:13px;min-height:24px}
 .crumbs li{display:inline-flex;align-items:center}
-.crumbs li + li::before{content:"/";margin:0 8px;color:var(--color-text-tertiary);font-family:var(--font-tech)}
+.crumbs li + li::before{content:"";width:1px;height:11px;margin:0 9px;background:var(--color-text-tertiary);transform:skewX(-20deg)}
 .crumbs a{color:var(--color-text-secondary);text-decoration:none;border-radius:1px;padding:0 1px}
 .crumbs a:hover{color:var(--color-text-primary);text-decoration:underline;text-underline-offset:3px}
 .crumbs a:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
@@ -745,7 +624,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .crumbs .more{display:inline-grid;place-items:center;height:22px;width:28px;padding:0;border:0;border-radius:var(--radius-sm);background:var(--color-state-hover);color:var(--color-text-secondary);cursor:pointer;font-family:var(--font-tech)}
 .crumbs .more:hover{background:var(--color-state-pressed);color:var(--color-text-primary)}
 
-/* 导航栏：按源站 Header 机制重建 —— 64px 图标栏；展开时白色面板自左向右滑出并覆盖内容，
+/* 导航栏：按源站 Header 机制重建 ：64px 图标栏；展开时白色面板自左向右滑出并覆盖内容，
    指示块随当前项平移并加宽，文字淡入右移，底部胶囊变形为面板 */
 .app{position:relative;display:flex;height:440px;width:100%;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;background:var(--color-bg-surface)}
 .sn{--row:44px;position:relative;flex:none;width:64px;height:100%;z-index:3}
@@ -942,17 +821,13 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .code summary:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
 .code pre{margin:8px 0 0;max-height:340px;overflow:auto;padding:14px 16px;background:var(--color-bg-surface);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);font:12px/1.65 var(--font-tech);color:var(--color-text-primary);white-space:pre;tab-size:2}
 .code .copy{position:absolute;right:8px;top:44px}
+kbd.k .ic{width:11px;height:11px;stroke-width:1.8;vertical-align:-1px}
 kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px solid var(--color-border-control);border-bottom-width:2px;border-radius:var(--radius-sm);font:11px/18px var(--font-tech);text-align:center;color:var(--color-text-primary);background:var(--color-bg-page)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="g-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fafafa" stop-opacity=".9"/><stop offset="1" stop-color="#cccccc" stop-opacity=".8"/></linearGradient>
-    <linearGradient id="g-tile-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".98"/><stop offset="1" stop-color="#e6e6e6" stop-opacity=".92"/></linearGradient>
-  </defs>
-  <symbol id="i-chev-rr" viewBox="0 0 16 16"><path d="M3.5 3.5L8 8l-4.5 4.5M8.5 3.5L13 8l-4.5 4.5"/></symbol>
   <symbol id="i-chev-l" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></symbol>
   <symbol id="i-chev-r" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></symbol>
   <symbol id="i-chev-d" viewBox="0 0 16 16"><path d="M3 6l5 5 5-5"/></symbol>
@@ -993,9 +868,11 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <symbol id="n-calendar" viewBox="0 0 42 40"><path fill-rule="evenodd" fill="currentColor" d="M-0.002,40.010 L-0.002,5.448 L5.894,5.448 L5.894,10.171 L6.956,10.171 L6.956,8.485 L6.956,5.448 L6.956,-0.008 L12.072,-0.008 L12.072,5.448 L12.072,8.485 L12.072,10.171 L13.134,10.171 L13.134,5.448 L28.881,5.448 L28.881,10.171 L29.943,10.171 L29.943,8.485 L29.940,8.485 L29.940,-0.008 L35.056,-0.008 L35.056,5.448 L35.059,5.448 L35.059,10.171 L36.121,10.171 L36.121,5.448 L42.014,5.448 L42.014,40.010 L-0.002,40.010 ZM38.159,16.680 L3.853,16.680 L3.853,35.999 L38.159,35.999 L38.159,16.680 ZM9.511,22.456 L6.956,22.456 L6.956,19.889 L9.511,19.889 L9.511,22.456 ZM12.065,25.023 L9.511,25.023 L9.511,22.456 L12.065,22.456 L12.065,25.023 ZM12.065,30.156 L9.511,30.156 L9.511,27.590 L12.065,27.590 L12.065,30.156 ZM17.174,27.590 L17.174,30.156 L14.620,30.156 L14.620,27.590 L17.174,27.590 ZM22.283,27.590 L22.283,30.156 L19.729,30.156 L19.729,27.590 L22.283,27.590 ZM27.392,27.590 L27.392,30.156 L24.838,30.156 L24.838,27.590 L27.392,27.590 ZM32.501,27.590 L32.501,30.156 L29.947,30.156 L29.947,27.590 L32.501,27.590 ZM29.947,22.456 L32.501,22.456 L32.501,25.023 L29.947,25.023 L29.947,22.456 ZM24.838,25.023 L24.838,22.456 L27.392,22.456 L27.392,25.023 L24.838,25.023 ZM19.729,25.023 L19.729,22.456 L22.283,22.456 L22.283,25.023 L19.729,25.023 ZM14.620,25.023 L14.620,22.456 L17.174,22.456 L17.174,25.023 L14.620,25.023 ZM14.620,27.590 L12.065,27.590 L12.065,25.023 L14.620,25.023 L14.620,27.590 ZM19.729,25.023 L19.729,27.590 L17.174,27.590 L17.174,25.023 L19.729,25.023 ZM24.838,25.023 L24.838,27.590 L22.283,27.590 L22.283,25.023 L24.838,25.023 ZM29.947,25.023 L29.947,27.590 L27.392,27.590 L27.392,25.023 L29.947,25.023 ZM12.065,19.889 L14.620,19.889 L14.620,22.456 L12.065,22.456 L12.065,19.889 ZM17.174,19.889 L19.729,19.889 L19.729,22.456 L17.174,22.456 L17.174,19.889 ZM22.283,19.889 L24.838,19.889 L24.838,22.456 L22.283,22.456 L22.283,19.889 ZM27.392,19.889 L29.947,19.889 L29.947,22.456 L27.392,22.456 L27.392,19.889 ZM35.056,19.889 L35.056,22.456 L32.501,22.456 L32.501,19.889 L35.056,19.889 ZM35.056,25.023 L35.056,27.590 L32.501,27.590 L32.501,25.023 L35.056,25.023 ZM35.056,32.724 L32.501,32.724 L32.501,30.156 L35.056,30.156 L35.056,32.724 ZM29.947,32.724 L27.392,32.724 L27.392,30.156 L29.947,30.156 L29.947,32.724 ZM24.838,32.724 L22.283,32.724 L22.283,30.156 L24.838,30.156 L24.838,32.724 ZM19.729,32.724 L17.174,32.724 L17.174,30.156 L19.729,30.156 L19.729,32.724 ZM14.620,32.724 L12.065,32.724 L12.065,30.156 L14.620,30.156 L14.620,32.724 ZM6.956,32.724 L6.956,30.156 L9.511,30.156 L9.511,32.724 L6.956,32.724 ZM6.956,27.590 L6.956,25.023 L9.511,25.023 L9.511,27.590 L6.956,27.590 Z"></path></symbol>
   <symbol id="n-notice" viewBox="0 0 44 49"><path fill-rule="evenodd" fill="currentColor" d="M17.123,48.243 L17.123,8.711 L35.000,20.840 L43.285,20.840 L43.285,36.113 L35.000,36.113 L17.123,48.243 ZM9.253,0.256 L14.966,0.256 L14.966,5.930 L9.253,5.930 L9.253,0.256 ZM0.967,0.256 L6.680,0.256 L6.680,5.930 L0.967,5.930 L0.967,0.256 ZM13.264,15.581 L6.882,15.581 L6.882,41.372 L13.264,41.372 L13.264,46.884 L1.332,46.884 L1.332,10.069 L13.264,10.069 L13.264,15.581 ZM34.848,47.434 L34.848,39.054 L43.285,39.054 L34.848,47.434 Z"></path></symbol>
   <symbol id="i-bolt" viewBox="0 0 16 16"><path d="M9.5 1.5L3.5 9h4l-1 5.5 6-7.5h-4z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 16 16"><path d="M1.5 3.5h13v9h-13zM1.5 3.5L8 9l6.5-5.5"/></symbol>
-  <symbol id="i-nav" viewBox="0 0 16 16"><path d="M8 1.5l5 13-5-3-5 3z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-info-plain" viewBox="0 0 16 16"><path d="M8 7.2v5.3"/><path d="M6.9 3.2h2.2v2.2H6.9z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="k-up" viewBox="0 0 16 16"><path d="M8 13V3.5M4.5 7L8 3.5 11.5 7"/></symbol>
+  <symbol id="k-down" viewBox="0 0 16 16"><path d="M8 3v9.5M4.5 9L8 12.5 11.5 9"/></symbol>
+  <symbol id="k-left" viewBox="0 0 16 16"><path d="M13 8H3.5M7 4.5L3.5 8 7 11.5"/></symbol>
+  <symbol id="k-right" viewBox="0 0 16 16"><path d="M3 8h9.5M9 4.5L12.5 8 9 11.5"/></symbol>
   <symbol id="i-copy" viewBox="0 0 16 16"><path d="M5 5h9v9H5zM2 11V2h9"/></symbol>
 </svg>
 
@@ -1011,17 +888,16 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <a href="#form">表单输入 <span>06</span></a>
   <a href="#feedback">反馈与提示 <span>06</span></a>
   <a href="#navigation">导航 <span>04</span></a>
-  <a href="#display">内容展示 <span>07</span></a>
-  <a href="#console">主控台 <span>07</span></a>
+  <a href="#display">内容展示 <span>09</span></a>
 </nav>
 
 <main>
 <header class="hero">
   <div>
-    <div class="hero-en">Endfield UI · Control Specification</div>
+    <div class="hero-en">Endfield UI<i class="sx" aria-hidden="true"></i>Control Specification</div>
     <div class="hollow" aria-hidden="true">SPEC SHEET</div>
     <h1>Endfield 控件规范</h1>
-    <div class="hero-meta"><span>Sep 30, 2026 · @MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span><span>主控台 <b>7</b> 项</span></div>
+    <div class="hero-meta"><span>Sep 30, 2026<i class="sx" aria-hidden="true"></i>@MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span></div>
     <div class="colorbar" aria-hidden="true"></div>
   </div>
   <div class="theme-pick">
@@ -1038,7 +914,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="inventory">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">INVENTORY</div>
-    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 01 · Inventory</span><h2>控件盘点</h2></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 01<i class="sx" aria-hidden="true"></i>Inventory</span><h2>控件盘点</h2></div></div>
     <p class="sec-lead">源站控件包共 30 项，全部是营销站点控件：以展示和翻页为主，没有任何表单输入、数据展示和状态反馈类控件。对照模板的 26 项功能控件，12 项可以从源站控件改造得到，14 项源站完全没有，本页按源站的视觉语言新做。</p></div>
   <div class="inv-sum">
     <div class="readout"><span class="readout-n">26</span><span class="readout-l">模板要求的控件</span></div>
@@ -1090,7 +966,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="color">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">COLOR</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 02 · Color</span><h2>颜色</h2></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 02<i class="sx" aria-hidden="true"></i>Color</span><h2>颜色</h2></div></div>
     <p class="sec-lead">品牌黄只作填充色，其上文字一律为墨色。浅色模式下，选中类强状态使用墨色填充配黄色标记；深色模式反转为黄色填充配墨色标记。</p></div>
 
   <h3 class="sub-h">黄色 <small>Signal yellow</small></h3>
@@ -1102,7 +978,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </div>
   <p class="scale-note">黄色只作纯色填充或深色面上的文字，不做浅色衬底，也不在浅色面上作文字色。</p>
 
-  <h3 class="sub-h">中性色 <small>Neutral · 浅色</small></h3>
+  <h3 class="sub-h">中性色 <small>Neutral<i class="sx" aria-hidden="true"></i>浅色</small></h3>
   <div class="swatches">
     <div class="sw"><div class="sw-chip" style="background:#ffffff"></div><div class="sw-body"><span class="sw-name">N-0</span><span class="sw-hex">#ffffff</span><span class="sw-use">页面、输入框、浮层</span></div></div>
     <div class="sw"><div class="sw-chip" style="background:#fafafa"></div><div class="sw-body"><span class="sw-name">N-25</span><span class="sw-hex">#fafafa</span><span class="sw-use">卡片、面板、侧栏、表头</span></div></div>
@@ -1167,7 +1043,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <tr><td><code>--color-border-control</code></td><td><i class="dot" style="background:#858585"></i>#858585</td><td><i class="dot" style="background:#858585"></i>#858585</td><td>输入框、复选框、次要按钮</td></tr>
       <tr><td><code>--color-border-strong</code></td><td><i class="dot" style="background:#191919"></i>#191919</td><td><i class="dot" style="background:#ededed"></i>#ededed</td><td>悬停与聚焦边框</td></tr>
       <tr><td><code>--color-focus-ring</code></td><td><i class="dot" style="background:#191919"></i>#191919</td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td>键盘焦点环</td></tr>
-      <tr class="grp"><td colspan="4">Action · Status</td></tr>
+      <tr class="grp"><td colspan="4">Action<i class="sx" aria-hidden="true"></i>Status</td></tr>
       <tr><td><code>--color-accent</code></td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td>强调按钮</td></tr>
       <tr><td><code>--color-primary</code></td><td><i class="dot" style="background:#383838"></i>#383838</td><td><i class="dot" style="background:#ededed"></i>#ededed</td><td>主要按钮</td></tr>
       <tr><td><code>--color-primary-tick</code></td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td><i class="dot" style="background:#191919"></i>#191919</td><td>主要按钮左侧竖条</td></tr>
@@ -1177,24 +1053,24 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <tr><td><code>--color-error</code></td><td><i class="dot" style="background:#d03c34"></i>#d03c34</td><td><i class="dot" style="background:#d03c34"></i>#d03c34</td><td>错误标记、危险按钮、错误边框、浅色面上的错误说明</td></tr>
     </tbody></table></div>
 
-  <h3 class="sub-h">对比度 <small>Contrast · WCAG 2.x</small></h3>
+  <h3 class="sub-h">对比度 <small>Contrast<i class="sx" aria-hidden="true"></i>WCAG 2.x</small></h3>
   <div class="cr-grid">
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#191919">正文 Aa</b><i style="color:#191919">17.58</i></div><div class="cr-meta"><span>#191919 / #ffffff</span><div class="badge-row"><span>主要文字</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#666666">次要 Aa</b><i style="color:#666666">5.74</i></div><div class="cr-meta"><span>#666666 / #ffffff</span><div class="badge-row"><span>次要文字、占位</span><span class="pass">AA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#fafafa;"><b style="color:#7c7c7c">补充 Aa</b><i style="color:#7c7c7c">4.00</i></div><div class="cr-meta"><span>#7c7c7c / #fafafa</span><div class="badge-row"><span>仅补充说明，不作必读文字</span><span class="fail">不达标</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#fffa00;"><b style="color:#191919">墨色 Aa</b><i style="color:#191919">15.85</i></div><div class="cr-meta"><span>#191919 / #fffa00</span><div class="badge-row"><span>强调按钮文字</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;box-shadow:inset 0 0 0 1px #d9d9d9"><b style="color:#fffa00">黄色 Aa</b><i style="color:#191919">1.11</i></div><div class="cr-meta"><span>#fffa00 / #ffffff</span><div class="badge-row"><span>禁止：浅色面上的黄色</span><span class="fail">不达标</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#383838;"><b style="color:#ffffff">按钮 Aa</b><i style="color:#ffffff">11.73</i></div><div class="cr-meta"><span>#ffffff / #383838</span><div class="badge-row"><span>主要按钮</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#d03c34;"><b style="color:#ffffff">删除 Aa</b><i style="color:#ffffff">4.80</i></div><div class="cr-meta"><span>#ffffff / #d03c34</span><div class="badge-row"><span>危险按钮文字</span><span class="pass">AA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#d03c34">错误 Aa</b><i style="color:#191919">4.80</i></div><div class="cr-meta"><span>#d03c34 / #ffffff</span><div class="badge-row"><span>错误说明文字、错误边框</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#191919">正文 Aa</b><i style="color:#191919">17.58</i></div><div class="cr-meta"><span>文字 #191919，底 #ffffff</span><div class="badge-row"><span>主要文字</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#666666">次要 Aa</b><i style="color:#666666">5.74</i></div><div class="cr-meta"><span>文字 #666666，底 #ffffff</span><div class="badge-row"><span>次要文字、占位</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#fafafa;"><b style="color:#7c7c7c">补充 Aa</b><i style="color:#7c7c7c">4.00</i></div><div class="cr-meta"><span>文字 #7c7c7c，底 #fafafa</span><div class="badge-row"><span>仅补充说明，不作必读文字</span><span class="fail">不达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#fffa00;"><b style="color:#191919">墨色 Aa</b><i style="color:#191919">15.85</i></div><div class="cr-meta"><span>文字 #191919，底 #fffa00</span><div class="badge-row"><span>强调按钮文字</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;box-shadow:inset 0 0 0 1px #d9d9d9"><b style="color:#fffa00">黄色 Aa</b><i style="color:#191919">1.11</i></div><div class="cr-meta"><span>文字 #fffa00，底 #ffffff</span><div class="badge-row"><span>禁止：浅色面上的黄色</span><span class="fail">不达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#383838;"><b style="color:#ffffff">按钮 Aa</b><i style="color:#ffffff">11.73</i></div><div class="cr-meta"><span>文字 #ffffff，底 #383838</span><div class="badge-row"><span>主要按钮</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#d03c34;"><b style="color:#ffffff">删除 Aa</b><i style="color:#ffffff">4.80</i></div><div class="cr-meta"><span>文字 #ffffff，底 #d03c34</span><div class="badge-row"><span>危险按钮文字</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#d03c34">错误 Aa</b><i style="color:#191919">4.80</i></div><div class="cr-meta"><span>文字 #d03c34，底 #ffffff</span><div class="badge-row"><span>错误说明文字、错误边框</span><span class="pass">AA</span></div></div></div>
     
-    <div class="cr"><div class="cr-sample" style="background:#00ffa2;"><b style="color:#191919">标记 Aa</b><i style="color:#191919">13.25</i></div><div class="cr-meta"><span>#191919 / #00ffa2</span><div class="badge-row"><span>成功标记内的墨色符号</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><span style="display:block;width:28px;height:28px;background:#00ffa2"></span><i style="color:#191919">1.33</i></div><div class="cr-meta"><span>#00ffa2 / #ffffff</span><div class="badge-row"><span>绿色必须带墨色描边</span><span class="fail">不达标</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#fafafa;"><span style="display:block;width:64px;height:28px;border:1px solid #858585;border-radius:2px;background:#fff"></span><i style="color:#191919">3.54</i></div><div class="cr-meta"><span>#858585 / #fafafa</span><div class="badge-row"><span>控件边框（非文本 3:1）</span><span class="pass">达标</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#ededed">正文 Aa</b><i style="color:#ededed">15.85</i></div><div class="cr-meta"><span>#ededed / #131315</span><div class="badge-row"><span>深色主要文字</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#1f1f22;"><b style="color:#a6a6a6">次要 Aa</b><i style="color:#a6a6a6">6.75</i></div><div class="cr-meta"><span>#a6a6a6 / #1f1f22</span><div class="badge-row"><span>深色次要文字</span><span class="pass">AA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#fffa00">链接 Aa</b><i style="color:#fffa00">16.72</i></div><div class="cr-meta"><span>#fffa00 / #131315</span><div class="badge-row"><span>深色链接、焦点环</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#131315;"><span style="display:block;width:64px;height:28px;border:2px solid #d03c34;border-radius:2px"></span><i style="color:#ededed">3.87</i></div><div class="cr-meta"><span>#d03c34 / #131315</span><div class="badge-row"><span>深色面错误边框；错误文字改用正文色</span><span class="pass">非文本达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#00ffa2;"><b style="color:#191919">标记 Aa</b><i style="color:#191919">13.25</i></div><div class="cr-meta"><span>文字 #191919，底 #00ffa2</span><div class="badge-row"><span>成功标记内的墨色符号</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><span style="display:block;width:28px;height:28px;background:#00ffa2"></span><i style="color:#191919">1.33</i></div><div class="cr-meta"><span>文字 #00ffa2，底 #ffffff</span><div class="badge-row"><span>绿色必须带墨色描边</span><span class="fail">不达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#fafafa;"><span style="display:block;width:64px;height:28px;border:1px solid #858585;border-radius:2px;background:#fff"></span><i style="color:#191919">3.54</i></div><div class="cr-meta"><span>文字 #858585，底 #fafafa</span><div class="badge-row"><span>控件边框（非文本 3:1）</span><span class="pass">达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#ededed">正文 Aa</b><i style="color:#ededed">15.85</i></div><div class="cr-meta"><span>文字 #ededed，底 #131315</span><div class="badge-row"><span>深色主要文字</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#1f1f22;"><b style="color:#a6a6a6">次要 Aa</b><i style="color:#a6a6a6">6.75</i></div><div class="cr-meta"><span>文字 #a6a6a6，底 #1f1f22</span><div class="badge-row"><span>深色次要文字</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#fffa00">链接 Aa</b><i style="color:#fffa00">16.72</i></div><div class="cr-meta"><span>文字 #fffa00，底 #131315</span><div class="badge-row"><span>深色链接、焦点环</span><span class="pass">AAA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#131315;"><span style="display:block;width:64px;height:28px;border:2px solid #d03c34;border-radius:2px"></span><i style="color:#ededed">3.87</i></div><div class="cr-meta"><span>文字 #d03c34，底 #131315</span><div class="badge-row"><span>深色面错误边框；错误文字改用正文色</span><span class="pass">非文本达标</span></div></div></div>
   </div>
 </section>
 
@@ -1202,30 +1078,30 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="foundation">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">TOKENS</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 03 · Foundations</span><h2>基础 token</h2></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 03<i class="sx" aria-hidden="true"></i>Foundations</span><h2>基础 token</h2></div></div>
     <p class="sec-lead">字体、字号、间距、圆角、阴影、动效、层级与图标，数值沿用源站。</p></div>
 
   <h3 class="sub-h">字体 <small>Typeface</small></h3>
   <div class="fam-grid">
-    <div class="fam"><span class="spec" style="font-family:var(--font-body)">设备 <span style="font-family:var(--font-medium)">装配线</span> <span style="font-family:var(--font-bold)">巡检</span></span><span class="role">界面文字与正文，Regular / Medium / Bold 三种字重</span><code>--font-body --font-medium --font-bold</code></div>
+    <div class="fam"><span class="spec" style="font-family:var(--font-body)">设备 <span style="font-family:var(--font-medium)">装配线</span> <span style="font-family:var(--font-bold)">巡检</span></span><span class="role">界面文字与正文，Regular、Medium、Bold 三种字重</span><code>--font-body --font-medium --font-bold</code></div>
     <div class="fam"><span class="spec" style="font-family:var(--font-en);font-size:20px;letter-spacing:.14em;text-transform:uppercase">Maintenance log</span><span class="role">英文标签与分组标题，一律大写，字距 0.12em</span><code>--font-en</code></div>
-    <div class="fam"><span class="spec" style="font-family:var(--font-numeric)">18,406 · 1/6</span><span class="role">数字读数、页码、百分比，使用等宽数字</span><code>--font-numeric</code></div>
-    <div class="fam"><span class="spec" style="font-family:var(--font-tech);font-size:24px">EQ-0142 · Ctrl K</span><span class="role">编号、代码、快捷键、时间戳</span><code>--font-tech</code></div>
+    <div class="fam"><span class="spec" style="font-family:var(--font-numeric)">18,406<i class="sx" aria-hidden="true"></i>1/6</span><span class="role">数字读数、页码、百分比，使用等宽数字</span><code>--font-numeric</code></div>
+    <div class="fam"><span class="spec" style="font-family:var(--font-tech);font-size:24px">EQ-0142<i class="sx" aria-hidden="true"></i>Ctrl K</span><span class="role">编号、代码、快捷键、时间戳</span><code>--font-tech</code></div>
   </div>
 
   <h3 class="sub-h">字号 <small>Type scale</small></h3>
   <div class="scale">
-    <div class="scale-row"><code>--fs-display</code><span class="v">40 / 1.15</span><span class="sample" style="font:40px/1.15 var(--font-bold)">控件规范</span><span class="u">页面标题，Bold</span></div>
-    <div class="scale-row"><code>--fs-h2</code><span class="v">28 / 1.25</span><span class="sample" style="font:28px/1.25 var(--font-bold)">内容展示</span><span class="u">区块标题，Bold</span></div>
-    <div class="scale-row"><code>--fs-h3</code><span class="v">18 / 1.3</span><span class="sample" style="font:18px/1.3 var(--font-medium)">提交工单</span><span class="u">控件与对话框标题，Medium</span></div>
-    <div class="scale-row"><code>--fs-lead</code><span class="v">16 / 1.5</span><span class="sample" style="font:16px/1.5 var(--font-medium)">输送带 A-02</span><span class="u">卡片标题、lg 控件</span></div>
-    <div class="scale-row"><code>--fs-body</code><span class="v">14 / 1.6</span><span class="sample" style="font-size:14px">北区 3 号输送带已连续运行 412 小时</span><span class="u">正文、md 控件</span></div>
-    <div class="scale-row"><code>--fs-small</code><span class="v">13 / 1.5</span><span class="sample" style="font-size:13px">名称在同一区域内不可重复</span><span class="u">说明、表头、sm 控件</span></div>
-    <div class="scale-row"><code>--fs-caption</code><span class="v">12 / 1.45</span><span class="sample" style="font-size:12px">09-30 14:20 · 周工</span><span class="u">悬浮说明、时间戳</span></div>
-    <div class="scale-row"><code>--fs-overline</code><span class="v">11 / 1.3</span><span class="sample" style="font:11px var(--font-en);letter-spacing:.12em;text-transform:uppercase">Settings</span><span class="u">英文标签，Gilroy 大写</span></div>
+    <div class="scale-row"><code>--fs-display</code><span class="v">40px<br>行高 1.15</span><span class="sample" style="font:40px/1.15 var(--font-bold)">控件规范</span><span class="u">页面标题，Bold</span></div>
+    <div class="scale-row"><code>--fs-h2</code><span class="v">28px<br>行高 1.25</span><span class="sample" style="font:28px/1.25 var(--font-bold)">内容展示</span><span class="u">区块标题，Bold</span></div>
+    <div class="scale-row"><code>--fs-h3</code><span class="v">18px<br>行高 1.3</span><span class="sample" style="font:18px/1.3 var(--font-medium)">提交工单</span><span class="u">控件与对话框标题，Medium</span></div>
+    <div class="scale-row"><code>--fs-lead</code><span class="v">16px<br>行高 1.5</span><span class="sample" style="font:16px/1.5 var(--font-medium)">输送带 A-02</span><span class="u">卡片标题、lg 控件</span></div>
+    <div class="scale-row"><code>--fs-body</code><span class="v">14px<br>行高 1.6</span><span class="sample" style="font-size:14px">北区 3 号输送带已连续运行 412 小时</span><span class="u">正文、md 控件</span></div>
+    <div class="scale-row"><code>--fs-small</code><span class="v">13px<br>行高 1.5</span><span class="sample" style="font-size:13px">名称在同一区域内不可重复</span><span class="u">说明、表头、sm 控件</span></div>
+    <div class="scale-row"><code>--fs-caption</code><span class="v">12px<br>行高 1.45</span><span class="sample" style="font-size:12px">09-30 14:20<i class="sx" aria-hidden="true"></i>周工</span><span class="u">悬浮说明、时间戳</span></div>
+    <div class="scale-row"><code>--fs-overline</code><span class="v">11px<br>行高 1.3</span><span class="sample" style="font:11px var(--font-en);letter-spacing:.12em;text-transform:uppercase">Settings</span><span class="u">英文标签，Gilroy 大写</span></div>
   </div>
 
-  <h3 class="sub-h">间距 <small>Spacing · 4px base</small></h3>
+  <h3 class="sub-h">间距 <small>Spacing<i class="sx" aria-hidden="true"></i>4px base</small></h3>
   <div class="scale">
     <div class="scale-row"><code>--space-1</code><span class="v">4</span><span><i class="bar" style="display:block;width:4px"></i></span><span class="u">图标与文字、标签与输入框</span></div>
     <div class="scale-row"><code>--space-2</code><span class="v">8</span><span><i class="bar" style="display:block;width:8px"></i></span><span class="u">控件内元素、按钮组</span></div>
@@ -1254,8 +1130,8 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 
   <div class="found-grid" style="margin-top:40px">
     <div><h3 class="sub-h" style="margin-top:0">动效 <small>Motion</small></h3>
-      <div class="scale"><div class="scale-row" style="grid-template-columns:130px 110px minmax(0,1fr);min-width:0"><code>--duration-base</code><span class="v">200ms · ease</span><span class="u">颜色、边框、竖条长度过渡</span></div>
-        <div class="scale-row" style="grid-template-columns:130px 110px minmax(0,1fr);min-width:0"><code>--duration-slow</code><span class="v">300ms · ease</span><span class="u">开关滑块、图标动作、面板展开</span></div>
+      <div class="scale"><div class="scale-row" style="grid-template-columns:130px 110px minmax(0,1fr);min-width:0"><code>--duration-base</code><span class="v">200ms<i class="sx" aria-hidden="true"></i>ease</span><span class="u">颜色、边框、竖条长度过渡</span></div>
+        <div class="scale-row" style="grid-template-columns:130px 110px minmax(0,1fr);min-width:0"><code>--duration-slow</code><span class="v">300ms<i class="sx" aria-hidden="true"></i>ease</span><span class="u">开关滑块、图标动作、面板展开</span></div>
         </div></div>
     <div><h3 class="sub-h" style="margin-top:0">层级 <small>Z-index</small></h3>
       <div class="scale"><div class="scale-row" style="grid-template-columns:130px 110px minmax(0,1fr);min-width:0"><code>--z-dropdown</code><span class="v">100</span><span class="u">下拉选择菜单</span></div>
@@ -1267,7 +1143,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </div>
 
   <h3 class="sub-h">图标 <small>Icons</small></h3>
-  <p class="sec-lead" style="margin:-4px 0 14px">16 × 16 网格，1.6px 描边，直角端点与斜接转角，单色 currentColor。使用尺寸 16 / 20 / 32；不使用第三方图标库。</p>
+  <p class="sec-lead" style="margin:-4px 0 14px">宽高 16 的网格，1.6px 描边，直角端点与斜接转角，单色 currentColor。使用尺寸 16、20、32；不使用第三方图标库。</p>
   <div class="icons" id="iconGrid"></div>
 </section>
 
@@ -1275,25 +1151,25 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="states">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">STATES</div>
-    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 04 · Interaction states</span><h2>交互状态</h2></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 04<i class="sx" aria-hidden="true"></i>Interaction states</span><h2>交互状态</h2></div></div>
     <p class="sec-lead">右侧示例为静态定格，便于对照；页面其余控件均可直接用指针和键盘操作。</p></div>
   <div class="states">
     <div class="st"><div class="st-name"><b>默认</b><span>无交互</span></div>
       <div class="st-desc">使用控件基础 token。<em>适用：全部控件</em></div>
       <div class="st-demo"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><button class="btn btn--secondary" type="button"><span class="lbl">取消</span></button><div class="input" style="width:160px"><input aria-label="示例" placeholder="设备编号"></div><label class="check"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>启用</label></div></div>
     <div class="st"><div class="st-name"><b>悬停</b><span>指针位于上方，仅限 hover 设备</span></div>
-      <div class="st-desc">底色换为 #f2f2f2；纯文字主要按钮的竖条变为三角、圆角 2px → 6px；带图标的按钮由图标执行动作；输入框边框加深为墨色。<em>适用：按钮、链接、输入框、列表行、标签页、导航项</em></div>
+      <div class="st-desc">底色换为 #f2f2f2；纯文字主要按钮的竖条变为三角、圆角从 2px 变为 6px；带图标的按钮由图标执行动作；输入框边框加深为墨色。<em>适用：按钮、链接、输入框、列表行、标签页、导航项</em></div>
       <div class="st-demo"><button class="btn btn--primary is-hover" type="button"><span class="lbl">保存</span></button><button class="btn btn--secondary is-hover" type="button"><span class="lbl">取消</span></button><div class="input is-hover" style="width:160px"><input aria-label="示例" placeholder="设备编号"></div><button class="tab is-hover" type="button" role="tab" aria-selected="false">日志</button></div></div>
-    <div class="st"><div class="st-name"><b>按下</b><span>指针按下，或空格 / 回车按住</span></div>
+    <div class="st"><div class="st-name"><b>按下</b><span>指针按下，或空格、回车按住</span></div>
       <div class="st-desc">底色换为 #d9d9d9；主要与强调按钮换用按下色值。无位移、无缩放。<em>适用：按钮、图标按钮、列表行、标签页、分页器</em></div>
       <div class="st-demo"><button class="btn btn--primary is-hover is-active" type="button"><span class="lbl">保存</span></button><button class="btn btn--accent is-hover is-active" type="button"><span class="lbl">部署</span></button><button class="btn btn--secondary is-active" type="button"><span class="lbl">取消</span></button></div></div>
     <div class="st"><div class="st-name"><b>焦点</b><span>键盘导航获得焦点</span></div>
       <div class="st-desc">2px 焦点环，外偏移 2px；浅色为墨色，深色为品牌黄。输入类控件改为边框加粗。<em>适用：全部可交互控件</em></div>
       <div class="st-demo"><button class="btn btn--primary is-focus" type="button"><span class="lbl">保存</span></button><button class="btn btn--accent is-focus" type="button"><span class="lbl">部署</span></button><div class="input is-focus" style="width:160px"><input aria-label="示例" value="EQ-0142"></div><label class="check is-focus"><input type="checkbox" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>启用</label></div></div>
-    <div class="st"><div class="st-name"><b>选中</b><span>aria-selected / checked / current</span></div>
-      <div class="st-desc">勾选类：墨色填充配黄色标记（深色模式反转）；列表与侧边菜单：纯黄色块；表格行：#e6e6e6 底 + 左侧 3px 墨色竖条；标签页：底部 2px 指示条。<em>适用：复选框、单选框、开关、列表、表格、标签页、导航、分页</em></div>
+    <div class="st"><div class="st-name"><b>选中</b><span>aria-selected、checked、current</span></div>
+      <div class="st-desc">勾选类：墨色填充配黄色标记（深色模式反转）；列表与侧边菜单：纯黄色块；表格行：#e6e6e6 底加左侧 3px 墨色竖条；标签页：底部 2px 指示条。<em>适用：复选框、单选框、开关、列表、表格、标签页、导航、分页</em></div>
       <div class="st-demo"><label class="check"><input type="checkbox" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>启用</label><label class="switch"><input type="checkbox" checked><span class="track"></span></label><button class="tab" type="button" role="tab" aria-selected="true">概览</button><button class="pg" type="button" aria-current="page">3</button></div></div>
-    <div class="st"><div class="st-name"><b>禁用</b><span>disabled / aria-disabled</span></div>
+    <div class="st"><div class="st-name"><b>禁用</b><span>disabled、aria-disabled</span></div>
       <div class="st-desc">文字与图标换为禁用色，底色换为禁用底，取消悬停与按下反馈。不使用整体透明度。<em>适用：全部可交互控件</em></div>
       <div class="st-demo"><button class="btn btn--primary" type="button" disabled><span class="lbl">保存</span></button><button class="btn btn--secondary" type="button" disabled><span class="lbl">取消</span></button><div class="input is-disabled" style="width:160px"><input aria-label="示例" placeholder="设备编号" disabled></div><label class="check"><input type="checkbox" checked disabled><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>启用</label></div></div>
     <div class="st"><div class="st-name"><b>错误</b><span>校验失败 aria-invalid</span></div>
@@ -1309,24 +1185,24 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="basic">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">ACTIONS</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 05 · Actions</span><h2>基础操作</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 05<i class="sx" aria-hidden="true"></i>Actions</span><h2>基础操作</h2></div></div></div>
 
   <article class="ctl" id="c-button">
     <div class="ctl-head"><h3>按钮 <small>Button</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：Button（主要）、HomeButton（强调）</span></div>
     <div class="stage">
       <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:700px" role="img" aria-label="按钮结构标注：高 36，左内边距 20，右内边距 16，竖条 2 乘 50%，文字 14 SansMedium，圆角 2">
-        <span class="anat-cap">SCALE 2:1 · PRIMARY / MD</span>
+        <span class="anat-cap">SCALE 2:1<i class="sx" aria-hidden="true"></i>PRIMARY<i class="sx" aria-hidden="true"></i>MD</span>
         <div class="anat-btn" style="left:100px;top:52px;width:220px;padding-left:16px"><i></i>保存设置</div>
         <span class="dv" style="left:78px;top:52px;height:72px"></span><span class="dl" style="left:46px;top:81px">36</span>
         <span class="dh" style="left:100px;top:146px;width:40px"></span><span class="dl" style="left:112px;top:156px">20</span>
         <span class="dh" style="left:288px;top:146px;width:32px"></span><span class="dl" style="left:296px;top:156px">16</span>
-        <span class="ld" style="left:118px;top:62px;width:262px"></span><span class="dl" style="left:392px;top:55px">竖条 2 × 55%，悬停变为三角 · --color-primary-tick</span>
-        <span class="ld" style="left:268px;top:88px;width:112px"></span><span class="dl" style="left:392px;top:81px">文字 14 · SansMedium · --color-on-primary</span>
-        <span class="ld" style="left:320px;top:122px;width:60px"></span><span class="dl" style="left:392px;top:115px">圆角 2（悬停 6）· 纹理 soft-light · --shadow-sm</span>
+        <span class="ld" style="left:118px;top:62px;width:262px"></span><span class="dl" style="left:392px;top:55px">竖条 宽 2、高 55%，悬停变为三角<i class="sx" aria-hidden="true"></i>--color-primary-tick</span>
+        <span class="ld" style="left:268px;top:88px;width:112px"></span><span class="dl" style="left:392px;top:81px">文字 14<i class="sx" aria-hidden="true"></i>SansMedium<i class="sx" aria-hidden="true"></i>--color-on-primary</span>
+        <span class="ld" style="left:320px;top:122px;width:60px"></span><span class="dl" style="left:392px;top:115px">圆角 2（悬停 6）<i class="sx" aria-hidden="true"></i> 纹理 soft-light<i class="sx" aria-hidden="true"></i>--shadow-sm</span>
       </div></div></div>
       <div class="row"><span class="row-label">变体</span><div class="items">
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存设置</span></button><span class="cap">primary 主要</span></div>
-        <div class="item"><button class="btn btn--accent" type="button"><span class="lbl">部署到产线</span></button><span class="cap">accent 强调 · 每屏至多 1 个</span></div>
+        <div class="item"><button class="btn btn--accent" type="button"><span class="lbl">部署到产线</span></button><span class="cap">accent 强调<i class="sx" aria-hidden="true"></i>每屏至多 1 个</span></div>
         <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">导出</span></button><span class="cap">secondary 次要</span></div>
         <div class="item"><button class="btn btn--ghost" type="button"><span class="lbl">取消</span></button><span class="cap">ghost 幽灵</span></div>
         <div class="item"><button class="btn btn--danger" type="button"><span class="lbl">删除设备</span></button><span class="cap">danger 危险</span></div>
@@ -1342,8 +1218,8 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><button class="btn btn--primary btn--sm" type="button"><span class="lbl">保存</span></button><span class="cap">sm 28</span></div>
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><span class="cap">md 36</span></div>
         <div class="item"><button class="btn btn--primary btn--lg" type="button"><span class="lbl">保存</span></button><span class="cap">lg 44</span></div>
-        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建工单</span></button><span class="cap">图标 + 文字</span></div>
-        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">下一步<svg class="ic ic--arrow"><use href="#i-arrow-r"/></svg></span></button><span class="cap">文字 + 图标</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建工单</span></button><span class="cap">图标加文字</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">下一步<svg class="ic ic--arrow"><use href="#i-arrow-r"/></svg></span></button><span class="cap">文字加图标</span></div>
       </div></div>
       <div class="row"><span class="row-label">状态</span><div class="items">
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">默认</span></button><span class="cap">default</span></div>
@@ -1354,9 +1230,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><button class="btn btn--primary is-loading" type="button" aria-busy="true"><span class="lbl">加载中</span><span class="spin" aria-hidden="true"></span></button><span class="cap">loading</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28 / 36 / 44；水平内边距 12 / 16 / 20；字号 13 / 14 / 16；胶囊按钮高 36、全圆角，左侧 18px 短线，右侧 26px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角 2px → 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90°，箭头悬停右移 3px，刷新点击转一周</dd>
-      <dt>Token</dt><dd><code>--color-primary* --color-primary-tick --color-accent* --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Enter</kbd> / <kbd class="k">Space</kbd> 触发；加载中不响应重复触发</dd></dl>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28、36、44；水平内边距 12、16、20；字号 13、14、16；胶囊按钮高 36、全圆角，左侧 18px 短线，右侧 26px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角从 2px 变为 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90 度，箭头悬停右移 3px，刷新点击转一周</dd>
+      <dt>Token</dt><dd><code>--color-primary --color-primary-hover --color-primary-active --color-primary-tick --color-accent --color-accent-hover --color-accent-active --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*</code></dd>
+      <dt>键盘</dt><dd><kbd class="k">Enter</kbd> 或 <kbd class="k">Space</kbd> 触发；加载中不响应重复触发</dd></dl>
   </article>
 
   <article class="ctl" id="c-ibtn">
@@ -1391,8 +1267,8 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><span class="cap" style="max-width:26ch">圆形保留源站样式，仅用于轮播与图集翻页</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形关闭与返回 32，1.5px 墨色描边，悬停填充墨色、关闭符号转 90°，深色面上为白色实心；提醒角标为 9px 橙色菱形 #fb7803，位于右上角；方形 28 / 36 / 44，图标 16 / 16 / 20；圆形 36 / 44，双描边 3px + 2px；无文字时必须有 aria-label 与悬浮说明</dd>
-      <dt>Token</dt><dd><code>同按钮 · --radius-full · --shadow-sm · --color-checked（切换型）</code></dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形关闭与返回 32，1.5px 墨色描边，悬停填充墨色、关闭符号转 90 度，深色面上为白色实心；提醒角标为 9px 橙色菱形 #fb7803，位于右上角；方形 28、36、44，图标 16、16、20；圆形 36、44，双描边 3px加2px；无文字时必须有 aria-label 与悬浮说明</dd>
+      <dt>Token</dt><dd><code>同按钮<i class="sx" aria-hidden="true"></i>--radius-full<i class="sx" aria-hidden="true"></i>--shadow-sm<i class="sx" aria-hidden="true"></i>--color-checked（切换型）</code></dd>
       <dt>键盘</dt><dd>同按钮；切换型按 <kbd class="k">Space</kbd> 切换按下状态（<code>aria-pressed</code>）</dd></dl>
   </article>
 
@@ -1418,27 +1294,27 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="form">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">INPUT</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 06 · Form input</span><h2>表单输入</h2></div></div><p class="sec-lead">源站没有任何表单控件，本组全部新做。边框保持近直角 2px，选中类控件沿用"墨底黄标"。</p></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 06<i class="sx" aria-hidden="true"></i>Form input</span><h2>表单输入</h2></div></div><p class="sec-lead">源站没有任何表单控件，本组全部新做。边框保持近直角 2px，选中类控件沿用"墨底黄标"。</p></div>
 
   <article class="ctl" id="c-input">
     <div class="ctl-head"><h3>单行文本框 <small>Text field</small></h3><span class="prov prov--new">新增</span></div>
     <div class="stage">
       <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:220px" role="img" aria-label="文本框结构标注：标签 13 Medium，间距 4，高 36，内边距 12，边框 1，说明 13">
-        <span class="anat-cap">SCALE 2:1 · MD</span>
+        <span class="anat-cap">SCALE 2:1<i class="sx" aria-hidden="true"></i>MD</span>
         <span class="anat-lbl" style="left:100px;top:22px">设备名称</span>
         <div class="anat-in" style="left:100px;top:64px;width:280px">EQ-0000</div>
         <span class="anat-help" style="left:100px;top:150px">名称不可重复</span>
         <span class="dv" style="left:78px;top:64px;height:72px"></span><span class="dl" style="left:46px;top:93px">36</span>
         <span class="dv" style="left:78px;top:48px;height:16px"></span><span class="dl" style="left:52px;top:49px">4</span>
         <span class="dh" style="left:102px;top:192px;width:22px"></span><span class="dl" style="left:106px;top:200px">12</span>
-        <span class="ld" style="left:208px;top:35px;width:212px"></span><span class="dl" style="left:432px;top:28px">标签 13 · SansMedium · 与输入框间距 4</span>
-        <span class="ld" style="left:380px;top:80px;width:40px"></span><span class="dl" style="left:432px;top:73px">边框 1 · #858585，聚焦 #191919 加 1px 内描边</span>
-        <span class="ld" style="left:232px;top:106px;width:188px"></span><span class="dl" style="left:432px;top:99px">值 14 · 占位 #666 · 圆角 2</span>
-        <span class="ld" style="left:268px;top:163px;width:152px"></span><span class="dl" style="left:432px;top:156px">说明 13 · #666 · 与输入框间距 4</span>
+        <span class="ld" style="left:208px;top:35px;width:212px"></span><span class="dl" style="left:432px;top:28px">标签 13<i class="sx" aria-hidden="true"></i>SansMedium<i class="sx" aria-hidden="true"></i>与输入框间距 4</span>
+        <span class="ld" style="left:380px;top:80px;width:40px"></span><span class="dl" style="left:432px;top:73px">边框 1<i class="sx" aria-hidden="true"></i>#858585，聚焦 #191919 加 1px 内描边</span>
+        <span class="ld" style="left:232px;top:106px;width:188px"></span><span class="dl" style="left:432px;top:99px">值 14<i class="sx" aria-hidden="true"></i>占位 #666<i class="sx" aria-hidden="true"></i>圆角 2</span>
+        <span class="ld" style="left:268px;top:163px;width:152px"></span><span class="dl" style="left:432px;top:156px">说明 13<i class="sx" aria-hidden="true"></i>#666<i class="sx" aria-hidden="true"></i>与输入框间距 4</span>
       </div></div></div>
       <div class="row"><span class="row-label">变体</span><div class="items">
-        <div class="field"><label class="field-label" for="f1">设备名称<span class="req" aria-hidden="true">*</span></label><div class="input"><input id="f1" placeholder="例如：输送带 A-02"></div><div class="field-help">名称在同一区域内不可重复</div></div>
-        <div class="field"><label class="field-label" for="f2">搜索</label><div class="input"><svg class="ic"><use href="#i-search"/></svg><input id="f2" value="EQ-01"><button class="clear" type="button" aria-label="清除"><svg class="ic ic--close"><use href="#i-close"/></svg></button></div><div class="field-help">前缀图标 + 清除按钮</div></div>
+        <div class="field"><label class="field-label" for="f1">设备名称<span class="req">必填</span></label><div class="input"><input id="f1" placeholder="例如：输送带 A-02"></div><div class="field-help">名称在同一区域内不可重复</div></div>
+        <div class="field"><label class="field-label" for="f2">搜索</label><div class="input"><svg class="ic"><use href="#i-search"/></svg><input id="f2" value="EQ-01"><button class="clear" type="button" aria-label="清除"><svg class="ic ic--close"><use href="#i-close"/></svg></button></div><div class="field-help">前缀图标加清除按钮</div></div>
         <div class="field"><label class="field-label" for="f3">额定功率</label><div class="input"><input id="f3" value="7.5" inputmode="decimal"><span class="unit">kW</span></div><div class="field-help">后缀单位</div></div>
         <div class="field"><label class="field-label" for="f4">备注编号</label><div class="input input--filled"><input id="f4" placeholder="ID-000000"></div><div class="field-help">filled 填充型，用于表格内与工具栏</div></div>
       </div></div>
@@ -1455,9 +1331,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="field" style="width:200px"><span class="cap">readonly</span><div class="input is-readonly"><input aria-label="readonly" value="EQ-0142" readonly></div></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28 / 36 / 44；内边距 8 / 12 / 12；标签 13px 在上，说明与错误 13px 在下，间距均为 4</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28、36、44；内边距 8、12、12；标签 13px 在上，说明与错误 13px 在下，间距均为 4</dd>
       <dt>Token</dt><dd><code>--color-bg-page --color-border-control --color-border-strong --color-text-secondary --color-error --color-bg-disabled --radius-sm</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> / <kbd class="k">Shift</kbd> + <kbd class="k">Tab</kbd> 切换焦点；清除按钮可单独聚焦，<kbd class="k">Enter</kbd> 清空</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 或 <kbd class="k">Shift</kbd>加<kbd class="k">Tab</kbd> 切换焦点；清除按钮可单独聚焦，<kbd class="k">Enter</kbd> 清空</dd></dl>
   </article>
 
   <article class="ctl" id="c-textarea">
@@ -1468,7 +1344,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="field" style="width:340px"><label class="field-label" for="ta2">处理结论</label><div class="input input--area is-error"><textarea id="ta2" aria-invalid="true" aria-describedby="ta2e" placeholder="必填"></textarea></div><div class="field-help field-err" id="ta2e"><svg class="ic"><use href="#s-error"/></svg>关闭工单前需要填写处理结论</div></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>最小高 80；内边距 8 / 12；字号 14，行高 1.6；右下角字数计数 12px Space Grotesk</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>最小高 80；内边距 8、12；字号 14，行高 1.6；右下角字数计数 12px Space Grotesk</dd>
       <dt>Token</dt><dd><code>同单行文本框</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 离开输入区，不插入制表符</dd></dl>
   </article>
@@ -1479,19 +1355,19 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <div class="row"><span class="row-label">交互</span><div class="items" style="align-items:flex-start">
         <div class="field"><span class="field-label" id="dl1">所属区域</span>
           <div class="dd" data-dd>
-            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dl1"><span class="val" data-val>北区 · 装配线</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
+            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dl1"><span class="val" data-val>北区<i class="sx" aria-hidden="true"></i>装配线</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
             <div class="menu" role="listbox" hidden>
               <div class="menu-group">North</div>
-              <button class="menu-item" type="button" role="option" aria-selected="true">北区 · 装配线<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="false">北区 · 仓储<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="true">北区<i class="sx" aria-hidden="true"></i>装配线<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false">北区<i class="sx" aria-hidden="true"></i>仓储<svg class="ic ok"><use href="#i-check"/></svg></button>
               <div class="menu-group">South</div>
-              <button class="menu-item" type="button" role="option" aria-selected="false">南区 · 冶炼<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item is-disabled" type="button" role="option" aria-selected="false" aria-disabled="true">南区 · 封存中<span class="meta">不可选</span></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false">南区<i class="sx" aria-hidden="true"></i>冶炼<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item is-disabled" type="button" role="option" aria-selected="false" aria-disabled="true">南区<i class="sx" aria-hidden="true"></i>封存中<span class="meta">不可选</span></button>
             </div>
           </div><div class="field-help">点击展开，可用键盘 Tab 切换选项</div></div>
       </div></div>
       <div class="row"><span class="row-label">静态</span><div class="items" style="align-items:flex-start">
-        <div class="item" style="width:260px"><span class="cap">展开 · 可搜索</span>
+        <div class="item" style="width:260px"><span class="cap">展开<i class="sx" aria-hidden="true"></i>可搜索</span>
           <button class="input select is-open" type="button" aria-expanded="true" aria-label="负责人"><span class="val">周工</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
           <div class="menu" style="width:100%">
             <div class="input input--sm menu-search"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索负责人" value="工"></div>
@@ -1499,9 +1375,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
             <div class="menu-item is-hover">林工<span class="meta">ID-000240</span></div>
             <div class="menu-item" aria-selected="true">周工<svg class="ic ok"><use href="#i-check"/></svg></div>
           </div></div>
-        <div class="item" style="width:280px"><span class="cap">多选 · 已选值为标签</span>
-          <div class="input select multi" style="width:100%"><span class="tag tag--sm">冷却<button class="rm" type="button" aria-label="移除 冷却"><svg class="ic ic--close"><use href="#i-close"/></svg></button></span><span class="tag tag--sm">电气<button class="rm" type="button" aria-label="移除 电气"><svg class="ic ic--close"><use href="#i-close"/></svg></button></span><span class="tag tag--sm">+2</span><svg class="ic tri" style="margin-left:auto"><use href="#i-tri-d"/></svg></div></div>
-        <div class="item" style="width:220px"><span class="cap">占位 / 错误 / 禁用 / 加载</span>
+        <div class="item" style="width:280px"><span class="cap">多选<i class="sx" aria-hidden="true"></i>已选值为标签</span>
+          <div class="input select multi" style="width:100%"><span class="tag tag--sm">冷却<button class="rm" type="button" aria-label="移除 冷却"><svg class="ic ic--close"><use href="#i-close"/></svg></button></span><span class="tag tag--sm">电气<button class="rm" type="button" aria-label="移除 电气"><svg class="ic ic--close"><use href="#i-close"/></svg></button></span><span class="tag tag--sm">另 2 项</span><svg class="ic tri" style="margin-left:auto"><use href="#i-tri-d"/></svg></div></div>
+        <div class="item" style="width:220px"><span class="cap">占位、错误、禁用、加载</span>
           <div class="input select" style="width:100%"><span class="val ph">选择设备类型</span><svg class="ic tri"><use href="#i-tri-d"/></svg></div>
           <div class="input select is-error" style="width:100%"><span class="val ph">选择设备类型</span><svg class="ic tri"><use href="#i-tri-d"/></svg></div>
           <div class="input select is-disabled" style="width:100%"><span class="val">泵组</span><svg class="ic tri"><use href="#i-tri-d"/></svg></div>
@@ -1510,7 +1386,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     </div>
     <dl class="ctl-spec"><dt>尺寸</dt><dd>触发器同文本框三档；菜单项高 32；菜单最大高 320；菜单宽度不小于触发器，间距 4；分组标题 11px Gilroy 大写</dd>
       <dt>Token</dt><dd><code>--color-bg-raised --shadow-lg --radius-md --color-bg-selected --color-state-hover</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Enter</kbd> / <kbd class="k">Space</kbd> 展开，<kbd class="k">↑</kbd><kbd class="k">↓</kbd> 移动，<kbd class="k">Enter</kbd> 选择，<kbd class="k">Esc</kbd> 关闭并返回触发器</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k">Enter</kbd> 或 <kbd class="k">Space</kbd> 展开，<kbd class="k" aria-label="上方向键"><svg class="ic"><use href="#k-up"/></svg></kbd><kbd class="k" aria-label="下方向键"><svg class="ic"><use href="#k-down"/></svg></kbd> 移动，<kbd class="k">Enter</kbd> 选择，<kbd class="k">Esc</kbd> 关闭并返回触发器</dd></dl>
   </article>
 
   <article class="ctl" id="c-check">
@@ -1534,7 +1410,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <label class="check"><input type="checkbox" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>邮件</label>
         <label class="check"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>短信（每月上限 200 条）</label></fieldset></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>方框 16 / 20，圆角 2；可点击区域不小于 24 × 24；与文字间距 8</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>方框 16、20，圆角 2；可点击区域不小于 宽 24、高 24；与文字间距 8</dd>
       <dt>Token</dt><dd><code>--color-border-control --color-checked --color-on-checked --color-error --radius-sm</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Space</kbd> 切换</dd></dl>
   </article>
@@ -1553,9 +1429,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <label class="check radio is-error"><input type="radio" name="r3"><span class="box"></span>错误</label>
         <label class="check radio check--lg"><input type="radio" name="r4" checked><span class="box"></span>lg 20</label></fieldset></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形 16 / 20；选中为墨色填充，中心 6 / 8 圆点为黄色（深色模式反转）</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形 16、20；选中为墨色填充，中心 6、8 圆点为黄色（深色模式反转）</dd>
       <dt>Token</dt><dd><code>--color-border-control --color-checked --color-on-checked</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入组内已选项，<kbd class="k">↑</kbd><kbd class="k">↓</kbd><kbd class="k">←</kbd><kbd class="k">→</kbd> 在组内切换并选中</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入组内已选项，<kbd class="k" aria-label="上方向键"><svg class="ic"><use href="#k-up"/></svg></kbd><kbd class="k" aria-label="下方向键"><svg class="ic"><use href="#k-down"/></svg></kbd><kbd class="k" aria-label="左方向键"><svg class="ic"><use href="#k-left"/></svg></kbd><kbd class="k" aria-label="右方向键"><svg class="ic"><use href="#k-right"/></svg></kbd> 在组内切换并选中</dd></dl>
   </article>
 
   <article class="ctl" id="c-switch">
@@ -1564,7 +1440,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <div class="row"><span class="row-label">变体</span><div class="items">
         <label class="switch"><input type="checkbox" role="switch"><span class="track"></span>自动降速</label>
         <label class="switch"><input type="checkbox" role="switch" checked><span class="track"></span>异常告警</label>
-        <label class="switch switch--lg"><input type="checkbox" role="switch" checked><span class="track"></span>lg 40 × 22</label>
+        <label class="switch switch--lg"><input type="checkbox" role="switch" checked><span class="track"></span>lg 宽 40、高 22</label>
       </div></div>
       <div class="row"><span class="row-label">状态</span><div class="items">
         <label class="switch is-hover"><input type="checkbox" role="switch"><span class="track"></span>悬停</label>
@@ -1574,7 +1450,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <label class="switch is-loading"><input type="checkbox" role="switch" checked disabled><span class="track"></span>提交中</label>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>轨道 32 × 18 / 40 × 22，圆角 2；滑块 14 / 18 方形，圆角 1；开启为墨色轨道配黄色滑块</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>轨道分两档，宽 32、高 18 与宽 40、高 22，圆角 2；滑块对应为 14 与 18 方形，圆角 1；开启为墨色轨道配黄色滑块</dd>
       <dt>Token</dt><dd><code>--color-border-control --color-checked --color-on-checked --color-bg-page --duration-base</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Space</kbd> 切换</dd></dl>
   </article>
@@ -1584,7 +1460,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="feedback">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">FEEDBACK</div>
-    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 07 · Feedback</span><h2>反馈与提示</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en">Section 07<i class="sx" aria-hidden="true"></i>Feedback</span><h2>反馈与提示</h2></div></div></div>
 
   <article class="ctl" id="c-toast">
     <div class="ctl-head"><h3>轻提示 <small>Toast</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：Toast（rgba 黑底居中）</span></div>
@@ -1601,7 +1477,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <span class="cap">出现在页面顶部居中，最多 3 条</span>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 320–420，最小高 44，墨色底，左侧 4px 纯色色条；停留 4 秒，含操作时 8 秒，悬停暂停；错误类不自动消失</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 320 到 420，最小高 44，墨色底，左侧 4px 纯色色条；停留 4 秒，含操作时 8 秒，悬停暂停；错误类不自动消失</dd>
       <dt>Token</dt><dd><code>--color-bg-emphasis --color-text-on-emphasis --color-success --color-error --color-warning --shadow-lg --radius-sm</code></dd>
       <dt>键盘</dt><dd>不抢占焦点；操作按钮与关闭按钮可用 <kbd class="k">Tab</kbd> 到达；错误类需手动关闭</dd></dl>
   </article>
@@ -1610,7 +1486,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="ctl-head"><h3>页面内提示条 <small>Banner</small></h3><span class="prov prov--new">新增</span></div>
     <div class="stage">
       <div class="alerts">
-        <div class="alert alert--info" role="status"><svg class="ic"><use href="#s-info"/></svg><div class="alert-title">今晚 22:00–23:30 进行系统维护</div><button class="x" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"/></svg></button><div class="alert-body">维护期间数据只读，未提交的工单请在此之前保存。</div></div>
+        <div class="alert alert--info" role="status"><svg class="ic"><use href="#s-info"/></svg><div class="alert-title">今晚 22:00 至 23:30 进行系统维护</div><button class="x" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"/></svg></button><div class="alert-body">维护期间数据只读，未提交的工单请在此之前保存。</div></div>
         <div class="alert alert--success" role="status"><svg class="ic"><use href="#s-success"/></svg><div class="alert-title">固件已更新至 4.2.1</div><div class="alert-body">共 18 台设备，全部完成重启。</div></div>
         <div class="alert alert--warning" role="status"><svg class="ic"><use href="#s-warning"/></svg><div class="alert-title">A-02 负载连续 30 分钟高于 85%</div><div class="alert-body">建议降低进料速度。<a class="link" href="#c-alert">查看负载曲线</a></div></div>
         <div class="alert alert--error" role="alert"><svg class="ic"><use href="#s-error"/></svg><div class="alert-title">南区网关离线</div><div class="alert-body">最后一次心跳为 14:02，该区域 6 台设备的数据已停止更新。</div></div>
@@ -1628,7 +1504,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="dialog" role="dialog" aria-labelledby="d1t">
           <div class="dlg-head"><h4 id="d1t">提交工单</h4><button class="cbtn" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"/></svg></button></div>
           <div class="dlg-body"><p>提交后工单将进入审核，审核期间不可修改内容。</p>
-            <div class="field" style="width:100%"><label class="field-label" for="dlgf">审核人</label><div class="input"><input id="dlgf" value="周工 · ID-000302"></div></div></div>
+            <div class="field" style="width:100%"><label class="field-label" for="dlgf">审核人</label><div class="input"><input id="dlgf" value="周工 ID-000302"></div></div></div>
           <div class="dlg-foot"><button class="btn btn--ghost" type="button"><span class="lbl">取消</span></button><button class="btn btn--primary" type="button"><span class="lbl">提交</span></button></div>
         </div>
         <div class="dialog dialog--danger" role="alertdialog" aria-labelledby="d2t">
@@ -1644,7 +1520,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <span class="cap">Esc 关闭，焦点锁定在对话框内</span>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 400 / 560 / 800；标题栏 56，危险确认 62（含 6px 警示条纹）；内容内边距 24；底部操作区 64，主要操作在最右</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 400、560、800；标题栏 56，危险确认 62（含 6px 警示条纹）；内容内边距 24；底部操作区 64，主要操作在最右</dd>
       <dt>Token</dt><dd><code>--color-bg-raised --color-bg-overlay --shadow-lg --radius-md --color-border-subtle</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Esc</kbd> 关闭；<kbd class="k">Tab</kbd> 在对话框内循环；关闭后焦点回到触发按钮</dd></dl>
   </article>
@@ -1655,18 +1531,18 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <div class="row"><span class="row-label">变体</span><div class="items tip-stage" style="gap:24px 88px">
         <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="刷新" aria-describedby="t1"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><span class="tip is-shown" id="t1" role="tooltip">刷新数据</span></span><span class="cap">纯文字</span></div>
         <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="搜索" aria-describedby="t2"><svg class="ic"><use href="#i-search"/></svg></button><span class="tip is-shown" id="t2" role="tooltip">搜索设备<kbd>Ctrl K</kbd></span></span><span class="cap">带快捷键</span></div>
-        <div class="item"><span class="tip-host"><span class="tag stat stat--warn" tabindex="0" aria-describedby="t3">待检修</span><span class="tip tip--start is-shown" id="t3" role="tooltip" style="width:220px;white-space:normal">距上次保养已 412 小时，超过 400 小时建议周期</span></span><span class="cap">多行 · 最大宽 240</span></div>
-        <div class="item"><span class="tip-host"><span class="av" style="--s:36px" tabindex="0" aria-describedby="t4"><svg class="ic"><use href="#i-box"/></svg></span><span class="tip tip--2 tip--start is-shown" id="t4" role="tooltip"><b>冷却泵 P-11</b><span>设备 · 北区仓储</span></span></span><span class="cap">双行 · 标题 + 类别</span></div>
+        <div class="item"><span class="tip-host"><span class="tag stat stat--warn" tabindex="0" aria-describedby="t3">待检修</span><span class="tip tip--start is-shown" id="t3" role="tooltip" style="width:220px;white-space:normal">距上次保养已 412 小时，超过 400 小时建议周期</span></span><span class="cap">多行<i class="sx" aria-hidden="true"></i>最大宽 240</span></div>
+        <div class="item"><span class="tip-host"><span class="av" style="--s:36px" tabindex="0" aria-describedby="t4"><svg class="ic"><use href="#i-box"/></svg></span><span class="tip tip--2 tip--start is-shown" id="t4" role="tooltip"><b>冷却泵 P-11</b><span>设备<i class="sx" aria-hidden="true"></i>北区仓储</span></span></span><span class="cap">双行<i class="sx" aria-hidden="true"></i>标题加类别</span></div>
         <div class="item"><span class="tip-host"><button class="btn btn--ghost btn--sm" type="button">悬停或聚焦此处</button><span class="tip" role="tooltip">500ms 后出现</span></span><span class="cap">实际交互</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>最大宽 240；内边距 6 / 8；字号 12；距目标 6；悬停 500ms 后显示，键盘焦点立即显示，Esc 隐藏</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>最大宽 240；内边距 6、8；字号 12；距目标 6；悬停 500ms 后显示，键盘焦点立即显示，Esc 隐藏</dd>
       <dt>Token</dt><dd><code>--color-bg-emphasis --color-text-on-emphasis --radius-sm --font-tech</code></dd>
       <dt>键盘</dt><dd>聚焦目标时立即显示，<kbd class="k">Esc</kbd> 隐藏</dd></dl>
   </article>
 
   <article class="ctl" id="c-loading">
-    <div class="ctl-head"><h3>加载指示器 <small>Spinner · Skeleton</small></h3><span class="prov prov--new">新增</span></div>
+    <div class="ctl-head"><h3>加载指示器 <small>Spinner<i class="sx" aria-hidden="true"></i>Skeleton</small></h3><span class="prov prov--new">新增</span></div>
     <div class="stage">
       <div class="row"><span class="row-label">旋转</span><div class="items">
         <div class="item"><span class="spin spin--track spin--16" role="status" aria-label="加载中"></span><span class="cap">16</span></div>
@@ -1679,7 +1555,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="list" style="max-width:320px" aria-busy="true"><div class="li"><span class="skel" style="width:32px;height:32px"></span><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="skel" style="width:60%"></span><span class="skel" style="width:40%;height:10px"></span></span></div><div class="li"><span class="skel" style="width:32px;height:32px"></span><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="skel" style="width:70%"></span><span class="skel" style="width:30%;height:10px"></span></span></div></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>旋转圆环 16 / 20 / 32，线宽 2 / 2 / 3，0.75 秒一周，缺口为四分之一；骨架块圆角 2，高度与所替代文字一致，1.2 秒明暗交替；操作超过 300ms 才显示</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>旋转圆环 16、20、32，线宽 2、2、3，0.75 秒一周，缺口为四分之一；骨架块圆角 2，高度与所替代文字一致，1.2 秒明暗交替；操作超过 300ms 才显示</dd>
       <dt>Token</dt><dd><code>--color-border-subtle --color-text-primary --color-bg-muted --color-state-hover</code></dd>
       <dt>键盘</dt><dd>不可聚焦；指示器使用 <code>role="status"</code> 并提供文字标签</dd></dl>
   </article>
@@ -1690,7 +1566,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <div class="row"><span class="row-label">变体</span><div class="items" style="gap:24px 40px">
         <div class="prog" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="固件上传"><div class="prog-top"><span>固件上传</span><span class="v">64%</span></div><div class="prog-track"><div class="prog-fill" style="--v:64%"></div></div></div>
         <div class="prog prog--thin" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" aria-label="同步"><div class="prog-top"><span>细型 4px</span><span class="v">38%</span></div><div class="prog-track"><div class="prog-fill" style="--v:38%"></div></div></div>
-        <div class="prog prog-indet" role="progressbar" aria-label="正在校验"><div class="prog-top"><span>正在校验文件</span><span class="v">——</span></div><div class="prog-track"><div class="prog-fill"></div></div><span class="prog-note">不确定进度使用 45° 条纹平移</span></div>
+        <div class="prog prog-indet" role="progressbar" aria-label="正在校验"><div class="prog-top"><span>正在校验文件</span><span class="v">校验中</span></div><div class="prog-track"><div class="prog-fill"></div></div><span class="prog-note">不确定进度使用 45 度 条纹平移</span></div>
       </div></div>
       <div class="row"><span class="row-label">状态</span><div class="items" style="gap:24px 40px">
         <div class="prog is-done" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="完成"><div class="prog-top"><span>导出报表</span><span class="v">100%</span></div><div class="prog-track"><div class="prog-fill" style="--v:100%"></div></div><span class="prog-note"><svg class="ic"><use href="#s-success"/></svg>已完成，共 12 个文件</span></div>
@@ -1698,7 +1574,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="prog is-paused" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="暂停"><div class="prog-top"><span>批量导入</span><span class="v">45%</span></div><div class="prog-track"><div class="prog-fill" style="--v:45%"></div></div><span class="prog-note">已暂停</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 8（标准）/ 4（细型），圆角 1；百分比 12px Novecento，等宽数字</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 8（标准）、4（细型），圆角 1；百分比 12px Novecento，等宽数字</dd>
       <dt>Token</dt><dd><code>--color-bg-muted --color-checked --color-error --font-numeric</code></dd>
       <dt>键盘</dt><dd>不可聚焦；使用 <code>role="progressbar"</code> 与 <code>aria-valuenow</code></dd></dl>
   </article>
@@ -1708,7 +1584,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="navigation">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">NAVIGATION</div>
-    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 08 · Navigation</span><h2>导航</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 08<i class="sx" aria-hidden="true"></i>Navigation</span><h2>导航</h2></div></div></div>
 
   <article class="ctl" id="c-tabs">
     <div class="ctl-head"><h3>标签页 <small>Tabs</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：SubpageTab（区块）、Selector（分段）</span></div>
@@ -1733,7 +1609,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
           <button class="tab" type="button" role="tab" aria-selected="false">全部</button>
           <button class="tab" type="button" role="tab" aria-selected="true">进行中</button>
           <button class="tab" type="button" role="tab" aria-selected="false">已关闭</button>
-        </div><span class="cap">md 36 / lg 44，指示条 2px</span></div></div>
+        </div><span class="cap">md 36、lg 44，指示条 2px</span></div></div>
       <div class="row"><span class="row-label">区块</span><div class="items"><div class="btabs" role="tablist" data-tabs>
         <button class="btab" type="button" role="tab" aria-selected="true">设备档案<span class="arr"><svg class="ic"><use href="#i-chev-r"/></svg></span></button><span class="div"></span>
         <button class="btab" type="button" role="tab" aria-selected="false">保养计划<span class="arr"><svg class="ic"><use href="#i-chev-r"/></svg></span></button><span class="div"></span>
@@ -1743,9 +1619,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><div class="seg" role="group" aria-label="视图" data-seg><button type="button" aria-pressed="true" aria-label="列表"><svg class="ic" style="vertical-align:-3px"><use href="#i-list"/></svg></button><button type="button" aria-pressed="false" aria-label="网格"><svg class="ic" style="vertical-align:-3px"><use href="#i-grid"/></svg></button></div><span class="cap">图标分段</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>主标签高 48、最小宽 132，图标 20 + 文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 2 × 10 墨色短竖线，两端显示 Q / E 按键提示，有新内容时右上角显示 9px 橙色菱形；线型 36 / 44，水平内边距 12 / 16；区块 44，源站样式，用于切换子页面；分段 32，内边距 2</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>主标签高 48、最小宽 132，图标 20加文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 宽 2、高 10 墨色短竖线，两端显示 Q、E 按键提示，有新内容时右上角显示 9px 橙色菱形；线型 36、44，水平内边距 12、16；区块 44，源站样式，用于切换子页面；分段 32，内边距 2</dd>
       <dt>Token</dt><dd><code>--color-text-secondary --color-text-primary --color-checked --color-on-checked --color-bg-muted --color-state-hover</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">←</kbd><kbd class="k">→</kbd> 切换，<kbd class="k">Home</kbd> / <kbd class="k">End</kbd> 跳到首尾；主标签栏获得焦点时也可用 <kbd class="k">Q</kbd> / <kbd class="k">E</kbd> 切换；只有选中项在 Tab 顺序中</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k" aria-label="左方向键"><svg class="ic"><use href="#k-left"/></svg></kbd><kbd class="k" aria-label="右方向键"><svg class="ic"><use href="#k-right"/></svg></kbd> 切换，<kbd class="k">Home</kbd> 或 <kbd class="k">End</kbd> 跳到首尾；主标签栏获得焦点时也可用 <kbd class="k">Q</kbd> 或 <kbd class="k">E</kbd> 切换；只有选中项在 Tab 顺序中</dd></dl>
   </article>
 
   <article class="ctl" id="c-pager">
@@ -1755,17 +1631,17 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <span class="total">共 <b>248</b> 条</span>
         <button class="pg" type="button" aria-label="上一页" data-prev><svg class="ic"><use href="#i-chev-l"/></svg></button>
         <button class="pg" type="button">1</button><button class="pg" type="button">2</button><button class="pg" type="button" aria-current="page">3</button><button class="pg" type="button">4</button><button class="pg" type="button">5</button>
-        <span class="pg-gap" aria-hidden="true">…</span><button class="pg" type="button">25</button>
+        <span class="pg-gap" aria-hidden="true"><svg class="ic"><use href="#i-more"/></svg></span><button class="pg" type="button">25</button>
         <button class="pg" type="button" aria-label="下一页" data-next><svg class="ic"><use href="#i-chev-r"/></svg></button>
-        <span class="size"><button class="input select input--sm" type="button" aria-label="每页条数"><span class="val">10 条 / 页</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button></span>
+        <span class="size"><button class="input select input--sm" type="button" aria-label="每页条数"><span class="val">每页 10 条</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button></span>
         <span class="jump">跳至<span class="input input--sm"><input aria-label="页码" value="3" inputmode="numeric"></span>页</span>
       </nav></div></div>
       <div class="row"><span class="row-label">简洁</span><div class="items">
         <div class="item"><nav class="pager" aria-label="分页"><button class="pg" type="button" aria-label="上一页" disabled><svg class="ic"><use href="#i-chev-l"/></svg></button><span class="total" style="margin:0 8px"><b>1</b> / <b>25</b></span><button class="pg" type="button" aria-label="下一页"><svg class="ic"><use href="#i-chev-r"/></svg></button></nav><span class="cap">首页，上一页禁用</span></div>
-        <div class="item"><div class="pcap"><button class="rbtn" type="button" aria-label="上一张"><svg class="ic"><use href="#i-chev-l"/></svg></button><span class="num">1/6</span><button class="rbtn" type="button" aria-label="下一张"><svg class="ic"><use href="#i-chev-r"/></svg></button></div><span class="cap">源站胶囊 · 轮播</span></div>
+        <div class="item"><div class="pcap"><button class="rbtn" type="button" aria-label="上一张"><svg class="ic"><use href="#i-chev-l"/></svg></button><span class="num">1/6</span><button class="rbtn" type="button" aria-label="下一张"><svg class="ic"><use href="#i-chev-r"/></svg></button></div><span class="cap">源站胶囊<i class="sx" aria-hidden="true"></i>轮播</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>页码 32 × 32，间距 4，数字 13px Novecento；超过 7 页折叠中间页；当前页为墨底黄字（深色反转）</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>页码 宽 32、高 32，间距 4，数字 13px Novecento；超过 7 页折叠中间页；当前页为墨底黄字（深色反转）</dd>
       <dt>Token</dt><dd><code>--color-checked --color-on-checked --color-state-hover --color-text-disabled --font-numeric</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 聚焦页码，<kbd class="k">Enter</kbd> 跳转；当前页标注 <code>aria-current="page"</code></dd></dl>
   </article>
@@ -1774,16 +1650,16 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="ctl-head"><h3>面包屑 <small>Breadcrumb</small></h3><span class="prov prov--new">新增</span></div>
     <div class="stage">
       <div class="row"><span class="row-label">标准</span><div class="items"><nav aria-label="面包屑"><ol class="crumbs"><li><a href="#c-crumbs">设备管理</a></li><li><a href="#c-crumbs">北区</a></li><li><a href="#c-crumbs">装配线</a></li><li><span aria-current="page">输送带 A-02</span></li></ol></nav></div></div>
-      <div class="row"><span class="row-label">路径</span><div class="items"><span class="path">设备管理 / 北区 / 输送带 A-02</span><span class="cap" style="align-self:center">页面左上角的当前位置，以 // 开头</span></div></div>
+      <div class="row"><span class="row-label">路径</span><div class="items"><span class="path"><span>设备管理</span><span>北区</span><span>输送带 A-02</span></span><span class="cap" style="align-self:center">页面左上角的当前位置，前缀为两道斜线（CSS 绘制）</span></div></div>
       <div class="row"><span class="row-label">折叠</span><div class="items"><nav aria-label="面包屑"><ol class="crumbs"><li><a href="#c-crumbs">设备管理</a></li><li><button class="more" type="button" aria-label="显示 3 个隐藏层级"><svg class="ic"><use href="#i-more"/></svg></button></li><li><a href="#c-crumbs">驱动单元</a></li><li><span aria-current="page">电机 M-07</span></li></ol></nav><span class="cap" style="align-self:center">超过 4 级时折叠中间层级</span></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 24，字号 13，分隔符 "/" 左右间距 8；当前项不可点击，Medium 字重</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 24，字号 13，分隔符为 CSS 绘制的 1px 斜线，高 11，左右间距 9；路径前缀为两道同样绘制的斜线；当前项不可点击，Medium 字重</dd>
       <dt>Token</dt><dd><code>--color-text-secondary --color-text-primary --color-text-tertiary</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 在链接之间移动，<kbd class="k">Enter</kbd> 打开</dd></dl>
   </article>
 
   <article class="ctl" id="c-nav">
-    <div class="ctl-head"><h3>导航栏 <small>Sidebar · Top bar</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NavSidebar（黑色指示条）</span></div>
+    <div class="ctl-head"><h3>导航栏 <small>Sidebar<i class="sx" aria-hidden="true"></i>Top bar</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NavSidebar（黑色指示条）</span></div>
     <div class="stage">
       <div class="app">
         <nav class="sn" aria-label="主导航" data-sn>
@@ -1802,7 +1678,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         </nav>
         <div class="app-main">
           <header class="topbar">
-            <div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-nav">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区 · 装配线</b></div>
+            <div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-nav">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区<i class="sx" aria-hidden="true"></i>装配线</b></div>
             <div class="input input--sm search"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索设备" placeholder="搜索设备编号"></div>
             <span class="tip-host"><button class="btn btn--ghost ibtn btn--sm" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><span class="tip tip--below" role="tooltip">刷新</span></span>
             <button class="av" style="--s:28px" type="button" aria-label="账户：周工">周</button>
@@ -1816,7 +1692,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       </div>
       <p class="cap" style="margin:0">指针移入左侧栏或用 Tab 聚焦时展开，移出后收起；点击左上角标记可固定展开。点击导航项，指示块平移到该项。</p>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>收起 64，展开 224；导航项高 44，图标 22（源站图标），文字 15 Medium；指示块为 6px 墨色左边 + #e6e6e6 底（深色为黄色左边 + #35373c 底），收起宽 56、展开宽 216；图标默认 #d9d9d9，悬停 #858585，当前 #191919；展开时面板覆盖内容并带 0 0 8px 阴影；底部胶囊宽 40、全圆角，展开后宽 200、圆角 4；过渡均为 0.3s</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>收起 64，展开 224；导航项高 44，图标 22（源站图标），文字 15 Medium；指示块为 6px 墨色左边加#e6e6e6 底（深色为黄色左边加#35373c 底），收起宽 56、展开宽 216；图标默认 #d9d9d9，悬停 #858585，当前 #191919；展开时面板覆盖内容并带 0 0 8px 阴影；底部胶囊宽 40、全圆角，展开后宽 200、圆角 4；过渡均为 0.3s</dd>
       <dt>Token</dt><dd><code>--nav-icon --nav-icon-hover --nav-indicator --nav-bar --nav-hover --nav-capsule --shadow-panel --duration-slow</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入侧栏即展开，在导航项之间移动，<kbd class="k">Enter</kbd> 打开；焦点离开侧栏后收起；当前页标注 <code>aria-current="page"</code></dd></dl>
   </article>
@@ -1826,27 +1702,27 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="display">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">DISPLAY</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 09 · Data display</span><h2>内容展示</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en">Section 09<i class="sx" aria-hidden="true"></i>Data display</span><h2>内容展示</h2></div></div></div>
 
   <article class="ctl" id="c-card">
     <div class="ctl-head"><h3>卡片 <small>Card</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NoticeCard；标签与标题的中英配对来自 SectionTitle</span></div>
     <div class="stage">
       <div style="width:100%">
-        <div class="entry"><div class="entry-strip">巡检任务 · 北区装配线<span class="meta">12 / 18</span></div><div class="entry-body"><span class="desc">剩余 6 台设备待巡检，预计 40 分钟。</span><button class="cap-btn" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"/></svg></span></button></div></div>
-        <div class="entry"><div class="entry-strip">保养计划 · 冷却系统<span class="meta">3 / 3</span></div><div class="entry-body"><span class="desc">本周保养项已全部完成。</span><span class="cap-btn is-busy">已完成</span></div></div>
-        <div class="entry is-off"><div class="entry-strip">故障复盘 · 南区<span class="meta">未开放</span></div><div class="entry-body"><span class="desc">南区封存期间不生成复盘记录。</span><button class="cap-btn" type="button" disabled><span class="lbl">查看</span><span class="go"><svg class="ic"><use href="#i-chev-r"/></svg></span></button></div></div>
+        <div class="entry"><div class="entry-strip">巡检任务<i class="sx" aria-hidden="true"></i>北区装配线<span class="meta">12 / 18</span></div><div class="entry-body"><span class="desc">剩余 6 台设备待巡检，预计 40 分钟。</span><button class="cap-btn" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"/></svg></span></button></div></div>
+        <div class="entry"><div class="entry-strip">保养计划<i class="sx" aria-hidden="true"></i>冷却系统<span class="meta">3 / 3</span></div><div class="entry-body"><span class="desc">本周保养项已全部完成。</span><span class="cap-btn is-busy">已完成</span></div></div>
+        <div class="entry is-off"><div class="entry-strip">故障复盘<i class="sx" aria-hidden="true"></i>南区<span class="meta">未开放</span></div><div class="entry-body"><span class="desc">南区封存期间不生成复盘记录。</span><button class="cap-btn" type="button" disabled><span class="lbl">查看</span><span class="go"><svg class="ic"><use href="#i-chev-r"/></svg></span></button></div></div>
       </div>
       <div class="cards">
         <div class="card"><span class="card-eyebrow">Static</span><span class="card-title">保养说明</span><span class="card-body">驱动端轴承每 400 小时补充润滑脂，每 2,000 小时更换。</span><div class="card-foot"><code>DOC-000031</code><span class="tag tag--sm">规程</span></div></div>
-        <a class="card card--link" href="#c-card"><span class="card-eyebrow">Interactive</span><span class="card-title">输送带 A-02</span><svg class="ic go"><use href="#i-arrow-r"/></svg><span class="card-body">北区 · 装配线</span><div class="card-foot"><code>EQ-0142</code><span class="stat stat--warn">待检修</span></div></a>
+        <a class="card card--link" href="#c-card"><span class="card-eyebrow">Interactive</span><span class="card-title">输送带 A-02</span><svg class="ic go"><use href="#i-arrow-r"/></svg><span class="card-body">北区<i class="sx" aria-hidden="true"></i>装配线</span><div class="card-foot"><code>EQ-0142</code><span class="stat stat--warn">待检修</span></div></a>
         <button class="card card--link" type="button" aria-pressed="true" data-selectable><span class="corner" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="card-eyebrow">Selectable</span><span class="card-title">标准巡检模板</span><span class="card-body">12 个检查项，预计 25 分钟。</span><div class="card-foot"><code>TPL-0007</code><span class="cap">点击切换选中</span></div></button>
         <div class="card card--stat"><span class="card-eyebrow">Readout</span><span class="card-body" style="color:var(--color-text-secondary)">今日产量</span><div class="num"><b>18,406</b><span>PCS</span></div><span class="delta up"><svg class="ic" style="width:12px;height:12px;transform:rotate(180deg)"><use href="#i-sort-d"/></svg>+6.2% 较昨日</span></div>
-        <div class="card is-disabled" aria-disabled="true"><span class="card-eyebrow">Disabled</span><span class="card-title">南区 · 封存中</span><span class="card-body">该区域已停用，数据仅供查阅。</span></div>
+        <div class="card is-disabled" aria-disabled="true"><span class="card-eyebrow">Disabled</span><span class="card-title">南区<i class="sx" aria-hidden="true"></i>封存中</span><span class="card-body">该区域已停用，数据仅供查阅。</span></div>
       </div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>条目卡片：标题条高 32，底色 #2e2e2e，左端 12px 黄色三角，右侧数值 13px Novecento，内容区左缩进 38、右侧放胶囊按钮；信息卡片内边距 16 / 24；圆角 4；以 1px 边框区分层级，不使用阴影；选中为 2px 墨色边框 + 右上角三角勾选</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>条目卡片：标题条高 32，底色 #2e2e2e，左端 12px 黄色三角，右侧数值 13px Novecento，内容区左缩进 38、右侧放胶囊按钮；信息卡片内边距 16、24；圆角 4；以 1px 边框区分层级，不使用阴影；选中为 2px 墨色边框加右上角三角勾选</dd>
       <dt>Token</dt><dd><code>--color-bg-surface --color-border-subtle --color-border-strong --color-checked --color-on-checked --radius-md --font-numeric</code></dd>
-      <dt>键盘</dt><dd>可交互卡片 <kbd class="k">Enter</kbd> 打开；可选卡片 <kbd class="k">Space</kbd> / <kbd class="k">Enter</kbd> 切换选中</dd></dl>
+      <dt>键盘</dt><dd>可交互卡片 <kbd class="k">Enter</kbd> 打开；可选卡片 <kbd class="k">Space</kbd> 或 <kbd class="k">Enter</kbd> 切换选中</dd></dl>
   </article>
 
   <article class="ctl" id="c-tag">
@@ -1858,9 +1734,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       </div></div>
       <div class="row"><span class="row-label">尺寸</span><div class="items" style="gap:10px"><span class="tag tag--sm">sm 20</span><span class="tag">md 24</span><span class="tag tag--sm stat stat--ok">运行中</span><span class="tag stat stat--ok">运行中</span></div></div>
       <div class="row"><span class="row-label">状态点</span><div class="items" style="gap:16px"><span class="stat stat--ok">运行中</span><span class="stat stat--warn">待检修</span><span class="stat stat--err">停机</span><span class="stat stat--off">离线</span><span class="cap">表格与列表中使用，8px 方块，1px 墨色描边</span></div></div>
-      <div class="row"><span class="row-label">源站</span><div class="items"><span class="tagdate"><span class="t">公告</span><span class="d">2026.09.30</span></span><span class="cap" style="align-self:center">类型 + 日期组合，仅用于公告与版本记录</span></div></div>
+      <div class="row"><span class="row-label">源站</span><div class="items"><span class="tagdate"><span class="t">公告</span><span class="d">2026.09.30</span></span><span class="cap" style="align-self:center">类型加日期组合，仅用于公告与版本记录</span></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 20 / 24，水平内边距 6 / 8，字号 12 / 13，圆角 2；移除按钮 16</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 20、24，水平内边距 6、8，字号 12、13，圆角 2；移除按钮 16</dd>
       <dt>Token</dt><dd><code>--color-bg-muted --color-accent --color-text-on-accent --color-success --color-error --color-warning --radius-sm</code></dd>
       <dt>键盘</dt><dd>移除按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 移除</dd></dl>
   </article>
@@ -1881,10 +1757,10 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item" style="align-items:center"><span class="av">陈<span class="dotst" aria-label="在线"></span></span><span class="cap">在线</span></div>
         <div class="item" style="align-items:center"><span class="av">吴<span class="dotst off" aria-label="离线"></span></span><span class="cap">离线</span></div>
         <div class="item" style="align-items:center"><button class="av is-hover" type="button" aria-label="账户：周工">周</button><span class="cap">可点击 hover</span></div>
-        <div class="item" style="align-items:center"><div class="av-stack"><span class="av" style="--s:32px">周</span><span class="av" style="--s:32px">林</span><span class="av" style="--s:32px">陈</span><span class="av more" style="--s:32px">+4</span></div><span class="cap">堆叠</span></div>
+        <div class="item" style="align-items:center"><div class="av-stack"><span class="av" style="--s:32px">周</span><span class="av" style="--s:32px">林</span><span class="av" style="--s:32px">陈</span><span class="av more" style="--s:32px" role="img" aria-label="另外 4 人"><svg class="ic"><use href="#i-more"/></svg></span></div><span class="cap">堆叠</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>24 / 32 / 40 / 64，圆形；文字为直径的 40%；状态点为 10px 方块，1px 墨色描边，外围 2px 页面底色</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>24、32、40、64，圆形；文字为直径的 40%；状态点为 10px 方块，1px 墨色描边，外围 2px 页面底色</dd>
       <dt>Token</dt><dd><code>--radius-full --color-bg-muted --color-text-secondary --color-success --color-bg-page</code></dd>
       <dt>键盘</dt><dd>可点击头像 <kbd class="k">Enter</kbd> 打开账户菜单</dd></dl>
   </article>
@@ -1899,19 +1775,19 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <li><button class="smi" type="button"><span class="seltag">SELECTED</span>能耗记录</button></li>
       </ul></div></div>
       <div class="row"><span class="row-label">双行</span><div class="items" style="width:100%"><ul class="list" role="listbox" aria-label="设备" data-list>
-        <li class="li li--2" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>输送带 A-02</b><span>北区 · 装配线</span></span><span class="trail"><span class="stat stat--warn">待检修</span><svg class="ic"><use href="#i-chev-r"/></svg></span></li>
-        <li class="li li--2" role="option" aria-selected="true" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>冷却泵 P-11</b><span>北区 · 仓储</span></span><span class="trail"><span class="stat stat--ok">运行中</span><svg class="ic"><use href="#i-chev-r"/></svg></span></li>
-        <li class="li li--2 is-hover" role="option" aria-selected="false" tabindex="0"><span class="av" style="--s:32px">林</span><span class="main"><b>林工</b><span>当班负责人 · 3 个进行中工单</span></span><span class="trail"><code>ID-000240</code></span></li>
-        <li class="li li--2 is-disabled" role="option" aria-selected="false" aria-disabled="true"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>破碎机 C-03</b><span>南区 · 已封存</span></span><span class="trail"><span class="stat stat--off">离线</span></span></li>
+        <li class="li li--2" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>输送带 A-02</b><span>北区<i class="sx" aria-hidden="true"></i>装配线</span></span><span class="trail"><span class="stat stat--warn">待检修</span><svg class="ic"><use href="#i-chev-r"/></svg></span></li>
+        <li class="li li--2" role="option" aria-selected="true" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>冷却泵 P-11</b><span>北区<i class="sx" aria-hidden="true"></i>仓储</span></span><span class="trail"><span class="stat stat--ok">运行中</span><svg class="ic"><use href="#i-chev-r"/></svg></span></li>
+        <li class="li li--2 is-hover" role="option" aria-selected="false" tabindex="0"><span class="av" style="--s:32px">林</span><span class="main"><b>林工</b><span>当班负责人<i class="sx" aria-hidden="true"></i>3 个进行中工单</span></span><span class="trail"><code>ID-000240</code></span></li>
+        <li class="li li--2 is-disabled" role="option" aria-selected="false" aria-disabled="true"><span class="lead"><svg class="ic"><use href="#i-box"/></svg></span><span class="main"><b>破碎机 C-03</b><span>南区<i class="sx" aria-hidden="true"></i>已封存</span></span><span class="trail"><span class="stat stat--off">离线</span></span></li>
       </ul></div></div>
       <div class="row"><span class="row-label">单行</span><div class="items" style="width:100%;gap:24px">
         <ul class="list list--plain" style="max-width:300px"><li class="li"><svg class="ic"><use href="#i-doc"/></svg><span class="main"><b>保养规程.pdf</b></span><span class="trail"><code>2.4 MB</code></span></li><li class="li"><svg class="ic"><use href="#i-doc"/></svg><span class="main"><b>接线图 v3.dwg</b></span><span class="trail"><code>860 KB</code></span></li></ul>
-        <ul class="list list--plain" style="max-width:260px"><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>14:20</code></span></li><li class="li li--c" aria-selected="true"><span class="main"><b>紧凑 · 选中</b></span><span class="trail"><code>14:05</code></span></li><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>13:48</code></span></li></ul>
+        <ul class="list list--plain" style="max-width:260px"><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>14:20</code></span></li><li class="li li--c" aria-selected="true"><span class="main"><b>紧凑<i class="sx" aria-hidden="true"></i>选中</b></span><span class="trail"><code>14:05</code></span></li><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>13:48</code></span></li></ul>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>行高 32（紧凑）/ 40（单行）/ 56（双行）；水平内边距 16；前置图标框 32 × 32；选中为纯黄色块，文字与图标转为墨色；侧边菜单的选中项另加 SELECTED 标签</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>行高 32（紧凑）、40（单行）、56（双行）；水平内边距 16；前置图标框 宽 32、高 32；选中为纯黄色块，文字与图标转为墨色；侧边菜单的选中项另加 SELECTED 标签</dd>
       <dt>Token</dt><dd><code>--color-state-hover --color-state-pressed --color-bg-selected --color-checked --color-border-subtle --color-text-secondary</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">↑</kbd><kbd class="k">↓</kbd> 在行之间移动，<kbd class="k">Enter</kbd> / <kbd class="k">Space</kbd> 选中</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k" aria-label="上方向键"><svg class="ic"><use href="#k-up"/></svg></kbd><kbd class="k" aria-label="下方向键"><svg class="ic"><use href="#k-down"/></svg></kbd> 在行之间移动，<kbd class="k">Enter</kbd> 或 <kbd class="k">Space</kbd> 选中</dd></dl>
   </article>
 
   <article class="ctl" id="c-table">
@@ -1934,17 +1810,36 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
             <th class="num"><button class="sort" type="button">运行时长<svg class="ic"><use href="#i-sort"/></svg></button></th>
             <th>更新时间</th></tr></thead>
           <tbody>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0142" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0142</code></td><td>输送带 A-02</td><td>北区 · 装配线</td><td><span class="stat stat--warn">待检修</span></td><td class="num"><span class="meter hi"><i style="--v:91%"></i>91%</span></td><td class="num">412 h</td><td><code>09-30 14:20</code></td></tr>
-            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0207" data-row checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0207</code></td><td>冷却泵 P-11</td><td>北区 · 仓储</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i>68%</span></td><td class="num">1,206 h</td><td><code>09-30 14:18</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0311" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0311</code></td><td>分拣机 S-04</td><td>北区 · 装配线</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i>54%</span></td><td class="num">88 h</td><td><code>09-30 14:15</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0418" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0418</code></td><td>空压机 K-02</td><td>南区 · 冶炼</td><td><span class="stat stat--err">停机</span></td><td class="num"><span class="meter"><i style="--v:0%"></i>0%</span></td><td class="num">2,940 h</td><td><code>09-30 13:52</code></td></tr>
-            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0502" disabled><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0502</code></td><td>破碎机 C-03</td><td>南区 · 封存</td><td><span class="stat stat--off">离线</span></td><td class="num">—</td><td class="num">5,118 h</td><td><code>09-12 08:00</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0142" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0142</code></td><td>输送带 A-02</td><td>北区<i class="sx" aria-hidden="true"></i>装配线</td><td><span class="stat stat--warn">待检修</span></td><td class="num"><span class="meter hi"><i style="--v:91%"></i>91%</span></td><td class="num">412 h</td><td><code>09-30 14:20</code></td></tr>
+            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0207" data-row checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0207</code></td><td>冷却泵 P-11</td><td>北区<i class="sx" aria-hidden="true"></i>仓储</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i>68%</span></td><td class="num">1,206 h</td><td><code>09-30 14:18</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0311" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0311</code></td><td>分拣机 S-04</td><td>北区<i class="sx" aria-hidden="true"></i>装配线</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i>54%</span></td><td class="num">88 h</td><td><code>09-30 14:15</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0418" data-row><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0418</code></td><td>空压机 K-02</td><td>南区<i class="sx" aria-hidden="true"></i>冶炼</td><td><span class="stat stat--err">停机</span></td><td class="num"><span class="meter"><i style="--v:0%"></i>0%</span></td><td class="num">2,940 h</td><td><code>09-30 13:52</code></td></tr>
+            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0502" disabled><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td><td><code>EQ-0502</code></td><td>破碎机 C-03</td><td>南区<i class="sx" aria-hidden="true"></i>封存</td><td><span class="stat stat--off">离线</span></td><td class="num">未上报</td><td class="num">5,118 h</td><td><code>09-12 08:00</code></td></tr>
           </tbody></table></div>
       </div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>表头 40，字号 13 Medium；数据行 48 / 36（紧凑）；单元格水平内边距 16 / 12；数字列右对齐，等宽数字；窄屏时表格区域横向滚动</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>表头 40，字号 13 Medium；数据行 48、36（紧凑）；单元格水平内边距 16、12；数字列右对齐，等宽数字；窄屏时表格区域横向滚动</dd>
       <dt>Token</dt><dd><code>--color-bg-surface --color-border-subtle --color-state-hover --color-bg-selected --color-checked --color-text-secondary</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Space</kbd> 勾选行；可排序表头 <kbd class="k">Enter</kbd> 切换升降序</dd></dl>
+  </article>
+
+<article class="ctl" id="c-rpill">
+    <div class="ctl-head"><h3>额度胶囊 <small>Quota pill</small></h3><span class="prov prov--new">读数<i class="sx" aria-hidden="true"></i>额度</span><span class="ctl-src">来源：游戏主菜单系统界面的资源读数</span></div>
+    <div class="stage">
+      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">820<small>/1000</small></span><span class="u">GB</span><span class="sep"></span><button class="rplus" type="button" aria-label="扩容存储"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="v">18<small>/20</small></span><span class="u">席位</span><span class="sep"></span><button class="rplus" type="button" aria-label="增加席位"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill is-full"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充调用配额"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span class="v">1,300</span><span class="u">元</span><span class="sep"></span><button class="rplus" type="button" aria-label="充值预算"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div></div>
+    <dl class="ctl-spec"><dt>用途</dt><dd>任何“当前值、上限与补充操作”的组合：存储空间、席位、接口调用配额、预算余额、库存。达到上限时外框改为强边框色；没有上限时省略上限部分</dd><dt>尺寸</dt><dd>高 40、全圆角；表面色平涂与 1px 分隔线色外框；图标 22 位于左端；数值 19 Novecento，上限与单位 12 次要文字色；1px 分隔；右侧 30 圆形补充按钮为正文色填充，悬停变为品牌黄、加号转 90 度</dd>
+      <dt>Token</dt><dd><code>--color-bg-surface --color-border-subtle --color-border-strong --color-text-primary --color-text-secondary --y-300 --font-numeric</code></dd>
+      <dt>键盘</dt><dd>加号按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开补充流程</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-badge">
+    <div class="ctl-head"><h3>指标徽章 <small>Metric badge</small></h3><span class="prov prov--new">读数<i class="sx" aria-hidden="true"></i>档位</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage">
+      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">服务等级</span><span class="v">A</span><button class="ibtn-i" type="button" aria-label="服务等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">告警级别</span><span class="v">3</span><button class="ibtn-i" type="button" aria-label="告警级别说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">当前班次</span><span class="v">B2</span><button class="ibtn-i" type="button" aria-label="班次说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div></div>
+    </div>
+    <dl class="ctl-spec"><dt>用途</dt><dd>任何离散档位或短编号：服务等级、告警级别、版本号、班次、优先级；右侧按钮打开档位说明</dd><dt>尺寸</dt><dd>高 44、全圆角；表面色平涂与 1px 分隔线色外框；左侧 3px 竖条使用勾选色（浅色为墨色，深色为品牌黄）；名称 14 Medium 次要文字色，数值 30 Novecento；说明按钮 30 圆形，1.5px 正文色描边，悬停反色</dd>
+      <dt>Token</dt><dd><code>--color-bg-surface --color-border-subtle --color-checked --color-text-primary --color-text-secondary --font-numeric</code></dd>
+      <dt>键盘</dt><dd>说明按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开说明</dd></dl>
   </article>
 
   <article class="ctl" id="c-divider">
@@ -1973,140 +1868,6 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </article>
 </section>
 
-
-<!-- ================= 主控台 ================= -->
-<section class="sec" id="console">
-  <div class="bp-head">
-    <div class="hollow" aria-hidden="true">CONSOLE</div>
-    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 10 · Console</span><h2>主控台</h2></div></div>
-    <p class="sec-lead">从游戏主菜单的三维环形面板中提取的布局与控件，按功能分为布局、导航、操作、读数、身份与状态。入口磁贴为分层的半透明玻璃，其余面板为纯色；全部不使用渐变、光晕与阴影，放在深色场景中；浅色主题下同样保持深色。</p></div>
-
-  <div class="tbl-wrap" style="margin-bottom:8px"><table class="tok ctab" style="min-width:820px">
-    <thead><tr><th>元素</th><th>功能</th><th>可承载的数据</th><th>不适用</th></tr></thead>
-    <tbody>
-      <tr><td>球面布局 + 环形主视图</td><td>布局</td><td>首页、总览页：中心放一个核心指标或平面图，四周放入口与读数</td><td>列表、表单、详情页</td></tr>
-      <tr><td>立体入口磁贴</td><td>导航</td><td>功能入口；左列放 3–4 个主入口，右侧网格放 4–8 个次级入口</td><td>页面内操作；入口超过 16 个时改用导航栏</td></tr>
-      <tr><td>弧形主操作磁贴</td><td>操作</td><td>1–2 个最高频入口，如新建、今日计划</td><td>危险操作、次要操作</td></tr>
-      <tr><td>环形仪表</td><td>读数 · 比例</td><td>任何单一比例：容量占用、完成率、负载、合格率</td><td>多个系列的比较与趋势</td></tr>
-      <tr><td>额度胶囊</td><td>读数 · 额度</td><td>任何"当前值 / 上限 + 补充操作"：存储空间、席位、接口调用配额、预算余额、库存</td><td>不可补充、也没有上限的纯数值</td></tr>
-      <tr><td>指标徽章</td><td>读数 · 档位</td><td>任何离散档位或短编号：服务等级、告警级别、版本号、班次、优先级</td><td>连续数值（用额度胶囊或仪表）</td></tr>
-      <tr><td>账户卡</td><td>身份 · 进度</td><td>账户与当前档位及到下一档的进度：权限等阶、会员档位、认证进度、积分阶段</td><td>没有档位概念时改用头像与账户菜单</td></tr>
-      <tr><td>选中区域斜纹</td><td>状态</td><td>平面图、地图、机位图中的选中区域</td><td>列表与卡片的选中（用纯黄色块）</td></tr>
-      <tr><td>系统按钮组</td><td>导航</td><td>设置、消息、告警入口，带提醒角标</td><td>—</td></tr>
-      <tr><td>地图指针、角色立绘、活动横幅、稀有度色条</td><td>不提取</td><td>—</td><td>游戏内容，不属于控件</td></tr>
-    </tbody></table></div>
-
-  <article class="ctl" id="c-console">
-    <div class="ctl-head"><h3>组合示例 <small>Console</small></h3><span class="prov prov--new">布局</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">总览</span><div class="items" style="width:100%"><div style="width:100%"><div class="sph-fit" data-fit style="--W:1000px;--H:640px"><div class="sph-stage" style="--W:1000px;--H:640px" role="group" aria-label="主控台组合示例">
-          <div class="topo"></div>
-          <svg class="links" data-links aria-hidden="true"></svg>
-          <div class="c-ring ring" style="--d:400px" data-ring data-v="68" data-max="100"><div class="disk"><div class="zone"></div><span class="zlabel">北区 · 装配线</span></div></div>
-          <div class="sph"><span class="gyro"></span><span class="gyro gyro--b"></span>
-            <div data-arc data-side="l"><button class="t3" type="button" style="--yaw:33deg;--pitch:-12.6deg" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>设备</button><button class="t3" type="button" style="--yaw:33deg;--pitch:-4.2deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>工单</button><button class="t3" type="button" style="--yaw:33deg;--pitch:4.2deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button" style="--yaw:33deg;--pitch:12.6deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>采购</button></div>
-            <div data-arc data-side="r"><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:-11.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></span>报表</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:-11.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg></span>排班</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:-3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>能耗<span class="badge" aria-label="有新内容"></span></button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:-3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span>成员</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>备件</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>编组</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:11.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>知识库</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:11.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-lore"/></svg></span>档案</button></div>
-            <button class="at" type="button" data-side="l" style="--yaw:11.5deg;--pitch:24deg"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button" data-side="r" style="--yaw:-11.5deg;--pitch:24deg">运行简报<svg class="ic" aria-hidden="true"><use href="#n-operator"/></svg></button>
-          </div>
-          <div class="c-sys"><button class="sysb" type="button" aria-label="设置"><svg class="ic"><use href="#i-sliders"/></svg></button><button class="sysb" type="button" aria-label="消息，有未读"><svg class="ic"><use href="#i-mail"/></svg><span class="badge"></span></button><button class="sysb" type="button" aria-label="告警"><svg class="ic"><use href="#i-warning"/></svg></button></div>
-          <div class="c-res"><div class="rpill is-full"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充调用配额"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
-          <button class="cbtn cbtn--inv c-close" type="button" aria-label="关闭主控台"><svg class="ic ic--close"><use href="#i-close"/></svg></button>
-          <div class="c-info"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div>
-          <div class="c-pcard"><div class="pcard pcard--sm"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div>
-        </div></div></div></div></div>
-      <p class="cap" style="margin:0">磁贴悬停时沿视线方向前移；磁贴组内按 ↑ ↓ 移动焦点。</p>
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>应用首页或总览页；深色场景</dd><dt>尺寸</dt><dd>设计尺寸 1000 × 640，按容器宽度等比缩放；视点 (500, 288)，环形仪表直径 400 以视点为中心；左列 4 块 116 × 78，yaw 33°，pitch ±4.2° / ±12.6°；右侧 2 × 4 块 100 × 72，yaw −24° / −34.5°，pitch ±3.9° / ±11.7°；主操作磁贴 200 × 78，yaw ±11.5°，pitch 24°；角度 = (尺寸 + 间距 10) ÷ 600，单位弧度；左列磁贴由 3 条细线连到圆环</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-500 --color-badge 深色场景 token</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 依次经过磁贴、主操作磁贴与按钮；磁贴组内 <kbd class="k">↑</kbd><kbd class="k">↓</kbd> 移动</dd></dl>
-  </article>
-
-  <article class="ctl" id="c-tile3">
-    <div class="ctl-head"><h3>立体入口磁贴 <small>3D tile</small></h3><span class="prov prov--new">导航</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">球面</span><div class="items" style="width:100%"><div style="width:100%"><div class="sph-fit" data-fit style="--W:900px;--H:420px"><div class="sph-stage sph-demo" style="--W:900px;--H:420px;--oy:50%" role="group" aria-label="球面布局示意">
-          <svg class="links sight" data-sight aria-hidden="true"></svg>
-          <span class="eye" style="left:450px;top:210px"></span>
-          <span class="note" style="left:462px;top:218px">视点 · 球心</span>
-          <span class="note" style="left:24px;top:16px">SPHERE D = 600 · PERSPECTIVE 700</span>
-          <span class="note" style="left:24px;top:384px">左列 yaw 30° · pitch −9.7° / 0° / +9.7°</span>
-          <span class="note" style="left:640px;top:384px">右列 yaw −20° / −31.3° · 同一 pitch</span>
-          <div class="sph">
-            <div data-arc data-side="l"><button class="t3" type="button" style="--yaw:30deg;--pitch:-9.7deg" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>设备</button><button class="t3" type="button" style="--yaw:30deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>工单</button><button class="t3" type="button" style="--yaw:30deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>巡检</button></div>
-            <div data-arc data-side="r"><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:-9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></span>报表</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:-9.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg></span>排班</button><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>能耗</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span>成员</button><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>备件</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>编组</button></div>
-          </div>
-        </div></div></div></div></div>
-      <div class="row"><span class="row-label">状态</span><div class="items" style="gap:24px 32px"><div class="item"><button class="t3 t3--sm" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>默认</button><span class="cap">default</span></div><div class="item"><button class="t3 t3--sm is-hover" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>悬停</button><span class="cap">hover</span></div><div class="item"><button class="t3 t3--sm" type="button" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>当前</button><span class="cap">current</span></div><div class="item"><button class="t3 t3--sm" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>提醒<span class="badge" aria-label="有新内容"></span></button><span class="cap">badge</span></div><div class="item"><button class="t3 t3--sm" type="button" disabled><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>禁用</button><span class="cap">disabled</span></div></div></div>
-
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>功能入口。左列为主入口，两侧边沿圆环弯曲；右侧网格为次级入口，为圆角矩形并带背板</dd><dt>尺寸</dt><dd>标准 128 × 84、小号 108 × 80；玻璃分四层：背后底板为 42% 深灰与 45% 浅色边线（左列向右下偏移 (7, 6)，网格向左上偏移 (−9, −8)）；外沿为圆角 14 的 1.3px 浅色细边，内部 34% 浅灰可透出背景；内板缩进 5，圆角 10，90% 浅灰；内板再缩进 5 为 1px 75% 白色高光线；左列两侧边向外弯曲 6；不使用渐变、光晕与阴影。图标 26、文字 15 Medium；当前项在图标外加 5px 黄色圆环；悬停内板变为 96% 浅灰并沿视线前移 24；聚焦时外沿变为 2.5px 黄色</dd>
-      <dt>Token</dt><dd><code>--y-300 --color-badge --duration-slow</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入磁贴组，<kbd class="k">↑</kbd><kbd class="k">↓</kbd> 在组内移动，<kbd class="k">Enter</kbd> 打开</dd></dl>
-  </article>
-
-  <article class="ctl" id="c-atile">
-    <div class="ctl-head"><h3>弧形主操作磁贴 <small>Action tile</small></h3><span class="prov prov--new">操作</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">成组</span><div class="items" style="gap:6px"><button class="at" type="button" data-side="l"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button" data-side="r">运行简报<svg class="ic" aria-hidden="true"><use href="#n-operator"/></svg></button></div></div>
-      <div class="row"><span class="row-label">状态</span><div class="items"><div class="item"><button class="at is-hover" type="button" data-side="l"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>悬停</button><span class="cap"></span></div><div class="item"><button class="at" type="button" data-side="l" disabled><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>禁用</button><span class="cap">disabled</span></div></div></div>
-
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>首页上 1–2 个最高频入口，成对使用时左右对称</dd><dt>尺寸</dt><dd>240 × 86；形状为扇形：顶边水平，外侧边斜切，底边沿圆环弯曲；主体为 #fffa00 平涂，底部 13 处一条 1px 墨色弧线与底边平行，内角有 6px 墨色方块；图标 28、文字 19 Medium，墨色；悬停 #efe701，按下 #e6de01；聚焦加 2px 白色描边；禁用 #35373c</dd>
-      <dt>Token</dt><dd><code>--y-300 --color-badge</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 聚焦，<kbd class="k">Enter</kbd> 触发</dd></dl>
-  </article>
-
-  <article class="ctl" id="c-ring">
-    <div class="ctl-head"><h3>环形仪表 <small>Ring gauge</small></h3><span class="prov prov--new">读数 · 比例</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">变体</span><div class="items" style="gap:28px 40px">
-        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="135" data-max="200" role="meter" aria-valuenow="135" aria-valuemin="0" aria-valuemax="200" aria-label="能源"><div class="rd"><span>能源</span><b>135<small>/200</small></b><em>ENERGY</em></div></div><span class="cap">进行中</span></div>
-        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="100" data-max="100" role="meter" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="产能"><div class="rd"><span>产能</span><b>100<small>%</small></b><em>OUTPUT</em></div></div><span class="cap">已满</span></div>
-        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="12" data-max="100" data-low="20" role="meter" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="备件库存"><div class="rd"><span>备件库存</span><b>12<small>%</small></b><em>LOW</em></div></div><span class="cap">低于 20% 转为红色</span></div>
-        <div class="item"><div class="ring" style="--d:120px" data-ring data-v="42" data-max="100" role="meter" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="负载"><div class="rd"><b>42<small>%</small></b></div></div><span class="cap">小号 120</span></div>
-      </div></div>
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>任何单一比例：容量占用、完成率、负载、合格率；低于阈值时数值弧转为红色</dd><dt>尺寸</dt><dd>外环 6 粗、#35373c 轨道；刻度 72 格，每 6 格一道长刻度 #858585，其余 #414348；数值弧为黄色，低于阈值转为红色 #d03c34；四个正方位有 10° 黄色短弧；数值 Novecento，字号为直径的 20%</dd>
-      <dt>Token</dt><dd><code>--y-300 --color-error 深色场景 token --font-numeric</code></dd>
-      <dt>键盘</dt><dd>不可聚焦；使用 <code>role="meter"</code> 与 <code>aria-valuenow</code></dd></dl>
-  </article>
-
-  <article class="ctl" id="c-rpill">
-    <div class="ctl-head"><h3>额度胶囊 <small>Quota pill</small></h3><span class="prov prov--new">读数 · 额度</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">820<small>/1000</small></span><span class="u">GB</span><span class="sep"></span><button class="rplus" type="button" aria-label="扩容存储"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="v">18<small>/20</small></span><span class="u">席位</span><span class="sep"></span><button class="rplus" type="button" aria-label="增加席位"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill is-full"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充调用配额"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span class="v">1,300</span><span class="u">元</span><span class="sep"></span><button class="rplus" type="button" aria-label="充值预算"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
-      <div class="row"><span class="row-label">浅色</span><div class="items"><div class="rpill rpill--light"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">820<small>/1000</small></span><span class="u">GB</span><span class="sep"></span><button class="rplus" type="button" aria-label="扩容存储"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
-
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>任何"当前值 / 上限 + 补充操作"：存储空间、席位、接口调用配额、预算余额、库存。达到上限时数值变为黄色；没有上限时省略"/ 上限"</dd><dt>尺寸</dt><dd>高 40、全圆角；#2e2e2e 平涂与 1px #414348 边；图标 28 压在左端；数值 19 Novecento，上限与单位 12；1px 分隔；右侧 30 白色圆形加号，悬停变黄、加号转 90°；浅色变体为 #fafafa 底</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-date --font-numeric</code></dd>
-      <dt>键盘</dt><dd>加号按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开补充流程</dd></dl>
-  </article>
-
-  <article class="ctl" id="c-badge">
-    <div class="ctl-head"><h3>指标徽章 <small>Metric badge</small></h3><span class="prov prov--new">读数 · 档位</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">服务等级</span><span class="v">A</span><button class="ibtn-i" type="button" aria-label="服务等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">告警级别</span><span class="v">3</span><button class="ibtn-i" type="button" aria-label="告警级别说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">当前班次</span><span class="v">B2</span><button class="ibtn-i" type="button" aria-label="班次说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div></div>
-
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>任何离散档位或短编号：服务等级、告警级别、版本号、班次、优先级；右侧按钮打开档位说明</dd><dt>尺寸</dt><dd>高 44、全圆角；#1f1f22 平涂与 1px #35373c 边；左侧 3px 黄色竖条；名称 14 Medium，数值 30 Novecento；说明按钮 30 白色圆形</dd>
-      <dt>Token</dt><dd><code>--y-300 --font-numeric</code></dd>
-      <dt>键盘</dt><dd>说明按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开说明</dd></dl>
-  </article>
-
-  <article class="ctl" id="c-pcard">
-    <div class="ctl-head"><h3>账户卡 <small>Account card</small></h3><span class="prov prov--new">身份 · 进度</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">标准</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
-      <div class="row"><span class="row-label">其他数据</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">北区 · 装配线</span><div class="lv"><b>4</b><span>认证阶段<i>12/15 项</i></span></div><div class="bar"><i style="--v:80%"></i></div><code>SITE-0003</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
-      <div class="row"><span class="row-label">紧凑</span><div class="items"><div class="pcard pcard--sm"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
-
-    </div>
-    <dl class="ctl-spec"><dt>用途</dt><dd>账户、站点或团队的当前档位与到下一档的进度：权限等阶、会员档位、认证进度、积分阶段</dd><dt>尺寸</dt><dd>宽 440，圆角 14，#1f1f22 平涂与 1px #35373c 边；黄色描边只在上边右半段与右边上段，右边中部另有 4 × 40% 的黄色竖条；头像框 84 × 96，左上与右下有角标；名称 18 Medium，档位 40 Novecento，进度读数 13 Novecento #fdfd1f；进度条 3 高；右侧 60 × 38 胶囊按钮，内为黄色双箭头；紧凑版宽 300</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-date --font-numeric</code></dd>
-      <dt>键盘</dt><dd>右侧按钮 <kbd class="k">Enter</kbd> 打开详情</dd></dl>
-  </article>
-</section>
 </main>
 </div>
 
@@ -2114,7 +1875,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 
 <dialog class="real" id="dlgA" aria-labelledby="rA">
   <div class="dialog"><div class="dlg-head"><h4 id="rA">提交工单</h4><button class="cbtn" type="button" aria-label="关闭" data-close><svg class="ic ic--close"><use href="#i-close"/></svg></button></div>
-    <div class="dlg-body"><p>提交后工单将进入审核，审核期间不可修改内容。</p><div class="field" style="width:100%"><label class="field-label" for="rAf">审核人</label><div class="input"><input id="rAf" value="周工 · ID-000302"></div></div></div>
+    <div class="dlg-body"><p>提交后工单将进入审核，审核期间不可修改内容。</p><div class="field" style="width:100%"><label class="field-label" for="rAf">审核人</label><div class="input"><input id="rAf" value="周工 ID-000302"></div></div></div>
     <div class="dlg-foot"><button class="btn btn--ghost" type="button" data-close><span class="lbl">取消</span></button><button class="btn btn--primary" type="button" data-close data-done="工单已提交"><span class="lbl">提交</span></button></div></div>
 </dialog>
 <dialog class="real" id="dlgB" aria-labelledby="rB">
@@ -2261,73 +2022,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   document.querySelectorAll('[data-smenu]').forEach(function(m){m.addEventListener('click',function(e){var b=e.target.closest('.smi');if(!b)return;
     m.querySelectorAll('.smi').forEach(function(x){if(x===b)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
 
-  /* ---- 主控台：环形仪表、等比缩放、弧线磁贴 ---- */
-  var NS='http://www.w3.org/2000/svg';
-  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
-  document.querySelectorAll('[data-ring]').forEach(function(r){
-    var v=+r.dataset.v,max=+r.dataset.max,low=r.dataset.low?+r.dataset.low:-1,pct=v/max,svg=el('svg',{viewBox:'0 0 200 200','aria-hidden':'true'}),c=100;
-    svg.appendChild(el('circle',{cx:c,cy:c,r:92,fill:'none',stroke:'#35373c','stroke-width':6}));
-    for(var i=0;i<72;i++){var a=i*5*Math.PI/180,maj=i%6===0,r1=maj?76:79,r2=maj?86:84;
-      svg.appendChild(el('line',{x1:c+r1*Math.sin(a),y1:c-r1*Math.cos(a),x2:c+r2*Math.sin(a),y2:c-r2*Math.cos(a),stroke:maj?'#858585':'#414348','stroke-width':maj?1.4:1}))}
-    var L=2*Math.PI*92,col=pct*100<low?'#d03c34':'#fffa00';
-    svg.appendChild(el('circle',{cx:c,cy:c,r:92,fill:'none',stroke:col,'stroke-width':6,'stroke-dasharray':(L*pct)+' '+L,transform:'rotate(-90 100 100)'}));
-    [0,90,180,270].forEach(function(d){var L2=2*Math.PI*99;svg.appendChild(el('circle',{cx:c,cy:c,r:99,fill:'none',stroke:'#fffa00','stroke-width':2,'stroke-dasharray':(L2/36)+' '+L2,transform:'rotate('+(d-95)+' 100 100)'}))});
-    r.insertBefore(svg,r.firstChild);
-  });
-  document.querySelectorAll('[data-fit]').forEach(function(f){
-    function fit(){var W=parseFloat(getComputedStyle(f).getPropertyValue('--W'))||1000;f.style.setProperty('--k',Math.min(1,f.clientWidth/W))}
-    fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(f);else window.addEventListener('resize',fit);
-  });
-  document.querySelectorAll('[data-arc]').forEach(function(a){arrows(a,'.t3',['ArrowUp','ArrowLeft'],['ArrowDown','ArrowRight']);
-    a.addEventListener('click',function(e){var t=e.target.closest('.t3');if(!t||t.disabled)return;a.querySelectorAll('.t3').forEach(function(x){if(x===t)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
 
-  /* 球面示意：从视点到每块磁贴中心的视线 */
-  function sight(){document.querySelectorAll('[data-sight]').forEach(function(sv){var st=sv.closest('.sph-stage'),S=st.getBoundingClientRect(),k=S.width/st.offsetWidth,
-    e=st.querySelector('.eye').getBoundingClientRect(),cx=(e.left+e.width/2-S.left)/k,cy=(e.top+e.height/2-S.top)/k,out='';
-    st.querySelectorAll('.t3').forEach(function(t){var b=t.getBoundingClientRect();out+='<line x1="'+cx.toFixed(1)+'" y1="'+cy.toFixed(1)+'" x2="'+((b.left+b.width/2-S.left)/k).toFixed(1)+'" y2="'+((b.top+b.height/2-S.top)/k).toFixed(1)+'"/>'});
-    sv.innerHTML=out})}
-  setTimeout(sight,60);
-
-  /* ---- 主控台形状：磁贴与主操作磁贴的 SVG 路径 ---- */
-  function qpt(p0,c,p1,t){var u=1-t;return [u*u*p0[0]+2*u*t*c[0]+t*t*p1[0],u*u*p0[1]+2*u*t*c[1]+t*t*p1[1]]}
-  function curve(p0,c,p1,t0,t1,n){var a=[];for(var i=0;i<=n;i++){var q=qpt(p0,c,p1,t0+(t1-t0)*i/n);a.push(q[0].toFixed(1)+' '+q[1].toFixed(1))}return a}
-  function tilePath(w,h,bend,r){
-    if(!bend){return 'M'+r+' 0H'+(w-r)+'Q'+w+' 0 '+w+' '+r+'V'+(h-r)+'Q'+w+' '+h+' '+(w-r)+' '+h+'H'+r+'Q0 '+h+' 0 '+(h-r)+'V'+r+'Q0 0 '+r+' 0Z'}
-    var c=bend,cr=Math.round(bend*0.6),xr=w-cr,t=r/h,R0=[xr,0],R1=[xr,h],RC=[xr+2*cr,h/2],L0=[c,h],L1=[c,0],LC=[-c,h/2];
-    var rs=curve(R0,RC,R1,t,1-t,10),ls=curve(L0,LC,L1,t,1-t,10),q0=qpt(R0,RC,R1,t),q1=qpt(R0,RC,R1,1-t),k0=qpt(L0,LC,L1,t),k1=qpt(L0,LC,L1,1-t);
-    return 'M'+(c+r)+' 0H'+(xr-r)+'Q'+xr+' 0 '+q0[0].toFixed(1)+' '+q0[1].toFixed(1)+'L'+rs.join('L')+'Q'+xr+' '+h+' '+(xr-r)+' '+h+'H'+(c+r)+'Q'+c+' '+h+' '+k0[0].toFixed(1)+' '+k0[1].toFixed(1)+'L'+ls.join('L')+'Q'+c+' 0 '+(c+r)+' 0Z';
-  }
-  function atPath(w,h,side){
-    var sl=w*0.2,dip=10,band=13,P=function(pts){return pts.map(function(p){return (side==='r'?(w-p[0]):p[0]).toFixed(1)+' '+p[1].toFixed(1)}).join('L')};
-    var bot=curve([w,h-dip],[w*0.55,h+dip*0.6],[sl,h-dip*2.2],0,1,14).map(function(s){var v=s.split(' ');return [+v[0],+v[1]]});
-    var body=[[10,0],[w-6,0],[w,6]].concat(bot).concat([[0,8]]);
-    var top=bot.map(function(p){return [p[0],p[1]-band]}).reverse();
-    var strip=bot.concat(top);
-    return {body:'M'+P(body)+'Z',strip:'M'+P(top),mark:(side==='r'?12:(w-18))+','+(h-dip-band-12)};
-  }
-  function shapes(){
-    document.querySelectorAll('.t3').forEach(function(t){
-      var w=t.offsetWidth,h=t.offsetHeight,grp=t.closest('[data-side]'),side=grp?grp.dataset.side:'',bend=side==='l'?6:0,off=side==='l'?[7,6]:[-9,-8],r=14;
-      var sv=t.querySelector(':scope > .shape');if(!sv){sv=document.createElementNS(NS,'svg');sv.setAttribute('class','shape');sv.setAttribute('aria-hidden','true');t.insertBefore(sv,t.firstChild)}
-      sv.setAttribute('viewBox','0 0 '+w+' '+h);
-      var outer=tilePath(w,h,bend,r),inner=tilePath(w-10,h-10,bend,r-4),hl=tilePath(w-20,h-20,bend,r-8);
-      sv.innerHTML='<path class="bp" transform="translate('+off[0]+' '+off[1]+')" d="'+outer+'"/><path class="rim" d="'+outer+'"/><path class="fr" transform="translate(5 5)" d="'+inner+'"/><path class="hl" transform="translate(10 10)" d="'+hl+'"/>';
-    });
-    document.querySelectorAll('.at').forEach(function(t){
-      var w=t.offsetWidth,h=t.offsetHeight,g=atPath(w,h,t.dataset.side||'l');
-      var sv=t.querySelector(':scope > .shape');if(!sv){sv=document.createElementNS(NS,'svg');sv.setAttribute('class','shape');sv.setAttribute('aria-hidden','true');t.insertBefore(sv,t.firstChild)}
-      sv.setAttribute('viewBox','0 0 '+w+' '+h);var m=g.mark.split(',');
-      sv.innerHTML='<path class="body" d="'+g.body+'"/><path class="strip" d="'+g.strip+'"/><rect class="mark" x="'+m[0]+'" y="'+m[1]+'" width="6" height="6"/>';
-    });
-  }
-  shapes();
-  function links(){document.querySelectorAll('[data-links]').forEach(function(sv){
-    var st=sv.closest('.sph-stage'),S=st.getBoundingClientRect(),k=S.width/st.offsetWidth,ring=st.querySelector('.c-ring'),R=ring.getBoundingClientRect();
-    var cx=(R.left+R.width/2-S.left)/k,cy=(R.top+R.height/2-S.top)/k,r=R.width/2/k-4,out='';
-    st.querySelectorAll('[data-side="l"] .t3').forEach(function(t){var b=t.getBoundingClientRect(),x=(b.right-S.left)/k-8,y=(b.top+b.height/2-S.top)/k;
-      [-5,0,5].forEach(function(o){var yy=y+o,dy=yy-cy;if(Math.abs(dy)>=r)return;var x2=cx-Math.sqrt(r*r-dy*dy);out+='<line x1="'+x.toFixed(1)+'" y1="'+yy.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+yy.toFixed(1)+'"/>'})});
-    sv.innerHTML=out})}
-  setTimeout(links,60);
   /* ---- 表格排序 ---- */
   var tb=dt.tBodies[0];
   dt.querySelectorAll('th .sort').forEach(function(b){b.addEventListener('click',function(){
@@ -2340,7 +2035,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   })});
 
   /* ---- HTML 结构 ---- */
-  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-tile3':'.t3','c-ring':'.ring','c-rpill':'.rpill','c-badge':'.ipill','c-pcard':'.pcard','c-atile':'.at'};
+  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-rpill':'.rpill','c-badge':'.ipill'};
   function fmt(html){
     var tk=html.replace(/>\s+</g,'><').split(/(<[^>]+>)/).filter(function(t){return t.trim()}),m=[];
     for(var i=0;i<tk.length;i++){
