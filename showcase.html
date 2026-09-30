@@ -22,8 +22,9 @@
   --color-accent:#fffa00;--color-accent-hover:#efe701;--color-accent-active:#e6de01;
   --color-primary:#383838;--color-primary-hover:#484848;--color-primary-active:#282828;--color-on-primary:#ffffff;--color-primary-tick:#fffa00;
   --color-checked:#191919;--color-on-checked:#fffa00;
-  --color-success:#00ffa2;--color-error:#ff1aac;--color-warning:#fffa00;--color-info:#191919;
-  --color-mark-stroke:#191919;
+  --color-success:#00ffa2;--color-error:#d03c34;--color-error-hover:#b8342d;--color-error-active:#a02d27; /* 红色取自游戏战斗界面敌方血条 */
+  --color-warning:#fffa00;--color-info:#191919;
+  --color-mark-stroke:#191919;--color-error-text:#d03c34;
   --color-badge:#fb7803; /* 取自游戏系统界面的提醒角标 */
   --strip:#2e2e2e;--strip-fg:#ffffff;--strip-meta:#a6a6a6;
   --hazard:repeating-linear-gradient(-45deg,#fffa00 0 6px,#191919 6px 12px);
@@ -46,6 +47,7 @@
   --z-dropdown:100;--z-sticky:200;--z-modal:300;--z-toast:400;--z-tooltip:500;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --color-error-text:#ededed;
   --color-bg-page:#131315;--color-bg-surface:#1f1f22;--color-bg-raised:#1f1f22;--color-bg-muted:#35373c;
   --color-bg-selected:#35373c;--color-bg-disabled:#1f1f22;--color-bg-emphasis:#35373c;--color-bg-overlay:rgba(0,0,0,.7);
   --color-state-hover:#2e2e2e;--color-state-pressed:#383838;
@@ -59,6 +61,7 @@
   --shadow-sm:0 0 2px rgba(0,0,0,.6);--shadow-lg:0 0 8px rgba(0,0,0,.7);--shadow-panel:0 0 8px rgba(0,0,0,.6);
   color-scheme:dark}}
 :root[data-theme="dark"]{
+  --color-error-text:#ededed;
   --color-bg-page:#131315;--color-bg-surface:#1f1f22;--color-bg-raised:#1f1f22;--color-bg-muted:#35373c;
   --color-bg-selected:#35373c;--color-bg-disabled:#1f1f22;--color-bg-emphasis:#35373c;--color-bg-overlay:rgba(0,0,0,.7);
   --color-state-hover:#2e2e2e;--color-state-pressed:#383838;
@@ -96,7 +99,7 @@ main{min-width:0}
 .hero h1{margin:8px 0 12px;font:40px/1.15 var(--font-bold);letter-spacing:.01em;text-wrap:balance}
 .hero-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--color-text-secondary)}
 .hero-meta b{font:13px var(--font-numeric);color:var(--color-text-primary);font-weight:400}
-.colorbar{width:126px;height:4px;margin-top:20px;background:linear-gradient(90deg,#ff1aac 0 42px,#00ffa2 42px 84px,#fffa00 84px)}
+.colorbar{width:126px;height:6px;margin-top:20px;background:repeating-linear-gradient(-45deg,#fffa00 0 6px,#191919 6px 12px)}
 .theme-pick{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 
 .sec{padding-top:64px;scroll-margin-top:16px}
@@ -167,7 +170,7 @@ main{min-width:0}
 .ld::before{content:"";position:absolute;left:-2px;top:-3px;width:5px;height:5px;background:var(--color-text-primary)}
 .anat-btn{position:absolute;display:flex;align-items:center;justify-content:center;height:72px;border-radius:4px;background:var(--color-primary);color:var(--color-on-primary);font:28px/1 var(--font-medium);overflow:hidden;isolation:isolate;box-shadow:0 0 4px rgba(0,0,0,.25)}
 .anat-btn::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/textures/button-texture.png) center/cover no-repeat;mix-blend-mode:soft-light;opacity:.6}
-.anat-btn i{position:absolute;left:12px;top:18px;width:4px;height:36px;background:var(--color-primary-tick)}
+.anat-btn i{position:absolute;left:12px;top:16px;width:4px;height:40px;background:var(--color-primary-tick)}
 .anat-in{position:absolute;height:72px;border:2px solid var(--color-border-control);border-radius:4px;background:var(--color-bg-page);display:flex;align-items:center;padding:0 24px;font:28px/1 var(--font-body);color:var(--color-text-secondary);box-sizing:border-box}
 .anat-lbl{position:absolute;font:26px/1 var(--font-medium)}
 .anat-help{position:absolute;font:26px/1 var(--font-body);color:var(--color-text-secondary)}
@@ -241,6 +244,115 @@ main{min-width:0}
 .stage::before{right:-6px;top:-6px}.stage::after{left:-6px;bottom:-6px}
 @media (max-width:640px){.entry-body{flex-wrap:wrap;padding-left:16px}}
 
+/* ===== 主控台：取自游戏主菜单的三维环形面板 ===== */
+/* 深色场景：局部固定为深色 token，浅色主题下同样呈现深色 */
+.scene{--color-bg-page:#131315;--color-bg-surface:#1f1f22;--color-bg-raised:#1f1f22;--color-bg-muted:#35373c;--color-state-hover:#2e2e2e;--color-state-pressed:#383838;
+  --color-text-primary:#ededed;--color-text-secondary:#a6a6a6;--color-text-tertiary:#999999;--color-border-subtle:#35373c;--color-border-strong:#ededed;--color-focus-ring:#fffa00;--grid-line:#1a1a1d;
+  color:#ededed;background-color:#131315}
+/* 立体入口磁贴 */
+.arc{perspective:900px;display:flex;flex-direction:column;gap:10px}
+.t3{--ry:0deg;--rx:0deg;--tx:0px;--tz:0px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:136px;height:100px;border:0;padding:0;cursor:pointer;color:#191919;font:15px/1 var(--font-medium);
+  background:linear-gradient(180deg,#f2f2f2,#d9d9d9);box-shadow:inset 0 0 0 1px #b3b3b3,inset 0 0 0 4px #e6e6e6,inset 0 0 0 5px #cccccc,0 0 8px rgba(0,0,0,.5);
+  transform:translateX(var(--tx)) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(var(--tz));transition:transform var(--duration-slow) ease,background var(--duration-base) ease}
+.t3 .ic{width:30px;height:30px;stroke-width:1.8}
+.t3:not(:disabled):hover,.t3.is-hover{--tz:22px;background:linear-gradient(180deg,#ffffff,#e6e6e6)}
+.t3:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
+.t3[aria-current="true"]{background:linear-gradient(180deg,#fffa00,#efe701);box-shadow:inset 0 0 0 1px #e6de01,inset 0 0 0 4px #fffa00,inset 0 0 0 5px #191919,0 0 10px rgba(0,0,0,.6)}
+.t3:disabled{cursor:not-allowed;color:#858585;background:linear-gradient(180deg,#cccccc,#b3b3b3)}
+.t3--sm{width:112px;height:88px;font-size:14px}.t3--sm .ic{width:26px;height:26px}
+.arc--l .t3{--ry:32deg}.arc--r .t3{--ry:-32deg}
+.arc .t3:nth-child(1){--rx:9deg;--tx:30px}.arc .t3:nth-child(2){--rx:3deg;--tx:6px}.arc .t3:nth-child(3){--rx:-3deg;--tx:6px}.arc .t3:nth-child(4){--rx:-9deg;--tx:30px}
+.arc--r .t3:nth-child(1){--tx:-30px}.arc--r .t3:nth-child(2),.arc--r .t3:nth-child(3){--tx:-6px}.arc--r .t3:nth-child(4){--tx:-30px}
+.gridr{perspective:900px;display:grid;grid-template-columns:repeat(2,112px);gap:10px}
+.gridr .t3{--ry:-30deg}
+.gridr .t3:nth-child(odd){--tx:-18px}
+/* 环形仪表 */
+.ring{position:relative;width:var(--d,220px);aspect-ratio:1;flex:none}
+.ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring .rd{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center}
+.ring .rd span{font-size:13px;color:#a6a6a6}
+.ring .rd b{font:calc(var(--d,220px) * .2)/1 var(--font-numeric);font-weight:400;color:#ededed;font-variant-numeric:tabular-nums}
+.ring .rd b small{font-size:.36em;color:#999999;margin-left:2px}
+.ring .rd em{font:12px var(--font-tech);font-style:normal;color:#999999}
+/* 读数胶囊 */
+.rpill{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 5px 0 14px;border-radius:20px;background:#2e2e2e;border:1px solid #414348;color:#ededed;flex:none}
+.rpill > .ic{width:20px;height:20px;stroke-width:1.8}
+.rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
+.rpill .v small{font-size:12px;color:#999999;margin-left:2px}
+.rpill .sep{width:1px;height:20px;background:#626262;margin-left:4px}
+.rplus{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
+.rplus .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
+.rplus:hover{background:#fffa00}.rplus:hover .ic{transform:rotate(90deg)}
+.rplus:active{background:#e6de01}
+.rplus:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
+.rpill--light{background:#fafafa;border-color:#d9d9d9;color:#191919}
+.rpill--light .v small{color:#666666}.rpill--light .sep{background:#d9d9d9}
+.rpill--light .rplus{background:#191919;color:#ffffff}.rpill--light .rplus:hover{background:#fffa00;color:#191919}
+.rpill--light .rplus:focus-visible{outline-color:#191919}
+.ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 20px;border-radius:22px;background:#1f1f22;border:1px solid #35373c;color:#ededed;flex:none}
+.ipill::before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:3px;background:#fffa00}
+.ipill .l{font:14px var(--font-medium)}
+.ipill .v{font:30px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
+.ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer}
+.ibtn-i:hover{background:#fffa00}.ibtn-i:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
+.ibtn-i .ic{stroke-width:2.4}
+/* 档案卡 */
+.pcard{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:0 16px;align-items:center;width:440px;max-width:100%;padding:14px 16px;background:#1f1f22;color:#ededed;border:1px solid #35373c;border-right:2px solid #fffa00;border-bottom:2px solid #fffa00}
+.pcard .pic{width:84px;height:96px;border:1px solid #858585;background:linear-gradient(135deg,#d9d9d9 0 45%,#858585 45% 70%,#fffa00 70%)}
+.pcard .who{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pcard .nm{font:18px/1.2 var(--font-medium)}
+.pcard .lv{display:flex;align-items:flex-end;gap:12px}
+.pcard .lv b{font:42px/1 var(--font-numeric);font-weight:400}
+.pcard .lv span{display:flex;flex-direction:column;align-items:flex-end;margin-left:auto;font-size:12px;color:#a6a6a6}
+.pcard .lv span i{font:13px var(--font-numeric);font-style:normal;color:#fdfd1f}
+.pcard .bar{height:4px;background:#414348}.pcard .bar i{display:block;height:100%;width:var(--v);background:#fffa00}
+.pcard code{color:#999999;font-size:11px}
+.go-y{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;padding:0;background:#fffa00;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
+.go-y .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
+.go-y:hover{background:#ffffff}.go-y:hover .ic{transform:translateX(3px)}
+.go-y:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
+/* 主操作磁贴 */
+.atiles{perspective:700px;display:flex;flex-wrap:wrap;gap:10px}
+.at{--ry:0deg;position:relative;display:flex;align-items:center;gap:14px;width:230px;height:84px;padding:0 20px 18px;border:0;cursor:pointer;background:#fffa00;color:#191919;font:19px/1 var(--font-medium);
+  transform:rotateX(26deg) rotateY(var(--ry));transform-origin:50% 100%;transition:transform var(--duration-slow) ease,background-color var(--duration-base) ease;box-shadow:0 0 10px rgba(0,0,0,.5)}
+.at::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:repeating-linear-gradient(-45deg,#fffa00 0 4px,#e6de01 4px 8px);border-top:1px solid #191919}
+.at::before{content:"";position:absolute;right:10px;bottom:5px;width:6px;height:6px;background:#191919;z-index:1}
+.at .ic{width:28px;height:28px;stroke-width:1.8}
+.at:nth-child(1){--ry:12deg;transform-origin:100% 100%}.at:nth-child(2){--ry:-12deg;transform-origin:0 100%}
+.at:not(:disabled):hover,.at.is-hover{transform:rotateX(10deg) rotateY(var(--ry)) translateZ(12px);background:#efe701}
+.at:active{background:#e6de01}
+.at:focus-visible{outline:2px solid #ffffff;outline-offset:3px}
+.at:disabled{background:#626262;color:#999999;cursor:not-allowed}
+.at:disabled::after{background:repeating-linear-gradient(-45deg,#626262 0 4px,#414348 4px 8px)}
+/* 组合示例 */
+.console-fit{position:relative;width:100%;overflow:hidden;height:calc(600px * var(--k,1));border-radius:var(--radius-md)}
+.console{position:absolute;left:0;top:0;width:1000px;height:600px;transform:scale(var(--k,1));transform-origin:0 0;overflow:hidden;background:#131315;color:#ededed;font-size:14px}
+.console::before{content:"";position:absolute;inset:0;background:url(assets/textures/wave-bg.png) center/900px no-repeat;filter:brightness(.25);pointer-events:none}
+.console > *{position:absolute}
+.c-ring{left:290px;top:62px;width:420px;height:420px}
+.c-ring .disk{position:absolute;inset:26px;border-radius:50%;overflow:hidden;background:#1f1f22;
+  background-image:linear-gradient(#26272b 1px,transparent 1px),linear-gradient(90deg,#26272b 1px,transparent 1px);background-size:28px 28px}
+.c-ring .zone{position:absolute;left:92px;top:84px;width:200px;height:190px;background:repeating-linear-gradient(-45deg,#fffa00 0 3px,#e6de01 3px 6px);
+  clip-path:polygon(18% 6%,62% 0,70% 18%,96% 22%,100% 58%,78% 64%,74% 96%,30% 100%,20% 78%,0 70%,4% 30%)}
+.c-ring .zlabel{position:absolute;left:0;right:0;top:168px;text-align:center;font:20px var(--font-medium);color:#191919}
+.c-ring .pin{position:absolute;left:188px;top:120px;width:22px;height:22px;color:#ffffff}
+.c-ring .beam{position:absolute;left:198px;top:0;width:3px;height:124px;background:#fffa00;transform:rotate(-8deg);transform-origin:bottom}
+.c-sys{left:28px;top:22px;display:flex;gap:14px}
+.c-sys .sysb{position:relative;display:grid;place-items:center;width:40px;height:40px;border:0;border-bottom:2px solid #626262;background:none;color:#ededed;cursor:pointer;padding:0}
+.c-sys .sysb:hover{color:#fffa00;border-bottom-color:#fffa00}.c-sys .sysb:focus-visible{outline:2px solid #fffa00}
+.c-sys .sysb .ic{width:22px;height:22px}.c-sys .badge{right:0;top:2px}
+.c-res{left:330px;top:18px;display:flex;gap:14px}
+.c-close{right:24px;top:20px}
+.c-arcl{left:12px;top:58px}
+.c-arcr{right:18px;top:78px}
+.c-info{left:486px;top:440px}
+.c-pcard{left:20px;top:458px;width:430px}
+.c-pcard .pcard{width:430px}
+.c-acts{left:476px;top:500px}
+
+.icf{fill:currentColor;stroke:none}
+.c-arcl .t3{width:128px;height:92px}
+
 /* ===== 盘点 ===== */
 .inv-sum{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
 .readout{display:flex;flex-direction:column;gap:4px;min-width:150px;padding:14px 16px;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-surface)}
@@ -312,17 +424,21 @@ main{min-width:0}
   box-shadow:var(--btn-shadow,none);transition:background-color var(--duration-base) ease,color var(--duration-base) ease,border-color var(--duration-base) ease}
 .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/textures/button-texture.png) center/cover no-repeat;mix-blend-mode:soft-light;opacity:var(--tex,0);pointer-events:none}
 /* 左侧竖条：静止时为按钮高度的一半，悬停时向上下延伸，按下时贴满内边距 */
-.btn::after{content:"";display:var(--tick,none);position:absolute;left:6px;top:25%;bottom:25%;width:2px;background:var(--btn-tick);transition:top var(--duration-base) ease,bottom var(--duration-base) ease}
+/* 标志性竖条（源站 Button）：只用于纯文字的主要、强调、危险按钮。静止为 2px 竖条，悬停时变为指向右侧的三角，同时圆角 2px → 6px；带图标的按钮不显示竖条，由图标执行动作 */
+.btn::after{content:"";display:var(--tick,none);position:absolute;left:5px;top:50%;width:6px;height:55%;transform:translateY(-50%);background:var(--btn-tick);clip-path:polygon(0 0,34% 0,34% 100%,0 100%);transition:clip-path var(--duration-base) ease}
+.btn:has(.lbl > .ic){--tick:none;--tick-pad:0px}
 .btn:not(:disabled):not(.is-disabled):hover,.btn.is-hover{background-color:var(--btn-bg-h);border-color:var(--btn-bd-h,var(--btn-bd,transparent))}
-.btn:not(:disabled):not(.is-disabled):hover::after,.btn.is-hover::after{top:15%;bottom:15%}
+.btn:not(:disabled):not(.is-disabled):hover::after,.btn.is-hover::after{clip-path:polygon(0 18%,100% 50%,100% 50%,0 82%)}
+.btn--primary:not(:has(.lbl > .ic)):not(:disabled):not(.is-disabled):hover,.btn--accent:not(:has(.lbl > .ic)):not(:disabled):not(.is-disabled):hover,.btn--danger:not(:has(.lbl > .ic)):not(:disabled):not(.is-disabled):hover,.btn--primary.is-hover:not(:has(.lbl > .ic)),.btn--accent.is-hover:not(:has(.lbl > .ic)),.btn--danger.is-hover:not(:has(.lbl > .ic)){border-radius:6px}
+.btn{transition:background-color var(--duration-base) ease,color var(--duration-base) ease,border-color var(--duration-base) ease,border-radius var(--duration-base) ease}
 .btn:not(:disabled):not(.is-disabled):active,.btn.is-active{background-color:var(--btn-bg-a)}
-.btn:not(:disabled):not(.is-disabled):active::after,.btn.is-active::after{top:6px;bottom:6px}
+
 .btn:focus-visible,.btn.is-focus{outline:2px solid var(--color-focus-ring);outline-offset:2px}
 .btn--primary{--btn-bg:var(--color-primary);--btn-bg-h:var(--color-primary-hover);--btn-bg-a:var(--color-primary-active);--btn-fg:var(--color-on-primary);--btn-tick:var(--color-primary-tick);--tick:block;--tick-pad:4px;--tex:.6;--btn-shadow:var(--shadow-sm)}
 .btn--accent{--btn-bg:var(--color-accent);--btn-bg-h:var(--color-accent-hover);--btn-bg-a:var(--color-accent-active);--btn-fg:var(--color-text-on-accent);--btn-tick:var(--hazard-ink);--tick:block;--tick-pad:4px;--tex:.6;--btn-shadow:var(--shadow-sm)}
 .btn--secondary{--btn-bg:var(--color-bg-page);--btn-bg-h:var(--color-state-hover);--btn-bg-a:var(--color-state-pressed);--btn-fg:var(--color-text-primary);--btn-bd:var(--color-border-control);--btn-bd-h:var(--color-border-strong)}
 .btn--ghost{--btn-bg:transparent;--btn-bg-h:var(--color-state-hover);--btn-bg-a:var(--color-state-pressed);--btn-fg:var(--color-text-primary)}
-.btn--danger{--btn-bg:var(--color-error);--btn-bg-h:var(--color-error);--btn-bg-a:var(--color-error);--btn-fg:var(--hazard-ink);--btn-tick:var(--hazard-ink);--tick:block;--tick-pad:4px}
+.btn--danger{--btn-bg:var(--color-error);--btn-bg-h:var(--color-error-hover);--btn-bg-a:var(--color-error-active);--btn-fg:#ffffff;--btn-tick:#ffffff;--tick:block;--tick-pad:4px}
 .btn--sm{--h:var(--size-control-sm);--px:12px;font-size:13px;min-width:56px}
 .btn--lg{--h:var(--size-control-lg);--px:20px;font-size:16px;min-width:80px}
 .btn:disabled,.btn.is-disabled{--btn-bg:var(--color-bg-disabled);--btn-fg:var(--color-text-disabled);--btn-bd:var(--color-border-subtle);--btn-tick:var(--color-text-disabled);--tex:0;--btn-shadow:none;cursor:not-allowed}
@@ -374,7 +490,7 @@ main{min-width:0}
 .field-label .req{color:var(--color-text-secondary)}
 .field-help{font-size:13px;line-height:1.4;color:var(--color-text-secondary);display:flex;justify-content:space-between;gap:8px}
 .field-help .count{font:12px var(--font-tech);color:var(--color-text-tertiary)}
-.field-err{color:var(--color-text-primary);display:flex;gap:6px;align-items:flex-start;justify-content:flex-start}
+.field-err{color:var(--color-error-text);display:flex;gap:6px;align-items:flex-start;justify-content:flex-start}
 .field-err .ic{margin-top:2px}
 .input{--h:var(--size-control-md);display:flex;align-items:center;gap:8px;height:var(--h);padding:0 12px;border:1px solid var(--color-border-control);border-radius:var(--radius-sm);
   background:var(--color-bg-page);color:var(--color-text-primary);transition:border-color var(--duration-base) ease,box-shadow var(--duration-base) ease;min-width:0}
@@ -828,7 +944,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <symbol id="i-menu" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12"/></symbol>
   <symbol id="i-trash" viewBox="0 0 16 16"><path d="M2.5 4h11M6 4V2h4v2M4 4l.7 10h6.6L12 4M6.8 7v4.5M9.2 7v4.5"/></symbol>
   <symbol id="s-success" viewBox="0 0 16 16"><path d="M1.5 1.5h13v13h-13z" style="fill:var(--color-success);stroke:var(--color-mark-stroke)" stroke-width="1"/><path d="M4.6 8.2L7 10.5l4.4-4.9" style="fill:none;stroke:var(--color-mark-stroke)" stroke-width="1.8"/></symbol>
-  <symbol id="s-error" viewBox="0 0 16 16"><path d="M5.2 1.5h5.6l3.7 3.7v5.6l-3.7 3.7H5.2l-3.7-3.7V5.2z" style="fill:var(--color-error);stroke:var(--color-mark-stroke)" stroke-width="1"/><path d="M5.8 5.8l4.4 4.4M10.2 5.8l-4.4 4.4" style="fill:none;stroke:var(--color-mark-stroke)" stroke-width="1.8"/></symbol>
+  <symbol id="s-error" viewBox="0 0 16 16"><path d="M5.2 1.5h5.6l3.7 3.7v5.6l-3.7 3.7H5.2l-3.7-3.7V5.2z" style="fill:var(--color-error);stroke:var(--color-mark-stroke)" stroke-width="1"/><path d="M5.8 5.8l4.4 4.4M10.2 5.8l-4.4 4.4" style="fill:none;stroke:#ffffff" stroke-width="1.8"/></symbol>
   <symbol id="s-warning" viewBox="0 0 16 16"><path d="M8 1.5L15 14.5H1z" style="fill:var(--color-warning);stroke:var(--color-mark-stroke)" stroke-width="1"/><path d="M8 6.2V10M8 11.8v.4" style="fill:none;stroke:var(--color-mark-stroke)" stroke-width="1.8"/></symbol>
   <symbol id="s-info" viewBox="0 0 16 16"><path d="M1.5 1.5h13v13h-13z" style="fill:var(--color-info);stroke:var(--color-info)" stroke-width="1"/><path d="M8 7v4.6M8 4.4v.4" style="fill:none;stroke:var(--color-bg-page)" stroke-width="1.8"/></symbol>
   <symbol id="n-home" viewBox="0 0 40 40"><path fill-rule="evenodd" fill="currentColor" d="M35.744,33.156 L39.625,29.275 L31.369,21.019 L31.369,18.013 L39.616,9.766 L35.735,5.885 L26.176,15.443 L26.192,15.459 L26.185,15.459 L26.185,16.780 L22.854,16.780 L22.854,13.449 L24.184,13.449 L24.184,13.442 L24.191,13.449 L33.750,3.890 L29.869,0.009 L21.612,8.265 L18.606,8.265 L10.359,0.018 L6.478,3.899 L16.037,13.458 L16.053,13.442 L16.053,13.449 L17.365,13.449 L17.365,16.780 L14.042,16.780 L14.042,15.451 L14.035,15.451 L14.042,15.443 L4.484,5.885 L0.603,9.766 L8.859,18.022 L8.859,21.028 L0.612,29.275 L4.493,33.156 L14.052,23.597 L14.036,23.582 L14.042,23.582 L14.042,22.269 L17.365,22.269 L17.365,25.592 L16.044,25.592 L16.044,25.599 L16.037,25.592 L6.478,35.151 L10.359,39.032 L18.615,30.776 L21.622,30.776 L29.869,39.023 L33.750,35.142 L24.191,25.583 L24.175,25.599 L24.175,25.592 L22.854,25.592 L22.854,22.269 L26.185,22.269 L26.185,23.590 L26.193,23.590 L26.185,23.597 L35.744,33.156 Z"></path></symbol>
@@ -836,6 +952,10 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <symbol id="n-lore" viewBox="0 0 42 42"><path fill-rule="evenodd" fill="currentColor" d="M36.038,32.520 L36.038,5.876 L15.483,5.876 L15.483,0.188 L41.891,0.188 L41.891,32.520 L36.038,32.520 ZM15.614,9.516 L15.483,9.643 L15.483,9.787 L11.414,13.741 L6.027,8.506 L1.825,4.423 L1.861,4.388 L1.787,4.316 L6.060,0.164 L11.829,5.769 L15.445,9.283 L15.649,9.482 L15.614,9.516 ZM6.027,35.043 L22.791,35.043 L22.791,40.731 L0.173,40.731 L0.173,13.742 L6.027,13.742 L6.027,35.043 ZM15.652,24.914 L15.652,31.990 L8.255,31.990 L8.255,24.800 L15.535,24.800 L15.652,24.800 L15.652,9.476 L31.421,9.476 L31.421,24.800 L23.479,24.800 L23.479,32.518 L23.479,32.520 L15.652,24.914 ZM31.513,32.808 L34.107,35.331 L36.934,38.078 L33.068,41.835 L32.228,41.019 L26.374,35.331 L23.778,32.808 L23.479,32.518 L27.347,28.759 L31.513,32.808 Z"></path></symbol>
   <symbol id="n-calendar" viewBox="0 0 42 40"><path fill-rule="evenodd" fill="currentColor" d="M-0.002,40.010 L-0.002,5.448 L5.894,5.448 L5.894,10.171 L6.956,10.171 L6.956,8.485 L6.956,5.448 L6.956,-0.008 L12.072,-0.008 L12.072,5.448 L12.072,8.485 L12.072,10.171 L13.134,10.171 L13.134,5.448 L28.881,5.448 L28.881,10.171 L29.943,10.171 L29.943,8.485 L29.940,8.485 L29.940,-0.008 L35.056,-0.008 L35.056,5.448 L35.059,5.448 L35.059,10.171 L36.121,10.171 L36.121,5.448 L42.014,5.448 L42.014,40.010 L-0.002,40.010 ZM38.159,16.680 L3.853,16.680 L3.853,35.999 L38.159,35.999 L38.159,16.680 ZM9.511,22.456 L6.956,22.456 L6.956,19.889 L9.511,19.889 L9.511,22.456 ZM12.065,25.023 L9.511,25.023 L9.511,22.456 L12.065,22.456 L12.065,25.023 ZM12.065,30.156 L9.511,30.156 L9.511,27.590 L12.065,27.590 L12.065,30.156 ZM17.174,27.590 L17.174,30.156 L14.620,30.156 L14.620,27.590 L17.174,27.590 ZM22.283,27.590 L22.283,30.156 L19.729,30.156 L19.729,27.590 L22.283,27.590 ZM27.392,27.590 L27.392,30.156 L24.838,30.156 L24.838,27.590 L27.392,27.590 ZM32.501,27.590 L32.501,30.156 L29.947,30.156 L29.947,27.590 L32.501,27.590 ZM29.947,22.456 L32.501,22.456 L32.501,25.023 L29.947,25.023 L29.947,22.456 ZM24.838,25.023 L24.838,22.456 L27.392,22.456 L27.392,25.023 L24.838,25.023 ZM19.729,25.023 L19.729,22.456 L22.283,22.456 L22.283,25.023 L19.729,25.023 ZM14.620,25.023 L14.620,22.456 L17.174,22.456 L17.174,25.023 L14.620,25.023 ZM14.620,27.590 L12.065,27.590 L12.065,25.023 L14.620,25.023 L14.620,27.590 ZM19.729,25.023 L19.729,27.590 L17.174,27.590 L17.174,25.023 L19.729,25.023 ZM24.838,25.023 L24.838,27.590 L22.283,27.590 L22.283,25.023 L24.838,25.023 ZM29.947,25.023 L29.947,27.590 L27.392,27.590 L27.392,25.023 L29.947,25.023 ZM12.065,19.889 L14.620,19.889 L14.620,22.456 L12.065,22.456 L12.065,19.889 ZM17.174,19.889 L19.729,19.889 L19.729,22.456 L17.174,22.456 L17.174,19.889 ZM22.283,19.889 L24.838,19.889 L24.838,22.456 L22.283,22.456 L22.283,19.889 ZM27.392,19.889 L29.947,19.889 L29.947,22.456 L27.392,22.456 L27.392,19.889 ZM35.056,19.889 L35.056,22.456 L32.501,22.456 L32.501,19.889 L35.056,19.889 ZM35.056,25.023 L35.056,27.590 L32.501,27.590 L32.501,25.023 L35.056,25.023 ZM35.056,32.724 L32.501,32.724 L32.501,30.156 L35.056,30.156 L35.056,32.724 ZM29.947,32.724 L27.392,32.724 L27.392,30.156 L29.947,30.156 L29.947,32.724 ZM24.838,32.724 L22.283,32.724 L22.283,30.156 L24.838,30.156 L24.838,32.724 ZM19.729,32.724 L17.174,32.724 L17.174,30.156 L19.729,30.156 L19.729,32.724 ZM14.620,32.724 L12.065,32.724 L12.065,30.156 L14.620,30.156 L14.620,32.724 ZM6.956,32.724 L6.956,30.156 L9.511,30.156 L9.511,32.724 L6.956,32.724 ZM6.956,27.590 L6.956,25.023 L9.511,25.023 L9.511,27.590 L6.956,27.590 Z"></path></symbol>
   <symbol id="n-notice" viewBox="0 0 44 49"><path fill-rule="evenodd" fill="currentColor" d="M17.123,48.243 L17.123,8.711 L35.000,20.840 L43.285,20.840 L43.285,36.113 L35.000,36.113 L17.123,48.243 ZM9.253,0.256 L14.966,0.256 L14.966,5.930 L9.253,5.930 L9.253,0.256 ZM0.967,0.256 L6.680,0.256 L6.680,5.930 L0.967,5.930 L0.967,0.256 ZM13.264,15.581 L6.882,15.581 L6.882,41.372 L13.264,41.372 L13.264,46.884 L1.332,46.884 L1.332,10.069 L13.264,10.069 L13.264,15.581 ZM34.848,47.434 L34.848,39.054 L43.285,39.054 L34.848,47.434 Z"></path></symbol>
+  <symbol id="i-bolt" viewBox="0 0 16 16"><path d="M9.5 1.5L3.5 9h4l-1 5.5 6-7.5h-4z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16"><path d="M1.5 3.5h13v9h-13zM1.5 3.5L8 9l6.5-5.5"/></symbol>
+  <symbol id="i-nav" viewBox="0 0 16 16"><path d="M8 1.5l5 13-5-3-5 3z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-info-plain" viewBox="0 0 16 16"><path d="M8 7v5.5M8 4v.5"/></symbol>
   <symbol id="i-copy" viewBox="0 0 16 16"><path d="M5 5h9v9H5zM2 11V2h9"/></symbol>
 </svg>
 
@@ -852,6 +972,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <a href="#feedback">反馈与提示 <span>06</span></a>
   <a href="#navigation">导航 <span>04</span></a>
   <a href="#display">内容展示 <span>07</span></a>
+  <a href="#console">主控台 <span>05</span></a>
 </nav>
 
 <main>
@@ -860,7 +981,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="hero-en">Endfield UI · Control Specification</div>
     <div class="hollow" aria-hidden="true">SPEC SHEET</div>
     <h1>Endfield 控件规范</h1>
-    <div class="hero-meta"><span>Sep 30, 2026 · @MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span></div>
+    <div class="hero-meta"><span>Sep 30, 2026 · @MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span><span>主控台 <b>5</b> 项</span></div>
     <div class="colorbar" aria-hidden="true"></div>
   </div>
   <div class="theme-pick">
@@ -972,10 +1093,10 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </div>
 
   <h3 class="sub-h">功能色 <small>Status</small></h3>
-  <p class="sec-lead" style="margin:-4px 0 14px">只使用源站色条中的粉色与绿色，以及黄黑警示条纹。功能色只以纯色标记出现：图标、左侧色条、状态点、进度填充；不作文字颜色，不作浅色衬底。标记外沿统一加 1px 墨色描边，保证在白底上可辨识。</p>
+  <p class="sec-lead" style="margin:-4px 0 14px">成功使用源站色条中的绿色，错误使用游戏战斗界面的血条红，警告使用黄黑警示条纹。功能色以纯色标记出现：图标、左侧色条、状态点、进度填充；不作浅色衬底。红色在白底上对比度 4.80:1，可作错误说明文字；其余功能色不作文字。标记外沿加 1px 墨色描边。</p>
   <div class="fn-grid">
     <div class="fn"><span class="fn-title">成功</span><div class="fn-marks"><svg class="ic ic--lg"><use href="#s-success"/></svg><span class="stat stat--ok">运行中</span><span class="fn-bar" style="background:var(--color-success)"></span></div><code>--color-success #00ffa2</code></div>
-    <div class="fn"><span class="fn-title">错误</span><div class="fn-marks"><svg class="ic ic--lg"><use href="#s-error"/></svg><span class="stat stat--err">停机</span><span class="fn-bar" style="background:var(--color-error)"></span></div><code>--color-error #ff1aac</code></div>
+    <div class="fn"><span class="fn-title">错误</span><div class="fn-marks"><svg class="ic ic--lg"><use href="#s-error"/></svg><span class="stat stat--err">停机</span><span class="fn-bar" style="background:var(--color-error)"></span></div><code>--color-error #d03c34</code></div>
     <div class="fn"><span class="fn-title">警告</span><div class="fn-marks"><svg class="ic ic--lg"><use href="#s-warning"/></svg><span class="stat stat--warn">待检修</span><span class="fn-bar" style="background:var(--hazard)"></span></div><code>--hazard #fffa00 / #191919</code></div>
     <div class="fn"><span class="fn-title">信息</span><div class="fn-marks"><svg class="ic ic--lg"><use href="#s-info"/></svg><span class="stat">已排期</span><span class="fn-bar" style="background:var(--color-info)"></span></div><code>--color-info #191919 / #ededed</code></div>
   </div>
@@ -1013,7 +1134,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <tr><td><code>--color-checked</code></td><td><i class="dot" style="background:#191919"></i>#191919</td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td>勾选底色、开关轨道、指示条、进度填充</td></tr>
       <tr><td><code>--color-on-checked</code></td><td><i class="dot" style="background:#fffa00"></i>#fffa00</td><td><i class="dot" style="background:#191919"></i>#191919</td><td>勾选标记、开关滑块</td></tr>
       <tr><td><code>--color-success</code></td><td><i class="dot" style="background:#00ffa2"></i>#00ffa2</td><td><i class="dot" style="background:#00ffa2"></i>#00ffa2</td><td>成功标记</td></tr>
-      <tr><td><code>--color-error</code></td><td><i class="dot" style="background:#ff1aac"></i>#ff1aac</td><td><i class="dot" style="background:#ff1aac"></i>#ff1aac</td><td>错误标记、危险按钮、错误边框</td></tr>
+      <tr><td><code>--color-error</code></td><td><i class="dot" style="background:#d03c34"></i>#d03c34</td><td><i class="dot" style="background:#d03c34"></i>#d03c34</td><td>错误标记、危险按钮、错误边框、浅色面上的错误说明</td></tr>
     </tbody></table></div>
 
   <h3 class="sub-h">对比度 <small>Contrast · WCAG 2.x</small></h3>
@@ -1024,16 +1145,16 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="cr"><div class="cr-sample" style="background:#fffa00;"><b style="color:#191919">墨色 Aa</b><i style="color:#191919">15.85</i></div><div class="cr-meta"><span>#191919 / #fffa00</span><div class="badge-row"><span>强调按钮文字</span><span class="pass">AAA</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#ffffff;box-shadow:inset 0 0 0 1px #d9d9d9"><b style="color:#fffa00">黄色 Aa</b><i style="color:#191919">1.11</i></div><div class="cr-meta"><span>#fffa00 / #ffffff</span><div class="badge-row"><span>禁止：浅色面上的黄色</span><span class="fail">不达标</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#383838;"><b style="color:#ffffff">按钮 Aa</b><i style="color:#ffffff">11.73</i></div><div class="cr-meta"><span>#ffffff / #383838</span><div class="badge-row"><span>主要按钮</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ff1aac;"><b style="color:#191919">删除 Aa</b><i style="color:#191919">5.02</i></div><div class="cr-meta"><span>#191919 / #ff1aac</span><div class="badge-row"><span>危险按钮文字</span><span class="pass">AA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><span style="display:block;width:64px;height:28px;border:2px solid #ff1aac;border-radius:2px"></span><i style="color:#191919">3.50</i></div><div class="cr-meta"><span>#ff1aac / #ffffff</span><div class="badge-row"><span>错误边框与图标（非文本 3:1）</span><span class="pass">达标</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#ff1aac">粉色 Aa</b><i style="color:#ff1aac">3.50</i></div><div class="cr-meta"><span>#ff1aac / #ffffff</span><div class="badge-row"><span>禁止：粉色作正文文字</span><span class="fail">不达标</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#d03c34;"><b style="color:#ffffff">删除 Aa</b><i style="color:#ffffff">4.80</i></div><div class="cr-meta"><span>#ffffff / #d03c34</span><div class="badge-row"><span>危险按钮文字</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#ffffff;"><b style="color:#d03c34">错误 Aa</b><i style="color:#191919">4.80</i></div><div class="cr-meta"><span>#d03c34 / #ffffff</span><div class="badge-row"><span>错误说明文字、错误边框</span><span class="pass">AA</span></div></div></div>
+    
     <div class="cr"><div class="cr-sample" style="background:#00ffa2;"><b style="color:#191919">标记 Aa</b><i style="color:#191919">13.25</i></div><div class="cr-meta"><span>#191919 / #00ffa2</span><div class="badge-row"><span>成功标记内的墨色符号</span><span class="pass">AAA</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#ffffff;"><span style="display:block;width:28px;height:28px;background:#00ffa2"></span><i style="color:#191919">1.33</i></div><div class="cr-meta"><span>#00ffa2 / #ffffff</span><div class="badge-row"><span>绿色必须带墨色描边</span><span class="fail">不达标</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#fafafa;"><span style="display:block;width:64px;height:28px;border:1px solid #858585;border-radius:2px;background:#fff"></span><i style="color:#191919">3.54</i></div><div class="cr-meta"><span>#858585 / #fafafa</span><div class="badge-row"><span>控件边框（非文本 3:1）</span><span class="pass">达标</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#ededed">正文 Aa</b><i style="color:#ededed">15.85</i></div><div class="cr-meta"><span>#ededed / #131315</span><div class="badge-row"><span>深色主要文字</span><span class="pass">AAA</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#1f1f22;"><b style="color:#a6a6a6">次要 Aa</b><i style="color:#a6a6a6">6.75</i></div><div class="cr-meta"><span>#a6a6a6 / #1f1f22</span><div class="badge-row"><span>深色次要文字</span><span class="pass">AA</span></div></div></div>
     <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#fffa00">链接 Aa</b><i style="color:#fffa00">16.72</i></div><div class="cr-meta"><span>#fffa00 / #131315</span><div class="badge-row"><span>深色链接、焦点环</span><span class="pass">AAA</span></div></div></div>
-    <div class="cr"><div class="cr-sample" style="background:#131315;"><b style="color:#ff1aac">错误 Aa</b><i style="color:#ff1aac">5.30</i></div><div class="cr-meta"><span>#ff1aac / #131315</span><div class="badge-row"><span>深色面上的错误标记</span><span class="pass">AA</span></div></div></div>
+    <div class="cr"><div class="cr-sample" style="background:#131315;"><span style="display:block;width:64px;height:28px;border:2px solid #d03c34;border-radius:2px"></span><i style="color:#ededed">3.87</i></div><div class="cr-meta"><span>#d03c34 / #131315</span><div class="badge-row"><span>深色面错误边框；错误文字改用正文色</span><span class="pass">非文本达标</span></div></div></div>
   </div>
 </section>
 
@@ -1121,10 +1242,10 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <div class="st-desc">使用控件基础 token。<em>适用：全部控件</em></div>
       <div class="st-demo"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><button class="btn btn--secondary" type="button"><span class="lbl">取消</span></button><div class="input" style="width:160px"><input aria-label="示例" placeholder="设备编号"></div><label class="check"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>启用</label></div></div>
     <div class="st"><div class="st-name"><b>悬停</b><span>指针位于上方，仅限 hover 设备</span></div>
-      <div class="st-desc">底色换为 #f2f2f2；主要按钮底色变浅，左侧竖条向上下延伸；按钮内图标执行各自的动作；输入框边框加深为墨色。<em>适用：按钮、链接、输入框、列表行、标签页、导航项</em></div>
+      <div class="st-desc">底色换为 #f2f2f2；纯文字主要按钮的竖条变为三角、圆角 2px → 6px；带图标的按钮由图标执行动作；输入框边框加深为墨色。<em>适用：按钮、链接、输入框、列表行、标签页、导航项</em></div>
       <div class="st-demo"><button class="btn btn--primary is-hover" type="button"><span class="lbl">保存</span></button><button class="btn btn--secondary is-hover" type="button"><span class="lbl">取消</span></button><div class="input is-hover" style="width:160px"><input aria-label="示例" placeholder="设备编号"></div><button class="tab is-hover" type="button" role="tab" aria-selected="false">日志</button></div></div>
     <div class="st"><div class="st-name"><b>按下</b><span>指针按下，或空格 / 回车按住</span></div>
-      <div class="st-desc">底色换为 #d9d9d9；主要与强调按钮换用按下色值，竖条贴满内边距。无位移、无缩放。<em>适用：按钮、图标按钮、列表行、标签页、分页器</em></div>
+      <div class="st-desc">底色换为 #d9d9d9；主要与强调按钮换用按下色值。无位移、无缩放。<em>适用：按钮、图标按钮、列表行、标签页、分页器</em></div>
       <div class="st-demo"><button class="btn btn--primary is-hover is-active" type="button"><span class="lbl">保存</span></button><button class="btn btn--accent is-hover is-active" type="button"><span class="lbl">部署</span></button><button class="btn btn--secondary is-active" type="button"><span class="lbl">取消</span></button></div></div>
     <div class="st"><div class="st-name"><b>焦点</b><span>键盘导航获得焦点</span></div>
       <div class="st-desc">2px 焦点环，外偏移 2px；浅色为墨色，深色为品牌黄。输入类控件改为边框加粗。<em>适用：全部可交互控件</em></div>
@@ -1159,9 +1280,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <span class="dv" style="left:78px;top:52px;height:72px"></span><span class="dl" style="left:46px;top:81px">36</span>
         <span class="dh" style="left:100px;top:146px;width:40px"></span><span class="dl" style="left:112px;top:156px">20</span>
         <span class="dh" style="left:288px;top:146px;width:32px"></span><span class="dl" style="left:296px;top:156px">16</span>
-        <span class="ld" style="left:118px;top:62px;width:262px"></span><span class="dl" style="left:392px;top:55px">竖条 2 × 50%（悬停 70%，按下贴满）· --color-primary-tick</span>
+        <span class="ld" style="left:118px;top:62px;width:262px"></span><span class="dl" style="left:392px;top:55px">竖条 2 × 55%，悬停变为三角 · --color-primary-tick</span>
         <span class="ld" style="left:268px;top:88px;width:112px"></span><span class="dl" style="left:392px;top:81px">文字 14 · SansMedium · --color-on-primary</span>
-        <span class="ld" style="left:320px;top:122px;width:60px"></span><span class="dl" style="left:392px;top:115px">圆角 2 · 纹理 soft-light · --shadow-sm</span>
+        <span class="ld" style="left:320px;top:122px;width:60px"></span><span class="dl" style="left:392px;top:115px">圆角 2（悬停 6）· 纹理 soft-light · --shadow-sm</span>
       </div></div></div>
       <div class="row"><span class="row-label">变体</span><div class="items">
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存设置</span></button><span class="cap">primary 主要</span></div>
@@ -1193,7 +1314,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><button class="btn btn--primary is-loading" type="button" aria-busy="true"><span class="lbl">加载中</span><span class="spin" aria-hidden="true"></span></button><span class="cap">loading</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28 / 36 / 44；水平内边距 12 / 16 / 20；字号 13 / 14 / 16；胶囊按钮高 36、全圆角，左侧 18px 短线，右侧 26px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；主要、强调、危险按钮左侧有 2px 竖条，静止为按钮高度的 50%，悬停延伸至 70%，按下贴满；次要与幽灵按钮无竖条；加号悬停转 90°，箭头悬停右移 3px，刷新点击转一周</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28 / 36 / 44；水平内边距 12 / 16 / 20；字号 13 / 14 / 16；胶囊按钮高 36、全圆角，左侧 18px 短线，右侧 26px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角 2px → 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90°，箭头悬停右移 3px，刷新点击转一周</dd>
       <dt>Token</dt><dd><code>--color-primary* --color-primary-tick --color-accent* --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Enter</kbd> / <kbd class="k">Space</kbd> 触发；加载中不响应重复触发</dd></dl>
   </article>
@@ -1812,6 +1933,99 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </article>
 </section>
 
+
+<!-- ================= 主控台 ================= -->
+<section class="sec" id="console">
+  <div class="bp-head">
+    <div class="hollow" aria-hidden="true">CONSOLE</div>
+    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 10 · Console</span><h2>主控台</h2></div></div>
+    <p class="sec-lead">从游戏主菜单的三维环形面板中提取的控件：沿弧线排列的立体入口磁贴、环形仪表、读数胶囊、档案卡与黄色主操作磁贴。它们用于应用首页或总览页，统一呈现在深色场景中，浅色主题下同样保持深色。</p></div>
+
+  <article class="ctl" id="c-console">
+    <div class="ctl-head"><h3>组合示例 <small>Console</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">总览</span><div class="items" style="width:100%"><div class="console-fit" data-fit><div class="console" role="group" aria-label="主控台组合示例">
+          <div class="c-ring ring" style="--d:420px" data-ring data-v="68" data-max="100"><div class="disk"><div class="zone"></div><span class="beam"></span><svg class="pin"><use href="#i-nav"/></svg><span class="zlabel">北区 · 装配线</span></div></div>
+          <div class="c-sys"><button class="sysb" type="button" aria-label="设置"><svg class="ic"><use href="#i-sliders"/></svg></button><button class="sysb" type="button" aria-label="消息，有未读"><svg class="ic"><use href="#i-mail"/></svg><span class="badge"></span></button><button class="sysb" type="button" aria-label="告警"><svg class="ic"><use href="#i-warning"/></svg></button></div>
+          <div class="c-res"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
+          <button class="cbtn cbtn--inv c-close" type="button" aria-label="关闭主控台"><svg class="ic ic--close"><use href="#i-close"/></svg></button>
+          <div class="arc arc--l c-arcl" data-arc><button class="t3" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>设备</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>工单</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>采购</button></div>
+          <div class="gridr c-arcr" data-arc><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>报表</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg>排班</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>能耗<span class="badge"></span></button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>成员</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>备件</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>编组</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>知识库</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-lore"/></svg>档案</button></div>
+          <div class="c-info"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div>
+          <div class="c-pcard"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开档案"><svg class="ic"><use href="#i-chev-r"/></svg></button></div></div>
+          <div class="atiles c-acts"><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>运行简报</button></div>
+        </div></div></div></div>
+      <p class="cap" style="margin:0">磁贴、胶囊按钮与主操作磁贴均可悬停与聚焦；在左侧弧线磁贴上按 ↑ ↓ 移动焦点。</p>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>设计尺寸 1000 × 600，按容器宽度等比缩放；中心为环形仪表与选中区域（黄色斜纹），左侧 4 个弧线磁贴，右侧 2 列 × 4 行磁贴，底部为档案卡、巡检等级与两个主操作磁贴</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-500 --color-badge 深色场景 token</code></dd>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 依次经过系统按钮、读数胶囊、磁贴与主操作磁贴；弧线磁贴组内 <kbd class="k">↑</kbd><kbd class="k">↓</kbd> 移动</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-tile3">
+    <div class="ctl-head"><h3>立体入口磁贴 <small>3D tile</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">左弧</span><div class="items" style="gap:24px 72px"><div class="arc arc--l" data-arc><button class="t3" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>设备</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>工单</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>采购</button></div><div class="gridr" data-arc><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>报表</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg>排班</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>能耗</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>成员</button></div></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items" style="perspective:900px">
+        <div class="item"><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>默认</button><span class="cap">default</span></div>
+        <div class="item"><button class="t3 t3--sm is-hover" type="button"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>悬停</button><span class="cap">hover · 前移 22</span></div>
+        <div class="item"><button class="t3 t3--sm" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>当前</button><span class="cap">current</span></div>
+        <div class="item"><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>提醒<span class="badge"></span></button><span class="cap">badge</span></div>
+        <div class="item"><button class="t3 t3--sm" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>禁用</button><span class="cap">disabled</span></div>
+      </div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>标准 136 × 100、小号 112 × 88；浅灰渐变 #f2f2f2 → #d9d9d9，三层内描边（#b3b3b3 / #e6e6e6 / #cccccc）；图标 30 / 26，文字 15 / 14 Medium；沿弧线排列时左侧 rotateY(32°)、右侧 rotateY(-32°)，上下两端再加 ±9° 的 rotateX 并向内缩进 30；悬停时沿 Z 轴前移 22；当前项为黄色渐变；提醒为橙色菱形；过渡 0.3s</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-400 --color-badge --duration-slow</code></dd>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入磁贴组，<kbd class="k">↑</kbd><kbd class="k">↓</kbd> 在组内移动，<kbd class="k">Enter</kbd> 打开</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-ring">
+    <div class="ctl-head"><h3>环形仪表 <small>Ring gauge</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">变体</span><div class="items" style="gap:28px 40px">
+        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="135" data-max="200" role="meter" aria-valuenow="135" aria-valuemin="0" aria-valuemax="200" aria-label="能源"><div class="rd"><span>能源</span><b>135<small>/200</small></b><em>ENERGY</em></div></div><span class="cap">进行中</span></div>
+        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="100" data-max="100" role="meter" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="产能"><div class="rd"><span>产能</span><b>100<small>%</small></b><em>OUTPUT</em></div></div><span class="cap">已满</span></div>
+        <div class="item"><div class="ring" style="--d:200px" data-ring data-v="12" data-max="100" data-low="20" role="meter" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="备件库存"><div class="rd"><span>备件库存</span><b>12<small>%</small></b><em>LOW</em></div></div><span class="cap">低于 20% 转为红色</span></div>
+        <div class="item"><div class="ring" style="--d:120px" data-ring data-v="42" data-max="100" role="meter" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="负载"><div class="rd"><b>42<small>%</small></b></div></div><span class="cap">小号 120</span></div>
+      </div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>外环 6 粗、#35373c 轨道；刻度 72 格，每 6 格一道长刻度 #858585，其余 #414348；数值弧为黄色，低于阈值转为红色 #d03c34；四个正方位有 10° 黄色短弧；数值 Novecento，字号为直径的 20%</dd>
+      <dt>Token</dt><dd><code>--y-300 --color-error 深色场景 token --font-numeric</code></dd>
+      <dt>键盘</dt><dd>不可聚焦；使用 <code>role="meter"</code> 与 <code>aria-valuenow</code></dd></dl>
+  </article>
+
+  <article class="ctl" id="c-rpill">
+    <div class="ctl-head"><h3>读数胶囊 <small>Readout pill</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">资源</span><div class="items"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill rpill--light"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">135<small>/200</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
+      <div class="row"><span class="row-label">等级</span><div class="items"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>资源胶囊高 40、全圆角，深色底 #2e2e2e 与 1px #414348 边；图标 20，数值 19 Novecento，上限 12；1px 分隔线；右侧 30 白色圆形加号，悬停变黄、加号转 90°；浅色变体为 #fafafa 底、墨色圆形按钮。等级胶囊高 44，左侧 3px 黄色竖条，数值 30 Novecento，右侧 30 白色圆形说明按钮</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-500 深色场景 token --font-numeric</code></dd>
+      <dt>键盘</dt><dd>加号与说明按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 触发</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-pcard">
+    <div class="ctl-head"><h3>档案卡 <small>Profile card</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">默认</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开档案"><svg class="ic"><use href="#i-chev-r"/></svg></button></div></div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 440，内边距 14 / 16，底色 #1f1f22；右边与下边 2px 黄色描边；头像框 84 × 96；姓名 18 Medium，等级 42 Novecento，等阶读数 13 Novecento #fdfd1f；进度条 4 高，轨道 #414348，填充黄色；右侧 40 黄色圆形按钮，悬停变白、箭头右移 3</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-date 深色场景 token --font-numeric</code></dd>
+      <dt>键盘</dt><dd>右侧按钮 <kbd class="k">Enter</kbd> 打开档案</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-atile">
+    <div class="ctl-head"><h3>主操作磁贴 <small>Action tile</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">成组</span><div class="items" style="padding-top:12px"><div class="atiles"><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>运行简报</button></div></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items" style="padding-top:12px"><div class="atiles"><button class="at is-hover" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>悬停</button><button class="at" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>未开放</button></div></div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>230 × 84，黄色底；底部 18 高斜纹带（#fffa00 / #e6de01）与 1px 墨色分隔，右下角 6px 墨色方块；图标 28、文字 19 Medium；两块成组时分别 rotateY(±12°)，整体 rotateX(26°) 平放；悬停时抬起到 10° 并前移 12，底色 #efe701；禁用为 #626262</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-400 --y-500 --color-badge</code></dd>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 聚焦，<kbd class="k">Enter</kbd> 触发</dd></dl>
+  </article>
+</section>
 </main>
 </div>
 
@@ -1965,6 +2179,26 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     var n=tabs[(i+(k==='e'?1:-1)+tabs.length)%tabs.length];n.click();n.focus();e.preventDefault()})});
   document.querySelectorAll('[data-smenu]').forEach(function(m){m.addEventListener('click',function(e){var b=e.target.closest('.smi');if(!b)return;
     m.querySelectorAll('.smi').forEach(function(x){if(x===b)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
+
+  /* ---- 主控台：环形仪表、等比缩放、弧线磁贴 ---- */
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+  document.querySelectorAll('[data-ring]').forEach(function(r){
+    var v=+r.dataset.v,max=+r.dataset.max,low=r.dataset.low?+r.dataset.low:-1,pct=v/max,svg=el('svg',{viewBox:'0 0 200 200','aria-hidden':'true'}),c=100;
+    svg.appendChild(el('circle',{cx:c,cy:c,r:92,fill:'none',stroke:'#35373c','stroke-width':6}));
+    for(var i=0;i<72;i++){var a=i*5*Math.PI/180,maj=i%6===0,r1=maj?76:79,r2=maj?86:84;
+      svg.appendChild(el('line',{x1:c+r1*Math.sin(a),y1:c-r1*Math.cos(a),x2:c+r2*Math.sin(a),y2:c-r2*Math.cos(a),stroke:maj?'#858585':'#414348','stroke-width':maj?1.4:1}))}
+    var L=2*Math.PI*92,col=pct*100<low?'#d03c34':'#fffa00';
+    svg.appendChild(el('circle',{cx:c,cy:c,r:92,fill:'none',stroke:col,'stroke-width':6,'stroke-dasharray':(L*pct)+' '+L,transform:'rotate(-90 100 100)'}));
+    [0,90,180,270].forEach(function(d){var L2=2*Math.PI*99;svg.appendChild(el('circle',{cx:c,cy:c,r:99,fill:'none',stroke:'#fffa00','stroke-width':2,'stroke-dasharray':(L2/36)+' '+L2,transform:'rotate('+(d-95)+' 100 100)'}))});
+    r.insertBefore(svg,r.firstChild);
+  });
+  document.querySelectorAll('[data-fit]').forEach(function(f){
+    function fit(){f.style.setProperty('--k',Math.min(1,f.clientWidth/1000))}
+    fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(f);else window.addEventListener('resize',fit);
+  });
+  document.querySelectorAll('[data-arc]').forEach(function(a){arrows(a,'.t3',['ArrowUp','ArrowLeft'],['ArrowDown','ArrowRight']);
+    a.addEventListener('click',function(e){var t=e.target.closest('.t3');if(!t||t.disabled)return;a.querySelectorAll('.t3').forEach(function(x){if(x===t)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
   /* ---- 表格排序 ---- */
   var tb=dt.tBodies[0];
   dt.querySelectorAll('th .sort').forEach(function(b){b.addEventListener('click',function(){
@@ -1977,7 +2211,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   })});
 
   /* ---- HTML 结构 ---- */
-  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty'};
+  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-tile3':'.t3','c-ring':'.ring','c-rpill':'.rpill','c-pcard':'.pcard','c-atile':'.at'};
   function fmt(html){
     var tk=html.replace(/>\s+</g,'><').split(/(<[^>]+>)/).filter(function(t){return t.trim()}),m=[];
     for(var i=0;i<tk.length;i++){
