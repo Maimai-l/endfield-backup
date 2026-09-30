@@ -250,22 +250,99 @@ main{min-width:0}
   --color-text-primary:#ededed;--color-text-secondary:#a6a6a6;--color-text-tertiary:#999999;--color-border-subtle:#35373c;--color-border-strong:#ededed;--color-focus-ring:#fffa00;--grid-line:#1a1a1d;
   color:#ededed;background-color:#131315}
 /* 立体入口磁贴 */
-.arc{perspective:900px;display:flex;flex-direction:column;gap:10px}
-.t3{--ry:0deg;--rx:0deg;--tx:0px;--tz:0px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:136px;height:100px;border:0;padding:0;cursor:pointer;color:#191919;font:15px/1 var(--font-medium);
+/* 立体入口磁贴：SVG 形状 —— 圆角、半透明磨砂、背板；左列两侧边沿圆环弯曲 */
+.t3{--lift:0px;position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:128px;height:84px;border:0;padding:0;background:none;cursor:pointer;color:#191919;font:15px/1 var(--font-medium);outline:none}
+.t3 > .shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:-1;pointer-events:none}
+.t3 .shape .bp{fill:rgba(210,210,210,.08);stroke:rgba(255,255,255,.24);stroke-width:1}
+.t3 .shape .fr{fill:url(#g-tile);stroke:rgba(255,255,255,.92);stroke-width:1.2;transition:fill var(--duration-base) ease,stroke var(--duration-base) ease}
+.t3 .ico{position:relative;display:grid;place-items:center;width:38px;height:38px}
+.t3 .ico .ic{width:26px;height:26px;stroke-width:1.8}
+.t3[aria-current="true"] .ico::before{content:"";position:absolute;inset:-2px;border-radius:50%;border:4px solid #fffa00;box-shadow:0 0 0 1px #191919}
+.t3:not(:disabled):hover .shape .fr,.t3.is-hover .shape .fr{fill:url(#g-tile-h)}
+.t3:focus-visible .shape .fr{stroke:#fffa00;stroke-width:2.5}
+.t3:disabled{color:#626262;cursor:not-allowed}
+.t3:disabled .shape .fr{fill:rgba(150,150,150,.4);stroke:rgba(255,255,255,.3)}
+.t3--sm{width:108px;height:80px;font-size:14px}.t3--sm .ico .ic{width:24px;height:24px}
+.t3 .badge{right:9px;top:7px}
+.sph .t3,.sph .at{--D:600px;transform:translate(-50%,-50%) translateZ(var(--D)) rotateY(var(--yaw)) rotateX(var(--pitch)) translateZ(calc(var(--lift,0px) - var(--D)));transform-origin:50% 50%;transition:transform var(--duration-slow) ease}
+.sph .t3:not(:disabled):hover,.sph .t3.is-hover,.sph .at:not(:disabled):hover{--lift:24px}
+.sph .t3{width:116px;height:78px;font-size:14px}.sph .t3 .ico{width:34px;height:34px}.sph .t3 .ico .ic{width:23px;height:23px}
+.sph .t3--sm{width:100px;height:72px;font-size:13px}.sph .t3--sm .ico .ic{width:21px;height:21px}
+.sph-demo .t3{width:128px;height:84px;font-size:15px}.sph-demo .t3--sm{width:108px;height:80px}
+/* 弧形主操作磁贴：底边沿圆环弯曲的扇形，半透明黄 + 底部纯黄带 */
+.atiles{display:flex;flex-wrap:wrap;gap:6px}
+.at{--lift:0px;position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:240px;height:86px;padding:0 20px 24px 52px;border:0;background:none;cursor:pointer;color:#ffffff;font:19px/1 var(--font-medium);outline:none}
+.at[data-side="r"]{padding:0 52px 24px 20px;justify-content:flex-end}
+.at > .shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:-1;pointer-events:none}
+.at .shape .body{fill:rgba(255,250,0,.3);stroke:#fffa00;stroke-width:1.4;transition:fill var(--duration-base) ease}
+.at .shape .strip{fill:#fffa00}
+.at .shape .mark{fill:#191919}
+.at .ic{width:28px;height:28px;stroke-width:1.8}
+.at:not(:disabled):hover .shape .body,.at.is-hover .shape .body{fill:rgba(255,250,0,.48)}
+.at:not(:disabled):active .shape .body{fill:rgba(255,250,0,.6)}
+.at:focus-visible .shape .body{stroke:#ffffff;stroke-width:2.5}
+.at:disabled{color:#999999;cursor:not-allowed}
+.at:disabled .shape .body{fill:rgba(98,98,98,.35);stroke:#626262}.at:disabled .shape .strip{fill:#626262}
+.at .badge{right:auto;left:auto}
+.at[data-side="l"] .badge{right:14px;top:-4px}.at[data-side="r"] .badge{left:14px;top:-4px}
+.sph .at{width:200px;height:78px;font-size:17px;padding:0 16px 22px 44px}.sph .at[data-side="r"]{padding:0 44px 22px 16px}
+/* 额度胶囊：当前值 / 上限 + 补充操作 */
+.rpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 5px 0 42px;border-radius:20px;background:rgba(72,72,74,.72);border:1px solid rgba(255,255,255,.16);color:#ededed;flex:none}
+.rpill > .ic{position:absolute;left:6px;top:50%;width:28px;height:28px;transform:translateY(-50%);stroke-width:1.8}
+.rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
+.rpill .v small{font-size:12px;color:#a6a6a6;margin-left:2px}
+.rpill .u{font-size:12px;color:#a6a6a6;margin-left:-4px}
+.rpill .sep{width:1px;height:20px;background:rgba(255,255,255,.2);margin-left:2px}
+.rplus{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
+.rplus .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
+.rplus:hover{background:#fffa00}.rplus:hover .ic{transform:rotate(90deg)}
+.rplus:active{background:#e6de01}
+.rplus:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
+.rpill.is-full .v{color:#fdfd1f}
+.rpill--light{background:rgba(250,250,250,.92);border-color:#d9d9d9;color:#191919}
+.rpill--light .v small,.rpill--light .u{color:#666666}.rpill--light .sep{background:#d9d9d9}
+.rpill--light .rplus{background:#191919;color:#ffffff}.rpill--light .rplus:hover{background:#fffa00;color:#191919}
+.rpill--light .rplus:focus-visible{outline-color:#191919}
+/* 指标徽章：名称 + 大号数值 + 说明按钮 */
+.ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 22px;border-radius:22px;background:rgba(31,31,34,.86);border:1px solid rgba(255,255,255,.14);color:#ededed;flex:none}
+.ipill::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:3px;border-radius:1px;background:#fffa00}
+.ipill .l{font:14px var(--font-medium)}
+.ipill .v{font:30px/1 var(--font-numeric);font-variant-numeric:tabular-nums;min-width:1ch;text-align:center}
+.ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer}
+.ibtn-i:hover{background:#fffa00}.ibtn-i:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
+.ibtn-i .ic{stroke-width:2.4}
+/* 账户卡：头像 + 名称 + 档位数值 + 到下一档的进度 */
+.pcard{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:0 18px;align-items:center;width:440px;max-width:100%;padding:16px 18px 16px 20px;border-radius:14px;background:rgba(31,31,34,.88);border:1px solid rgba(255,255,255,.12);color:#ededed}
+.pcard::before{content:"";position:absolute;left:46%;top:-1px;right:-1px;bottom:40%;border-top:1.5px solid #fffa00;border-right:1.5px solid #fffa00;border-top-right-radius:14px;pointer-events:none}
+.pcard::after{content:"";position:absolute;right:-3px;top:30%;height:40%;width:4px;border-radius:2px;background:#fffa00}
+.pcard .pic{position:relative;width:84px;height:96px;background:linear-gradient(135deg,#d9d9d9 0 45%,#858585 45% 70%,#fffa00 70%)}
+.pcard .pic::before,.pcard .pic::after{content:"";position:absolute;width:10px;height:10px;border:1.5px solid #ededed}
+.pcard .pic::before{left:-6px;top:-6px;border-right:0;border-bottom:0}.pcard .pic::after{right:-6px;bottom:-6px;border-left:0;border-top:0}
+.pcard .who{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pcard .nm{font:18px/1.2 var(--font-medium)}
+.pcard .lv{display:flex;align-items:flex-end;gap:12px}
+.pcard .lv b{font:40px/1 var(--font-numeric);font-weight:400}
+.pcard .lv span{display:flex;flex-direction:column;align-items:flex-end;margin-left:auto;font-size:12px;color:#a6a6a6}
+.pcard .lv span i{font:13px var(--font-numeric);font-style:normal;color:#fdfd1f}
+.pcard .bar{height:3px;background:rgba(255,255,255,.16)}.pcard .bar i{display:block;height:100%;width:var(--v);background:#fffa00}
+.pcard code{color:#999999;font-size:11px}
+.go-y{display:inline-flex;align-items:center;justify-content:center;width:60px;height:38px;border-radius:19px;border:1px solid rgba(255,255,255,.16);padding:0;background:#131315;color:#fffa00;cursor:pointer;transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
+.go-y .ic{width:18px;height:18px;stroke-width:2.2;transition:transform var(--duration-slow) ease}
+.go-y:hover{background:#fffa00;color:#191919}.go-y:hover .ic{transform:translateX(3px)}
+.go-y:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
+.pcard--sm{width:280px;grid-template-columns:56px minmax(0,1fr) auto;gap:0 14px;padding:12px 14px 12px 16px}
+.pcard--sm .pic{width:56px;height:64px}.pcard--sm .nm{font-size:15px}.pcard--sm .lv b{font-size:28px}
+.pcard--sm .go-y{width:44px;height:32px}.pcard--sm code{display:none}
+/* 连接线 */
+.links{inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.ctab td{font:13px/1.55 var(--font-body)!important;color:var(--color-text-secondary)!important}
+.ctab td:first-child{color:var(--color-text-primary)!important;font-family:var(--font-medium)!important}
+.ctab td:nth-child(2){white-space:nowrap}
+@media (max-width:520px){.pcard{grid-template-columns:60px minmax(0,1fr) auto;gap:0 12px;padding:12px}.pcard .pic{width:60px;height:70px}.pcard .lv b{font-size:30px}.pcard .go-y{width:44px;height:32px}}
+.links line{stroke:rgba(255,255,255,.26);stroke-width:1}
+.sight line{stroke:#585858;stroke-dasharray:3 4}
   background:linear-gradient(180deg,#f2f2f2,#d9d9d9);box-shadow:inset 0 0 0 1px #b3b3b3,inset 0 0 0 4px #e6e6e6,inset 0 0 0 5px #cccccc,0 0 8px rgba(0,0,0,.5);
   transform:translateX(var(--tx)) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(var(--tz));transition:transform var(--duration-slow) ease,background var(--duration-base) ease}
-.t3 .ic{width:30px;height:30px;stroke-width:1.8}
-.t3:not(:disabled):hover,.t3.is-hover{--tz:22px;background:linear-gradient(180deg,#ffffff,#e6e6e6)}
-.t3:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
-.t3[aria-current="true"]{background:linear-gradient(180deg,#fffa00,#efe701);box-shadow:inset 0 0 0 1px #e6de01,inset 0 0 0 4px #fffa00,inset 0 0 0 5px #191919,0 0 10px rgba(0,0,0,.6)}
-.t3:disabled{cursor:not-allowed;color:#858585;background:linear-gradient(180deg,#cccccc,#b3b3b3)}
-.t3--sm{width:112px;height:88px;font-size:14px}.t3--sm .ic{width:26px;height:26px}
-.arc--l .t3{--ry:32deg}.arc--r .t3{--ry:-32deg}
-.arc .t3:nth-child(1){--rx:9deg;--tx:30px}.arc .t3:nth-child(2){--rx:3deg;--tx:6px}.arc .t3:nth-child(3){--rx:-3deg;--tx:6px}.arc .t3:nth-child(4){--rx:-9deg;--tx:30px}
-.arc--r .t3:nth-child(1){--tx:-30px}.arc--r .t3:nth-child(2),.arc--r .t3:nth-child(3){--tx:-6px}.arc--r .t3:nth-child(4){--tx:-30px}
-.gridr{perspective:900px;display:grid;grid-template-columns:repeat(2,112px);gap:10px}
-.gridr .t3{--ry:-30deg}
-.gridr .t3:nth-child(odd){--tx:-18px}
 /* 环形仪表 */
 .ring{position:relative;width:var(--d,220px);aspect-ratio:1;flex:none}
 .ring svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -274,84 +351,40 @@ main{min-width:0}
 .ring .rd b{font:calc(var(--d,220px) * .2)/1 var(--font-numeric);font-weight:400;color:#ededed;font-variant-numeric:tabular-nums}
 .ring .rd b small{font-size:.36em;color:#999999;margin-left:2px}
 .ring .rd em{font:12px var(--font-tech);font-style:normal;color:#999999}
-/* 读数胶囊 */
-.rpill{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 5px 0 14px;border-radius:20px;background:#2e2e2e;border:1px solid #414348;color:#ededed;flex:none}
-.rpill > .ic{width:20px;height:20px;stroke-width:1.8}
-.rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
-.rpill .v small{font-size:12px;color:#999999;margin-left:2px}
-.rpill .sep{width:1px;height:20px;background:#626262;margin-left:4px}
-.rplus{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
-.rplus .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
-.rplus:hover{background:#fffa00}.rplus:hover .ic{transform:rotate(90deg)}
-.rplus:active{background:#e6de01}
-.rplus:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
-.rpill--light{background:#fafafa;border-color:#d9d9d9;color:#191919}
-.rpill--light .v small{color:#666666}.rpill--light .sep{background:#d9d9d9}
-.rpill--light .rplus{background:#191919;color:#ffffff}.rpill--light .rplus:hover{background:#fffa00;color:#191919}
-.rpill--light .rplus:focus-visible{outline-color:#191919}
-.ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 20px;border-radius:22px;background:#1f1f22;border:1px solid #35373c;color:#ededed;flex:none}
-.ipill::before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:3px;background:#fffa00}
-.ipill .l{font:14px var(--font-medium)}
-.ipill .v{font:30px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
-.ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;padding:0;background:#ffffff;color:#191919;cursor:pointer}
-.ibtn-i:hover{background:#fffa00}.ibtn-i:focus-visible{outline:2px solid #fffa00;outline-offset:2px}
-.ibtn-i .ic{stroke-width:2.4}
-/* 档案卡 */
-.pcard{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:0 16px;align-items:center;width:440px;max-width:100%;padding:14px 16px;background:#1f1f22;color:#ededed;border:1px solid #35373c;border-right:2px solid #fffa00;border-bottom:2px solid #fffa00}
-.pcard .pic{width:84px;height:96px;border:1px solid #858585;background:linear-gradient(135deg,#d9d9d9 0 45%,#858585 45% 70%,#fffa00 70%)}
-.pcard .who{display:flex;flex-direction:column;gap:4px;min-width:0}
-.pcard .nm{font:18px/1.2 var(--font-medium)}
-.pcard .lv{display:flex;align-items:flex-end;gap:12px}
-.pcard .lv b{font:42px/1 var(--font-numeric);font-weight:400}
-.pcard .lv span{display:flex;flex-direction:column;align-items:flex-end;margin-left:auto;font-size:12px;color:#a6a6a6}
-.pcard .lv span i{font:13px var(--font-numeric);font-style:normal;color:#fdfd1f}
-.pcard .bar{height:4px;background:#414348}.pcard .bar i{display:block;height:100%;width:var(--v);background:#fffa00}
-.pcard code{color:#999999;font-size:11px}
-.go-y{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;padding:0;background:#fffa00;color:#191919;cursor:pointer;transition:background-color var(--duration-base) ease}
-.go-y .ic{stroke-width:2.2;transition:transform var(--duration-slow) ease}
-.go-y:hover{background:#ffffff}.go-y:hover .ic{transform:translateX(3px)}
-.go-y:focus-visible{outline:2px solid #fffa00;outline-offset:3px}
-/* 主操作磁贴 */
-.atiles{perspective:700px;display:flex;flex-wrap:wrap;gap:10px}
-.at{--ry:0deg;position:relative;display:flex;align-items:center;gap:14px;width:230px;height:84px;padding:0 20px 18px;border:0;cursor:pointer;background:#fffa00;color:#191919;font:19px/1 var(--font-medium);
-  transform:rotateX(26deg) rotateY(var(--ry));transform-origin:50% 100%;transition:transform var(--duration-slow) ease,background-color var(--duration-base) ease;box-shadow:0 0 10px rgba(0,0,0,.5)}
-.at::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:repeating-linear-gradient(-45deg,#fffa00 0 4px,#e6de01 4px 8px);border-top:1px solid #191919}
-.at::before{content:"";position:absolute;right:10px;bottom:5px;width:6px;height:6px;background:#191919;z-index:1}
-.at .ic{width:28px;height:28px;stroke-width:1.8}
-.at:nth-child(1){--ry:12deg;transform-origin:100% 100%}.at:nth-child(2){--ry:-12deg;transform-origin:0 100%}
-.at:not(:disabled):hover,.at.is-hover{transform:rotateX(10deg) rotateY(var(--ry)) translateZ(12px);background:#efe701}
-.at:active{background:#e6de01}
-.at:focus-visible{outline:2px solid #ffffff;outline-offset:3px}
-.at:disabled{background:#626262;color:#999999;cursor:not-allowed}
-.at:disabled::after{background:repeating-linear-gradient(-45deg,#626262 0 4px,#414348 4px 8px)}
-/* 组合示例 */
-.console-fit{position:relative;width:100%;overflow:hidden;height:calc(600px * var(--k,1));border-radius:var(--radius-md)}
-.console{position:absolute;left:0;top:0;width:1000px;height:600px;transform:scale(var(--k,1));transform-origin:0 0;overflow:hidden;background:#131315;color:#ededed;font-size:14px}
-.console::before{content:"";position:absolute;inset:0;background:url(assets/textures/wave-bg.png) center/900px no-repeat;filter:brightness(.25);pointer-events:none}
-.console > *{position:absolute}
-.c-ring{left:290px;top:62px;width:420px;height:420px}
-.c-ring .disk{position:absolute;inset:26px;border-radius:50%;overflow:hidden;background:#1f1f22;
-  background-image:linear-gradient(#26272b 1px,transparent 1px),linear-gradient(90deg,#26272b 1px,transparent 1px);background-size:28px 28px}
-.c-ring .zone{position:absolute;left:92px;top:84px;width:200px;height:190px;background:repeating-linear-gradient(-45deg,#fffa00 0 3px,#e6de01 3px 6px);
-  clip-path:polygon(18% 6%,62% 0,70% 18%,96% 22%,100% 58%,78% 64%,74% 96%,30% 100%,20% 78%,0 70%,4% 30%)}
-.c-ring .zlabel{position:absolute;left:0;right:0;top:168px;text-align:center;font:20px var(--font-medium);color:#191919}
-.c-ring .pin{position:absolute;left:188px;top:120px;width:22px;height:22px;color:#ffffff}
-.c-ring .beam{position:absolute;left:198px;top:0;width:3px;height:124px;background:#fffa00;transform:rotate(-8deg);transform-origin:bottom}
-.c-sys{left:28px;top:22px;display:flex;gap:14px}
+/* 球面布局：视点位于球心，磁贴放在同一球面上并朝向视点。每块只指定水平角 --yaw 与垂直角 --pitch，
+   位置由 translateZ(D) rotateY rotateX translateZ(-D) 计算，因此同列上下对称、间距一致 */
+.sph-fit{position:relative;width:100%;overflow:hidden;height:calc(var(--H) * var(--k,1));border-radius:var(--radius-md)}
+.sph-stage{position:absolute;left:0;top:0;width:var(--W);height:var(--H);transform:scale(var(--k,1));transform-origin:0 0;overflow:hidden;background:#131315;color:#ededed;font-size:14px;perspective:700px;perspective-origin:50% var(--oy,45%)}
+.sph-stage > *{position:absolute}
+.sph{left:50%;top:var(--oy,45%);width:0;height:0;transform-style:preserve-3d}
+.sph > *,.sph [data-arc] > *{position:absolute;left:0;top:0}
+.sph [data-arc]{width:0;height:0;transform-style:preserve-3d}
+.gyro{width:480px;height:480px;border:1px solid #35373c;border-radius:50%;transform:translate(-50%,-50%) rotateX(78deg);pointer-events:none}
+.gyro--b{transform:translate(-50%,-50%) rotateY(78deg)}
+.gyro::after{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;background:#fffa00}
+.sph-stage .topo{inset:0;background:url(assets/textures/wave-bg.png) center/900px no-repeat;filter:brightness(.25);pointer-events:none}
+.sph-stage .guide{border:1px dashed #414348;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.sph-stage .eye{width:15px;height:15px;transform:translate(-50%,-50%);background:linear-gradient(#858585,#858585) center/15px 1px no-repeat,linear-gradient(#858585,#858585) center/1px 15px no-repeat}
+.sph-stage .note{font:11px/1.5 var(--font-tech);color:#999999}
+.c-ring{left:300px;top:88px;width:400px;height:400px}
+.c-ring .disk{position:absolute;inset:26px;border-radius:50%;overflow:hidden;background:#1f1f22;background-image:linear-gradient(#26272b 1px,transparent 1px),linear-gradient(90deg,#26272b 1px,transparent 1px);background-size:28px 28px}
+.c-ring .zone{position:absolute;left:84px;top:78px;width:180px;height:176px;background:repeating-linear-gradient(-45deg,#fffa00 0 3px,#e6de01 3px 6px);clip-path:polygon(18% 6%,62% 0,70% 18%,96% 22%,100% 58%,78% 64%,74% 96%,30% 100%,20% 78%,0 70%,4% 30%)}
+.c-ring .zlabel{position:absolute;left:0;right:0;top:156px;text-align:center;font:19px var(--font-medium);color:#191919}
+.c-sys{left:24px;top:16px;display:flex;gap:12px}
 .c-sys .sysb{position:relative;display:grid;place-items:center;width:40px;height:40px;border:0;border-bottom:2px solid #626262;background:none;color:#ededed;cursor:pointer;padding:0}
 .c-sys .sysb:hover{color:#fffa00;border-bottom-color:#fffa00}.c-sys .sysb:focus-visible{outline:2px solid #fffa00}
 .c-sys .sysb .ic{width:22px;height:22px}.c-sys .badge{right:0;top:2px}
-.c-res{left:330px;top:18px;display:flex;gap:14px}
-.c-close{right:24px;top:20px}
-.c-arcl{left:12px;top:58px}
-.c-arcr{right:18px;top:78px}
-.c-info{left:486px;top:440px}
-.c-pcard{left:20px;top:458px;width:430px}
-.c-pcard .pcard{width:430px}
-.c-acts{left:476px;top:500px}
+.c-res{left:50%;top:18px;transform:translateX(-50%);display:flex;gap:12px}
+.c-close{right:24px;top:18px}
+.c-info{right:24px;top:578px}
+.c-pcard{left:16px;top:540px}
+/* 读数胶囊 */
+/* 档案卡 */
+/* 主操作磁贴 */
+  transform:rotateX(26deg) rotateY(var(--ry));transform-origin:50% 100%;transition:transform var(--duration-slow) ease,background-color var(--duration-base) ease;box-shadow:0 0 10px rgba(0,0,0,.5)}
+/* 组合示例 */
 
 .icf{fill:currentColor;stroke:none}
-.c-arcl .t3{width:128px;height:92px}
 
 /* ===== 盘点 ===== */
 .inv-sum{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
@@ -913,6 +946,11 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fafafa" stop-opacity=".9"/><stop offset="1" stop-color="#cccccc" stop-opacity=".8"/></linearGradient>
+    <linearGradient id="g-tile-h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".98"/><stop offset="1" stop-color="#e6e6e6" stop-opacity=".92"/></linearGradient>
+  </defs>
+  <symbol id="i-chev-rr" viewBox="0 0 16 16"><path d="M3.5 3.5L8 8l-4.5 4.5M8.5 3.5L13 8l-4.5 4.5"/></symbol>
   <symbol id="i-chev-l" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></symbol>
   <symbol id="i-chev-r" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></symbol>
   <symbol id="i-chev-d" viewBox="0 0 16 16"><path d="M3 6l5 5 5-5"/></symbol>
@@ -955,7 +993,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <symbol id="i-bolt" viewBox="0 0 16 16"><path d="M9.5 1.5L3.5 9h4l-1 5.5 6-7.5h-4z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 16 16"><path d="M1.5 3.5h13v9h-13zM1.5 3.5L8 9l6.5-5.5"/></symbol>
   <symbol id="i-nav" viewBox="0 0 16 16"><path d="M8 1.5l5 13-5-3-5 3z" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-info-plain" viewBox="0 0 16 16"><path d="M8 7v5.5M8 4v.5"/></symbol>
+  <symbol id="i-info-plain" viewBox="0 0 16 16"><path d="M8 7.2v5.3"/><path d="M6.9 3.2h2.2v2.2H6.9z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-copy" viewBox="0 0 16 16"><path d="M5 5h9v9H5zM2 11V2h9"/></symbol>
 </svg>
 
@@ -972,7 +1010,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <a href="#feedback">反馈与提示 <span>06</span></a>
   <a href="#navigation">导航 <span>04</span></a>
   <a href="#display">内容展示 <span>07</span></a>
-  <a href="#console">主控台 <span>05</span></a>
+  <a href="#console">主控台 <span>07</span></a>
 </nav>
 
 <main>
@@ -981,7 +1019,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="hero-en">Endfield UI · Control Specification</div>
     <div class="hollow" aria-hidden="true">SPEC SHEET</div>
     <h1>Endfield 控件规范</h1>
-    <div class="hero-meta"><span>Sep 30, 2026 · @MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span><span>主控台 <b>5</b> 项</span></div>
+    <div class="hero-meta"><span>Sep 30, 2026 · @MM</span><span>控件 <b>26</b> 项</span><span>源站改造 <b>12</b> 项</span><span>新增 <b>14</b> 项</span><span>主控台 <b>7</b> 项</span></div>
     <div class="colorbar" aria-hidden="true"></div>
   </div>
   <div class="theme-pick">
@@ -1939,48 +1977,85 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">CONSOLE</div>
     <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en">Section 10 · Console</span><h2>主控台</h2></div></div>
-    <p class="sec-lead">从游戏主菜单的三维环形面板中提取的控件：沿弧线排列的立体入口磁贴、环形仪表、读数胶囊、档案卡与黄色主操作磁贴。它们用于应用首页或总览页，统一呈现在深色场景中，浅色主题下同样保持深色。</p></div>
+    <p class="sec-lead">从游戏主菜单的三维环形面板中提取的布局与控件，按功能分为布局、导航、操作、读数、身份与状态。面板统一为圆角、半透明磨砂材质，放在深色场景中；浅色主题下同样保持深色。</p></div>
+
+  <div class="tbl-wrap" style="margin-bottom:8px"><table class="tok ctab" style="min-width:820px">
+    <thead><tr><th>元素</th><th>功能</th><th>可承载的数据</th><th>不适用</th></tr></thead>
+    <tbody>
+      <tr><td>球面布局 + 环形主视图</td><td>布局</td><td>首页、总览页：中心放一个核心指标或平面图，四周放入口与读数</td><td>列表、表单、详情页</td></tr>
+      <tr><td>立体入口磁贴</td><td>导航</td><td>功能入口；左列放 3–4 个主入口，右侧网格放 4–8 个次级入口</td><td>页面内操作；入口超过 16 个时改用导航栏</td></tr>
+      <tr><td>弧形主操作磁贴</td><td>操作</td><td>1–2 个最高频入口，如新建、今日计划</td><td>危险操作、次要操作</td></tr>
+      <tr><td>环形仪表</td><td>读数 · 比例</td><td>任何单一比例：容量占用、完成率、负载、合格率</td><td>多个系列的比较与趋势</td></tr>
+      <tr><td>额度胶囊</td><td>读数 · 额度</td><td>任何"当前值 / 上限 + 补充操作"：存储空间、席位、接口调用配额、预算余额、库存</td><td>不可补充、也没有上限的纯数值</td></tr>
+      <tr><td>指标徽章</td><td>读数 · 档位</td><td>任何离散档位或短编号：服务等级、告警级别、版本号、班次、优先级</td><td>连续数值（用额度胶囊或仪表）</td></tr>
+      <tr><td>账户卡</td><td>身份 · 进度</td><td>账户与当前档位及到下一档的进度：权限等阶、会员档位、认证进度、积分阶段</td><td>没有档位概念时改用头像与账户菜单</td></tr>
+      <tr><td>选中区域斜纹</td><td>状态</td><td>平面图、地图、机位图中的选中区域</td><td>列表与卡片的选中（用纯黄色块）</td></tr>
+      <tr><td>系统按钮组</td><td>导航</td><td>设置、消息、告警入口，带提醒角标</td><td>—</td></tr>
+      <tr><td>地图指针、角色立绘、活动横幅、稀有度色条</td><td>不提取</td><td>—</td><td>游戏内容，不属于控件</td></tr>
+    </tbody></table></div>
 
   <article class="ctl" id="c-console">
-    <div class="ctl-head"><h3>组合示例 <small>Console</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="ctl-head"><h3>组合示例 <small>Console</small></h3><span class="prov prov--new">布局</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
     <div class="stage scene">
-      <div class="row"><span class="row-label">总览</span><div class="items" style="width:100%"><div class="console-fit" data-fit><div class="console" role="group" aria-label="主控台组合示例">
-          <div class="c-ring ring" style="--d:420px" data-ring data-v="68" data-max="100"><div class="disk"><div class="zone"></div><span class="beam"></span><svg class="pin"><use href="#i-nav"/></svg><span class="zlabel">北区 · 装配线</span></div></div>
+      <div class="row"><span class="row-label">总览</span><div class="items" style="width:100%"><div style="width:100%"><div class="sph-fit" data-fit style="--W:1000px;--H:640px"><div class="sph-stage" style="--W:1000px;--H:640px" role="group" aria-label="主控台组合示例">
+          <div class="topo"></div>
+          <svg class="links" data-links aria-hidden="true"></svg>
+          <div class="c-ring ring" style="--d:400px" data-ring data-v="68" data-max="100"><div class="disk"><div class="zone"></div><span class="zlabel">北区 · 装配线</span></div></div>
+          <div class="sph"><span class="gyro"></span><span class="gyro gyro--b"></span>
+            <div data-arc data-side="l"><button class="t3" type="button" style="--yaw:33deg;--pitch:-12.6deg" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>设备</button><button class="t3" type="button" style="--yaw:33deg;--pitch:-4.2deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>工单</button><button class="t3" type="button" style="--yaw:33deg;--pitch:4.2deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button" style="--yaw:33deg;--pitch:12.6deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>采购</button></div>
+            <div data-arc data-side="r"><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:-11.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></span>报表</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:-11.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg></span>排班</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:-3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>能耗<span class="badge" aria-label="有新内容"></span></button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:-3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span>成员</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>备件</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:3.9deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>编组</button><button class="t3 t3--sm" type="button" style="--yaw:-24deg;--pitch:11.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>知识库</button><button class="t3 t3--sm" type="button" style="--yaw:-34.5deg;--pitch:11.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-lore"/></svg></span>档案</button></div>
+            <button class="at" type="button" data-side="l" style="--yaw:11.5deg;--pitch:24deg"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button" data-side="r" style="--yaw:-11.5deg;--pitch:24deg">运行简报<svg class="ic" aria-hidden="true"><use href="#n-operator"/></svg></button>
+          </div>
           <div class="c-sys"><button class="sysb" type="button" aria-label="设置"><svg class="ic"><use href="#i-sliders"/></svg></button><button class="sysb" type="button" aria-label="消息，有未读"><svg class="ic"><use href="#i-mail"/></svg><span class="badge"></span></button><button class="sysb" type="button" aria-label="告警"><svg class="ic"><use href="#i-warning"/></svg></button></div>
-          <div class="c-res"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
+          <div class="c-res"><div class="rpill is-full"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充调用配额"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
           <button class="cbtn cbtn--inv c-close" type="button" aria-label="关闭主控台"><svg class="ic ic--close"><use href="#i-close"/></svg></button>
-          <div class="arc arc--l c-arcl" data-arc><button class="t3" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>设备</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>工单</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>采购</button></div>
-          <div class="gridr c-arcr" data-arc><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>报表</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg>排班</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>能耗<span class="badge"></span></button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>成员</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>备件</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>编组</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>知识库</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-lore"/></svg>档案</button></div>
           <div class="c-info"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div>
-          <div class="c-pcard"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开档案"><svg class="ic"><use href="#i-chev-r"/></svg></button></div></div>
-          <div class="atiles c-acts"><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>运行简报</button></div>
-        </div></div></div></div>
-      <p class="cap" style="margin:0">磁贴、胶囊按钮与主操作磁贴均可悬停与聚焦；在左侧弧线磁贴上按 ↑ ↓ 移动焦点。</p>
+          <div class="c-pcard"><div class="pcard pcard--sm"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div>
+        </div></div></div></div></div>
+      <p class="cap" style="margin:0">磁贴悬停时沿视线方向前移；磁贴组内按 ↑ ↓ 移动焦点。</p>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>设计尺寸 1000 × 600，按容器宽度等比缩放；中心为环形仪表与选中区域（黄色斜纹），左侧 4 个弧线磁贴，右侧 2 列 × 4 行磁贴，底部为档案卡、巡检等级与两个主操作磁贴</dd>
+    <dl class="ctl-spec"><dt>用途</dt><dd>应用首页或总览页；深色场景</dd><dt>尺寸</dt><dd>设计尺寸 1000 × 640，按容器宽度等比缩放；视点 (500, 288)，环形仪表直径 400 以视点为中心；左列 4 块 116 × 78，yaw 33°，pitch ±4.2° / ±12.6°；右侧 2 × 4 块 100 × 72，yaw −24° / −34.5°，pitch ±3.9° / ±11.7°；主操作磁贴 200 × 78，yaw ±11.5°，pitch 24°；角度 = (尺寸 + 间距 10) ÷ 600，单位弧度；左列磁贴由 3 条细线连到圆环</dd>
       <dt>Token</dt><dd><code>--y-300 --y-500 --color-badge 深色场景 token</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 依次经过系统按钮、读数胶囊、磁贴与主操作磁贴；弧线磁贴组内 <kbd class="k">↑</kbd><kbd class="k">↓</kbd> 移动</dd></dl>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 依次经过磁贴、主操作磁贴与按钮；磁贴组内 <kbd class="k">↑</kbd><kbd class="k">↓</kbd> 移动</dd></dl>
   </article>
 
   <article class="ctl" id="c-tile3">
-    <div class="ctl-head"><h3>立体入口磁贴 <small>3D tile</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="ctl-head"><h3>立体入口磁贴 <small>3D tile</small></h3><span class="prov prov--new">导航</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
     <div class="stage scene">
-      <div class="row"><span class="row-label">左弧</span><div class="items" style="gap:24px 72px"><div class="arc arc--l" data-arc><button class="t3" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>设备</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg>工单</button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>巡检<span class="badge" aria-label="有新内容"></span></button><button class="t3" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>采购</button></div><div class="gridr" data-arc><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>报表</button><button class="t3 t3--sm" type="button"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg>排班</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg>能耗</button><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>成员</button></div></div></div>
-      <div class="row"><span class="row-label">状态</span><div class="items" style="perspective:900px">
-        <div class="item"><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>默认</button><span class="cap">default</span></div>
-        <div class="item"><button class="t3 t3--sm is-hover" type="button"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>悬停</button><span class="cap">hover · 前移 22</span></div>
-        <div class="item"><button class="t3 t3--sm" type="button" aria-current="true"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>当前</button><span class="cap">current</span></div>
-        <div class="item"><button class="t3 t3--sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg>提醒<span class="badge"></span></button><span class="cap">badge</span></div>
-        <div class="item"><button class="t3 t3--sm" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg>禁用</button><span class="cap">disabled</span></div>
-      </div></div>
+      <div class="row"><span class="row-label">球面</span><div class="items" style="width:100%"><div style="width:100%"><div class="sph-fit" data-fit style="--W:900px;--H:420px"><div class="sph-stage sph-demo" style="--W:900px;--H:420px;--oy:50%" role="group" aria-label="球面布局示意">
+          <svg class="links sight" data-sight aria-hidden="true"></svg>
+          <span class="eye" style="left:450px;top:210px"></span>
+          <span class="note" style="left:462px;top:218px">视点 · 球心</span>
+          <span class="note" style="left:24px;top:16px">SPHERE D = 600 · PERSPECTIVE 700</span>
+          <span class="note" style="left:24px;top:384px">左列 yaw 30° · pitch −9.7° / 0° / +9.7°</span>
+          <span class="note" style="left:640px;top:384px">右列 yaw −20° / −31.3° · 同一 pitch</span>
+          <div class="sph">
+            <div data-arc data-side="l"><button class="t3" type="button" style="--yaw:30deg;--pitch:-9.7deg" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>设备</button><button class="t3" type="button" style="--yaw:30deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span>工单</button><button class="t3" type="button" style="--yaw:30deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span>巡检</button></div>
+            <div data-arc data-side="r"><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:-9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></span>报表</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:-9.7deg"><span class="ico"><svg class="ic icf" aria-hidden="true"><use href="#n-calendar"/></svg></span>排班</button><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>能耗</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:0deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span>成员</button><button class="t3 t3--sm" type="button" style="--yaw:-20deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg></span>备件</button><button class="t3 t3--sm" type="button" style="--yaw:-31.3deg;--pitch:9.7deg"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>编组</button></div>
+          </div>
+        </div></div></div></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items" style="gap:24px 32px"><div class="item"><button class="t3 t3--sm" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>默认</button><span class="cap">default</span></div><div class="item"><button class="t3 t3--sm is-hover" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>悬停</button><span class="cap">hover</span></div><div class="item"><button class="t3 t3--sm" type="button" aria-current="true"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>当前</button><span class="cap">current · 图标黄环</span></div><div class="item"><button class="t3 t3--sm" type="button"><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>提醒<span class="badge" aria-label="有新内容"></span></button><span class="cap">badge</span></div><div class="item"><button class="t3 t3--sm" type="button" disabled><span class="ico"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg></span>禁用</button><span class="cap">disabled</span></div></div></div>
+
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>标准 136 × 100、小号 112 × 88；浅灰渐变 #f2f2f2 → #d9d9d9，三层内描边（#b3b3b3 / #e6e6e6 / #cccccc）；图标 30 / 26，文字 15 / 14 Medium；沿弧线排列时左侧 rotateY(32°)、右侧 rotateY(-32°)，上下两端再加 ±9° 的 rotateX 并向内缩进 30；悬停时沿 Z 轴前移 22；当前项为黄色渐变；提醒为橙色菱形；过渡 0.3s</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-400 --color-badge --duration-slow</code></dd>
+    <dl class="ctl-spec"><dt>用途</dt><dd>功能入口。左列为主入口，两侧边沿圆环弯曲；右侧网格为次级入口，为圆角矩形并带背板</dd><dt>尺寸</dt><dd>标准 128 × 84、小号 108 × 80；圆角 10；主体为半透明浅灰渐变（#fafafa 90% → #cccccc 80%），1.2px 白色描边；背板为同形状的 12% 浅灰、28% 白描边，左列向左下偏移 (−6, 5)，网格向左上偏移 (−8, −8)；左列两侧边向外弯曲 7；图标 26、文字 15 Medium；当前项在图标外加 4px 黄色圆环；悬停沿视线前移 24；聚焦时描边变为 2.5px 黄色</dd>
+      <dt>Token</dt><dd><code>--y-300 --color-badge --duration-slow</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入磁贴组，<kbd class="k">↑</kbd><kbd class="k">↓</kbd> 在组内移动，<kbd class="k">Enter</kbd> 打开</dd></dl>
   </article>
 
+  <article class="ctl" id="c-atile">
+    <div class="ctl-head"><h3>弧形主操作磁贴 <small>Action tile</small></h3><span class="prov prov--new">操作</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">成组</span><div class="items" style="gap:6px"><button class="at" type="button" data-side="l"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button" data-side="r">运行简报<svg class="ic" aria-hidden="true"><use href="#n-operator"/></svg></button></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items"><div class="item"><button class="at is-hover" type="button" data-side="l"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>悬停</button><span class="cap"></span></div><div class="item"><button class="at" type="button" data-side="l" disabled><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>禁用</button><span class="cap">disabled</span></div></div></div>
+
+    </div>
+    <dl class="ctl-spec"><dt>用途</dt><dd>首页上 1–2 个最高频入口，成对使用时左右对称</dd><dt>尺寸</dt><dd>240 × 86；形状为扇形：顶边水平，外侧边斜切，底边沿圆环弯曲；主体为 30% 半透明黄与 1.4px 黄色描边，底部 16 高纯黄带与主体平行弯曲，外角有 6px 墨色方块；图标 28、文字 19 Medium，白色；悬停主体变为 48%，按下 60%；聚焦描边变白</dd>
+      <dt>Token</dt><dd><code>--y-300 --color-badge</code></dd>
+      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 聚焦，<kbd class="k">Enter</kbd> 触发</dd></dl>
+  </article>
+
   <article class="ctl" id="c-ring">
-    <div class="ctl-head"><h3>环形仪表 <small>Ring gauge</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="ctl-head"><h3>环形仪表 <small>Ring gauge</small></h3><span class="prov prov--new">读数 · 比例</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
     <div class="stage scene">
       <div class="row"><span class="row-label">变体</span><div class="items" style="gap:28px 40px">
         <div class="item"><div class="ring" style="--d:200px" data-ring data-v="135" data-max="200" role="meter" aria-valuenow="135" aria-valuemin="0" aria-valuemax="200" aria-label="能源"><div class="rd"><span>能源</span><b>135<small>/200</small></b><em>ENERGY</em></div></div><span class="cap">进行中</span></div>
@@ -1989,41 +2064,45 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><div class="ring" style="--d:120px" data-ring data-v="42" data-max="100" role="meter" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="负载"><div class="rd"><b>42<small>%</small></b></div></div><span class="cap">小号 120</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>外环 6 粗、#35373c 轨道；刻度 72 格，每 6 格一道长刻度 #858585，其余 #414348；数值弧为黄色，低于阈值转为红色 #d03c34；四个正方位有 10° 黄色短弧；数值 Novecento，字号为直径的 20%</dd>
+    <dl class="ctl-spec"><dt>用途</dt><dd>任何单一比例：容量占用、完成率、负载、合格率；低于阈值时数值弧转为红色</dd><dt>尺寸</dt><dd>外环 6 粗、#35373c 轨道；刻度 72 格，每 6 格一道长刻度 #858585，其余 #414348；数值弧为黄色，低于阈值转为红色 #d03c34；四个正方位有 10° 黄色短弧；数值 Novecento，字号为直径的 20%</dd>
       <dt>Token</dt><dd><code>--y-300 --color-error 深色场景 token --font-numeric</code></dd>
       <dt>键盘</dt><dd>不可聚焦；使用 <code>role="meter"</code> 与 <code>aria-valuenow</code></dd></dl>
   </article>
 
   <article class="ctl" id="c-rpill">
-    <div class="ctl-head"><h3>读数胶囊 <small>Readout pill</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="ctl-head"><h3>额度胶囊 <small>Quota pill</small></h3><span class="prov prov--new">读数 · 额度</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
     <div class="stage scene">
-      <div class="row"><span class="row-label">资源</span><div class="items"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">1,300</span><span class="sep"></span><button class="rplus" type="button" aria-label="获取备件额度"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill rpill--light"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">135<small>/200</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充能源"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
-      <div class="row"><span class="row-label">等级</span><div class="items"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div></div>
+      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">820<small>/1000</small></span><span class="u">GB</span><span class="sep"></span><button class="rplus" type="button" aria-label="扩容存储"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="v">18<small>/20</small></span><span class="u">席位</span><span class="sep"></span><button class="rplus" type="button" aria-label="增加席位"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill is-full"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span class="v">235<small>/235</small></span><span class="sep"></span><button class="rplus" type="button" aria-label="补充调用配额"><svg class="ic"><use href="#i-plus"/></svg></button></div><div class="rpill"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span class="v">1,300</span><span class="u">元</span><span class="sep"></span><button class="rplus" type="button" aria-label="充值预算"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
+      <div class="row"><span class="row-label">浅色</span><div class="items"><div class="rpill rpill--light"><svg class="ic" aria-hidden="true"><use href="#i-box"/></svg><span class="v">820<small>/1000</small></span><span class="u">GB</span><span class="sep"></span><button class="rplus" type="button" aria-label="扩容存储"><svg class="ic"><use href="#i-plus"/></svg></button></div></div></div>
+
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>资源胶囊高 40、全圆角，深色底 #2e2e2e 与 1px #414348 边；图标 20，数值 19 Novecento，上限 12；1px 分隔线；右侧 30 白色圆形加号，悬停变黄、加号转 90°；浅色变体为 #fafafa 底、墨色圆形按钮。等级胶囊高 44，左侧 3px 黄色竖条，数值 30 Novecento，右侧 30 白色圆形说明按钮</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-500 深色场景 token --font-numeric</code></dd>
-      <dt>键盘</dt><dd>加号与说明按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 触发</dd></dl>
+    <dl class="ctl-spec"><dt>用途</dt><dd>任何"当前值 / 上限 + 补充操作"：存储空间、席位、接口调用配额、预算余额、库存。达到上限时数值变为黄色；没有上限时省略"/ 上限"</dd><dt>尺寸</dt><dd>高 40、全圆角；半透明深灰（#48484a 72%）与 16% 白描边；图标 28 压在左端；数值 19 Novecento，上限与单位 12；1px 分隔；右侧 30 白色圆形加号，悬停变黄、加号转 90°；浅色变体为 92% 白底</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-date --font-numeric</code></dd>
+      <dt>键盘</dt><dd>加号按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开补充流程</dd></dl>
+  </article>
+
+  <article class="ctl" id="c-badge">
+    <div class="ctl-head"><h3>指标徽章 <small>Metric badge</small></h3><span class="prov prov--new">读数 · 档位</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="stage scene">
+      <div class="row"><span class="row-label">示例</span><div class="items" style="gap:12px"><div class="ipill"><span class="l">巡检等级</span><span class="v">02</span><button class="ibtn-i" type="button" aria-label="巡检等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">服务等级</span><span class="v">A</span><button class="ibtn-i" type="button" aria-label="服务等级说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">告警级别</span><span class="v">3</span><button class="ibtn-i" type="button" aria-label="告警级别说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div><div class="ipill"><span class="l">当前班次</span><span class="v">B2</span><button class="ibtn-i" type="button" aria-label="班次说明"><svg class="ic"><use href="#i-info-plain"/></svg></button></div></div></div>
+
+    </div>
+    <dl class="ctl-spec"><dt>用途</dt><dd>任何离散档位或短编号：服务等级、告警级别、版本号、班次、优先级；右侧按钮打开档位说明</dd><dt>尺寸</dt><dd>高 44、全圆角；半透明深色（#1f1f22 86%）与 14% 白描边；左侧 3px 黄色竖条；名称 14 Medium，数值 30 Novecento；说明按钮 30 白色圆形</dd>
+      <dt>Token</dt><dd><code>--y-300 --font-numeric</code></dd>
+      <dt>键盘</dt><dd>说明按钮可用 <kbd class="k">Tab</kbd> 到达，<kbd class="k">Enter</kbd> 打开说明</dd></dl>
   </article>
 
   <article class="ctl" id="c-pcard">
-    <div class="ctl-head"><h3>档案卡 <small>Profile card</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
+    <div class="ctl-head"><h3>账户卡 <small>Account card</small></h3><span class="prov prov--new">身份 · 进度</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
     <div class="stage scene">
-      <div class="row"><span class="row-label">默认</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开档案"><svg class="ic"><use href="#i-chev-r"/></svg></button></div></div></div>
-    </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>宽 440，内边距 14 / 16，底色 #1f1f22；右边与下边 2px 黄色描边；头像框 84 × 96；姓名 18 Medium，等级 42 Novecento，等阶读数 13 Novecento #fdfd1f；进度条 4 高，轨道 #414348，填充黄色；右侧 40 黄色圆形按钮，悬停变白、箭头右移 3</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-date 深色场景 token --font-numeric</code></dd>
-      <dt>键盘</dt><dd>右侧按钮 <kbd class="k">Enter</kbd> 打开档案</dd></dl>
-  </article>
+      <div class="row"><span class="row-label">标准</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
+      <div class="row"><span class="row-label">其他数据</span><div class="items"><div class="pcard"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">北区 · 装配线</span><div class="lv"><b>4</b><span>认证阶段<i>12/15 项</i></span></div><div class="bar"><i style="--v:80%"></i></div><code>SITE-0003</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
+      <div class="row"><span class="row-label">紧凑</span><div class="items"><div class="pcard pcard--sm"><span class="pic" role="img" aria-label="头像"></span><div class="who"><span class="nm">周工</span><div class="lv"><b>23</b><span>权限等阶<i>1090/1350</i></span></div><div class="bar"><i style="--v:81%"></i></div><code>ID-000302</code></div><button class="go-y" type="button" aria-label="打开账户"><svg class="ic"><use href="#i-chev-rr"/></svg></button></div></div></div>
 
-  <article class="ctl" id="c-atile">
-    <div class="ctl-head"><h3>主操作磁贴 <small>Action tile</small></h3><span class="prov prov--new">新增</span><span class="ctl-src">来源：游戏主菜单系统界面</span></div>
-    <div class="stage scene">
-      <div class="row"><span class="row-label">成组</span><div class="items" style="padding-top:12px"><div class="atiles"><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>工单计划<span class="badge"></span></button><button class="at" type="button"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>运行简报</button></div></div></div>
-      <div class="row"><span class="row-label">状态</span><div class="items" style="padding-top:12px"><div class="atiles"><button class="at is-hover" type="button"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>悬停</button><button class="at" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg>未开放</button></div></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>230 × 84，黄色底；底部 18 高斜纹带（#fffa00 / #e6de01）与 1px 墨色分隔，右下角 6px 墨色方块；图标 28、文字 19 Medium；两块成组时分别 rotateY(±12°)，整体 rotateX(26°) 平放；悬停时抬起到 10° 并前移 12，底色 #efe701；禁用为 #626262</dd>
-      <dt>Token</dt><dd><code>--y-300 --y-400 --y-500 --color-badge</code></dd>
-      <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 聚焦，<kbd class="k">Enter</kbd> 触发</dd></dl>
+    <dl class="ctl-spec"><dt>用途</dt><dd>账户、站点或团队的当前档位与到下一档的进度：权限等阶、会员档位、认证进度、积分阶段</dd><dt>尺寸</dt><dd>宽 440，圆角 14，半透明深色（#1f1f22 88%）；黄色描边只在上边右半段与右边上段，右边中部另有 4 × 40% 的黄色竖条；头像框 84 × 96，左上与右下有角标；名称 18 Medium，档位 40 Novecento，进度读数 13 Novecento #fdfd1f；进度条 3 高；右侧 60 × 38 胶囊按钮，内为黄色双箭头；紧凑版宽 300</dd>
+      <dt>Token</dt><dd><code>--y-300 --y-date --font-numeric</code></dd>
+      <dt>键盘</dt><dd>右侧按钮 <kbd class="k">Enter</kbd> 打开详情</dd></dl>
   </article>
 </section>
 </main>
@@ -2194,11 +2273,58 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     r.insertBefore(svg,r.firstChild);
   });
   document.querySelectorAll('[data-fit]').forEach(function(f){
-    function fit(){f.style.setProperty('--k',Math.min(1,f.clientWidth/1000))}
+    function fit(){var W=parseFloat(getComputedStyle(f).getPropertyValue('--W'))||1000;f.style.setProperty('--k',Math.min(1,f.clientWidth/W))}
     fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(f);else window.addEventListener('resize',fit);
   });
   document.querySelectorAll('[data-arc]').forEach(function(a){arrows(a,'.t3',['ArrowUp','ArrowLeft'],['ArrowDown','ArrowRight']);
     a.addEventListener('click',function(e){var t=e.target.closest('.t3');if(!t||t.disabled)return;a.querySelectorAll('.t3').forEach(function(x){if(x===t)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
+
+  /* 球面示意：从视点到每块磁贴中心的视线 */
+  function sight(){document.querySelectorAll('[data-sight]').forEach(function(sv){var st=sv.closest('.sph-stage'),S=st.getBoundingClientRect(),k=S.width/st.offsetWidth,
+    e=st.querySelector('.eye').getBoundingClientRect(),cx=(e.left+e.width/2-S.left)/k,cy=(e.top+e.height/2-S.top)/k,out='';
+    st.querySelectorAll('.t3').forEach(function(t){var b=t.getBoundingClientRect();out+='<line x1="'+cx.toFixed(1)+'" y1="'+cy.toFixed(1)+'" x2="'+((b.left+b.width/2-S.left)/k).toFixed(1)+'" y2="'+((b.top+b.height/2-S.top)/k).toFixed(1)+'"/>'});
+    sv.innerHTML=out})}
+  setTimeout(sight,60);
+
+  /* ---- 主控台形状：磁贴与主操作磁贴的 SVG 路径 ---- */
+  function qpt(p0,c,p1,t){var u=1-t;return [u*u*p0[0]+2*u*t*c[0]+t*t*p1[0],u*u*p0[1]+2*u*t*c[1]+t*t*p1[1]]}
+  function curve(p0,c,p1,t0,t1,n){var a=[];for(var i=0;i<=n;i++){var q=qpt(p0,c,p1,t0+(t1-t0)*i/n);a.push(q[0].toFixed(1)+' '+q[1].toFixed(1))}return a}
+  function tilePath(w,h,bend,r){
+    if(!bend){return 'M'+r+' 0H'+(w-r)+'Q'+w+' 0 '+w+' '+r+'V'+(h-r)+'Q'+w+' '+h+' '+(w-r)+' '+h+'H'+r+'Q0 '+h+' 0 '+(h-r)+'V'+r+'Q0 0 '+r+' 0Z'}
+    var c=bend,cr=Math.round(bend*0.6),xr=w-cr,t=r/h,R0=[xr,0],R1=[xr,h],RC=[xr+2*cr,h/2],L0=[c,h],L1=[c,0],LC=[-c,h/2];
+    var rs=curve(R0,RC,R1,t,1-t,10),ls=curve(L0,LC,L1,t,1-t,10),q0=qpt(R0,RC,R1,t),q1=qpt(R0,RC,R1,1-t),k0=qpt(L0,LC,L1,t),k1=qpt(L0,LC,L1,1-t);
+    return 'M'+(c+r)+' 0H'+(xr-r)+'Q'+xr+' 0 '+q0[0].toFixed(1)+' '+q0[1].toFixed(1)+'L'+rs.join('L')+'Q'+xr+' '+h+' '+(xr-r)+' '+h+'H'+(c+r)+'Q'+c+' '+h+' '+k0[0].toFixed(1)+' '+k0[1].toFixed(1)+'L'+ls.join('L')+'Q'+c+' 0 '+(c+r)+' 0Z';
+  }
+  function atPath(w,h,side){
+    var sl=w*0.2,dip=10,band=13,P=function(pts){return pts.map(function(p){return (side==='r'?(w-p[0]):p[0]).toFixed(1)+' '+p[1].toFixed(1)}).join('L')};
+    var bot=curve([w,h-dip],[w*0.55,h+dip*0.6],[sl,h-dip*2.2],0,1,14).map(function(s){var v=s.split(' ');return [+v[0],+v[1]]});
+    var body=[[10,0],[w-6,0],[w,6]].concat(bot).concat([[0,8]]);
+    var top=bot.map(function(p){return [p[0],p[1]-band]}).reverse();
+    var strip=bot.concat(top);
+    return {body:'M'+P(body)+'Z',strip:'M'+P(strip)+'Z',mark:(side==='r'?12:(w-18))+','+(h-dip-band-12)};
+  }
+  function shapes(){
+    document.querySelectorAll('.t3').forEach(function(t){
+      var w=t.offsetWidth,h=t.offsetHeight,grp=t.closest('[data-side]'),side=grp?grp.dataset.side:'',bend=side==='l'?7:0,off=side==='l'?[-6,5]:[-8,-8];
+      var sv=t.querySelector(':scope > .shape');if(!sv){sv=document.createElementNS(NS,'svg');sv.setAttribute('class','shape');sv.setAttribute('aria-hidden','true');t.insertBefore(sv,t.firstChild)}
+      sv.setAttribute('viewBox','0 0 '+w+' '+h);var d=tilePath(w,h,bend,10);
+      sv.innerHTML='<path class="bp" transform="translate('+off[0]+' '+off[1]+')" d="'+d+'"/><path class="fr" d="'+d+'"/>';
+    });
+    document.querySelectorAll('.at').forEach(function(t){
+      var w=t.offsetWidth,h=t.offsetHeight,g=atPath(w,h,t.dataset.side||'l');
+      var sv=t.querySelector(':scope > .shape');if(!sv){sv=document.createElementNS(NS,'svg');sv.setAttribute('class','shape');sv.setAttribute('aria-hidden','true');t.insertBefore(sv,t.firstChild)}
+      sv.setAttribute('viewBox','0 0 '+w+' '+h);var m=g.mark.split(',');
+      sv.innerHTML='<path class="body" d="'+g.body+'"/><path class="strip" d="'+g.strip+'"/><rect class="mark" x="'+m[0]+'" y="'+m[1]+'" width="6" height="6"/>';
+    });
+  }
+  shapes();
+  function links(){document.querySelectorAll('[data-links]').forEach(function(sv){
+    var st=sv.closest('.sph-stage'),S=st.getBoundingClientRect(),k=S.width/st.offsetWidth,ring=st.querySelector('.c-ring'),R=ring.getBoundingClientRect();
+    var cx=(R.left+R.width/2-S.left)/k,cy=(R.top+R.height/2-S.top)/k,r=R.width/2/k-4,out='';
+    st.querySelectorAll('[data-side="l"] .t3').forEach(function(t){var b=t.getBoundingClientRect(),x=(b.right-S.left)/k-8,y=(b.top+b.height/2-S.top)/k;
+      [-5,0,5].forEach(function(o){var yy=y+o,dy=yy-cy;if(Math.abs(dy)>=r)return;var x2=cx-Math.sqrt(r*r-dy*dy);out+='<line x1="'+x.toFixed(1)+'" y1="'+yy.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+yy.toFixed(1)+'"/>'})});
+    sv.innerHTML=out})}
+  setTimeout(links,60);
   /* ---- 表格排序 ---- */
   var tb=dt.tBodies[0];
   dt.querySelectorAll('th .sort').forEach(function(b){b.addEventListener('click',function(){
@@ -2211,7 +2337,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   })});
 
   /* ---- HTML 结构 ---- */
-  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-tile3':'.t3','c-ring':'.ring','c-rpill':'.rpill','c-pcard':'.pcard','c-atile':'.at'};
+  var SNIP={'c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-tile3':'.t3','c-ring':'.ring','c-rpill':'.rpill','c-badge':'.ipill','c-pcard':'.pcard','c-atile':'.at'};
   function fmt(html){
     var tk=html.replace(/>\s+</g,'><').split(/(<[^>]+>)/).filter(function(t){return t.trim()}),m=[];
     for(var i=0;i<tk.length;i++){
