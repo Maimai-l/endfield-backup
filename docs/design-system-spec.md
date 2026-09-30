@@ -175,8 +175,8 @@ Sep 30, 2026 · @MM
 | 多行文本框 | 固定行数；自适应高度（最少 3 行，最多 10 行，超出后滚动） | 最小高 80；内边距 8 / 12；字号 14；行高 1.6；右下角字数计数 12px | 默认、悬停、焦点、禁用、只读、错误 | 同单行文本框 |
 | 下拉选择 | 单选；多选（已选值以标签形式显示在触发器内）；可搜索；触发器沿用源站 DropdownTrigger 的右侧三角图标 | 触发器同单行文本框三档；菜单项高 32（md）/ 40（lg）；菜单最大高 320，超出滚动；菜单宽度不小于触发器；菜单与触发器间距 4 | 触发器：默认、悬停、焦点、展开、禁用、错误、加载；菜单项：悬停、选中（`--color-bg-selected` + 右侧对勾）、禁用 | `--color-bg-raised`、`--shadow-lg`、`--radius-sm`（触发器）、`--radius-md`（菜单）、`--color-bg-selected`、`--color-state-hover`、`--color-border-subtle`、`--color-accent-fg`（对勾） |
 | 复选框 | 未选；选中；部分选中 | 方框 16（sm / md）/ 20（lg）；圆角 2；可点击区域不小于 24 × 24；与标签间距 8 | 默认、悬停、焦点、选中、禁用、错误 | `--color-border-control`、`--color-checked`、`--color-on-checked`、`--color-bg-page`、`--color-error-fg`、`--radius-sm` |
-| 单选框 | 未选；选中 | 圆形 16 / 20；选中时 `--color-checked` 填充，中心 6 / 8 圆点为 `--color-on-checked`；可点击区域不小于 24 × 24 | 默认、悬停、焦点、选中、禁用、错误 | `--color-border-control`、`--color-checked`、`--color-on-checked`、`--radius-full` |
-| 开关 | 关；开；标签位于右侧 | 轨道 32 × 18（sm / md）/ 40 × 22（lg）；滑块 14 / 18，距轨道边缘 2；轨道圆角 2，滑块圆角 1（近直角） | 默认、悬停、焦点、选中（开）、禁用、加载（滑块内显示指示器） | 关：`--color-border-control`（轨道）+ `--color-bg-page`（滑块）；开：`--color-checked`（轨道）+ `--color-on-checked`（滑块）；`--radius-sm`、`--duration-base` |
+| 单选框 | 未选；选中 | 菱形，外接 18 / 22；选中时 `--color-checked` 填充，中心 5 / 6 菱形为 `--color-on-checked`；可点击区域不小于 24 × 24 | 默认、悬停、焦点、选中、禁用、错误 | `--color-border-control`、`--color-checked`、`--color-on-checked` |
+| 开关 | 关；开；标签位于右侧 | 轨道 32 × 18（sm / md）/ 40 × 22（lg）；滑块为 14 / 18 菱形，距轨道边缘 2，切换时滑动并旋转 180°；轨道圆角 2 | 默认、悬停、焦点、选中（开）、禁用、加载（滑块内显示指示器） | 关：`--color-border-control`（轨道）+ `--color-bg-page`（滑块）；开：`--color-checked`（轨道）+ `--color-on-checked`（滑块）；`--radius-sm`、`--duration-base` |
 
 ### 反馈与提示
 
@@ -186,7 +186,7 @@ Sep 30, 2026 · @MM
 | 页面内提示条 | 信息；成功；警告；错误；可关闭 / 不可关闭；可附操作链接 | 宽度跟随容器；内边距 12 / 16；图标 16；标题 14 SansMedium，正文 13；左侧 3px 功能色条 + 1px 功能色边框 | 默认；关闭按钮的悬停、焦点 | `--color-{type}-bg`、`--color-{type}-border`、`--color-{type}-fg`、`--color-text-primary`、`--radius-sm` |
 | 对话框 | 确认（宽 400）；表单（宽 560）；详情（宽 800）；危险确认（标题栏使用 45° 警示条纹） | 标题栏高 56，标题 18 SansMedium；内容区内边距 24；底部操作区高 64，按钮右对齐，主要操作位于最右；距视口边缘不小于 16；最大高度为视口高度减 64，内容区滚动 | 打开（遮罩淡入 + 面板上移 8px，200ms）；关闭（Esc、关闭按钮；表单对话框不响应遮罩点击）；打开期间焦点锁定在对话框内，关闭后焦点返回触发元素 | `--color-bg-raised`、`--color-bg-overlay`、`--color-border-subtle`、`--shadow-lg`、`--radius-md`、`--stripe-black`、`--duration-base` |
 | 悬浮说明 | 纯文字；带快捷键提示（快捷键使用 `--font-tech`） | 最大宽 240；内边距 6 / 8；字号 12；与目标间距 6；不带箭头 | 显示（指针悬停 500ms 后，或键盘焦点进入时立即显示）；隐藏（离开 100ms 后，或按 Esc） | `--color-bg-emphasis`、`--color-text-on-emphasis`、`--radius-sm`、`--font-tech` |
-| 加载指示器 | 旋转环（未知时长的局部操作）；骨架屏（内容区首次加载） | 旋转环 16 / 20 / 32，线宽 2；骨架块圆角 2，高度与所替代的文字行高一致 | 进行中；300ms 后才显示；骨架屏以 1.2s 周期做明暗交替 | 旋转环：`currentColor`（弧）+ `--color-border-subtle`（轨道）；骨架屏：`--color-bg-muted` |
+| 加载指示器 | 旋转菱形（未知时长的局部操作）；骨架屏（内容区首次加载） | 旋转菱形外接 16 / 20 / 32，线宽 2 / 2 / 3，1 秒一周；骨架块圆角 2，高度与所替代的文字行高一致 | 进行中；300ms 后才显示；骨架屏以 1.2s 周期做明暗交替 | 旋转菱形：`currentColor`（边）+ `--color-border-subtle`（轨道）；骨架屏：`--color-bg-muted` |
 | 进度条 | 确定进度；不确定进度（45° 条纹沿水平方向匀速平移） | 高 4（细）/ 8（标准）；圆角 1；标准尺寸可在右侧显示百分比，字号 12，使用 `--font-numeric` | 进行中；完成（填充变为 `--color-success-fg`）；失败（填充变为 `--color-error-fg`，下方显示原因）；暂停 | `--color-bg-muted`（轨道）、`--color-checked`（填充）、`--stripe-black`、`--color-success-fg`、`--color-error-fg`、`--font-numeric` |
 
 ### 导航
@@ -202,9 +202,9 @@ Sep 30, 2026 · @MM
 
 | 控件 | 变体 | 尺寸 | 状态 | 引用的 token |
 | --- | --- | --- | --- | --- |
-| 卡片 | 静态；可交互（整卡可点击）；可选中（多选场景） | 内边距 16 / 24；圆角 4；标题 16 SansMedium；不使用阴影，以 1px 边框区分层级 | 默认、悬停（可交互卡片边框变为 `--color-border-strong`）、焦点、选中（2px `--color-checked` 边框 + 右上角勾选标记）、禁用 | `--color-bg-surface`、`--color-border-subtle`、`--color-border-strong`、`--color-checked`、`--color-on-checked`、`--radius-md` |
+| 卡片 | 静态；可交互（整卡可点击）；可选中（多选场景） | 内边距 16 / 24；圆角 4；标题 16 SansMedium；不使用阴影，以 1px 边框区分层级 | 默认、悬停（可交互卡片边框变为 `--color-border-strong`，显示左上、右下角括号）、焦点、选中（`--color-checked` 边框 + `--color-bg-selected` 底 + 角括号 + 菱形标记）、禁用 | `--color-bg-surface`、`--color-border-subtle`、`--color-border-strong`、`--color-checked`、`--color-on-checked`、`--radius-md` |
 | 标签 | 中性；强调（品牌黄底墨字）；成功；警告；错误；信息；可移除 | 高 20（sm）/ 24（md）；水平内边距 6 / 8；字号 12 / 13；圆角 2；可移除时右侧关闭图标 12 | 默认；可移除标签的关闭按钮悬停、焦点 | `--color-bg-muted`、`--color-text-primary`、`--color-accent`、`--color-text-on-accent`、`--color-{type}-bg`、`--color-{type}-fg`、`--color-{type}-border`、`--radius-sm` |
-| 头像 | 图片；文字（取名称首字）；占位图标；可附在线状态点 | 24 / 32 / 40 / 64；圆形；文字字号为直径的 40%；状态点 8，带 2px 页面底色描边 | 默认；可点击时悬停（外圈 2px `--color-border-strong`）、焦点 | `--radius-full`、`--color-bg-muted`、`--color-text-secondary`、`--color-success-fg`、`--color-bg-page` |
+| 头像 | 图片；文字（取名称首字）；占位图标；可附在线状态点 | 24 / 32 / 40 / 64；圆形；文字字号为直径的 40%；状态点为 8px 菱形，外围 2px 页面底色 | 默认；可点击时悬停（外圈 2px `--color-border-strong`）、焦点 | `--radius-full`、`--color-bg-muted`、`--color-text-secondary`、`--color-success-fg`、`--color-bg-page` |
 | 列表 | 单行；双行（主文 14 + 辅文 13）；带前置图标或头像；带后置操作 | 行高 32（紧凑）/ 40（单行）/ 56（双行）；水平内边距 12 / 16；行间 1px 分隔线可选 | 默认、悬停、按下、焦点、选中（`--color-bg-selected` + 左侧 3px `--color-checked` 竖条）、禁用 | `--color-state-hover`、`--color-state-pressed`、`--color-bg-selected`、`--color-checked`、`--color-border-subtle`、`--color-text-secondary` |
 | 表格 | 标准；紧凑；固定表头；可排序列；行选择（首列复选框）；可展开行 | 表头高 40，字号 13 SansMedium，`--color-text-secondary`；数据行 48（标准）/ 36（紧凑）；单元格水平内边距 16 / 12；数字列右对齐并使用 `font-variant-numeric: tabular-nums` | 行：默认、悬停、选中、禁用；表头：可排序列悬停、排序中（显示升序或降序箭头）；整表：加载（骨架行）、空（显示空状态） | `--color-bg-surface`（表头）、`--color-border-subtle`、`--color-state-hover`、`--color-bg-selected`、`--color-checked`、`--color-text-primary`、`--color-text-secondary` |
 | 分隔线 | 水平；垂直；带文字（居中标签，12px `--color-text-tertiary`） | 1px；内容内上下间距 16，区块之间 24 | 无 | `--color-border-subtle`、`--color-text-tertiary` |
@@ -219,12 +219,38 @@ Sep 30, 2026 · @MM
 | `--radius-sm` | 2px | 按钮、输入框、复选框、标签、轻提示 |
 | `--radius-hover` | 6px | 仅按钮悬停 |
 | `--radius-md` | 4px | 卡片、对话框、菜单 |
-| `--radius-full` | 9999px | 头像、单选框、圆形图标按钮 |
+| `--radius-full` | 9999px | 头像、圆形图标按钮 |
 | `--shadow-sm` | `drop-shadow(0 0 2px rgba(0,0,0,.25))` | 按钮（源站 `--shadow-btn`） |
 | `--shadow-lg` | `0 0 6px rgba(0,0,0,.4)` | 菜单、对话框、轻提示（源站 `--shadow-pop`） |
-| `--duration-base` / `--duration-slow` | 200ms / 300ms，缓动 `ease` | 状态过渡 / 面板展开与收起 |
+| `--duration-fast` / `--duration-base` / `--duration-slow` | 150ms / 200ms / 300ms | 悬浮说明 / 状态过渡 / 面板展开与开关滑块 |
+| `--ease-standard` | `cubic-bezier(.45,0,.55,1)` | 位移与旋转；颜色过渡使用 `ease` |
+| `--z-dropdown` / `--z-sticky` / `--z-overlay` / `--z-modal` / `--z-toast` / `--z-tooltip` | 100 / 200 / 1500 / 2000 / 3000 / 4000 | 层级 |
 | `--font-body` / `--font-medium` | SansRegular / SansMedium | 界面文字 |
 | `--font-numeric` | Novecentosanswide-Medium | 页码、进度百分比、读数 |
 | `--font-tech` | SpaceGrotesk | ID、快捷键、代码类文本 |
 | `--stripe-black` | 45° 条纹（`tokens/motifs.css`） | 危险确认标题栏、不确定进度 |
 | `--tex-points` | 点阵纹理 | 空状态背景 |
+
+## 附：参考 ReEnd-Components 的调整
+
+参考 [VBeatDead/ReEnd-Components](https://github.com/VBeatDead/ReEnd-Components)（按终末地游戏界面制作的 React 组件库）后做出的调整。数值仍以源站为准。
+
+**采纳**
+
+- 菱形标记：单选框、开关滑块、状态点、步骤条与时间线节点统一使用菱形；复选框保留对勾，以便与单选框区分。
+- 加载指示器改为旋转菱形。
+- 可交互卡片在悬停与选中时显示左上、右下角括号。
+- 补全字体、字号、间距、动效、层级与图标 token。
+- 扩展控件 6 项：数字输入、步骤条、折叠面板、操作菜单、文件上传、时间线（规格见 `showcase.html`）。
+- 每个控件列出键盘操作。
+
+**未采纳**
+
+| 做法 | 原因 |
+| --- | --- |
+| 切角按钮（clip-corner） | clip-path 会裁掉焦点环与阴影，并与源站按钮 2px → 6px 的圆角悬停冲突 |
+| 禁用态整体透明度 40% | 文字对比度随所在背景变化，无法保证 |
+| 浅色模式主色改为 hsl(42 90% 42%) 配白字 | 失去品牌黄；本规范保持黄色填充配墨色文字 |
+| 悬停上移 1px 与黄色外发光 | 源站只使用环境阴影，状态变化不产生位移 |
+| 界面文字全部使用 Orbitron 大写 | Orbitron 不含中文字形 |
+| GlitchText、DataStream 等装饰组件 | 不属于功能控件 |
