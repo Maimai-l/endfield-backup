@@ -2,7 +2,7 @@
 
 Sep 30, 2026 · @MM
 
-本规范以现有 token（`tokens/colors.css`、`tokens/motifs.css`）和源站控件 CSS（`css/controls.css`）为取值来源，按功能性 Web App 的需要重新组织。源站没有的部分（表单控件、表格、功能色、深色模式语义层）在此补齐。所有对比度数值按 WCAG 2.x 相对亮度公式计算。
+可视化展示见仓库根目录 `showcase.html`。本规范以现有 token（`tokens/colors.css`、`tokens/motifs.css`）和源站控件 CSS（`css/controls.css`）为取值来源，按功能性 Web App 的需要重新组织。源站没有的部分（表单控件、表格、功能色、深色模式语义层）在此补齐。所有对比度数值按 WCAG 2.x 相对亮度公式计算。
 
 **三条全局规则**
 
@@ -107,6 +107,10 @@ Sep 30, 2026 · @MM
 | `--color-primary-hover` | `#484848` | `#ffffff` | 主要按钮悬停 |
 | `--color-primary-active` | `#282828` | `#d9d9d9` | 主要按钮按下 |
 | `--color-on-primary` | `#ffffff` | `#131315` | 主要按钮文字 |
+| `--color-primary-tick` | `#fffa00` | `#191919` | 主要按钮左侧竖条 |
+| `--color-tick-muted` | `#858585` | `#74767c` | 次要按钮左侧竖条 |
+| `--color-danger` / `-hover` / `-active` | `#c8102e` / `#a80d26` / `#8f0b20` | `#ff6b81` / `#ff8597` / `#f2566e` | 危险按钮底色 |
+| `--color-on-danger` | `#ffffff` | `#131315` | 危险按钮文字 |
 | `--color-checked` | `#191919` | `#fffa00` | 复选框与单选框选中底色、开关开启轨道、标签页指示条、进度条填充、当前页码底色、选中行左侧竖条 |
 | `--color-on-checked` | `#fffa00` | `#191919` | 勾选标记、开关滑块、当前页码数字 |
 | `--color-{success,warning,error,info}-fg` / `-border` / `-bg` | 见功能色表 | 见功能色表 | 功能色 |
@@ -172,7 +176,7 @@ Sep 30, 2026 · @MM
 | 下拉选择 | 单选；多选（已选值以标签形式显示在触发器内）；可搜索；触发器沿用源站 DropdownTrigger 的右侧三角图标 | 触发器同单行文本框三档；菜单项高 32（md）/ 40（lg）；菜单最大高 320，超出滚动；菜单宽度不小于触发器；菜单与触发器间距 4 | 触发器：默认、悬停、焦点、展开、禁用、错误、加载；菜单项：悬停、选中（`--color-bg-selected` + 右侧对勾）、禁用 | `--color-bg-raised`、`--shadow-lg`、`--radius-sm`（触发器）、`--radius-md`（菜单）、`--color-bg-selected`、`--color-state-hover`、`--color-border-subtle`、`--color-accent-fg`（对勾） |
 | 复选框 | 未选；选中；部分选中 | 方框 16（sm / md）/ 20（lg）；圆角 2；可点击区域不小于 24 × 24；与标签间距 8 | 默认、悬停、焦点、选中、禁用、错误 | `--color-border-control`、`--color-checked`、`--color-on-checked`、`--color-bg-page`、`--color-error-fg`、`--radius-sm` |
 | 单选框 | 未选；选中 | 圆形 16 / 20；选中时 `--color-checked` 填充，中心 6 / 8 圆点为 `--color-on-checked`；可点击区域不小于 24 × 24 | 默认、悬停、焦点、选中、禁用、错误 | `--color-border-control`、`--color-checked`、`--color-on-checked`、`--radius-full` |
-| 开关 | 关；开；标签位于右侧 | 轨道 32 × 18（sm / md）/ 40 × 22（lg）；滑块 14 / 18，距轨道边缘 2；全圆角 | 默认、悬停、焦点、选中（开）、禁用、加载（滑块内显示指示器） | 关：`--color-border-control`（轨道）+ `--color-bg-page`（滑块）；开：`--color-checked`（轨道）+ `--color-on-checked`（滑块）；`--radius-full`、`--duration-base` |
+| 开关 | 关；开；标签位于右侧 | 轨道 32 × 18（sm / md）/ 40 × 22（lg）；滑块 14 / 18，距轨道边缘 2；轨道圆角 2，滑块圆角 1（近直角） | 默认、悬停、焦点、选中（开）、禁用、加载（滑块内显示指示器） | 关：`--color-border-control`（轨道）+ `--color-bg-page`（滑块）；开：`--color-checked`（轨道）+ `--color-on-checked`（滑块）；`--radius-sm`、`--duration-base` |
 
 ### 反馈与提示
 
@@ -215,7 +219,7 @@ Sep 30, 2026 · @MM
 | `--radius-sm` | 2px | 按钮、输入框、复选框、标签、轻提示 |
 | `--radius-hover` | 6px | 仅按钮悬停 |
 | `--radius-md` | 4px | 卡片、对话框、菜单 |
-| `--radius-full` | 9999px | 开关、头像、单选框、圆形图标按钮 |
+| `--radius-full` | 9999px | 头像、单选框、圆形图标按钮 |
 | `--shadow-sm` | `drop-shadow(0 0 2px rgba(0,0,0,.25))` | 按钮（源站 `--shadow-btn`） |
 | `--shadow-lg` | `0 0 6px rgba(0,0,0,.4)` | 菜单、对话框、轻提示（源站 `--shadow-pop`） |
 | `--duration-base` / `--duration-slow` | 200ms / 300ms，缓动 `ease` | 状态过渡 / 面板展开与收起 |
