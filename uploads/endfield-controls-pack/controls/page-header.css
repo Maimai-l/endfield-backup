@@ -1,0 +1,15 @@
+/* 子页头 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.SubpageHeader_subpageHeader{position:relative;height:31.625rem;width:100%;border-bottom:1rem solid #c6c6c6;box-sizing:border-box;background-image:linear-gradient(180deg,white 15.5625rem,#fffa00 0,#fffa00)}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader{position:absolute;left:calc(50% - 80rem + 3.75rem + 20.4375rem);top:13.5625rem}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_icon{position:absolute;left:0;top:0;width:4.375rem;height:4.375rem;background-color:#191919;display:flex;align-items:center;justify-content:center;color:#fffa00}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_colonSvg{position:absolute;left:4.75rem;top:2.9375rem;width:auto;height:.875rem;color:#191919}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_efSvg{position:absolute;left:6.125rem;top:2.4375rem;width:10.125rem;height:auto}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:before{content:"ARKNIGHTS:";position:absolute;left:6.125rem;top:1.3125rem;font-size:1.5rem;font-family:Gilroy-Medium;transform:scale(.5);transform-origin:left top;line-height:1}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:after{content:"ARKNIGHTS: ENDFIELD";position:absolute;left:19rem;top:2.4375rem;font-size:1rem;font-family:Gilroy-Light;transform:scale(.8);transform-origin:left top;line-height:1;white-space:nowrap}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_titleEn{position:absolute;left:19rem;top:3.25rem;font-size:1.25rem;font-family:Gilroy-Medium;background-color:#fffa00;transform:scale(.8);transform-origin:left top;line-height:1;text-transform:uppercase}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_decoSvg{position:absolute;top:13rem;left:0;width:7rem;height:auto;color:#282828}
+.SubpageHeader_subpageHeader .SubpageHeader_title{content:"";position:absolute;left:calc(50% - 80rem + 3.75rem + 20.4375rem);top:19.0625rem;width:95.75rem;height:5.125rem;box-sizing:border-box;padding-top:.05em;padding-left:.625rem;font-family:SansBold;font-size:4.5rem;line-height:5.125rem;color:#191919;background-color:#fff}
+.SubpageHeader_subpageHeader .SubpageHeader_title .SubpageHeader_colonSvg{position:relative;left:.5rem;top:.25rem;width:auto;height:1.75rem}
+.SubpageHeader_subpageHeader .SubpageHeader_image{position:absolute;bottom:0;background-position:50%;background-repeat:no-repeat;background-size:contain;background-position:bottom}
+.SubpageHeader_subpageHeader .SubpageHeader_image.SubpageHeader_pumper{background-image:url(../assets/textures/subpage-title-pumper.png);width:28rem;height:26.875rem;left:calc(50% - 80rem + 3.75rem + 20.4375rem + 86rem)}
+.SubpageHeader_subpageHeader .SubpageHeader_image.SubpageHeader_bolt{background-image:url(../assets/textures/subpage-title-bolt.png);width:36.6875rem;height:27.5rem;left:calc(50% - 80rem + 3.75rem + 20.4375rem + 78rem)}

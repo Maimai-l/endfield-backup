@@ -1,0 +1,5 @@
+/* 标签 + 日期 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navInfo .__04-Information_tag{margin:0 .75rem;color:#fdfd1f}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate{font-size:1.5rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate .__04-Information_tag{display:inline-block;padding:2px .5em;background-color:#38383a;color:#fff;border-radius:2px;margin-right:2rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate .__04-Information_date{color:#fdfd1f;font-family:SansRegular}

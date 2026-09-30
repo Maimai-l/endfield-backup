@@ -1,0 +1,30 @@
+/* 导航项（侧栏） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.Header_pcHeaderContainer{position:relative;height:100vh;width:7.5rem;z-index:50;color:#191919;background-color:#fff}
+.Header_pcHeaderContainer:before{content:"";position:absolute;top:0;right:0;width:calc(100% + 16rem);height:100%;background-color:#fff;box-shadow:0 0 1rem rgba(0,0,0,.1);transition:transform .3s}
+.Header_pcHeaderContainer.Header_detailActive:before{transform:translate3d(15rem,0,0)}
+.Header_pcHeaderContainer.Header_detailActive .Header_overlay{width:calc(100% + 13.5rem)}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem{width:22.5rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem .Header_textWrapper{opacity:1;transform:translate3d(0,-50%,0)}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem:not(.Header_active):hover:before{opacity:1}
+.Header_pcHeaderContainer.Header_detailActive .Header_shareListDetailActive{opacity:1;pointer-events:auto}
+.Header_pcHeaderContainer .Header_navItem{position:absolute;top:0;left:0;width:100%;height:4.5rem;cursor:pointer;transition:transform .3s,width .3s}
+.Header_pcHeaderContainer .Header_navItem:hover .Header_icon{color:#858585}
+.Header_pcHeaderContainer .Header_navItem.Header_active .Header_icon{color:#191919!important}
+.Header_pcHeaderContainer .Header_navItem:before{content:"";position:absolute;left:1.5rem;width:19.5rem;height:100%;background-color:#e5e5e5;opacity:0;border-radius:.25rem;transition:opacity .2s;pointer-events:none}
+.Header_pcHeaderContainer .Header_navItem .Header_icon{position:absolute;left:3.75rem;top:2.25rem;transform:translate3d(-50%,-50%,0);height:auto;color:#d9d9d9;transition:color .2s,transform .3s;font-size:1.5rem;white-space:nowrap}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=home]{width:2.5rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=operator]{width:2.75rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=lore]{width:2.625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=information]{width:2.6875rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=gameplay]{width:2.5625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=notice]{width:2.75rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=aicGameplay]{width:2.5625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=milestone]{width:3rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=calendar]{width:2.625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_textWrapper{position:absolute;width:13.25rem;left:6.9375rem;top:2.25rem;pointer-events:none;font-family:SansMedium;font-size:1.125rem;line-height:1.25;opacity:0;transform:translate3d(-1rem,-50%,0);transition:opacity .2s,transform .3s;color:#191919}
+.Header_pcHeaderContainer .Header_navItem .Header_textWrapper.Header_small{font-size:1rem;line-height:1.25;letter-spacing:-.02em}
+.Header_pcHeaderContainer .Header_overlay{position:absolute;top:0;left:0;box-sizing:border-box;width:calc(100% - 1rem);height:5rem;border-left:.75rem solid #191919;background-color:#e6e6e6;opacity:1;transition:transform .3s,height .3s,width .3s;pointer-events:none}
+.Header_pcHeaderContainer .Header_overlay.Header_active{transform:translateY(100%)}
+.Header_pcHeaderContainer .Header_shareListDetailActive{position:absolute;left:1.5rem;bottom:5.5625rem;width:19.5rem;height:2.75rem;border-radius:4px;transition:opacity .2s;padding:0 1.25rem;box-sizing:border-box;opacity:0;pointer-events:none;display:flex;align-items:center;gap:1.25rem;justify-content:center}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem{width:auto;max-width:1.75rem;height:1.75rem;color:#b3b3b3;transition:color .2s;cursor:pointer;flex-shrink:0}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem:hover{color:#191919}

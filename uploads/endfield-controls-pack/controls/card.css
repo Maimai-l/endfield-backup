@@ -1,0 +1,7 @@
+/* 卡片（公告） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_textWrapper .__06-Notice_latest{position:relative;font-size:2.25rem;line-height:1;font-family:SansBold;color:#2e2e2e}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem{position:relative;width:55rem;height:30.9375rem;border-radius:.5rem;overflow:hidden;box-shadow:0 0 .5rem rgba(0,0,0,.25);transform:scale(.818);transition:transform .4s ease-in-out;cursor:pointer}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem.__06-Notice_active{transform:scale(1)}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem.__06-Notice_active:after{opacity:0}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem:after{content:"";position:absolute;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.5);opacity:1;transition:opacity .4s ease-in-out}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem .__06-Notice_image{position:absolute;width:100%;height:100%;top:0;left:0;background-image:url();background-position:50%;background-repeat:no-repeat;background-size:cover}

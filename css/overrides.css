@@ -1,0 +1,58 @@
+/* Neutralizes the source site's page-absolute positioning so controls can be composed freely.
+   Wrap any control markup in an element with class "ef-scope". Values = source rem × 8. */
+.ef-scope [class*="sectionContainer"],.ef-scope [class*="Lore_container"],.ef-scope [class*="pcContainer"],.ef-scope [class*="Media_mediaModal"],.ef-scope [class*="ReserveModal_reserveModal"],.ef-scope [class*="modalContainer"],.ef-scope [class*="contentContainer"],.ef-scope [class*="Lore_navigation"],.ef-scope [class*="Information_buttons"],.ef-scope [class*="tagAndDate"],.ef-scope [class*="Operator_headerDeco"],.ef-scope [class*="Operator_tagContainer"],.ef-scope [class*="Operator_listButton"],.ef-scope [class*="Lore_navigator"],.ef-scope [class*="Lore_naviDots"],.ef-scope [class*="Operator_switchLayer"],.ef-scope [class*="Gameplay_decoLeft"]{position:static!important;width:auto!important;height:auto!important;min-height:0!important;background:none!important;padding:0!important;margin:0!important;transform:none!important;opacity:1!important;overflow:visible!important;box-shadow:none!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;-webkit-mask:none!important;mask:none!important}
+.ef-scope [class*="Lore_navigator"]{width:309px!important;height:45px!important;position:relative!important;background:#131315!important}
+.ef-scope [class*="Lore_navigation"]{width:309px!important}
+.ef-scope [class*="Information_buttons"]{display:flex!important;gap:8px}
+.ef-scope [class*="Information_infoCurrent"],.ef-scope [class*="Information_infoVideos"],.ef-scope [class*="Information_navContainer"],.ef-scope [class*="Lore_info"]{position:static!important;width:auto!important;height:auto!important;transform:none!important;left:auto!important;bottom:auto!important;right:auto!important;top:auto!important;opacity:1!important}
+.ef-scope .__04-Information_navContainer{display:flex!important;gap:16px}
+.ef-scope [class*="Operator_listButton"]{width:max-content!important;background-color:#383838!important;padding:0 10px 0 28px!important;position:relative!important}
+.ef-scope [class*="Operator_headerDeco"]{width:155px!important;background:#d9d9d9!important;padding:.5px 2px!important;display:flex;justify-content:space-between}
+.ef-scope .__02-Operator_tagContainer{display:flex;gap:8px}.ef-scope .__02-Operator_tag{display:flex;gap:4px}
+.ef-scope .SectionTitle_titleEn,.ef-scope .SectionTitle_titleCn{opacity:1!important}.ef-scope .SectionTitle_inner{transform:none!important}.ef-scope .SectionTitle_arrow{transform:none!important;width:11.5px;height:11.5px}.ef-scope .SectionTitle_arrow svg{width:100%;height:100%}
+.ef-scope .SectionTitle_sectionTitle{width:240px;height:48px;position:relative}
+.ef-scope svg{width:100%;height:100%;display:block}
+.ef-scope .Header_icon{width:21px}
+.ef-scope .Pagination_arrow svg,.ef-scope .__02-Operator_arrow svg{width:100%;height:100%}
+.ef-scope .HomeButton_iconImage{display:block;width:18px}.ef-scope .Media_closeIcon{display:block;width:24px;height:24px}
+.ef-scope .ReserveModal_switch{margin-left:0!important}.ef-scope .ReserveModal_currentAccount{position:static!important;display:flex!important;color:#191919}
+.ef-scope .downloader_platforms{position:static!important;transform:none!important}
+.ef-scope .__06-Notice_noticeItem{position:relative!important;transform:scale(.818)}.ef-scope .__06-Notice_noticeItem.__06-Notice_active{transform:none}
+.ef-scope .__06-Notice_titleContainer{display:block!important;position:relative!important;width:100%!important;top:auto!important;margin-left:0!important}
+.ef-scope .__06-Notice_titleContainer *{position:static!important;transform:none!important;opacity:1!important}
+.ef-scope .__06-Notice_subtitle{display:flex;gap:14px}.ef-scope .__06-Notice_title{margin-top:10px}
+.ef-scope .__06-Notice_titleContainer:after{width:100%!important}
+.ef-scope .__02-Operator_switcher3d{position:relative!important;left:0!important;top:0!important}
+.ef-scope .__02-Operator_sectionDivider{position:relative!important;transform:none!important}
+.ef-scope .Toast_toast{position:relative!important;height:auto!important;width:max-content!important;opacity:1!important}
+.ef-scope .Toast_toast .Toast_content{position:relative!important;left:auto!important;top:auto!important;transform:none!important}
+.ef-scope .__04-Information_tagAndDate{display:flex!important;align-items:center}
+.ef-scope .__02-Operator_listButton .__02-Operator_icon{position:absolute;left:6px;width:16.5px;height:16.5px}
+.ef-scope .__05-Gameplay_decoLeft *{position:static!important;transform:none!important;opacity:1!important}.ef-scope .__05-Gameplay_decoLeft{display:flex;flex-direction:column;gap:8px;width:96px}
+.ef-scope .__05-Gameplay_decoLeft:after{display:none}
+.ef-scope .__05-Gameplay_itemIcon{position:static!important;opacity:1!important;width:74px;height:74px;background:#d9d9d9;display:flex;align-items:center;justify-content:center;color:#a6a6a6}.ef-scope .__05-Gameplay_itemIcon .__05-Gameplay_icon{width:45.5px;height:auto}.ef-scope .__05-Gameplay_itemIcon svg{height:auto}
+.ef-scope .__03-Lore_colorBlock,.ef-scope .__03-Lore_lattice{position:static!important;display:block}
+.ef-scope .__03-Lore_colorLine{position:static!important;transform:none!important;width:100%!important;max-width:none!important}
+.ef-scope .Header_navItem{position:relative!important;top:0!important}
+.ef-scope .Header_detailActive .Header_navItem .Header_textWrapper,.ef-scope .Header_detailActive .Header_button .Header_textWrapper{opacity:1;transform:translate3d(0,-50%,0)}
+.ef-scope .ModalFrame_modalFrame{width:auto;max-width:872px}
+.ef-scope .GameplayAlbum_gameplayAlbum{position:relative!important;left:auto!important;top:auto!important;transform:none!important}
+.ef-scope .GameplayAlbum_imageContainer{position:relative!important;left:0!important;top:0!important;width:100%!important;height:100%!important}
+
+.ef-scope.Header_pcHeaderContainer{position:relative;height:auto;width:auto;background:none;color:#191919}
+.ef-scope.Header_pcHeaderContainer:before{display:none}
+.ef-scope .Header_buttonPreserveBg,.ef-scope .Header_buttonShare,.ef-scope .Header_buttonShareBg{position:relative!important;left:0!important;bottom:0!important}
+.ef-scope .Header_buttonFrameBg,.ef-scope .Header_buttonFrameContainer{bottom:auto!important;top:0!important;left:0!important;transform:none!important}
+.ef-scope.Header_detailActive .Header_buttonFrameBg{width:156px!important}
+.ef-scope .Media_closeBtn{position:relative!important;left:0!important;top:0!important}
+.ef-scope .__04-Information_navBtn{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important}
+.ef-scope .__02-Operator_itemContainer{position:static!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;-webkit-mask:none!important;mask:none!important;display:flex;gap:12px}
+.ef-scope .__02-Operator_switchItem{position:relative!important}
+.ef-scope .__02-Operator_operatorSwitcher,.ef-scope.__02-Operator_operatorSwitcher{position:static!important;width:auto!important;height:auto!important;padding:0!important}
+.ef-scope .__02-Operator_operatorSwitcher:before,.ef-scope.__02-Operator_operatorSwitcher:before{display:none}
+.ef-scope .__02-Operator_sectionDivider .__02-Operator_dividerSubtitle,.ef-scope .__02-Operator_sectionDivider .__02-Operator_dividerTitle{position:relative}
+.ef-scope .__05-Gameplay_itemIcon .__05-Gameplay_icon svg{height:auto}
+.ef-scope .SubpageTab_arrowIcon{width:auto}
+
+/* generalization: strip hard-coded brand text baked into source pseudo-elements */
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:before,.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:after{content:none!important}

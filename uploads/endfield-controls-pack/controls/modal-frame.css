@@ -1,0 +1,17 @@
+/* 弹窗框（头 / 标题 / 装饰 / 底点阵） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.ModalFrame_modalFrame{position:relative;width:109rem;font-size:1rem;background-color:#fafafa}
+.ModalFrame_modalFrame:before{content:"";position:absolute;width:100%;height:100%;background-image:url(../assets/textures/points-bg.png);background-size:1.5em 1.5em;background-position:bottom;-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 50%,black 90%,black);mask-image:linear-gradient(180deg,transparent 0,transparent 50%,black 90%,black);opacity:.08}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_header{height:5.625rem}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_decoText{top:1.6875em;width:32.5em;color:#2e2e2e}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_title{font-size:2.4375em}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_points{width:3.25em;bottom:1em}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_close{width:2.25em}
+.ModalFrame_modalFrame .ModalFrame_header{position:relative;height:8.75rem;background-color:#1f1f1f;overflow:hidden}
+.ModalFrame_modalFrame .ModalFrame_header:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-image:linear-gradient(-45deg,transparent,transparent 13.9512529279%,black 0,black 36.0487470721%,transparent 0,transparent 63.9512529279%,black 0,black 86.0487470721%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat}
+.ModalFrame_modalFrame .ModalFrame_decoText{position:absolute;left:50%;top:2.6875em;width:50rem;height:auto;color:#2e2e2e;transform:translate3d(-50%,0,0)}
+.ModalFrame_modalFrame .ModalFrame_title{position:absolute;left:50%;top:.5625em;font-size:3.75em;line-height:1;color:#fff;transform:translate3d(-50%,0,0);font-family:SansRegular;white-space:nowrap}
+.ModalFrame_modalFrame .ModalFrame_points{position:absolute;left:50%;bottom:1.375em;width:5.6875em;height:auto;color:#fff;transform:translate3d(-50%,0,0);opacity:.5}
+.ModalFrame_modalFrame .ModalFrame_close{position:absolute;right:2.125em;top:50%;transform:translate3d(0,-50%,0);width:2.625em;height:auto;color:#fff;cursor:pointer;transition:transform .2s ease-in-out,color .2s ease-in-out}
+.ModalFrame_modalFrame .ModalFrame_close:hover{transform:translate3d(0,-50%,0) rotate(90deg)}
+.ModalFrame_modalFrame .ModalFrame_close:active{color:#ccc}
+.ModalFrame_modalFrame .ModalFrame_decoLB{position:absolute;left:2.5em;bottom:2.125em;width:6.4375em;height:auto;color:#b3b3b3;filter:drop-shadow(0 0 .25rem #ffffff) drop-shadow(0 0 .5rem #ffffff) drop-shadow(0 0 .5rem #ffffff)}

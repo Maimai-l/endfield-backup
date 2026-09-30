@@ -1,0 +1,9 @@
+/* 关闭钮（黄方块 / 弹窗 X） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.Media_mediaModal .Media_modalContainer .Media_closeBtn{position:absolute;width:4rem;height:4rem;cursor:pointer;background-color:#fffa00;display:flex;align-items:center;justify-content:center}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn{top:0;left:100%}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn:hover .Media_closeIcon{transform:rotate(90deg)}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn .Media_closeIcon{width:3rem;height:3rem;color:#191919;transition:transform .3s}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_close{width:2.25em}
+.ModalFrame_modalFrame .ModalFrame_close{position:absolute;right:2.125em;top:50%;transform:translate3d(0,-50%,0);width:2.625em;height:auto;color:#fff;cursor:pointer;transition:transform .2s ease-in-out,color .2s ease-in-out}
+.ModalFrame_modalFrame .ModalFrame_close:hover{transform:translate3d(0,-50%,0) rotate(90deg)}
+.ModalFrame_modalFrame .ModalFrame_close:active{color:#ccc}

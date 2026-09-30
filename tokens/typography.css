@@ -1,0 +1,14 @@
+:root{
+--font-body:SansRegular,"PingFang SC","Microsoft YaHei",sans-serif;
+--font-medium:SansMedium,"PingFang SC","Microsoft YaHei",sans-serif;
+--font-bold:SansBold,"PingFang SC","Microsoft YaHei",sans-serif;
+--font-display-en:Gilroy-Medium,sans-serif;
+--font-display-en-light:Gilroy-Light,sans-serif;
+--font-numeric:Novecentosanswide-Medium,sans-serif;
+--font-numeric-demi:Novecentosanswide-DemiBold,sans-serif;
+--font-giant:Novecentosanswide-Bold,sans-serif;
+--font-tech:SpaceGrotesk,monospace;
+/* Scale (source rem × 8) */
+--fs-caption:10px;--fs-small:13px;--fs-body:14px;--fs-ui:16px;--fs-lead:18px;--fs-h4:20px;--fs-h3:24px;--fs-h2:36px;--fs-h1:48px;--fs-giant:125px;
+}
+body{font-family:var(--font-body);color:var(--text-body)}

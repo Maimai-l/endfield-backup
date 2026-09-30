@@ -1,0 +1,24 @@
+/* 翻页圆钮 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.Pagination_pagination{position:relative;height:5.25rem;box-sizing:border-box;border:.375rem solid #e6e6e6;border-radius:2.625rem;background-color:#e6e6e6;display:flex;align-items:center;justify-content:space-between;gap:3.75rem}
+.Pagination_pagination.Pagination_number{gap:0}
+.Pagination_pagination.Pagination_nav{gap:.5rem}
+.Pagination_pagination:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:2.25rem;background-image:linear-gradient(-45deg,transparent,transparent 13.9512529279%,black 0,black 36.0487470721%,transparent 0,transparent 63.9512529279%,black 0,black 86.0487470721%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;opacity:.05}
+.Pagination_pagination.Pagination_dark{background-color:rgba(30,30,30,.8);border:.375rem solid rgba(0,0,0,0)}
+.Pagination_pagination .Pagination_button{position:relative;width:4.625rem;height:4.625rem;border-radius:2.3125rem;background-color:#fafafa;box-shadow:0 0 .625rem rgba(2,2,2,.3);cursor:pointer;transition:background-color .2s ease}
+.Pagination_pagination .Pagination_button:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background-image:url(../assets/textures/pag-button-texture.png);background-position:50%;background-repeat:no-repeat;background-size:cover;opacity:.4;transition:opacity .2s ease}
+.Pagination_pagination .Pagination_button.Pagination_disabled{cursor:not-allowed;pointer-events:none}
+.Pagination_pagination .Pagination_button.Pagination_disabled .Pagination_arrow{color:#aaa}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):hover{background-color:#fffa00}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):hover:before{opacity:1}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):active{background-color:#eeea00}
+.Pagination_pagination .Pagination_button .Pagination_border{position:absolute;top:0;left:0;width:100%;height:100%}
+.Pagination_pagination .Pagination_button .Pagination_border:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.375rem solid #e6e6e6;box-sizing:border-box}
+.Pagination_pagination .Pagination_button .Pagination_border:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.25rem solid #fff;box-sizing:border-box}
+.Pagination_pagination .Pagination_button .Pagination_arrow{position:absolute;left:1.75rem;top:50%;transform:translateY(-50%);width:1.125rem;height:1.6875rem;color:#3c3c3c;transition:color .2s ease}
+.Pagination_pagination .Pagination_button .Pagination_arrow.Pagination_right{left:1.9375rem;transform:translateY(-50%) scaleX(-1)}
+.Pagination_pagination .Pagination_paginationNumber{width:4.5rem;padding:0 1.5rem;display:flex;justify-content:space-between;font-family:Novecentosanswide-Medium;font-size:1.5rem;line-height:1}
+.Pagination_pagination .Pagination_paginationNumber .Pagination_divider{position:relative;top:.125rem}
+.Pagination_carousel{position:relative;height:2rem;display:flex;align-items:center;-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent .25rem,black .5rem,black calc(100% - .5rem),transparent calc(100% - .25rem),transparent);mask-image:linear-gradient(90deg,transparent 0,transparent .25rem,black .5rem,black calc(100% - .5rem),transparent calc(100% - .25rem),transparent)}
+.Pagination_carousel .Pagination_block{position:absolute;font-size:1.25rem;left:0;height:1rem;box-sizing:border-box;padding-bottom:.125rem;display:flex;align-items:center;justify-content:center;font-family:Novecentosanswide-Medium;transition:transform .3s ease;color:#3c3c3c}
+.Pagination_carousel .Pagination_block:not(:first-child){border-left:1px solid #191919}
+.Pagination_carousel .Pagination_block.Pagination_active{font-family:Novecentosanswide-Bold;color:#191919}

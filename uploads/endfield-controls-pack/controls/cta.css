@@ -1,0 +1,22 @@
+/* 营销 CTA（黑底斜纹） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg{width:19.5rem;height:4rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_text{opacity:0}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_text2{opacity:1}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_divider{opacity:0}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_divider2{opacity:1}
+.Header_pcHeaderContainer .Header_buttonPreserveBg{position:absolute;left:1.5rem;bottom:9.5625rem;width:4.5rem;height:9.75rem;border-radius:4px;overflow:hidden;cursor:pointer;background-color:#191919;transition:width .3s,height .3s}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_bg{opacity:1}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_tri{color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_divider2,.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_divider{background-color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_text2,.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_text{color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_bg{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#fffa00;transition:opacity .2s;opacity:0}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(-45deg,transparent,transparent 16.1610023423%,black 0,black 33.8389976577%,transparent 0,transparent 66.1610023423%,black 0,black 83.8389976577%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;transform:translateZ(0);border-radius:4px;transition:opacity .2s,background-color .2s}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_text{position:absolute;top:5.625rem;left:2.25rem;font-family:SansMedium;font-size:1.25rem;width:3.0625rem;text-align:center;line-height:1.125;letter-spacing:.05em;color:#fff;transition:color .3s,opacity .2s;transform:translate3d(-50%,0,0);position:none}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_tri{position:absolute;top:1.25rem;left:2.25rem;width:1.9375rem;height:1.75rem;color:#fff;transition:color .3s;transform:translate3d(-50%,0,0)}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_divider{position:absolute;top:4.125rem;left:2.25rem;width:3rem;height:2px;background-color:hsla(0,0%,100%,.3);transition:background-color .3s,opacity .2s;transform:translate3d(-50%,0,0);pointer-events:none}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_divider2{position:absolute;left:5.3125rem;bottom:2rem;width:2px;height:2.75rem;background-color:hsla(0,0%,100%,.3);transition:background-color .3s,opacity .2s;transform:translate3d(0,50%,0);pointer-events:none;opacity:0}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_text2{position:absolute;left:12.1875rem;bottom:2rem;white-space:nowrap;font-family:SansMedium;font-size:1.25rem;line-height:1;color:#fff;transition:color .3s,opacity .2s;transform:translate3d(-50%,50%,0);pointer-events:none;opacity:0}
+.Header_langs .Header_trigger{cursor:pointer;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.Header_langs .Header_trigger .Header_img{display:block;width:2.75rem;height:2.75rem}
+.Header_langs .Header_trigger{transition:opacity .3s;opacity:.3}
+.Header_langs .Header_dropDown .Header_langItem.Header_active,.Header_langs .Header_dropDown .Header_langItem:hover,.Header_langs:hover .Header_trigger{opacity:1}

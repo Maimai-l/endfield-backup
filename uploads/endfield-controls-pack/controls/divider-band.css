@@ -1,0 +1,9 @@
+/* 分隔带（黄） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+/* === https://web.hycdn.cn/endfield/official-v4/_next/static/css/5f3bf8547312569e.css === */
+.__02-Operator_sectionDivider{position:relative;width:100%;margin-bottom:2rem;height:9.125rem;box-sizing:border-box;padding-left:30.625rem;padding-top:2.25rem;line-height:1}
+.__02-Operator_sectionDivider.__02-Operator_active:before{transform:translateX(0)}
+.__02-Operator_sectionDivider.__02-Operator_active .__02-Operator_dividerSubtitle,.__02-Operator_sectionDivider.__02-Operator_active .__02-Operator_dividerTitle,.__02-Operator_sectionDivider.__02-Operator_active:after{transform:translateX(0);opacity:1}
+.__02-Operator_sectionDivider:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-color:#fffa00;transform:translateX(100%);transition:transform .4s ease .2s}
+.__02-Operator_sectionDivider:after{content:"";position:absolute;left:1.5rem;bottom:0;background-image:url(../assets/textures/section_divider_icon_lore.png);background-size:100% 100%;background-repeat:no-repeat;background-position:50%;width:28.25rem;height:14.25rem;transform:translateX(15%);opacity:0;transition:transform .3s ease .4s,opacity .3s ease .4s}
+.__02-Operator_sectionDivider .__02-Operator_dividerSubtitle{font-size:1.875rem;font-family:Gilroy-Light;transform:translateX(2rem);opacity:0;transition:transform .3s ease .5s,opacity .3s ease .5s}
+.__02-Operator_sectionDivider .__02-Operator_dividerTitle{font-size:3.75rem;font-family:Gilroy-Medium;transform:translateX(2rem);opacity:0;transition:transform .3s ease .6s,opacity .3s ease .6s}

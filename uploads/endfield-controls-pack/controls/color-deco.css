@@ -1,0 +1,16 @@
+/* 色块 / 色线 / 点阵 / 装饰线 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__03-Lore_container .__03-Lore_lattice{position:absolute;left:9.875rem;top:21.875rem;width:4.35rem}
+.__03-Lore_container .__03-Lore_lattice:after,.__03-Lore_container .__03-Lore_lattice:before{content:"";display:block;height:.5rem;margin-bottom:.25rem;background-image:repeating-linear-gradient(90deg,#b2b2b2 0,#b2b2b2 .5rem,transparent 0,transparent .75rem)}
+.__03-Lore_container .__03-Lore_colorBlock{position:absolute;left:9.875rem;top:23.875rem;display:flex}
+.__03-Lore_container .__03-Lore_colorBlock:before{content:"";display:block;width:.5rem;height:7rem;background-image:linear-gradient(180deg,#ff1aac 0,#ff1aac 1.5rem,#00ffa2 0,#00ffa2 3rem,#fffa00 0,rgba(255,250,0,0) 7rem)}
+.__03-Lore_container .__03-Lore_colorBlock:after{content:"";display:block;width:.75rem;height:3rem;background-color:#b2b2b2}
+.__03-Lore_container .__03-Lore_iconLoreWrapper{position:absolute;left:12.625rem;top:23.875rem;width:9rem;height:9rem;display:flex;align-items:center;justify-content:center;background-color:hsla(0,0%,100%,.2)}
+.__03-Lore_container .__03-Lore_iconLoreWrapper .__03-Lore_iconLore{width:5.25rem;height:5.3125rem}
+.__03-Lore_decoLine1{position:absolute;background-color:rgba(109,109,109,.5);top:33.625rem;left:0;width:100%;height:1px}
+.__03-Lore_decoLine2{position:absolute;background-color:rgba(109,109,109,.5);right:1.25rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine3{position:absolute;background-color:rgba(109,109,109,.5);right:3.75rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine4{position:absolute;background-color:rgba(109,109,109,.5);left:1.375rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine5{position:absolute;background-color:rgba(109,109,109,.5);left:3.75rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine6{position:absolute;background-color:rgba(109,109,109,.5);left:29.375rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_colorLine{position:absolute;bottom:0;left:50%;transform:translateX(-50%);max-width:100%;width:152.5rem}
+.__03-Lore_colorLine:after{content:"";display:block;width:24.5rem;height:.25rem;margin-left:auto;margin-right:1.25rem;background-color:#fffa00;background-image:linear-gradient(90deg,#ff1aac 0,#ff1aac 5.25rem,#00ffa2 0,#00ffa2 10.5rem,#fffa00 0)}

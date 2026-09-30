@@ -1,0 +1,5 @@
+/* 返回按钮 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.BackButton_backButton{position:relative;min-width:14.875rem;width:max-content;padding:0 2rem 0 4.3125rem;height:4.1875rem;border-radius:.3125rem;background-color:#383838;box-sizing:border-box;cursor:pointer;transition:background-color .2s ease;background-image:linear-gradient(-45deg,transparent,transparent 16.1610023423%,#424242 0,#424242 33.8389976577%,transparent 0,transparent 66.1610023423%,#424242 0,#424242 83.8389976577%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;display:flex;align-items:center;justify-content:center;font-family:SansMedium;font-size:1.25rem;color:#fff}
+.BackButton_backButton:hover{background-color:#626262}
+.BackButton_backButton:active{background-color:#282828}
+.BackButton_backButton:before{content:"";position:absolute;left:1.1875rem;width:2.0625rem;height:2.0625rem;background-image:url(../assets/textures/arrow.png);transform:rotate(90deg);background-position:50%;background-repeat:no-repeat;background-size:contain}

@@ -1,0 +1,8 @@
+/* 标题块（副标题/标题/横线） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_topPart{position:absolute;top:2.75rem;left:calc(50% - 10.375rem);width:20.8125rem;height:22.8125rem;background-position:50%;background-repeat:no-repeat;background-size:contain;background-image:url(../assets/textures/tower-top.png)}
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_textWrapper .__06-Notice_divider{position:relative;margin-top:1.25rem;width:4.5rem;height:2px;background-color:#626262}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer{position:absolute;top:7.75rem;margin-left:1.5rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_subtitle{position:relative;white-space:nowrap;font-size:1.5rem;line-height:1;color:gray;font-family:SansMedium}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_subtitle .__06-Notice_time{padding-left:1.75rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_title{position:relative;margin-top:1.25rem;max-width:110rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;font-weight:500;font-size:2.25rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer:after{content:"";position:relative;display:block;margin-top:1.1875rem;height:2px;width:149.5rem;background-color:#d9d9d9}

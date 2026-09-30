@@ -1,0 +1,495 @@
+/* all controls */
+
+/* ===== nav-item — 导航项（侧栏） ===== */
+.Header_pcHeaderContainer{position:relative;height:100vh;width:7.5rem;z-index:50;color:#191919;background-color:#fff}
+.Header_pcHeaderContainer:before{content:"";position:absolute;top:0;right:0;width:calc(100% + 16rem);height:100%;background-color:#fff;box-shadow:0 0 1rem rgba(0,0,0,.1);transition:transform .3s}
+.Header_pcHeaderContainer.Header_detailActive:before{transform:translate3d(15rem,0,0)}
+.Header_pcHeaderContainer.Header_detailActive .Header_overlay{width:calc(100% + 13.5rem)}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem{width:22.5rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem .Header_textWrapper{opacity:1;transform:translate3d(0,-50%,0)}
+.Header_pcHeaderContainer.Header_detailActive .Header_navItem:not(.Header_active):hover:before{opacity:1}
+.Header_pcHeaderContainer.Header_detailActive .Header_shareListDetailActive{opacity:1;pointer-events:auto}
+.Header_pcHeaderContainer .Header_navItem{position:absolute;top:0;left:0;width:100%;height:4.5rem;cursor:pointer;transition:transform .3s,width .3s}
+.Header_pcHeaderContainer .Header_navItem:hover .Header_icon{color:#858585}
+.Header_pcHeaderContainer .Header_navItem.Header_active .Header_icon{color:#191919!important}
+.Header_pcHeaderContainer .Header_navItem:before{content:"";position:absolute;left:1.5rem;width:19.5rem;height:100%;background-color:#e5e5e5;opacity:0;border-radius:.25rem;transition:opacity .2s;pointer-events:none}
+.Header_pcHeaderContainer .Header_navItem .Header_icon{position:absolute;left:3.75rem;top:2.25rem;transform:translate3d(-50%,-50%,0);height:auto;color:#d9d9d9;transition:color .2s,transform .3s;font-size:1.5rem;white-space:nowrap}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=home]{width:2.5rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=operator]{width:2.75rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=lore]{width:2.625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=information]{width:2.6875rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=gameplay]{width:2.5625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=notice]{width:2.75rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=aicGameplay]{width:2.5625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=milestone]{width:3rem}
+.Header_pcHeaderContainer .Header_navItem .Header_icon[data-key=calendar]{width:2.625rem}
+.Header_pcHeaderContainer .Header_navItem .Header_textWrapper{position:absolute;width:13.25rem;left:6.9375rem;top:2.25rem;pointer-events:none;font-family:SansMedium;font-size:1.125rem;line-height:1.25;opacity:0;transform:translate3d(-1rem,-50%,0);transition:opacity .2s,transform .3s;color:#191919}
+.Header_pcHeaderContainer .Header_navItem .Header_textWrapper.Header_small{font-size:1rem;line-height:1.25;letter-spacing:-.02em}
+.Header_pcHeaderContainer .Header_overlay{position:absolute;top:0;left:0;box-sizing:border-box;width:calc(100% - 1rem);height:5rem;border-left:.75rem solid #191919;background-color:#e6e6e6;opacity:1;transition:transform .3s,height .3s,width .3s;pointer-events:none}
+.Header_pcHeaderContainer .Header_overlay.Header_active{transform:translateY(100%)}
+.Header_pcHeaderContainer .Header_shareListDetailActive{position:absolute;left:1.5rem;bottom:5.5625rem;width:19.5rem;height:2.75rem;border-radius:4px;transition:opacity .2s;padding:0 1.25rem;box-sizing:border-box;opacity:0;pointer-events:none;display:flex;align-items:center;gap:1.25rem;justify-content:center}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem{width:auto;max-width:1.75rem;height:1.75rem;color:#b3b3b3;transition:color .2s;cursor:pointer;flex-shrink:0}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem:hover{color:#191919}
+/* ===== utility-capsule — 工具胶囊（侧栏底部） ===== */
+.Header_pcHeaderContainer.Header_showPreserveButton .Header_buttonFrameBg,.Header_pcHeaderContainer.Header_showPreserveButton .Header_buttonFrameContainer{bottom:21.75rem}
+.Header_pcHeaderContainer.Header_showPreserveButton.Header_detailActive .Header_buttonFrameBg,.Header_pcHeaderContainer.Header_showPreserveButton.Header_detailActive .Header_buttonFrameContainer{transform:translate3d(1.5rem,6.25rem,0)}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonFrameBg{transform:translate3d(1.5rem,0,0);border-radius:.25rem;width:19.5rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonFrameContainer .Header_button{cursor:pointer;width:18rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonFrameContainer .Header_button:hover:before{opacity:1}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonFrameContainer .Header_button .Header_icon{pointer-events:none}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonFrameContainer .Header_button .Header_textWrapper{opacity:1;transform:translate3d(-50%,-50%,0)}
+.Header_pcHeaderContainer .Header_buttonFrameBg{position:absolute;bottom:9.5625rem;width:3.75rem;height:11.5625rem;border-radius:1.875rem;transform:translate3d(1.875rem,0,0);background-color:#f2f2f2;transition:transform .3s,width .3s,height .3s,border-radius .3s}
+.Header_pcHeaderContainer .Header_buttonFrameBg.Header_ele2{height:7.8125rem}
+.Header_pcHeaderContainer .Header_buttonFrameBg.Header_ele3{height:11.5625rem}
+.Header_pcHeaderContainer .Header_buttonFrameBg.Header_ele4{height:15.3125rem}
+.Header_pcHeaderContainer .Header_buttonFrameContainer{position:absolute;bottom:9.5625rem;width:3.75rem;height:11.5625rem;border-radius:1.875rem;transform:translate3d(1.875rem,0,0);transition:transform .3s}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_button{position:absolute;width:100%;height:3rem;transition:transform .3s}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_button:before{content:"";position:absolute;top:0;left:0;height:3rem;width:18rem;border-radius:.25rem;background-color:#d9d9d9;opacity:0;pointer-events:none;transition:opacity .2s}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_button .Header_icon{position:absolute;top:1.5rem;left:1.875rem;width:auto;height:1.75rem;color:#7c7c7c;cursor:pointer;transition:color .2s;transform:translate3d(-50%,-50%,0)}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_button .Header_icon:hover{color:#424242}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_button .Header_textWrapper{position:absolute;top:1.5rem;left:10.1875rem;opacity:0;transform:translate3d(calc(-50% - 2rem),-50%,0);transition:opacity .2s,transform .3s;color:#191919;font-family:SansMedium;font-size:1.125rem;line-height:1;white-space:nowrap}
+.Header_pcHeaderContainer .Header_buttonFrameContainer .Header_divider{position:absolute;height:1px;width:1.25rem;background-color:#ccc;transition:transform .3s;transform-origin:left center}
+/* ===== share-button — 分享按钮 + 弹出列表 ===== */
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonShare{opacity:0;pointer-events:none}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonShareBg{width:19.5rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_shareListDetailActive{opacity:1;pointer-events:auto}
+.Header_pcHeaderContainer .Header_buttonShareBg{position:absolute;left:1.5rem;bottom:5.5625rem;width:4.5rem;height:2.75rem;background-color:#e5e5e5;border-radius:4px;transition:width .3s}
+.Header_pcHeaderContainer .Header_shareListDetailActive{position:absolute;left:1.5rem;bottom:5.5625rem;width:19.5rem;height:2.75rem;border-radius:4px;transition:opacity .2s;padding:0 1.25rem;box-sizing:border-box;opacity:0;pointer-events:none;display:flex;align-items:center;gap:1.25rem;justify-content:center}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem{width:auto;max-width:1.75rem;height:1.75rem;color:#b3b3b3;transition:color .2s;cursor:pointer;flex-shrink:0}
+.Header_pcHeaderContainer .Header_shareListDetailActive .Header_shareItem:hover{color:#191919}
+.Header_pcHeaderContainer .Header_buttonShare{position:absolute;left:1.5rem;bottom:5.5625rem;width:4.5rem;height:2.75rem;border-radius:4px;transition:background-color .3s,opacity .3s;cursor:pointer}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareIcon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:2rem;height:auto;color:#4d4d4d;transition:color .2s}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareList{position:absolute;left:100%;top:50%;height:3.3125rem;padding-left:2.5rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translate3d(-1rem,-50%,0)}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareList .Header_wrapper{position:relative;height:100%;padding:0 1.75rem;display:flex;align-items:center;justify-content:center;gap:1.5625rem;background-color:#191919}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareList .Header_wrapper:before{content:"";position:absolute;top:0;left:-1px;width:.375rem;height:100%;background-color:#fffa00;transform:translateZ(0)}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareList .Header_shareItem{width:auto;height:1.75rem;max-width:2rem;color:#b3b3b3;transition:color .2s;cursor:pointer}
+.Header_pcHeaderContainer .Header_buttonShare .Header_shareList .Header_shareItem:hover{color:#fff}
+.Header_pcHeaderContainer .Header_buttonShare:hover{background-color:#191919}
+.Header_pcHeaderContainer .Header_buttonShare:hover .Header_shareIcon{color:#fffa00}
+.Header_pcHeaderContainer .Header_buttonShare:hover .Header_shareList{opacity:1;pointer-events:auto;transform:translate3d(0,-50%,0)}
+.Header_pcHeaderContainer .Header_buttonShare.Header_active{background-color:#191919}
+.Header_pcHeaderContainer .Header_buttonShare.Header_active .Header_shareIcon{color:#fffa00}
+.Header_pcHeaderContainer .Header_buttonShare.Header_active .Header_shareList{opacity:1;pointer-events:auto;transform:translate3d(0,-50%,0)}
+/* ===== cta — 营销 CTA（黑底斜纹） ===== */
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg{width:19.5rem;height:4rem}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_text{opacity:0}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_text2{opacity:1}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_divider{opacity:0}
+.Header_pcHeaderContainer.Header_detailActive .Header_buttonPreserveBg .Header_divider2{opacity:1}
+.Header_pcHeaderContainer .Header_buttonPreserveBg{position:absolute;left:1.5rem;bottom:9.5625rem;width:4.5rem;height:9.75rem;border-radius:4px;overflow:hidden;cursor:pointer;background-color:#191919;transition:width .3s,height .3s}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_bg{opacity:1}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_tri{color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_divider2,.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_divider{background-color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_text2,.Header_pcHeaderContainer .Header_buttonPreserveBg:hover .Header_text{color:#191919}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_bg{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#fffa00;transition:opacity .2s;opacity:0}
+.Header_pcHeaderContainer .Header_buttonPreserveBg:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(-45deg,transparent,transparent 16.1610023423%,black 0,black 33.8389976577%,transparent 0,transparent 66.1610023423%,black 0,black 83.8389976577%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;transform:translateZ(0);border-radius:4px;transition:opacity .2s,background-color .2s}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_text{position:absolute;top:5.625rem;left:2.25rem;font-family:SansMedium;font-size:1.25rem;width:3.0625rem;text-align:center;line-height:1.125;letter-spacing:.05em;color:#fff;transition:color .3s,opacity .2s;transform:translate3d(-50%,0,0);position:none}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_tri{position:absolute;top:1.25rem;left:2.25rem;width:1.9375rem;height:1.75rem;color:#fff;transition:color .3s;transform:translate3d(-50%,0,0)}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_divider{position:absolute;top:4.125rem;left:2.25rem;width:3rem;height:2px;background-color:hsla(0,0%,100%,.3);transition:background-color .3s,opacity .2s;transform:translate3d(-50%,0,0);pointer-events:none}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_divider2{position:absolute;left:5.3125rem;bottom:2rem;width:2px;height:2.75rem;background-color:hsla(0,0%,100%,.3);transition:background-color .3s,opacity .2s;transform:translate3d(0,50%,0);pointer-events:none;opacity:0}
+.Header_pcHeaderContainer .Header_buttonPreserveBg .Header_text2{position:absolute;left:12.1875rem;bottom:2rem;white-space:nowrap;font-family:SansMedium;font-size:1.25rem;line-height:1;color:#fff;transition:color .3s,opacity .2s;transform:translate3d(-50%,50%,0);pointer-events:none;opacity:0}
+.Header_langs .Header_trigger{cursor:pointer;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.Header_langs .Header_trigger .Header_img{display:block;width:2.75rem;height:2.75rem}
+.Header_langs .Header_trigger{transition:opacity .3s;opacity:.3}
+.Header_langs .Header_dropDown .Header_langItem.Header_active,.Header_langs .Header_dropDown .Header_langItem:hover,.Header_langs:hover .Header_trigger{opacity:1}
+/* ===== section-title — 区块标题 ===== */
+.SectionTitle_sectionTitle{position:relative}
+.SectionTitle_sectionTitle .SectionTitle_icon{position:absolute;left:0;top:-.875rem;width:auto;height:.375rem;color:gray}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock{position:absolute;left:0;top:0;width:6.5rem;height:2rem;-webkit-clip-path:polygon(0 0,1000% 0,1000% 100%,0 100%);clip-path:polygon(0 0,1000% 0,1000% 100%,0 100%)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock.SectionTitle_active .SectionTitle_inner{transform:translateX(0)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock.SectionTitle_active .SectionTitle_inner .SectionTitle_arrow{transform:rotate(0)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-color:#d9d9d9;transform:translateX(-100%);transition:transform .5s ease-out;display:flex;align-items:center}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_arrow{position:absolute;right:.375rem;width:auto;height:1.4375rem;color:#231815;transform:rotate(-45deg);transition:transform .2s ease-out .3s}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_titleEn{position:absolute;padding-left:.5rem;left:6.5rem;top:0;height:2rem;display:flex;align-items:center;font-family:Gilroy-Medium;line-height:2rem;font-size:2.25rem;color:#141414;white-space:nowrap;opacity:0}
+.SectionTitle_sectionTitle .SectionTitle_titleCn{position:absolute;left:0;top:2.5rem;font-size:3rem;line-height:1;font-family:SansBold;color:#141414;white-space:nowrap;opacity:0}
+.SectionTitle_sectionTitle.SectionTitle_dark .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_titleEn,.SectionTitle_sectionTitle.SectionTitle_dark .SectionTitle_titleCn{color:#fff}
+/* ===== button — 按钮 ===== */
+.Button_button{position:relative;width:20rem;height:4.5rem;box-sizing:border-box;border:none;border-radius:2px;padding:0;cursor:pointer;background-color:#383838;background-blend-mode:soft-light;display:flex;align-items:center;justify-content:center;font-size:1.75rem;line-height:1;font-family:SansMedium;color:#eee;transition:color .2s ease,background-color .2s ease,border-radius .2s ease;filter:drop-shadow(0 0 .25rem rgba(0,0,0,.25))}
+.Button_button span.Button_text{padding-top:.245rem}
+.Button_button:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:2px;transition:border-radius .2s ease;background-position:50%;background-repeat:no-repeat;background-size:cover;background-image:url(../assets/textures/button-texture.png)}
+.Button_button:after{content:"";position:absolute;left:.5rem;width:1rem;height:55%;background-color:#fffa00;-webkit-clip-path:polygon(0 0,25% 0,25% 100%,0 100%);clip-path:polygon(0 0,25% 0,25% 100%,0 100%);transition:transform .2s ease,-webkit-clip-path .2s ease;transition:clip-path .2s ease,transform .2s ease;transition:clip-path .2s ease,transform .2s ease,-webkit-clip-path .2s ease}
+.Button_button.Button_disabled{cursor:not-allowed;pointer-events:none;background-color:#888;color:#666}
+.Button_button.Button_disabled:after{background-color:#666}
+.Button_button.Button_light{background-color:#fff;color:#000}
+.Button_button.Button_light:before{filter:invert(1)}
+.Button_button.Button_light:after{background-color:#888}
+.Button_button.Button_light:hover{color:#000;background-color:#f0f0f0;border-radius:6px}
+.Button_button:hover{color:#fff;background-color:#484848;border-radius:6px}
+.Button_button:hover:before{border-radius:6px}
+.Button_button:hover:after{-webkit-clip-path:polygon(0 20%,100% 50%,0 80%,0 80%);clip-path:polygon(0 20%,100% 50%,0 80%,0 80%);transform:translateX(.875rem)}
+/* ===== home-button — 首屏按钮 ===== */
+.HomeButton_button{position:relative;min-width:25rem;width:max-content;height:6.25rem;padding-left:8.75rem;padding-right:1.5rem;box-sizing:border-box;border-radius:.25rem;border-left:.75rem solid #fff500;background-color:#fffa00;box-shadow:0 0 .75rem rgba(0,0,0,.4);background-image:url(../assets/textures/button-texture.png);background-position:50%;background-repeat:no-repeat;background-size:cover;background-position:100%;cursor:pointer;color:#191919;display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,background-color .2s ease}
+.HomeButton_button:hover{border-color:#efe701}
+.HomeButton_button:hover .HomeButton_divider{background-color:#efe701}
+.HomeButton_button:active{border-color:#e6de01}
+.HomeButton_button:active .HomeButton_divider{background-color:#e6de01}
+.HomeButton_button.HomeButton_white{border-left:.75rem solid #ccc;background-color:#f2f2f2}
+.HomeButton_button.HomeButton_white .HomeButton_divider{background-color:#d9d9d9}
+.HomeButton_button.HomeButton_white.HomeButton_disabled{cursor:not-allowed;pointer-events:none;background-color:#aaa;color:#888}
+.HomeButton_button.HomeButton_white.HomeButton_disabled .HomeButton_text .HomeButton_arrow{display:none}
+.HomeButton_button.HomeButton_white:hover{border-color:#aaa}
+.HomeButton_button.HomeButton_white:hover .HomeButton_divider{background-color:#aaa}
+.HomeButton_button.HomeButton_white:active{border-color:#999}
+.HomeButton_button.HomeButton_white:active .HomeButton_divider{background-color:#999}
+.HomeButton_button .HomeButton_points{position:absolute;top:.4375rem;left:.5625rem;width:1.1875rem;height:auto;color:#7e7e7e}
+.HomeButton_button .HomeButton_icon{position:absolute;left:3.5625rem;transform:translateX(-50%);width:2.25rem;height:auto}
+.HomeButton_button .HomeButton_icon.HomeButton_iconImage{height:2.5rem;background-size:contain;background-position:50%;background-repeat:no-repeat}
+.HomeButton_button .HomeButton_divider{position:absolute;left:7.125rem;width:.25rem;height:4.375rem;background-color:#fff500;transition:background-color .2s ease}
+.HomeButton_button .HomeButton_text{position:relative;font-size:2.25rem;line-height:1;font-family:SansMedium;display:flex;align-items:center;white-space:nowrap}
+.HomeButton_button .HomeButton_text .HomeButton_arrow{margin-left:.75rem;width:.6875rem;height:auto;color:#a6a6a6;transform:rotate(180deg)}
+/* ===== pagination-button — 翻页圆钮 ===== */
+.Pagination_pagination{position:relative;height:5.25rem;box-sizing:border-box;border:.375rem solid #e6e6e6;border-radius:2.625rem;background-color:#e6e6e6;display:flex;align-items:center;justify-content:space-between;gap:3.75rem}
+.Pagination_pagination.Pagination_number{gap:0}
+.Pagination_pagination.Pagination_nav{gap:.5rem}
+.Pagination_pagination:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:2.25rem;background-image:linear-gradient(-45deg,transparent,transparent 13.9512529279%,black 0,black 36.0487470721%,transparent 0,transparent 63.9512529279%,black 0,black 86.0487470721%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;opacity:.05}
+.Pagination_pagination.Pagination_dark{background-color:rgba(30,30,30,.8);border:.375rem solid rgba(0,0,0,0)}
+.Pagination_pagination .Pagination_button{position:relative;width:4.625rem;height:4.625rem;border-radius:2.3125rem;background-color:#fafafa;box-shadow:0 0 .625rem rgba(2,2,2,.3);cursor:pointer;transition:background-color .2s ease}
+.Pagination_pagination .Pagination_button:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background-image:url(../assets/textures/pag-button-texture.png);background-position:50%;background-repeat:no-repeat;background-size:cover;opacity:.4;transition:opacity .2s ease}
+.Pagination_pagination .Pagination_button.Pagination_disabled{cursor:not-allowed;pointer-events:none}
+.Pagination_pagination .Pagination_button.Pagination_disabled .Pagination_arrow{color:#aaa}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):hover{background-color:#fffa00}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):hover:before{opacity:1}
+.Pagination_pagination .Pagination_button:not(.Pagination_disabled):active{background-color:#eeea00}
+.Pagination_pagination .Pagination_button .Pagination_border{position:absolute;top:0;left:0;width:100%;height:100%}
+.Pagination_pagination .Pagination_button .Pagination_border:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.375rem solid #e6e6e6;box-sizing:border-box}
+.Pagination_pagination .Pagination_button .Pagination_border:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.25rem solid #fff;box-sizing:border-box}
+.Pagination_pagination .Pagination_button .Pagination_arrow{position:absolute;left:1.75rem;top:50%;transform:translateY(-50%);width:1.125rem;height:1.6875rem;color:#3c3c3c;transition:color .2s ease}
+.Pagination_pagination .Pagination_button .Pagination_arrow.Pagination_right{left:1.9375rem;transform:translateY(-50%) scaleX(-1)}
+.Pagination_pagination .Pagination_paginationNumber{width:4.5rem;padding:0 1.5rem;display:flex;justify-content:space-between;font-family:Novecentosanswide-Medium;font-size:1.5rem;line-height:1}
+.Pagination_pagination .Pagination_paginationNumber .Pagination_divider{position:relative;top:.125rem}
+.Pagination_carousel{position:relative;height:2rem;display:flex;align-items:center;-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent .25rem,black .5rem,black calc(100% - .5rem),transparent calc(100% - .25rem),transparent);mask-image:linear-gradient(90deg,transparent 0,transparent .25rem,black .5rem,black calc(100% - .5rem),transparent calc(100% - .25rem),transparent)}
+.Pagination_carousel .Pagination_block{position:absolute;font-size:1.25rem;left:0;height:1rem;box-sizing:border-box;padding-bottom:.125rem;display:flex;align-items:center;justify-content:center;font-family:Novecentosanswide-Medium;transition:transform .3s ease;color:#3c3c3c}
+.Pagination_carousel .Pagination_block:not(:first-child){border-left:1px solid #191919}
+.Pagination_carousel .Pagination_block.Pagination_active{font-family:Novecentosanswide-Bold;color:#191919}
+/* ===== round-button — 圆钮（浅） ===== */
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn{cursor:pointer;width:4.5rem;height:4.5rem;border-radius:50%;background:#fafafa;position:absolute;display:flex;align-items:center;justify-content:center}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn:before{position:absolute;content:"";display:block;width:4rem;height:4rem;border-radius:50%;border:1px solid #e7e7e7}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev:after{content:"";position:absolute;left:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-left:.375rem solid #35373c;transform:translateY(-50%) rotate(-45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next:after{content:"";position:absolute;right:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-right:.375rem solid #35373c;transform:translateY(-50%) rotate(45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev{left:.5rem}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next{right:.5rem}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn{cursor:pointer;width:4.5rem;height:4.5rem;border-radius:50%;background:#fafafa;position:absolute;display:flex;align-items:center;justify-content:center}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn:before{position:absolute;content:"";display:block;width:4rem;height:4rem;border-radius:50%;border:1px solid #e7e7e7}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev:after{content:"";position:absolute;left:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-left:.375rem solid #35373c;transform:translateY(-50%) rotate(-45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next:after{content:"";position:absolute;right:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-right:.375rem solid #35373c;transform:translateY(-50%) rotate(45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev{left:.5rem}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next{right:.5rem}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn{pointer-events:auto;cursor:pointer;width:4.5rem;height:4.5rem;border-radius:50%;background:#fafafa;position:absolute;bottom:2.5rem;display:flex;align-items:center;justify-content:center}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn:before{position:absolute;content:"";display:block;width:4rem;height:4rem;border-radius:50%;border:1px solid #e7e7e7}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn.__04-Information_prev:after{content:"";position:absolute;left:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-left:.375rem solid #35373c;transform:translateY(-50%) rotate(-45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn.__04-Information_next:after{content:"";position:absolute;right:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-right:.375rem solid #35373c;transform:translateY(-50%) rotate(45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn.__04-Information_prev{left:-2.25rem}
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navBtn.__04-Information_next{right:-2.25rem}
+/* ===== selector — 选择器胶囊 + 指示点 ===== */
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation{pointer-events:auto;margin-top:5.25rem;margin-left:auto;margin-right:0;width:38.625rem}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator{height:5.625rem;border-radius:2.8125rem;display:flex;align-items:center;justify-content:center;background-color:#131315;border:.1875rem solid #35373c;box-sizing:border-box;position:relative}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName{width:32.625rem;height:4.5rem;display:flex;align-items:center;justify-content:center;font-family:SansRegular;font-size:2.25rem;background-image:repeating-linear-gradient(-45deg,#1f1f22,#1f1f22 3px,transparent 0,transparent 6px)}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_inner{display:flex;align-items:center;justify-content:center}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_paging{font-size:1rem;line-height:1;margin-right:1rem;color:#fff000}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{line-height:1.2;word-break:keep-all}
+.de-de .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:15.625rem;font-size:.9em}
+.es-mx .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:20rem;font-size:.75em}
+.fr-fr .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:16rem;font-size:.9em}
+.id-id .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{font-size:.9em}
+.it-it .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:18rem;font-size:.9em}
+.pt-br .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:20rem;font-size:.8em}
+.ru-ru .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:21rem;font-size:.75em}
+.th-th .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:16rem;font-size:.8em}
+.vi-vn .__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_activeName .__03-Lore_name{max-width:17rem;font-size:.8em}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn{cursor:pointer;width:4.5rem;height:4.5rem;border-radius:50%;background:#fafafa;position:absolute;display:flex;align-items:center;justify-content:center}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn:before{position:absolute;content:"";display:block;width:4rem;height:4rem;border-radius:50%;border:1px solid #e7e7e7}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev:after{content:"";position:absolute;left:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-left:.375rem solid #35373c;transform:translateY(-50%) rotate(-45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next:after{content:"";position:absolute;right:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-right:.375rem solid #35373c;transform:translateY(-50%) rotate(45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev{left:.5rem}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next{right:.5rem}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_naviDots{margin-top:1.25rem;display:flex;align-items:center;justify-content:center;padding:.75rem 0}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_naviDots .__03-Lore_naviDot{cursor:pointer;margin:0 .3125rem;width:3.75rem;height:.3125rem;background-color:#414348;transition:transform .3s,background-color .3s,box-shadow .3s}
+.__03-Lore_container .__03-Lore_info .__03-Lore_navigation .__03-Lore_naviDots .__03-Lore_naviDot.__03-Lore_active{background-color:#fff000;box-shadow:0 0 10px #fff000}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation{pointer-events:auto;margin-top:1.25rem;position:relative;display:flex;align-items:center;justify-content:flex-end}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_decoIcon{position:absolute;display:block;top:1.25rem;right:32.5rem;width:auto;height:1.0625rem;color:#414349}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_paging{position:absolute;top:1.5rem;right:17rem;font-size:1rem;line-height:1;margin-right:.5rem;color:#fff000}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator{flex:none;margin-left:3rem;margin-right:0;width:14rem;height:5.625rem;border-radius:2.8125rem;display:flex;align-items:center;justify-content:center;background-color:#131315;border:.1875rem solid #35373c;box-sizing:border-box;position:relative}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator:after{content:"";display:block;width:12.75rem;height:4.5rem;display:flex;align-items:center;justify-content:center;font-size:2.25rem;background-image:repeating-linear-gradient(-45deg,#1f1f22,#1f1f22 3px,transparent 0,transparent 6px)}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn{cursor:pointer;width:4.5rem;height:4.5rem;border-radius:50%;background:#fafafa;position:absolute;display:flex;align-items:center;justify-content:center}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn:before{position:absolute;content:"";display:block;width:4rem;height:4rem;border-radius:50%;border:1px solid #e7e7e7}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev:after{content:"";position:absolute;left:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-left:.375rem solid #35373c;transform:translateY(-50%) rotate(-45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next:after{content:"";position:absolute;right:1.75rem;top:50%;width:1rem;height:1rem;border-top:.375rem solid #35373c;border-right:.375rem solid #35373c;transform:translateY(-50%) rotate(45deg);background:rgba(0,0,0,0);pointer-events:none}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_prev{left:.5rem}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_navigator .__03-Lore_navBtn.__03-Lore_next{right:.5rem}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_naviDots{flex:none;margin-top:1.25rem;margin-left:auto;display:flex;align-items:center;justify-content:center;padding:.75rem 0}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_naviDots .__03-Lore_naviDot{cursor:pointer;margin:0 .3125rem;width:3.75rem;height:.3125rem;background-color:#414348;transition:transform .3s,background-color .3s,box-shadow .3s}
+.__03-Lore_container .__03-Lore_infoEn .__03-Lore_navigation .__03-Lore_naviDots .__03-Lore_naviDot.__03-Lore_active{background-color:#fff000;box-shadow:0 0 10px #fff000}
+/* ===== play-button — 播放钮 + 更多按钮 ===== */
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons{display:flex;margin-top:4.75rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn{cursor:pointer;width:4.5rem;height:4.5rem;background-color:#fdfd1f;border-radius:2px;margin-right:1.25rem;display:flex;align-items:center;justify-content:center;transition:background-color .2s ease}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:after{content:"";display:block;border-left:1.25rem solid #35373c;border-top:.75rem solid rgba(0,0,0,0);border-bottom:.75rem solid rgba(0,0,0,0);margin-left:.25rem;transition:transform .2s ease}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:hover{background-color:#fafafa}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:hover:after{transform:scale(1.25)}
+/* ===== tag-date — 标签 + 日期 ===== */
+.__04-Information_sectionContainer .__04-Information_infoVideos .__04-Information_navContainer .__04-Information_navInfo .__04-Information_tag{margin:0 .75rem;color:#fdfd1f}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate{font-size:1.5rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate .__04-Information_tag{display:inline-block;padding:2px .5em;background-color:#38383a;color:#fff;border-radius:2px;margin-right:2rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_tagAndDate .__04-Information_date{color:#fdfd1f;font-family:SansRegular}
+/* ===== list-button — 列表按钮（带图标） ===== */
+.__02-Operator_sectionContainer .__02-Operator_listButton{position:absolute;opacity:0;top:76rem;left:calc(50% - 49.4375rem - 3.75rem - 10rem);width:max-content;padding:0 1.25rem 0 3.5rem;height:3.75rem;border-radius:.3125rem;background-color:#383838;box-sizing:border-box;cursor:pointer;transform:translate3d(-50%,0,0);transition:background-color .2s ease;background-image:linear-gradient(-45deg,transparent,transparent 16.1610023423%,#424242 0,#424242 33.8389976577%,transparent 0,transparent 66.1610023423%,#424242 0,#424242 83.8389976577%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;display:flex;align-items:center;justify-content:center;font-family:SansMedium;font-size:1.25rem;color:#fff}
+.__02-Operator_sectionContainer .__02-Operator_listButton:hover{background-color:#626262}
+.__02-Operator_sectionContainer .__02-Operator_listButton:active{background-color:#282828}
+.__02-Operator_sectionContainer .__02-Operator_listButton:before{content:"";position:absolute;left:.75rem;width:2.0625rem;height:2.0625rem;background-image:url(../assets/textures/operator.png);background-position:50%;background-repeat:no-repeat;background-size:contain}
+/* ===== label-bar — 标签条 + 属性标签 ===== */
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco{position:absolute;left:calc(50% - 49.4375rem - 3.75rem);top:calc(50% - 45rem + 14.1875rem);margin-left:.3125rem;-webkit-clip-path:polygon(0 0,100% 0,100% 100%,0 100%);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_headerInnerContainer{pointer-events:auto}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_decoText{width:8.75rem;display:flex;justify-content:space-between;align-items:center;font-family:Novecentosanswide-DemiBold}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_decoText .__02-Operator_leftBracket,.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_decoText .__02-Operator_rightBracket{color:#999;font-size:1.375rem;line-height:1}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_decoText .__02-Operator_title{font-size:1.5625rem;line-height:1;color:#191919}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_decoTextIcon{position:absolute;left:9.6875rem;top:.3125rem;width:10rem;height:auto;color:#999}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_nameContainer{margin-top:.875rem;width:19.375rem;height:1.25rem;background-color:#d9d9d9;color:#191919;font-family:Gilroy-Medium;font-size:1rem;line-height:1.25rem;padding:.0625rem .25rem;box-sizing:border-box;display:flex;justify-content:space-between}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_stars{margin-top:1.25rem;display:flex;gap:.1875rem}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_headerDeco .__02-Operator_stars .__02-Operator_star{width:3.8125rem;height:4.1875rem;background-position:50%;background-repeat:no-repeat;background-size:contain;background-image:url(../assets/textures/star.png)}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tagContainer{height:2rem;display:flex;gap:2.5rem;margin-bottom:2rem}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag{height:100%;display:flex;font-size:1.375rem;line-height:2.25rem;font-family:SansMedium}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_label{position:relative;padding:0 2rem;background-color:#191919;color:#fff;min-width:7.5rem;text-align:center;box-sizing:border-box}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_label.__02-Operator_cv{padding:0 2rem;color:#191919;background-color:#fffa00}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_label.__02-Operator_cv .__02-Operator_icon{position:absolute;left:50%;bottom:.25rem;transform:translateX(-50%);width:1.8125rem;height:auto}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_label.__02-Operator_cv.__02-Operator_showText{padding:0 1rem 0 3rem}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_label.__02-Operator_cv.__02-Operator_showText .__02-Operator_icon{left:1.8125rem}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_contentContainer .__02-Operator_tag .__02-Operator_value{background-color:#f2f2f2;color:#191919;padding:0 .75rem;box-sizing:border-box;min-width:13.75rem;width:max-content;text-align:center}
+/* ===== avatar-switch — 头像切换项 + 上下钮 + 2D/3D ===== */
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_switchLayer .__02-Operator_switcher3d{position:absolute;top:calc(50% + 55.5rem - 45rem);left:calc(50% + 61.9375rem - 3.75rem);width:4.5rem;height:7.5rem;box-sizing:border-box;border:3px solid #666;border-radius:2.25rem;background-color:rgba(0,0,0,.5);transition:background-color .2s ease-in-out;filter:drop-shadow(0 0 .75rem white)}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_switchLayer .__02-Operator_switcher3d.__02-Operator_active{background-color:rgba(0,0,0,.7)}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_switchLayer .__02-Operator_switcher3d.__02-Operator_active:before{content:"3D";transform:translate3d(-50%,.375rem,0)}
+.__02-Operator_sectionContainer .__02-Operator_pcContainer .__02-Operator_switchLayer .__02-Operator_switcher3d:before{content:"2D";position:absolute;left:50%;transform:translate3d(-50%,3.125rem,0);width:3.75rem;height:3.75rem;box-sizing:border-box;border-radius:50%;background-color:#e6e6e6;border:3px solid #333;display:flex;align-items:center;justify-content:center;font-family:SpaceGrotesk;font-size:1.25rem;font-weight:400;box-shadow:0 0 .5rem 0 rgba(0,0,0,.5);transition:transform .2s ease-in-out}
+.__02-Operator_operatorSwitcher{position:relative;width:9.8125rem;height:69.875rem;padding:4.875rem 0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.__02-Operator_operatorSwitcher:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgb(0,0,0) 20%,rgb(0,0,0) 80%,rgba(0,0,0,0));mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgb(0,0,0) 20%,rgb(0,0,0) 80%,rgba(0,0,0,0));background-image:linear-gradient(-45deg,transparent,transparent 13.9512529279%,black 0,black 36.0487470721%,transparent 0,transparent 63.9512529279%,black 0,black 86.0487470721%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;opacity:.08}
+.__02-Operator_operatorSwitcher .__02-Operator_button{position:relative;width:4.625rem;height:4.625rem;border-radius:2.3125rem;background-color:#fafafa;box-shadow:0 0 .625rem rgba(2,2,2,.3);cursor:pointer;transition:background-color .2s ease}
+.__02-Operator_operatorSwitcher .__02-Operator_button.__02-Operator_top .__02-Operator_arrow{transform:translateY(-50%) rotate(90deg)}
+.__02-Operator_operatorSwitcher .__02-Operator_button.__02-Operator_bottom .__02-Operator_arrow{transform:translateY(-50%) rotate(-90deg)}
+.__02-Operator_operatorSwitcher .__02-Operator_button:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;background-image:url(../assets/textures/pag-button-texture.png);background-position:50%;background-repeat:no-repeat;background-size:cover;opacity:.4;transition:opacity .2s ease}
+.__02-Operator_operatorSwitcher .__02-Operator_button.__02-Operator_disabled{cursor:not-allowed;pointer-events:none}
+.__02-Operator_operatorSwitcher .__02-Operator_button.__02-Operator_disabled .__02-Operator_arrow{color:#aaa}
+.__02-Operator_operatorSwitcher .__02-Operator_button:not(.__02-Operator_disabled):hover{background-color:#fffa00}
+.__02-Operator_operatorSwitcher .__02-Operator_button:not(.__02-Operator_disabled):hover:before{opacity:1}
+.__02-Operator_operatorSwitcher .__02-Operator_button:not(.__02-Operator_disabled):active{background-color:#eeea00}
+.__02-Operator_operatorSwitcher .__02-Operator_button .__02-Operator_border{position:absolute;top:0;left:0;width:100%;height:100%}
+.__02-Operator_operatorSwitcher .__02-Operator_button .__02-Operator_border:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.375rem solid #e6e6e6;box-sizing:border-box}
+.__02-Operator_operatorSwitcher .__02-Operator_button .__02-Operator_border:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:.25rem solid #fff;box-sizing:border-box}
+.__02-Operator_operatorSwitcher .__02-Operator_button .__02-Operator_arrow{position:absolute;left:1.75rem;top:50%;transform:translateY(-50%);width:1.125rem;height:1.6875rem;color:#3c3c3c;transition:color .2s ease}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer{position:absolute;left:-50%;top:0;margin:9.75rem 0;padding:.625rem 0;width:200%;height:49.5rem;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgb(0,0,0) .625rem,rgb(0,0,0) calc(100% - .625rem),rgba(0,0,0,0));mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgb(0,0,0) .625rem,rgb(0,0,0) calc(100% - .625rem),rgba(0,0,0,0));display:flex;flex-direction:column;align-items:center}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem{position:absolute;height:8.5rem;width:8.5rem;border-radius:50%;box-sizing:border-box;box-shadow:0 0 .75rem rgba(2,2,2,.4);display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;transition:transform .3s ease-in-out;cursor:pointer}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem.__02-Operator_active .__02-Operator_activeBg{opacity:1}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem.__02-Operator_active .__02-Operator_border{border-color:#fffa00;border-width:2px}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem:hover .__02-Operator_border{border-color:#fffa00;border-width:2px}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_border{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:3px solid #f2f2f2;box-sizing:border-box;transition:border-color .3s ease-in-out}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_activeBg{position:absolute;color:#ccc;width:12.5rem;height:12.5rem;opacity:0;transition:opacity .3s ease-in-out;pointer-events:none}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image{height:7.5rem;width:7.5rem;border-radius:50%;background-position:50%;background-repeat:no-repeat;background-size:cover;background-color:hsla(0,0%,100%,.5)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=mifu]{background-image:url(../assets/textures/mifu.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=camille]{background-image:url(../assets/textures/camille.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=endministrator1]{background-image:url(../assets/textures/endministrator1.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=endministrator2]{background-image:url(../assets/textures/endministrator2.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=perlica]{background-image:url(../assets/textures/perlica.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=chen]{background-image:url(../assets/textures/chen.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=laevatain]{background-image:url(../assets/textures/laevatain.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=yvonne]{background-image:url(../assets/textures/yvonne.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=gilberta]{background-image:url(../assets/textures/gilberta.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=ardelia]{background-image:url(../assets/textures/ardelia.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=ember]{background-image:url(../assets/textures/ember.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=lastrite]{background-image:url(../assets/textures/lastrite.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=lifeng]{background-image:url(../assets/textures/lifeng.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=pogranichnik]{background-image:url(../assets/textures/pogranichnik.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=alesh]{background-image:url(../assets/textures/alesh.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=arclight]{background-image:url(../assets/textures/arclight.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=avywenna]{background-image:url(../assets/textures/avywenna.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=dapan]{background-image:url(../assets/textures/dapan.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=snowshine]{background-image:url(../assets/textures/snowshine.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=wulfgard]{background-image:url(../assets/textures/wulfgard.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=xaihi]{background-image:url(../assets/textures/xaihi.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=akekuri]{background-image:url(../assets/textures/akekuri.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=antal]{background-image:url(../assets/textures/antal.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=catcher]{background-image:url(../assets/textures/catcher.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=estella]{background-image:url(../assets/textures/estella.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=fluorite]{background-image:url(../assets/textures/fluorite.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=tangtang]{background-image:url(../assets/textures/tangtang.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=rossi]{background-image:url(../assets/textures/rossi.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=zhuangfy]{background-image:url(../assets/textures/zhuangfy.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=liino]{background-image:url(../assets/textures/liino.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=lizhiyan]{background-image:url(../assets/textures/lizhiyan.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=typhoea]{background-image:url(../assets/textures/typhoea.png)}
+.__02-Operator_operatorSwitcher .__02-Operator_itemContainer .__02-Operator_switchItem .__02-Operator_image[data-key=purrche]{background-image:url(../assets/textures/purrche.png)}
+/* ===== card — 卡片（公告） ===== */
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_textWrapper .__06-Notice_latest{position:relative;font-size:2.25rem;line-height:1;font-family:SansBold;color:#2e2e2e}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem{position:relative;width:55rem;height:30.9375rem;border-radius:.5rem;overflow:hidden;box-shadow:0 0 .5rem rgba(0,0,0,.25);transform:scale(.818);transition:transform .4s ease-in-out;cursor:pointer}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem.__06-Notice_active{transform:scale(1)}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem.__06-Notice_active:after{opacity:0}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem:after{content:"";position:absolute;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.5);opacity:1;transition:opacity .4s ease-in-out}
+.__06-Notice_sectionContainer .__06-Notice_noticeItem .__06-Notice_image{position:absolute;width:100%;height:100%;top:0;left:0;background-image:url();background-position:50%;background-repeat:no-repeat;background-size:cover}
+/* ===== title-block — 标题块（副标题/标题/横线） ===== */
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_topPart{position:absolute;top:2.75rem;left:calc(50% - 10.375rem);width:20.8125rem;height:22.8125rem;background-position:50%;background-repeat:no-repeat;background-size:contain;background-image:url(../assets/textures/tower-top.png)}
+.__06-Notice_sectionContainer .__06-Notice_leftDeco .__06-Notice_textWrapper .__06-Notice_divider{position:relative;margin-top:1.25rem;width:4.5rem;height:2px;background-color:#626262}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer{position:absolute;top:7.75rem;margin-left:1.5rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_subtitle{position:relative;white-space:nowrap;font-size:1.5rem;line-height:1;color:gray;font-family:SansMedium}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_subtitle .__06-Notice_time{padding-left:1.75rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer .__06-Notice_title{position:relative;margin-top:1.25rem;max-width:110rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1;font-weight:500;font-size:2.25rem}
+.__06-Notice_sectionContainer .__06-Notice_titleContainer:after{content:"";position:relative;display:block;margin-top:1.1875rem;height:2px;width:149.5rem;background-color:#d9d9d9}
+/* ===== media-card — 媒体卡（图 + 侧栏竖标 + 翻页 + 说明） ===== */
+.GameplayAlbum_gameplayAlbum.GameplayAlbum_aic{position:absolute;left:calc(50% - 80rem + 3.75rem + 28.3125rem);top:5.75rem}
+.GameplayAlbum_gameplayAlbum.GameplayAlbum_aic .GameplayAlbum_imageContainer{position:relative}
+.GameplayAlbum_gameplayAlbum.GameplayAlbum_aic .GameplayAlbum_imageContainer{left:-19rem;flex-direction:row-reverse}
+.GameplayAlbum_gameplayAlbum.GameplayAlbum_aic .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco{background-color:#ededed}
+.GameplayAlbum_gameplayAlbum.GameplayAlbum_gameplay{position:absolute;left:calc(50% - 80rem + 3.75rem + 38rem);top:30.375rem}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer{position:relative;width:111.5rem;height:54.375rem;overflow:hidden;display:flex}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco{position:relative;top:0;right:0;width:19rem;height:100%;background-color:#fffa00}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco .GameplayAlbum_line{position:absolute;left:1.875rem;bottom:calc(100% - 1.5rem);width:51.5rem;height:2.25rem;transform-origin:left bottom;transform:rotate(90deg);background-color:#fff}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco .GameplayAlbum_line .GameplayAlbum_endfield{position:absolute;left:.625rem;bottom:.75rem;width:22.125rem;height:auto;color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco .GameplayAlbum_line .GameplayAlbum_title{position:absolute;left:.625rem;bottom:.5rem;white-space:nowrap;font-family:Novecentosanswide-DemiBold;font-size:4.5rem;text-transform:uppercase;line-height:1;color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco .GameplayAlbum_line .GameplayAlbum_deco{position:absolute;top:.5rem;right:1.125rem;width:10.375rem;height:auto}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_imageContainer .GameplayAlbum_rightDeco .GameplayAlbum_line .GameplayAlbum_ak{position:absolute;left:.75rem;bottom:5rem;line-height:1;font-family:Gilroy-Medium;font-size:1.5rem;color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image{position:relative;width:92.4375rem;height:54.375rem}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_wrapper{position:absolute;left:0;top:0;width:100%;height:100%}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_bottom,.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_middle,.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_top{position:absolute;display:block;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_middle{filter:grayscale(1) brightness(.76) contrast(200) url(#red-green)}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image .GameplayAlbum_bottom{background-color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_image div.GameplayAlbum_middle{background-color:#fffa00}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_pagination{position:absolute;left:2.25rem;bottom:-1.3125rem;opacity:0}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_detail{position:absolute;left:2.4375rem;top:58rem;color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_detail .GameplayAlbum_index{position:absolute;top:-.25rem;left:-2.5rem;font-family:Novecentosanswide-Medium;font-size:2rem;transform:scale(.5);transform-origin:left top;color:#191919}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_detail .GameplayAlbum_title{font-family:SansMedium;font-size:3rem;line-height:1}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_detail .GameplayAlbum_descriptionContainer{width:90.125rem;height:11.5rem}
+.GameplayAlbum_gameplayAlbum .GameplayAlbum_detail .GameplayAlbum_description{margin-top:.75rem;max-width:57.5rem;font-family:SansMedium;font-size:1.875rem;line-height:1.5}
+/* ===== item-icon — 图标块 + 左栏装饰 ===== */
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon{position:absolute;height:100%;width:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon .__05-Gameplay_ef{position:relative;height:100%;width:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft{position:absolute;top:40.25rem;left:calc(50% - 61.875rem - 3.75rem);color:#999;opacity:0}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_title{position:absolute;left:-.5rem;width:8.8125rem;height:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_blocks{position:absolute;top:3.375rem;width:3.9375rem;height:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_codePrinter{position:absolute;left:0;top:6.9375rem}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft:after{content:"";position:absolute;left:0;top:5.25rem;width:1.125rem;height:7.0625rem;background-image:url(../assets/textures/color-bar.png);background-position:50%;background-repeat:no-repeat;background-size:contain}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft.__05-Gameplay_active{animation:__05-Gameplay_flashing 1s ease-out forwards}
+.__05-Gameplay_sectionContainer .__05-Gameplay_itemIcon{position:absolute;left:calc(50% - 61.875rem - 3.75rem);top:75.5rem;width:9.25rem;height:9.25rem;display:flex;align-items:center;justify-content:center;background-color:#d9d9d9;opacity:0}
+.__05-Gameplay_sectionContainer .__05-Gameplay_itemIcon .__05-Gameplay_icon{width:5.6875rem;height:auto;color:#a6a6a6}
+/* ===== color-deco — 色块 / 色线 / 点阵 / 装饰线 ===== */
+.__03-Lore_container .__03-Lore_lattice{position:absolute;left:9.875rem;top:21.875rem;width:4.35rem}
+.__03-Lore_container .__03-Lore_lattice:after,.__03-Lore_container .__03-Lore_lattice:before{content:"";display:block;height:.5rem;margin-bottom:.25rem;background-image:repeating-linear-gradient(90deg,#b2b2b2 0,#b2b2b2 .5rem,transparent 0,transparent .75rem)}
+.__03-Lore_container .__03-Lore_colorBlock{position:absolute;left:9.875rem;top:23.875rem;display:flex}
+.__03-Lore_container .__03-Lore_colorBlock:before{content:"";display:block;width:.5rem;height:7rem;background-image:linear-gradient(180deg,#ff1aac 0,#ff1aac 1.5rem,#00ffa2 0,#00ffa2 3rem,#fffa00 0,rgba(255,250,0,0) 7rem)}
+.__03-Lore_container .__03-Lore_colorBlock:after{content:"";display:block;width:.75rem;height:3rem;background-color:#b2b2b2}
+.__03-Lore_container .__03-Lore_iconLoreWrapper{position:absolute;left:12.625rem;top:23.875rem;width:9rem;height:9rem;display:flex;align-items:center;justify-content:center;background-color:hsla(0,0%,100%,.2)}
+.__03-Lore_container .__03-Lore_iconLoreWrapper .__03-Lore_iconLore{width:5.25rem;height:5.3125rem}
+.__03-Lore_decoLine1{position:absolute;background-color:rgba(109,109,109,.5);top:33.625rem;left:0;width:100%;height:1px}
+.__03-Lore_decoLine2{position:absolute;background-color:rgba(109,109,109,.5);right:1.25rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine3{position:absolute;background-color:rgba(109,109,109,.5);right:3.75rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine4{position:absolute;background-color:rgba(109,109,109,.5);left:1.375rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine5{position:absolute;background-color:rgba(109,109,109,.5);left:3.75rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_decoLine6{position:absolute;background-color:rgba(109,109,109,.5);left:29.375rem;top:0;width:1px;height:100%;-webkit-mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%);mask:linear-gradient(180deg,rgb(0,0,0) 0,rgb(0,0,0) 60%,rgba(0,0,0,0) 90%)}
+.__03-Lore_colorLine{position:absolute;bottom:0;left:50%;transform:translateX(-50%);max-width:100%;width:152.5rem}
+.__03-Lore_colorLine:after{content:"";display:block;width:24.5rem;height:.25rem;margin-left:auto;margin-right:1.25rem;background-color:#fffa00;background-image:linear-gradient(90deg,#ff1aac 0,#ff1aac 5.25rem,#00ffa2 0,#00ffa2 10.5rem,#fffa00 0)}
+/* ===== close-button — 关闭钮（黄方块 / 弹窗 X） ===== */
+.Media_mediaModal .Media_modalContainer .Media_closeBtn{position:absolute;width:4rem;height:4rem;cursor:pointer;background-color:#fffa00;display:flex;align-items:center;justify-content:center}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn{top:0;left:100%}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn:hover .Media_closeIcon{transform:rotate(90deg)}
+.Media_mediaModal .Media_modalContainer .Media_closeBtn .Media_closeIcon{width:3rem;height:3rem;color:#191919;transition:transform .3s}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_close{width:2.25em}
+.ModalFrame_modalFrame .ModalFrame_close{position:absolute;right:2.125em;top:50%;transform:translate3d(0,-50%,0);width:2.625em;height:auto;color:#fff;cursor:pointer;transition:transform .2s ease-in-out,color .2s ease-in-out}
+.ModalFrame_modalFrame .ModalFrame_close:hover{transform:translate3d(0,-50%,0) rotate(90deg)}
+.ModalFrame_modalFrame .ModalFrame_close:active{color:#ccc}
+/* ===== modal-frame — 弹窗框（头 / 标题 / 装饰 / 底点阵） ===== */
+.ModalFrame_modalFrame{position:relative;width:109rem;font-size:1rem;background-color:#fafafa}
+.ModalFrame_modalFrame:before{content:"";position:absolute;width:100%;height:100%;background-image:url(../assets/textures/points-bg.png);background-size:1.5em 1.5em;background-position:bottom;-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 50%,black 90%,black);mask-image:linear-gradient(180deg,transparent 0,transparent 50%,black 90%,black);opacity:.08}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_header{height:5.625rem}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_decoText{top:1.6875em;width:32.5em;color:#2e2e2e}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_title{font-size:2.4375em}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_points{width:3.25em;bottom:1em}
+.ModalFrame_modalFrame.ModalFrame_smallTitle .ModalFrame_close{width:2.25em}
+.ModalFrame_modalFrame .ModalFrame_header{position:relative;height:8.75rem;background-color:#1f1f1f;overflow:hidden}
+.ModalFrame_modalFrame .ModalFrame_header:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-image:linear-gradient(-45deg,transparent,transparent 13.9512529279%,black 0,black 36.0487470721%,transparent 0,transparent 63.9512529279%,black 0,black 86.0487470721%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat}
+.ModalFrame_modalFrame .ModalFrame_decoText{position:absolute;left:50%;top:2.6875em;width:50rem;height:auto;color:#2e2e2e;transform:translate3d(-50%,0,0)}
+.ModalFrame_modalFrame .ModalFrame_title{position:absolute;left:50%;top:.5625em;font-size:3.75em;line-height:1;color:#fff;transform:translate3d(-50%,0,0);font-family:SansRegular;white-space:nowrap}
+.ModalFrame_modalFrame .ModalFrame_points{position:absolute;left:50%;bottom:1.375em;width:5.6875em;height:auto;color:#fff;transform:translate3d(-50%,0,0);opacity:.5}
+.ModalFrame_modalFrame .ModalFrame_close{position:absolute;right:2.125em;top:50%;transform:translate3d(0,-50%,0);width:2.625em;height:auto;color:#fff;cursor:pointer;transition:transform .2s ease-in-out,color .2s ease-in-out}
+.ModalFrame_modalFrame .ModalFrame_close:hover{transform:translate3d(0,-50%,0) rotate(90deg)}
+.ModalFrame_modalFrame .ModalFrame_close:active{color:#ccc}
+.ModalFrame_modalFrame .ModalFrame_decoLB{position:absolute;left:2.5em;bottom:2.125em;width:6.4375em;height:auto;color:#b3b3b3;filter:drop-shadow(0 0 .25rem #ffffff) drop-shadow(0 0 .5rem #ffffff) drop-shadow(0 0 .5rem #ffffff)}
+/* ===== toast — Toast ===== */
+.Toast_toast{position:fixed;z-index:2000;top:0;left:0;height:100%;width:100%;display:flex;align-items:center;justify-content:center;transition:opacity .3s;opacity:0;pointer-events:none}
+.Toast_toast.Toast_visible{opacity:1}
+.Toast_toast .Toast_content{position:fixed;z-index:100;left:50%;top:50%;transform:translate3d(-50%,-50%,0);text-align:center;font-size:16px;line-height:1.4;width:max-content;max-width:330px;padding:.75em 1.25em;border-radius:.25em;font-family:unset;color:#fff;background-color:rgba(0,0,0,.8);pointer-events:none}
+/* ===== tabs — 页签 ===== */
+.SubpageTab_scroll{height:3.75rem;overflow:hidden;width:114.375rem}
+.SubpageTab_subpageTab{position:relative;height:3.75rem;display:flex;align-items:center;width:max-content}
+.SubpageTab_subpageTab .SubpageTab_divider{position:relative;width:.1875rem;height:2.5rem;background-color:#d9d9d9;margin:0 .625rem}
+.SubpageTab_subpageTab .SubpageTab_divider:first-child,.SubpageTab_subpageTab .SubpageTab_divider:last-child{display:none}
+.SubpageTab_subpageTab .SubpageTab_divider:first-child{margin-left:0}
+.SubpageTab_subpageTab .SubpageTab_divider:last-child{margin-right:0}
+.SubpageTab_subpageTab .SubpageTab_tab{position:relative;padding:0 3rem;height:100%;display:flex;align-items:center;border-radius:4px;transition:background-color .2s ease;cursor:pointer}
+.SubpageTab_subpageTab .SubpageTab_tab:hover{background-color:#f3f3f3}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active{background-color:#e5e5e5}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active .SubpageTab_text{transform:translate3d(-1.75rem,0,0)}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active .SubpageTab_arrow{opacity:1}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_text{position:relative;font-size:1.75rem;font-family:SansMedium;line-height:1;color:#191919;white-space:nowrap;transition:transform .2s ease}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_arrow{position:absolute;right:.625rem;width:2.3125rem;height:2.3125rem;border-radius:50%;opacity:0;background-color:#fafafa;transition:opacity .2s ease}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_arrow .SubpageTab_arrowIcon{position:absolute;top:50%;left:50%;height:1.3125rem;width:auto;transform:translate3d(-50%,-50%,0);color:#999}
+/* ===== back-button — 返回按钮 ===== */
+.BackButton_backButton{position:relative;min-width:14.875rem;width:max-content;padding:0 2rem 0 4.3125rem;height:4.1875rem;border-radius:.3125rem;background-color:#383838;box-sizing:border-box;cursor:pointer;transition:background-color .2s ease;background-image:linear-gradient(-45deg,transparent,transparent 16.1610023423%,#424242 0,#424242 33.8389976577%,transparent 0,transparent 66.1610023423%,#424242 0,#424242 83.8389976577%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;display:flex;align-items:center;justify-content:center;font-family:SansMedium;font-size:1.25rem;color:#fff}
+.BackButton_backButton:hover{background-color:#626262}
+.BackButton_backButton:active{background-color:#282828}
+.BackButton_backButton:before{content:"";position:absolute;left:1.1875rem;width:2.0625rem;height:2.0625rem;background-image:url(../assets/textures/arrow.png);transform:rotate(90deg);background-position:50%;background-repeat:no-repeat;background-size:contain}
+/* ===== page-header — 子页头 ===== */
+.SubpageHeader_subpageHeader{position:relative;height:31.625rem;width:100%;border-bottom:1rem solid #c6c6c6;box-sizing:border-box;background-image:linear-gradient(180deg,white 15.5625rem,#fffa00 0,#fffa00)}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader{position:absolute;left:calc(50% - 80rem + 3.75rem + 20.4375rem);top:13.5625rem}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_icon{position:absolute;left:0;top:0;width:4.375rem;height:4.375rem;background-color:#191919;display:flex;align-items:center;justify-content:center;color:#fffa00}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_colonSvg{position:absolute;left:4.75rem;top:2.9375rem;width:auto;height:.875rem;color:#191919}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_efSvg{position:absolute;left:6.125rem;top:2.4375rem;width:10.125rem;height:auto}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:before{content:"ARKNIGHTS:";position:absolute;left:6.125rem;top:1.3125rem;font-size:1.5rem;font-family:Gilroy-Medium;transform:scale(.5);transform-origin:left top;line-height:1}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader:after{content:"ARKNIGHTS: ENDFIELD";position:absolute;left:19rem;top:2.4375rem;font-size:1rem;font-family:Gilroy-Light;transform:scale(.8);transform-origin:left top;line-height:1;white-space:nowrap}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_titleEn{position:absolute;left:19rem;top:3.25rem;font-size:1.25rem;font-family:Gilroy-Medium;background-color:#fffa00;transform:scale(.8);transform-origin:left top;line-height:1;text-transform:uppercase}
+.SubpageHeader_subpageHeader .SubpageHeader_decoHeader .SubpageHeader_decoSvg{position:absolute;top:13rem;left:0;width:7rem;height:auto;color:#282828}
+.SubpageHeader_subpageHeader .SubpageHeader_title{content:"";position:absolute;left:calc(50% - 80rem + 3.75rem + 20.4375rem);top:19.0625rem;width:95.75rem;height:5.125rem;box-sizing:border-box;padding-top:.05em;padding-left:.625rem;font-family:SansBold;font-size:4.5rem;line-height:5.125rem;color:#191919;background-color:#fff}
+.SubpageHeader_subpageHeader .SubpageHeader_title .SubpageHeader_colonSvg{position:relative;left:.5rem;top:.25rem;width:auto;height:1.75rem}
+.SubpageHeader_subpageHeader .SubpageHeader_image{position:absolute;bottom:0;background-position:50%;background-repeat:no-repeat;background-size:contain;background-position:bottom}
+.SubpageHeader_subpageHeader .SubpageHeader_image.SubpageHeader_pumper{background-image:url(../assets/textures/subpage-title-pumper.png);width:28rem;height:26.875rem;left:calc(50% - 80rem + 3.75rem + 20.4375rem + 86rem)}
+.SubpageHeader_subpageHeader .SubpageHeader_image.SubpageHeader_bolt{background-image:url(../assets/textures/subpage-title-bolt.png);width:36.6875rem;height:27.5rem;left:calc(50% - 80rem + 3.75rem + 20.4375rem + 78rem)}
+/* ===== dropdown-trigger — 下拉触发器（账号切换） ===== */
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount{margin-top:2.3125rem;margin-left:1.25rem;height:3.75rem;display:flex;color:#191919}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_number{width:19.375rem;flex:1 1;height:100%;box-sizing:border-box;border-bottom:2px solid rgba(38,38,38,.5);font-size:2.25rem;font-family:SansMedium;line-height:3.75rem;text-align:center}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch{margin-left:.875rem;min-width:11.5rem;width:max-content;padding:0 .75rem;box-sizing:border-box;flex-shrink:0;height:100%;background-color:#e5e5e5;border-radius:.25rem;display:flex;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;transition:background-color .2s ease}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch:hover{background-color:#d9d9d9}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch:hover .ReserveModal_switchButton .ReserveModal_switchIcon{transform:translate3d(-50%,-50%,0) rotate(180deg)}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch:active{background-color:#cecece}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch .ReserveModal_text{padding-top:.15em;padding-left:.25em;font-size:1.625rem;font-family:SansMedium;line-height:1;white-space:nowrap}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch .ReserveModal_switchButton{position:relative;width:2.375rem;height:2.375rem;border-radius:50%;background-color:#fafafa}
+.ReserveModal_reserveModal .ReserveModal_modalContainer .ReserveModal_contentContainer .ReserveModal_currentAccount .ReserveModal_switch .ReserveModal_switchButton .ReserveModal_switchIcon{position:absolute;top:50%;left:50%;transform:translate3d(-50%,-50%,0);width:1.375rem;height:auto;color:#999;transition:transform .2s ease}
+/* ===== download-tile — 平台按钮（下载面板） ===== */
+.downloader_iconContainer .downloader_icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1.125rem;height:auto;color:#191919}
+.downloader_platforms{position:relative;width:max-content;display:flex;gap:.625rem}
+.downloader_platforms .downloader_line{display:flex;gap:.625rem;flex-direction:column}
+.downloader_platforms .downloader_row{width:max-content;display:flex;flex-direction:column;gap:.625rem}
+.downloader_item{position:relative;width:100%;min-width:12.25rem;height:3.625rem;background-position:50%;background-repeat:no-repeat;background-size:contain;display:flex;align-items:center;justify-content:center;gap:.75rem;cursor:pointer;background-color:#000;border-radius:.4375rem;box-sizing:border-box;transition:background-color .2s ease}
+.downloader_item.downloader_disabled{cursor:not-allowed;pointer-events:none}
+.downloader_item:hover{background-color:#222}
+.downloader_item:active{background-color:#333}
+.downloader_item.downloader_hidden{opacity:0;pointer-events:none}
+.downloader_item img.downloader_epic{width:6.3125rem;height:auto}
+.downloader_item img.downloader_ps5{width:7.5rem;height:auto}
+.downloader_item img.downloader_galaxyStore{width:auto;height:2.375rem}
+.downloader_item img.downloader_appStore{width:auto;height:3.375rem}
+.downloader_item img.downloader_android{width:auto;height:2.25rem}
+.downloader_item img.downloader_pc{width:auto;height:2.125rem}
+.downloader_item img.downloader_taptap{width:8.5rem;height:auto}
+.downloader_item img.downloader_googlePlay{height:100%;width:auto}
+.downloader_item img.downloader_gpg{padding:0 .75rem;width:auto;height:1.75rem}
+.downloader_item img.downloader_windows{width:auto;height:1.875rem;filter:brightness(0) invert(1)}
+.downloader_item img.downloader_download{width:5.1875rem;height:auto}
+.downloader_item .downloader_text{font-family:SansRegular;color:#fff;font-size:1.375rem;line-height:1}
+.downloader_item .downloader_label{margin-top:-.125rem;margin-bottom:-.625rem;margin-right:-50%;font-family:SansRegular;color:#fff;font-size:1.625rem;line-height:1;transform:scale(.5);transform-origin:left center}
+/* ===== hollow-text — 空心大字 / 巨字带 ===== */
+.HallowText_hollowText{padding-right:1rem;font-family:Novecentosanswide-Bold;background-image:linear-gradient(-45deg,transparent,transparent 20.5805011712%,black 0,black 29.4194988288%,transparent 0,transparent 70.5805011712%,black 0,black 79.4194988288%,transparent 0,transparent);background-size:.5rem .5rem;background-repeat:repeat;background-position:0 0;-webkit-background-clip:text;background-clip:text;color:rgba(0,0,0,0);height:15.625rem;font-size:15.625rem;line-height:1;letter-spacing:-.625rem;width:-moz-fit-content;width:fit-content;opacity:.6}
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre{position:absolute;top:8.125rem;height:15.625rem;width:100%;overflow:hidden}
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon{position:absolute;height:100%;width:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon .__05-Gameplay_ef{position:relative;height:100%;width:auto}
+/* ===== divider-band — 分隔带（黄） ===== */
+/* === https://web.hycdn.cn/endfield/official-v4/_next/static/css/5f3bf8547312569e.css === */
+.__02-Operator_sectionDivider{position:relative;width:100%;margin-bottom:2rem;height:9.125rem;box-sizing:border-box;padding-left:30.625rem;padding-top:2.25rem;line-height:1}
+.__02-Operator_sectionDivider.__02-Operator_active:before{transform:translateX(0)}
+.__02-Operator_sectionDivider.__02-Operator_active .__02-Operator_dividerSubtitle,.__02-Operator_sectionDivider.__02-Operator_active .__02-Operator_dividerTitle,.__02-Operator_sectionDivider.__02-Operator_active:after{transform:translateX(0);opacity:1}
+.__02-Operator_sectionDivider:before{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-color:#fffa00;transform:translateX(100%);transition:transform .4s ease .2s}
+.__02-Operator_sectionDivider:after{content:"";position:absolute;left:1.5rem;bottom:0;background-image:url(../assets/textures/section_divider_icon_lore.png);background-size:100% 100%;background-repeat:no-repeat;background-position:50%;width:28.25rem;height:14.25rem;transform:translateX(15%);opacity:0;transition:transform .3s ease .4s,opacity .3s ease .4s}
+.__02-Operator_sectionDivider .__02-Operator_dividerSubtitle{font-size:1.875rem;font-family:Gilroy-Light;transform:translateX(2rem);opacity:0;transition:transform .3s ease .5s,opacity .3s ease .5s}
+.__02-Operator_sectionDivider .__02-Operator_dividerTitle{font-size:3.75rem;font-family:Gilroy-Medium;transform:translateX(2rem);opacity:0;transition:transform .3s ease .6s,opacity .3s ease .6s}

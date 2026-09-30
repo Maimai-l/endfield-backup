@@ -1,0 +1,6 @@
+/* 播放钮 + 更多按钮 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons{display:flex;margin-top:4.75rem}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn{cursor:pointer;width:4.5rem;height:4.5rem;background-color:#fdfd1f;border-radius:2px;margin-right:1.25rem;display:flex;align-items:center;justify-content:center;transition:background-color .2s ease}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:after{content:"";display:block;border-left:1.25rem solid #35373c;border-top:.75rem solid rgba(0,0,0,0);border-bottom:.75rem solid rgba(0,0,0,0);margin-left:.25rem;transition:transform .2s ease}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:hover{background-color:#fafafa}
+.__04-Information_sectionContainer .__04-Information_infoCurrent .__04-Information_buttons .__04-Information_playBtn:hover:after{transform:scale(1.25)}

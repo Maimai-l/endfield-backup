@@ -1,0 +1,21 @@
+:root{
+/* Brand yellow — the signature Endfield accent */
+--ef-yellow:#fffa00;--ef-yellow-2:#fff500;--ef-yellow-3:#fdfd1f;--ef-yellow-4:#fff000;--ef-yellow-hover:#efe701;--ef-yellow-active:#e6de01;
+/* Ink / dark scale */
+--ef-ink:#191919;--ef-ink-2:#141414;--ef-ink-3:#1f1f1f;--ef-ink-4:#2e2e2e;--ef-ink-warm:#231815;
+/* Dark control surfaces */
+--ef-btn-dark:#383838;--ef-btn-dark-hover:#484848;--ef-btn-dark-hover-2:#626262;--ef-btn-dark-active:#282828;
+/* Dark scene (lore / space sections) */
+--ef-scene-bg:#131315;--ef-scene-stripe:#1f1f22;--ef-scene-border:#35373c;--ef-scene-dot:#414348;--ef-scene-arrow:#3c3c3c;
+/* Neutral scale (light) */
+--ef-n0:#ffffff;--ef-n1:#fafafa;--ef-n2:#f2f2f2;--ef-n3:#ededed;--ef-n4:#e6e6e6;--ef-n5:#e5e5e5;--ef-n6:#d9d9d9;--ef-n7:#cccccc;--ef-n8:#b3b3b3;--ef-n9:#a6a6a6;--ef-n10:#999999;--ef-n11:#858585;--ef-n12:#7c7c7c;--ef-n13:#666666;
+/* Signal accents (color-bar deco) */
+--ef-pink:#ff1aac;--ef-green:#00ffa2;
+/* Semantic aliases */
+--text-body:var(--ef-ink);--text-muted:var(--ef-n10);--text-invert:#ffffff;
+--surface-page:#ffffff;--surface-card:var(--ef-n1);--surface-raised:var(--ef-n2);--surface-dark:var(--ef-ink);--surface-scene:var(--ef-scene-bg);
+--accent:var(--ef-yellow);--accent-ink:var(--ef-ink);
+--border-subtle:var(--ef-n6);--border-scene:var(--ef-scene-border);
+}
+a{color:var(--ef-ink);text-decoration:none}
+a:hover{color:var(--ef-btn-dark-hover-2)}

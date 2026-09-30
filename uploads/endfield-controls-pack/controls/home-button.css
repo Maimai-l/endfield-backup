@@ -1,0 +1,20 @@
+/* 首屏按钮 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.HomeButton_button{position:relative;min-width:25rem;width:max-content;height:6.25rem;padding-left:8.75rem;padding-right:1.5rem;box-sizing:border-box;border-radius:.25rem;border-left:.75rem solid #fff500;background-color:#fffa00;box-shadow:0 0 .75rem rgba(0,0,0,.4);background-image:url(../assets/textures/button-texture.png);background-position:50%;background-repeat:no-repeat;background-size:cover;background-position:100%;cursor:pointer;color:#191919;display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,background-color .2s ease}
+.HomeButton_button:hover{border-color:#efe701}
+.HomeButton_button:hover .HomeButton_divider{background-color:#efe701}
+.HomeButton_button:active{border-color:#e6de01}
+.HomeButton_button:active .HomeButton_divider{background-color:#e6de01}
+.HomeButton_button.HomeButton_white{border-left:.75rem solid #ccc;background-color:#f2f2f2}
+.HomeButton_button.HomeButton_white .HomeButton_divider{background-color:#d9d9d9}
+.HomeButton_button.HomeButton_white.HomeButton_disabled{cursor:not-allowed;pointer-events:none;background-color:#aaa;color:#888}
+.HomeButton_button.HomeButton_white.HomeButton_disabled .HomeButton_text .HomeButton_arrow{display:none}
+.HomeButton_button.HomeButton_white:hover{border-color:#aaa}
+.HomeButton_button.HomeButton_white:hover .HomeButton_divider{background-color:#aaa}
+.HomeButton_button.HomeButton_white:active{border-color:#999}
+.HomeButton_button.HomeButton_white:active .HomeButton_divider{background-color:#999}
+.HomeButton_button .HomeButton_points{position:absolute;top:.4375rem;left:.5625rem;width:1.1875rem;height:auto;color:#7e7e7e}
+.HomeButton_button .HomeButton_icon{position:absolute;left:3.5625rem;transform:translateX(-50%);width:2.25rem;height:auto}
+.HomeButton_button .HomeButton_icon.HomeButton_iconImage{height:2.5rem;background-size:contain;background-position:50%;background-repeat:no-repeat}
+.HomeButton_button .HomeButton_divider{position:absolute;left:7.125rem;width:.25rem;height:4.375rem;background-color:#fff500;transition:background-color .2s ease}
+.HomeButton_button .HomeButton_text{position:relative;font-size:2.25rem;line-height:1;font-family:SansMedium;display:flex;align-items:center;white-space:nowrap}
+.HomeButton_button .HomeButton_text .HomeButton_arrow{margin-left:.75rem;width:.6875rem;height:auto;color:#a6a6a6;transform:rotate(180deg)}

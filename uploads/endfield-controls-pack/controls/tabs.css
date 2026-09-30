@@ -1,0 +1,15 @@
+/* 页签 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.SubpageTab_scroll{height:3.75rem;overflow:hidden;width:114.375rem}
+.SubpageTab_subpageTab{position:relative;height:3.75rem;display:flex;align-items:center;width:max-content}
+.SubpageTab_subpageTab .SubpageTab_divider{position:relative;width:.1875rem;height:2.5rem;background-color:#d9d9d9;margin:0 .625rem}
+.SubpageTab_subpageTab .SubpageTab_divider:first-child,.SubpageTab_subpageTab .SubpageTab_divider:last-child{display:none}
+.SubpageTab_subpageTab .SubpageTab_divider:first-child{margin-left:0}
+.SubpageTab_subpageTab .SubpageTab_divider:last-child{margin-right:0}
+.SubpageTab_subpageTab .SubpageTab_tab{position:relative;padding:0 3rem;height:100%;display:flex;align-items:center;border-radius:4px;transition:background-color .2s ease;cursor:pointer}
+.SubpageTab_subpageTab .SubpageTab_tab:hover{background-color:#f3f3f3}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active{background-color:#e5e5e5}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active .SubpageTab_text{transform:translate3d(-1.75rem,0,0)}
+.SubpageTab_subpageTab .SubpageTab_tab.SubpageTab_active .SubpageTab_arrow{opacity:1}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_text{position:relative;font-size:1.75rem;font-family:SansMedium;line-height:1;color:#191919;white-space:nowrap;transition:transform .2s ease}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_arrow{position:absolute;right:.625rem;width:2.3125rem;height:2.3125rem;border-radius:50%;opacity:0;background-color:#fafafa;transition:opacity .2s ease}
+.SubpageTab_subpageTab .SubpageTab_tab .SubpageTab_arrow .SubpageTab_arrowIcon{position:absolute;top:50%;left:50%;height:1.3125rem;width:auto;transform:translate3d(-50%,-50%,0);color:#999}

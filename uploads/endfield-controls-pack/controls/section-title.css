@@ -1,0 +1,11 @@
+/* 区块标题 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.SectionTitle_sectionTitle{position:relative}
+.SectionTitle_sectionTitle .SectionTitle_icon{position:absolute;left:0;top:-.875rem;width:auto;height:.375rem;color:gray}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock{position:absolute;left:0;top:0;width:6.5rem;height:2rem;-webkit-clip-path:polygon(0 0,1000% 0,1000% 100%,0 100%);clip-path:polygon(0 0,1000% 0,1000% 100%,0 100%)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock.SectionTitle_active .SectionTitle_inner{transform:translateX(0)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock.SectionTitle_active .SectionTitle_inner .SectionTitle_arrow{transform:rotate(0)}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background-color:#d9d9d9;transform:translateX(-100%);transition:transform .5s ease-out;display:flex;align-items:center}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_arrow{position:absolute;right:.375rem;width:auto;height:1.4375rem;color:#231815;transform:rotate(-45deg);transition:transform .2s ease-out .3s}
+.SectionTitle_sectionTitle .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_titleEn{position:absolute;padding-left:.5rem;left:6.5rem;top:0;height:2rem;display:flex;align-items:center;font-family:Gilroy-Medium;line-height:2rem;font-size:2.25rem;color:#141414;white-space:nowrap;opacity:0}
+.SectionTitle_sectionTitle .SectionTitle_titleCn{position:absolute;left:0;top:2.5rem;font-size:3rem;line-height:1;font-family:SansBold;color:#141414;white-space:nowrap;opacity:0}
+.SectionTitle_sectionTitle.SectionTitle_dark .SectionTitle_arrowBlock .SectionTitle_inner .SectionTitle_titleEn,.SectionTitle_sectionTitle.SectionTitle_dark .SectionTitle_titleCn{color:#fff}

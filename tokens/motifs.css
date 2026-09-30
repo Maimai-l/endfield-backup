@@ -1,0 +1,15 @@
+:root{
+/* Hazard stripe: the recurring 45° industrial stripe, used on CTA, headers, hollow text */
+--stripe-black:linear-gradient(-45deg,transparent,transparent 16.161%,#000 0,#000 33.839%,transparent 0,transparent 66.161%,#000 0,#000 83.839%,transparent 0,transparent); /* @kind other */
+--stripe-size:4px 4px; /* @kind other */
+/* Dark-scene fine stripe fill */
+--stripe-scene:repeating-linear-gradient(-45deg,#1f1f22,#1f1f22 3px,transparent 0,transparent 6px); /* @kind other */
+/* Signal color bar: pink → green → yellow */
+--color-bar:linear-gradient(90deg,#ff1aac 0,#ff1aac 42px,#00ffa2 0,#00ffa2 84px,#fffa00 0);
+/* Radii — Endfield is near-square: 2px buttons, 4px panels, 6px on hover; capsules fully round */
+--radius-btn:2px;--radius-panel:4px;--radius-btn-hover:6px;--radius-tile:2.5px;
+/* Shadows */
+--shadow-btn:drop-shadow(0 0 2px rgba(0,0,0,.25));--shadow-card:0 0 4px rgba(0,0,0,.25);--shadow-pop:0 0 6px rgba(0,0,0,.4);--shadow-round:0 0 5px rgba(2,2,2,.3);
+/* Textures */
+--tex-button:url(../assets/textures/button-texture.png); /* @kind other */--tex-round:url(../assets/textures/pag-button-texture.png);--tex-points:url(../assets/textures/points-bg.png); /* @kind other */
+}

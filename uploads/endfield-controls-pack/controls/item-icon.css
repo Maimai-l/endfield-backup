@@ -1,0 +1,11 @@
+/* 图标块 + 左栏装饰 — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon{position:absolute;height:100%;width:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_endfieldPre .__05-Gameplay_icon .__05-Gameplay_ef{position:relative;height:100%;width:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft{position:absolute;top:40.25rem;left:calc(50% - 61.875rem - 3.75rem);color:#999;opacity:0}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_title{position:absolute;left:-.5rem;width:8.8125rem;height:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_blocks{position:absolute;top:3.375rem;width:3.9375rem;height:auto}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft .__05-Gameplay_codePrinter{position:absolute;left:0;top:6.9375rem}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft:after{content:"";position:absolute;left:0;top:5.25rem;width:1.125rem;height:7.0625rem;background-image:url(../assets/textures/color-bar.png);background-position:50%;background-repeat:no-repeat;background-size:contain}
+.__05-Gameplay_sectionContainer .__05-Gameplay_decoLeft.__05-Gameplay_active{animation:__05-Gameplay_flashing 1s ease-out forwards}
+.__05-Gameplay_sectionContainer .__05-Gameplay_itemIcon{position:absolute;left:calc(50% - 61.875rem - 3.75rem);top:75.5rem;width:9.25rem;height:9.25rem;display:flex;align-items:center;justify-content:center;background-color:#d9d9d9;opacity:0}
+.__05-Gameplay_sectionContainer .__05-Gameplay_itemIcon .__05-Gameplay_icon{width:5.6875rem;height:auto;color:#a6a6a6}

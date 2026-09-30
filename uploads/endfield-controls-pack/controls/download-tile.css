@@ -1,0 +1,23 @@
+/* 平台按钮（下载面板） — rules extracted from site CSS (dehashed). Units rem; 1rem = vw/160 on the site. */
+.downloader_iconContainer .downloader_icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:1.125rem;height:auto;color:#191919}
+.downloader_platforms{position:relative;width:max-content;display:flex;gap:.625rem}
+.downloader_platforms .downloader_line{display:flex;gap:.625rem;flex-direction:column}
+.downloader_platforms .downloader_row{width:max-content;display:flex;flex-direction:column;gap:.625rem}
+.downloader_item{position:relative;width:100%;min-width:12.25rem;height:3.625rem;background-position:50%;background-repeat:no-repeat;background-size:contain;display:flex;align-items:center;justify-content:center;gap:.75rem;cursor:pointer;background-color:#000;border-radius:.4375rem;box-sizing:border-box;transition:background-color .2s ease}
+.downloader_item.downloader_disabled{cursor:not-allowed;pointer-events:none}
+.downloader_item:hover{background-color:#222}
+.downloader_item:active{background-color:#333}
+.downloader_item.downloader_hidden{opacity:0;pointer-events:none}
+.downloader_item img.downloader_epic{width:6.3125rem;height:auto}
+.downloader_item img.downloader_ps5{width:7.5rem;height:auto}
+.downloader_item img.downloader_galaxyStore{width:auto;height:2.375rem}
+.downloader_item img.downloader_appStore{width:auto;height:3.375rem}
+.downloader_item img.downloader_android{width:auto;height:2.25rem}
+.downloader_item img.downloader_pc{width:auto;height:2.125rem}
+.downloader_item img.downloader_taptap{width:8.5rem;height:auto}
+.downloader_item img.downloader_googlePlay{height:100%;width:auto}
+.downloader_item img.downloader_gpg{padding:0 .75rem;width:auto;height:1.75rem}
+.downloader_item img.downloader_windows{width:auto;height:1.875rem;filter:brightness(0) invert(1)}
+.downloader_item img.downloader_download{width:5.1875rem;height:auto}
+.downloader_item .downloader_text{font-family:SansRegular;color:#fff;font-size:1.375rem;line-height:1}
+.downloader_item .downloader_label{margin-top:-.125rem;margin-bottom:-.625rem;margin-right:-50%;font-family:SansRegular;color:#fff;font-size:1.625rem;line-height:1;transform:scale(.5);transform-origin:left center}
