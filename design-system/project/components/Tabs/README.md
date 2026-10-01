@@ -13,12 +13,13 @@
 ## 规则
 
 - 主标签选中为纯黄色块，线型标签为底部 2px 指示条。
+- 线型标签的文字左缘与下方内容左缘对齐，选中与未选中字重相同，只以颜色和指示条区分。
 - 分段控件的轨道使用选择轨道纹理。
 - 只有选中项在 Tab 顺序中，方向键切换。
 
 ## 规格
 
-- **尺寸**：主标签高 48、最小宽 132，图标 20加文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 宽 2、高 10 墨色短竖线，两端显示 Q、E 按键提示，有新内容时右上角显示 9px 橙色菱形；线型 32、40，水平内边距 12、16；区块 44，源站样式，用于切换子页面；分段 32，内边距 2
+- **尺寸**：主标签高 48、最小宽 132，图标 20加文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 宽 2、高 10 墨色短竖线，两端显示 Q、E 按键提示，有新内容时在右侧分隔线上端显示 8px 橙色菱形；线型高 40、48，无内边距，项之间 32、40，指示条 2px 与文字等宽，数量为 12 号 Space Grotesk 次要色、选中时转为正文色；区块 44，源站样式，用于切换子页面；分段 32，内边距 2
 - **Token**：`--color-text-secondary --color-text-primary --color-checked --color-on-checked --color-bg-muted --color-state-hover`
 - **键盘**：`左方向键``右方向键` 切换，`Home` 或 `End` 跳到首尾；主标签栏获得焦点时也可用 `Q` 或 `E` 切换；只有选中项在 Tab 顺序中
 
@@ -27,16 +28,9 @@
 ```html
 <div class="tabs" role="tablist">
   <button class="tab" type="button" role="tab" aria-selected="true" tabindex="0">概览</button>
-  <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1">
-    运行记录
-    <span class="n">128</span>
-  </button>
-  <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1">
-    告警
-    <span class="n">3</span>
-  </button>
-  <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1">配置</button>
-  <button class="tab" type="button" role="tab" aria-selected="false" disabled="" tabindex="-1">固件（无权限）</button>
+  <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1">动态<span class="n">128</span></button>
+  <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1">设置</button>
+  <button class="tab" type="button" role="tab" aria-selected="false" disabled tabindex="-1">归档</button>
 </div>
 ```
 

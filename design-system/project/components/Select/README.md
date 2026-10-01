@@ -18,42 +18,41 @@
 
 ## 规格
 
-- **尺寸**：触发器同文本框三档；菜单项高 32；菜单最大高 320；菜单宽度不小于触发器，间距 4；分组标题 11px Gilroy 大写
-- **Token**：`--color-bg-raised --shadow-lg --radius-md --color-bg-selected --color-state-hover`
+- **尺寸**：触发器同文本框三档，全圆角胶囊，多选时圆角 16；菜单圆角 16、内边距 6；菜单项高 32，全圆角；菜单最大高 320；菜单宽度不小于触发器，间距 4；分组标题 11px Gilroy 大写
+- **Token**：`--color-bg-raised --shadow-lg --radius-full --radius-lg --color-bg-selected --color-state-hover`
 - **键盘**：`Enter` 或 `Space` 展开，`上方向键``下方向键` 移动，`Enter` 选择，`Esc` 关闭并返回触发器
 
 ## 结构
 
 ```html
 <div class="field">
-  <span class="field-label" id="dl1">所属区域</span>
+  <span class="field-label" id="dl1">所属部门</span>
   <div class="dd">
     <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dl1">
-      <span class="val">北区装配线</span>
+      <span class="val">产品部</span>
       <svg class="ic tri"><use href="#i-tri-d"></use></svg>
     </button>
     <div class="menu" role="listbox" hidden="">
-      <div class="menu-group">North</div>
+      <div class="menu-group">Product</div>
       <button class="menu-item" type="button" role="option" aria-selected="true">
-        北区装配线
+        产品部
         <svg class="ic ok"><use href="#i-check"></use></svg>
       </button>
       <button class="menu-item" type="button" role="option" aria-selected="false">
-        北区仓储
+        运营部
         <svg class="ic ok"><use href="#i-check"></use></svg>
       </button>
-      <div class="menu-group">South</div>
+      <div class="menu-group">Operations</div>
       <button class="menu-item" type="button" role="option" aria-selected="false">
-        南区冶炼
+        设计部
         <svg class="ic ok"><use href="#i-check"></use></svg>
       </button>
       <button class="menu-item is-disabled" type="button" role="option" aria-selected="false" aria-disabled="true">
-        南区封存中
+        已停用
         <span class="meta">不可选</span>
       </button>
     </div>
   </div>
-  <div class="field-help">点击展开，可用键盘 Tab 切换选项</div>
 </div>
 ```
 

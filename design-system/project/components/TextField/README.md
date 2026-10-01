@@ -18,8 +18,8 @@
 
 ## 规格
 
-- **尺寸**：高 24、32、40；内边距 8、12、12；标签 13px 在上，说明与错误 13px 在下，间距均为 4
-- **Token**：`--color-bg-page --color-border-control --color-border-strong --color-text-secondary --color-error --color-bg-disabled --radius-sm`
+- **尺寸**：高 24、32、40，全圆角胶囊；水平内边距 10、14、18；1.5px `color-border-control` 描边，悬停转为 `color-border-strong`，聚焦与错误加粗到 2px；填充型为 `color-bg-muted` 底、无描边；标签 13px 在上，说明与错误 13px 在下，间距均为 4
+- **Token**：`--color-bg-page --color-border-control --color-border-strong --color-text-secondary --color-error --color-bg-disabled --radius-full`
 - **键盘**：`Tab` 或 `Shift`加`Tab` 切换焦点；清除按钮可单独聚焦，`Enter` 清空
 
 ## 结构
@@ -27,13 +27,13 @@
 ```html
 <div class="field">
   <label class="field-label" for="f1">
-    设备名称
+    名称
     <span class="req">必填</span>
   </label>
   <div class="input">
-    <input id="f1" placeholder="例如：输送带 A-02">
+    <input id="f1" placeholder="例如：季度报告">
   </div>
-  <div class="field-help">名称在同一区域内不可重复</div>
+  <div class="field-help">同一目录内不可重名</div>
 </div>
 ```
 
