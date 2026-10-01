@@ -21,10 +21,23 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
   const comps=ONLY.length?ONLY:fs.readdirSync(DIR).filter(c=>c!=='Cover'&&fs.existsSync(path.join(DIR,c,'preview.html')));
   for(const comp of comps){
     for(const theme of ['light','dark']){
-      const p=await b.newPage({viewport:{width:960,height:1200}});
+      const p=await b.newPage({viewport:{width:960,height:1200},deviceScaleFactor:4});
       await p.goto(`${BASE}/view/${theme}/${comp}`);await p.waitForTimeout(500);
       for(const r of RULES.filter(x=>x.comp===comp)){
         if(r.setup)await p.evaluate(r.setup);await p.waitForTimeout(r.setup?450:0);
+        if(r.ink){
+          const [host,parts,inv]=r.ink;const H=await p.$(host);if(!H){console.log(`缺少元素  ${comp} ${theme}  ${r.name}`);fails++;continue}
+          const S=4;const shot=await H.screenshot({scale:'device'});
+          const boxes=await p.evaluate(([h,ps])=>{const H=document.querySelector(h),q0=H.getBoundingClientRect();return [q0.width].concat(ps.map(s=>{const e=H.querySelector(s);if(!e)return null;const q=e.getBoundingClientRect();return [q.left-q0.left,q.right-q0.left]}))},[host,parts]);
+          const q=await b.newPage();await q.setContent('<img id=i src="data:image/png;base64,'+shot.toString('base64')+'">');await q.waitForTimeout(100);
+          const dark=theme==='dark'?!inv:!!inv;
+          const cys=await q.evaluate(([bx,dark])=>{const i=document.getElementById('i'),c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const x=c.getContext('2d');x.drawImage(i,0,0);const d=x.getImageData(0,0,c.width,c.height).data;const S=c.width/bx[0];
+            return bx.slice(1).map(b=>{if(!b)return null;let t=1e9,u=-1;for(let X=Math.ceil(b[0]*S)+2;X<Math.floor(b[1]*S)-2;X++)for(let Y=4;Y<c.height-4;Y++){const k=(Y*c.width+X)*4,L=(d[k]+d[k+1]+d[k+2])/3;if(dark?L>150:L<140){t=Math.min(t,Y);u=Math.max(u,Y)}}return u<0?null:(t+u)/2/S})},[boxes,dark]);
+          await q.close();
+          const ok=cys.filter(v=>v!=null);const spread=Math.max(...ok)-Math.min(...ok);
+          if(ok.length<2||spread>0.75){fails++;console.log(`不符合  ${comp} ${theme}  ${r.name}：笔画中心 ${cys.map(v=>v==null?'无':v.toFixed(2)).join(' / ')}`)}
+          continue;
+        }
         if(r.inset){
           const ins=await p.evaluate(([o,i])=>{const O=document.querySelector(o);if(!O)return null;const I=O.querySelector(i);if(!I)return null;const a=O.getBoundingClientRect(),q=I.getBoundingClientRect(),bw=parseFloat(getComputedStyle(O).borderTopWidth);
             return [q.top-a.top-bw,a.bottom-q.bottom-bw,Math.min(q.left-a.left,a.right-q.right)-bw]},r.inset);
@@ -56,7 +69,8 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
           const fs=E=>parseFloat(getComputedStyle(E).fontSize);
           const unit=E=>isText(E)&&(fs(E.parentElement)>fs(E)||[...E.parentElement.children].some(x=>x!==E&&isText(x)&&fs(x)>fs(E)));
           const baseline=(isText(A)&&isText(B)&&getComputedStyle(A).fontSize!==getComputedStyle(B).fontSize)||unit(A)||unit(B);
-          if(vOver&&!hOver&&!baseline){const d=Math.abs((a.top+a.bottom)/2-(b.top+b.bottom)/2);if(d>=1&&d<=3)out.push(`同行中线 ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}
+          const nov=e=>/Novecento/.test(getComputedStyle(e).fontFamily)&&getComputedStyle(e).transform!=='none';
+          if(vOver&&!hOver&&!baseline&&!nov(A)&&!nov(B)){const d=Math.abs((a.top+a.bottom)/2-(b.top+b.bottom)/2);if(d>=1&&d<=3)out.push(`同行中线 ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}
           const viaParent=(E,k,v)=>{let e=E.parentElement;for(let i=0;i<5&&e;i++,e=e.parentElement){const q=e.getBoundingClientRect();if(Math.abs(q[k]-v)<0.5)return true}return false};
           if(hOver&&!vOver){for(const [n,k] of [['左边','left'],['右边','right']]){const x=a[k],y=b[k],d=Math.abs(x-y);if(viaParent(A,k,y)||viaParent(B,k,x))continue;if(k==='right'&&isText(A)&&isText(B))continue;if(d>=1&&d<=3)out.push(`上下${n} ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}}
         }

@@ -116,7 +116,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:640px){.entry-body{flex-wrap:wrap;padding-left:16px}}
 .rpill{position:relative;display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 4px 0 42px;border-radius:20px;background:var(--color-bg-surface);border:1px solid var(--color-border-subtle);color:var(--color-text-primary);flex:none}
 .rpill > .ic{position:absolute;left:10px;top:50%;width:22px;height:22px;transform:translateY(-50%);stroke-width:1.8}
-.rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums}
+.rpill .v{font:19px/1 var(--font-numeric);font-variant-numeric:tabular-nums;transform:translateY(-.08em)}
 .rpill .v small{font-size:12px;color:var(--color-text-secondary);margin-left:2px}
 .rpill .v .u{margin-left:4px;font-family:var(--font-body)}
 .rpill .sep{width:1px;height:20px;background:var(--color-border-subtle);margin-left:2px}
@@ -130,7 +130,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ipill{position:relative;display:inline-flex;align-items:center;gap:12px;height:44px;padding:0 6px 0 22px;border-radius:22px;background:var(--color-bg-surface);border:1px solid var(--color-border-subtle);color:var(--color-text-primary);flex:none}
 .ipill::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:3px;border-radius:1px;background:var(--color-checked)}
 .ipill .l{font:14px var(--font-medium);color:var(--color-text-secondary)}
-.ipill .v{font:30px/1 var(--font-numeric);font-variant-numeric:tabular-nums;min-width:1ch;text-align:center}
+.ipill .v{font:22px/1 var(--font-numeric);font-variant-numeric:tabular-nums;min-width:1ch;text-align:center;transform:translateY(-.08em)}
 .ibtn-i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--color-text-primary);padding:0;background:var(--color-bg-page);color:var(--color-text-primary);cursor:pointer;transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
 .ibtn-i:hover{background:var(--color-text-primary);color:var(--color-bg-page)}
 .ibtn-i:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
@@ -558,6 +558,10 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .seg button[aria-pressed="true"],.seg button[aria-selected="true"]{background:var(--color-checked);color:var(--color-on-checked);font-family:var(--font-medium)}
 .pager{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:13px}
 .pg{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 6px;border:0;border-radius:var(--radius-sm);background:none;color:var(--color-text-primary);font:13px var(--font-numeric);font-variant-numeric:tabular-nums;cursor:pointer}
+/* Novecento 数字在行框中偏下约 0.08em；在居中排列的行内上移补偿，使笔画中心落在行的中线上 */
+.entry-strip .meta,.sp-scale-row b,.pager .total b{transform:translateY(-.08em)}
+.tagdate .d{transform:translateY(-.22em)}
+.pg:not(:has(svg)){box-sizing:border-box;padding-bottom:2px}
 .pg:hover,.pg.is-hover{background:var(--color-state-hover)}
 .pg:active{background:var(--color-state-pressed)}
 .pg:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:1px}
@@ -664,7 +668,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .stat--off{color:var(--color-text-secondary)}
 .tagdate{display:inline-flex;align-items:center;gap:12px;padding:6px 10px;border-radius:var(--radius-sm);background:var(--hazard-ink)}
 .tagdate .t{padding:2px 6px;border-radius:var(--radius-sm);background:#38383a;color:#ffffff;font-size:12px}
-.tagdate .d{font:13px var(--font-numeric);color:#fdfd1f;letter-spacing:.04em}
+.tagdate .d{font:13px/1 var(--font-numeric);color:#fdfd1f;letter-spacing:.04em}
 .av{position:relative;display:inline-grid;place-items:center;flex:none;width:var(--s,40px);height:var(--s,40px);border-radius:50%;background:var(--color-bg-muted);color:var(--color-text-secondary);font:calc(var(--s,40px) * .4)/1 var(--font-medium)}
 .av .ic{width:55%;height:55%}
 .av--img{background:linear-gradient(135deg,#d9d9d9 0 45%,#858585 45% 70%,#fffa00 70%);color:transparent}

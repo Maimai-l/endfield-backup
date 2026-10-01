@@ -1,5 +1,6 @@
 /* 声明式对齐规则。edge 取 left、right、top、bottom、cx、cy；min 表示两条边至少相距的像素；
-   inset 为 [外层, 内层]，要求圆中套圆时上、下、侧三向内距相等。 */
+   inset 为 [外层, 内层]，要求圆中套圆时上、下、侧三向内距相等；
+   ink 为 [容器, 元素列表, 是否浅色笔画]，按截图中的实际笔画测量各元素的垂直中心，相差不得超过 0.75px。 */
 const OPEN="document.querySelectorAll('.sn').forEach(n=>n.classList.add('is-open'))";
 const SHUT="document.querySelectorAll('.sn').forEach(n=>n.classList.remove('is-open'))";
 module.exports=[
@@ -15,4 +16,8 @@ module.exports=[
   {comp:'Button',name:'箭头圆在胶囊按钮内四周内距相等',inset:['.cap-btn','.go']},
   {comp:'List',name:'图标圆在入口菜单条目内四周内距相等',inset:['.smi','.smi-ic']},
   {comp:'List',name:'图标圆在双行列表条目内四周内距相等',inset:['.li--2','.lead']},
+  {comp:'MetricBadge',name:'名称、数值、说明按钮笔画中心在同一中线',ink:['.ipill',['.l','.v','.ibtn-i']]},
+  {comp:'QuotaPill',name:'数值与加号按钮笔画中心在同一中线',ink:['.rpill',['.v','.rplus']]},
+  {comp:'Pagination',name:'页码数字与翻页箭头笔画中心在同一中线',ink:['.pager',['.pg:nth-of-type(2)','.pg[data-prev]','.total b']]},
+  {comp:'Tag',name:'日期标签的类型与日期笔画中心在同一中线',ink:['.tagdate',['.t','.d'],true]},
 ];
