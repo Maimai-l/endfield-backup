@@ -11,7 +11,6 @@
   .art{position:absolute;top:0;left:480px;width:480px;height:288px;overflow:hidden}
   .art svg{display:block;width:480px;height:288px}
   .y{fill:var(--y-300)}
-  .s{fill:var(--hazard-ink)}
   .words{position:absolute;left:var(--space-6);bottom:var(--space-6);max-width:440px}
   .name{margin:0;line-height:0}
   .name svg{display:block;width:440px;height:auto}
@@ -23,15 +22,12 @@
 <div class="art" aria-hidden="true">
 <svg viewBox="480 0 480 288" width="480" height="288">
 <!--
-  blocks      y-300 480 by 232, bled off the top and the right edge: the one brand colour, about 40% of 960 by 288
-  arrangement a single slab, its bottom edge on the wordmark's baseline zone, starting space-4 right of the name zone
-  pattern     45-degree hazard stripes, from "45 度黄黑警示条纹" in the README: hazard-ink bars 12 wide at a space-5 pitch, a band space-7 tall along the slab's bottom
-  scales      band height space-7; stripe pitch space-5; corners square
+  blocks      y-300 480 by 272, bled off the top and the right edge: the one brand colour, about 40% of 960 by 288
+  arrangement a single slab, its bottom edge level with the wordmark baseline, starting space-4 right of the name zone
+  scales      corners square
   name        the ENDFIELD wordmark from assets/Logos, inline, 440 wide, fill color-text-primary
 -->
-<defs><clipPath id="band"><rect x="496" y="176" width="480" height="48"/></clipPath></defs>
-<rect class="y" x="496" y="-8" width="480" height="232"/>
-<g clip-path="url(#band)"><polygon class="s" points="448,224 460,224 508,176 496,176"/><polygon class="s" points="472,224 484,224 532,176 520,176"/><polygon class="s" points="496,224 508,224 556,176 544,176"/><polygon class="s" points="520,224 532,224 580,176 568,176"/><polygon class="s" points="544,224 556,224 604,176 592,176"/><polygon class="s" points="568,224 580,224 628,176 616,176"/><polygon class="s" points="592,224 604,224 652,176 640,176"/><polygon class="s" points="616,224 628,224 676,176 664,176"/><polygon class="s" points="640,224 652,224 700,176 688,176"/><polygon class="s" points="664,224 676,224 724,176 712,176"/><polygon class="s" points="688,224 700,224 748,176 736,176"/><polygon class="s" points="712,224 724,224 772,176 760,176"/><polygon class="s" points="736,224 748,224 796,176 784,176"/><polygon class="s" points="760,224 772,224 820,176 808,176"/><polygon class="s" points="784,224 796,224 844,176 832,176"/><polygon class="s" points="808,224 820,224 868,176 856,176"/><polygon class="s" points="832,224 844,224 892,176 880,176"/><polygon class="s" points="856,224 868,224 916,176 904,176"/><polygon class="s" points="880,224 892,224 940,176 928,176"/><polygon class="s" points="904,224 916,224 964,176 952,176"/><polygon class="s" points="928,224 940,224 988,176 976,176"/><polygon class="s" points="952,224 964,224 1012,176 1000,176"/><polygon class="s" points="976,224 988,224 1036,176 1024,176"/></g>
+<rect class="y" x="496" y="-8" width="480" height="272"/>
 </svg>
 </div>
 <div class="words">

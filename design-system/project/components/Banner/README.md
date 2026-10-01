@@ -12,13 +12,13 @@
 
 ## 规则
 
-- 左侧 4px 色条使用对应功能色；警告用黄黑条纹。
+- 左侧 4px 色条使用对应功能色。
 - 不要整页叠放多条提示条，合并为一条。
 
 ## 规格
 
-- **尺寸**：宽度随容器；面板底色，1px 边框；左侧 4px 纯色色条（警告为黄黑条纹）；图标 16；标题 14 Medium，正文 13
-- **Token**：`--color-bg-surface --color-border-subtle --color-success --color-error --hazard --color-info --radius-sm`
+- **尺寸**：宽度随容器；面板底色，1px 边框；左侧 4px 纯色色条；图标 16；标题 14 Medium，正文 13
+- **Token**：`--color-bg-surface --color-border-subtle --color-success --color-error --color-warning --color-info --radius-sm`
 - **键盘**：关闭按钮可用 `Tab` 到达；错误类使用 `role="alert"`，其余使用 `role="status"`
 
 ## 结构

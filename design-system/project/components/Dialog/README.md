@@ -13,13 +13,13 @@
 ## 规则
 
 - 宽 400、560、800 三档；主要操作在最右。
-- 警示条纹标题栏只用于危险确认。
+- 危险确认的标题栏顶部加 6px `color-error` 纯色色条。
 - Esc 关闭，焦点锁定在对话框内，关闭后回到触发按钮。
 
 ## 规格
 
-- **尺寸**：宽 400、560、800；标题栏 56，危险确认 62（含 6px 警示条纹）；内容内边距 24；底部操作区 64，主要操作在最右
-- **Token**：`--color-bg-raised --color-bg-overlay --shadow-lg --radius-md --color-border-subtle`
+- **尺寸**：宽 400、560、800；标题栏 56，危险确认 62（含 6px 错误色色条）；内容内边距 24；底部操作区 64，主要操作在最右
+- **Token**：`--color-bg-raised --color-bg-overlay --shadow-lg --radius-md --color-border-subtle --color-error`
 - **键盘**：`Esc` 关闭；`Tab` 在对话框内循环；关闭后焦点回到触发按钮
 
 ## 结构
@@ -55,4 +55,4 @@
 
 ## 来源
 
-源站改造。ModalFrame（条纹标题栏仅保留给危险确认）
+源站改造。ModalFrame

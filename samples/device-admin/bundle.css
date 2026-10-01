@@ -1,6 +1,6 @@
 /* Endfield 控件样式。依赖 tokens.css 中的颜色、字体、间距、圆角、阴影、层级与时长变量。
    主题：<html data-theme="light|dark">。以下为无法写入 tokens.json 的非颜色变量。 */
-:root{--hazard:repeating-linear-gradient(-45deg,#fffa00 0 6px,#191919 6px 12px);--tex-track:repeating-linear-gradient(-45deg,var(--track-stripe) 0 1.5px,transparent 1.5px 3px);--tex-invert:0}
+:root{--tex-track:repeating-linear-gradient(-45deg,var(--track-stripe) 0 1.5px,transparent 1.5px 3px);--tex-invert:0}
 [data-theme="dark"]{--tex-invert:1;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body);-webkit-font-smoothing:antialiased}
@@ -456,7 +456,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .alert .x:focus-visible{outline:2px solid var(--color-focus-ring)}
 .alert--info{--a-bar:var(--color-info)}
 .alert--success{--a-bar:var(--color-success)}
-.alert--warning{--a-bar:var(--hazard)}
+.alert--warning{--a-bar:var(--color-warning)}
 .alert--error{--a-bar:var(--color-error)}
 .alerts{display:flex;flex-direction:column;gap:10px;width:100%}
 .scrim-stage{position:relative;border-radius:var(--radius-sm);background:var(--color-bg-overlay);padding:32px 16px;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;width:100%}
@@ -469,7 +469,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .dlg-foot{display:flex;justify-content:flex-end;align-items:center;gap:8px;height:64px;padding:0 24px;border-top:1px solid var(--color-border-subtle)}
 .dialog--danger .dlg-head{position:relative;background:var(--dialog-head);color:var(--dialog-head-fg);border-bottom:0;padding-top:6px;height:62px}
 .dialog--danger .dlg-head::before{content:"";position:absolute;inset:0;background-image:linear-gradient(-45deg,transparent 0 14%,#000 14% 36%,transparent 36% 64%,#000 64% 86%,transparent 86%);background-size:4px 4px;opacity:.9;pointer-events:none}
-.dialog--danger .dlg-head::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(-45deg,var(--y-300) 0 8px,var(--hazard-ink) 8px 16px)}
+.dialog--danger .dlg-head::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--color-error)}
 .dialog--danger .dlg-head > *{position:relative}
 .dialog--danger .dlg-head .btn--ghost{--btn-fg:var(--dialog-head-fg);--btn-bg-h:#383838;--btn-bg-a:#484848}
 .dialog--danger .dlg-head .btn--ghost:focus-visible{outline-color:var(--y-300)}
@@ -686,7 +686,7 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .meter{display:inline-flex;align-items:center;gap:8px;justify-content:flex-end}
 .meter i{display:block;width:56px;height:4px;background:var(--color-bg-muted);border-radius:1px;overflow:hidden}
 .meter i::before{content:"";display:block;height:100%;width:var(--v);background:var(--color-checked)}
-.meter.hi i::before{background:var(--hazard)}
+.meter.hi i::before{background:var(--color-warning)}
 .hr{height:1px;border:0;background:var(--color-border-subtle);margin:0;width:100%}
 .hr-label{display:flex;align-items:center;gap:12px;width:100%;font-size:12px;color:var(--color-text-tertiary)}
 .hr-label::before,.hr-label::after{content:"";flex:1;height:1px;background:var(--color-border-subtle)}
