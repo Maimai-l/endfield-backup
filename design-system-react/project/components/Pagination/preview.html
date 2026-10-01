@@ -1,0 +1,13 @@
+<!-- @dsCard group="导航" height=167 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Pagination</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var d=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var P=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var m=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var C=(e,t,o,p)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of E(t))!b.call(e,r)&&r!==o&&d(e,r,{get:()=>t[r],enumerable:!(p=S(t,r))||p.enumerable});return e};var s=(e,t,o)=>(o=e!=null?y(P(e)):{},C(t||!e||!e.__esModule?d(o,"default",{value:e,enumerable:!0}):o,e));var c=m((M,R)=>{R.exports=window.React});var f=m((j,u)=>{u.exports=window.ReactDOM});var n=s(c());var a=s(c()),N=s(f()),v=window.Endfield;function w(e){(0,N.createRoot)(document.getElementById("root")).render(e)}function I(){return a.createElement("span",{className:"prov"},"新增")}function g({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(I,null),a.createElement("div",{className:"stage"},e))}function i({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}function l({cap:e,children:t,style:o}){return a.createElement("div",{className:"item",style:o},t,e!==void 0&&a.createElement("span",{className:"cap"},e))}var{Pagination:x,PageCapsule:h}=v;w(n.createElement(g,null,n.createElement(i,{label:"完整"},n.createElement(x,{total:248,defaultPage:3})),n.createElement(i,{label:"简洁"},n.createElement(l,{cap:"首页，上一页禁用"},n.createElement(x,{variant:"simple",total:250})),n.createElement(l,{cap:"源站胶囊，轮播"},n.createElement(h,{total:6,defaultPage:3})))));})();</script>
+</body>
+</html>

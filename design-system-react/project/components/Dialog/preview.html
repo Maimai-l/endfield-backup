@@ -1,0 +1,13 @@
+<!-- @dsCard group="反馈与提示" height=424 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Dialog</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var p=Object.defineProperty;var b=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var S=Object.getPrototypeOf,C=Object.prototype.hasOwnProperty;var d=(a,t)=>()=>{try{return t||a((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var P=(a,t,o,s)=>{if(t&&typeof t=="object"||typeof t=="function")for(let n of E(t))!C.call(a,n)&&n!==o&&p(a,n,{get:()=>t[n],enumerable:!(s=b(t,n))||s.enumerable});return a};var l=(a,t,o)=>(o=a!=null?y(S(a)):{},P(t||!a||!a.__esModule?p(o,"default",{value:a,enumerable:!0}):o,a));var r=d((B,m)=>{m.exports=window.React});var R=d((J,u)=>{u.exports=window.ReactDOM});var e=l(r());var c=l(r()),f=l(R()),N=window.Endfield;function v(a){(0,f.createRoot)(document.getElementById("root")).render(a)}function w({label:a,children:t,style:o}){return c.createElement("div",{className:"row"},c.createElement("span",{className:"row-label"},a),c.createElement("div",{className:"items",style:o},t))}var{Dialog:i,Button:g,TextField:x}=N;function D(){let[a,t]=e.useState(!1),[o,s]=e.useState(!1);return e.createElement(e.Fragment,null,e.createElement(w,{label:"演示"},e.createElement(g,{size:"sm",onClick:()=>t(!0)},"打开确认对话框"),e.createElement(g,{size:"sm",onClick:()=>s(!0)},"打开危险确认"),e.createElement("span",{className:"cap"},"Esc 关闭，焦点锁定在对话框内")),e.createElement(i,{open:a,onClose:()=>t(!1),title:"提交任务",confirmLabel:"提交"},e.createElement("p",null,"提交后任务将进入审核，审核期间不可修改内容。"),e.createElement(x,{label:"审核人",defaultValue:"成员 302",style:{width:"100%"}})),e.createElement(i,{open:o,onClose:()=>s(!1),danger:!0,title:"删除项目",confirmText:"PRJ-0142"},e.createElement("p",null,"删除后该项目的 1,284 条记录将一并清除，且无法恢复。输入 ",e.createElement("span",{className:"confirm-code"},"PRJ-0142")," 以确认。")))}v(e.createElement("div",{className:"stage"},e.createElement("div",{className:"scrim-stage"},e.createElement(i,{inline:!0,title:"提交任务",confirmLabel:"提交"},e.createElement("p",null,"提交后任务将进入审核，审核期间不可修改内容。"),e.createElement(x,{label:"审核人",defaultValue:"成员 302",style:{width:"100%"}})),e.createElement(i,{inline:!0,danger:!0,title:"删除项目",confirmText:"PRJ-0142"},e.createElement("p",null,"删除后该项目的 1,284 条记录将一并清除，且无法恢复。输入 ",e.createElement("span",{className:"confirm-code"},"PRJ-0142")," 以确认。"))),e.createElement(D,null)));})();</script>
+</body>
+</html>

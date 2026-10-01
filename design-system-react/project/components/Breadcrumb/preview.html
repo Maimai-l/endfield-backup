@@ -1,0 +1,13 @@
+<!-- @dsCard group="导航" height=212 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Breadcrumb</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var m=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,E=Object.prototype.hasOwnProperty;var d=(e,a)=>()=>{try{return a||e((a={exports:{}}).exports,a),a.exports}catch(r){throw a=0,r}};var P=(e,a,r,p)=>{if(a&&typeof a=="object"||typeof a=="function")for(let l of x(a))!E.call(e,l)&&l!==r&&m(e,l,{get:()=>a[l],enumerable:!(p=S(a,l))||p.enumerable});return e};var c=(e,a,r)=>(r=e!=null?y(g(e)):{},P(a||!e||!e.__esModule?m(r,"default",{value:e,enumerable:!0}):r,e));var i=d((I,f)=>{f.exports=window.React});var b=d((M,R)=>{R.exports=window.ReactDOM});var o=c(i());var t=c(i()),u=c(b()),N=window.Endfield;function h(e){(0,u.createRoot)(document.getElementById("root")).render(e)}function C(){return t.createElement("span",{className:"prov"},"新增")}function w({children:e,prov:a}){return t.createElement(t.Fragment,null,a&&t.createElement(C,null),t.createElement("div",{className:"stage"},e))}function n({label:e,children:a,style:r}){return t.createElement("div",{className:"row"},t.createElement("span",{className:"row-label"},e),t.createElement("div",{className:"items",style:r},a))}var{Breadcrumb:v,Path:B}=N,s="#c-crumbs";h(o.createElement(w,{prov:!0},o.createElement(n,{label:"标准"},o.createElement(v,{items:[{label:"项目管理",href:s},{label:"产品部",href:s},{label:"官网",href:s},{label:"官网改版"}]})),o.createElement(n,{label:"路径"},o.createElement(B,{items:["项目管理","产品部","官网改版"]}),o.createElement("span",{className:"cap",style:{alignSelf:"center"}},"页面左上角的当前位置，前缀为两道斜线")),o.createElement(n,{label:"折叠"},o.createElement(v,{items:[{label:"项目管理",href:s},{label:"产品部",href:s},{label:"官网",href:s},{label:"设计",href:s},{label:"前端",href:s},{label:"组件库"}]}),o.createElement("span",{className:"cap",style:{alignSelf:"center"}},"超过 4 级时折叠中间层级"))));})();</script>
+</body>
+</html>

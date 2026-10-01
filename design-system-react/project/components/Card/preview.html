@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=689 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var N=Object.create;var p=Object.defineProperty;var b=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var m=(t,a)=>()=>{try{return a||t((a={exports:{}}).exports,a),a.exports}catch(o){throw a=0,o}};var g=(t,a,o,l)=>{if(a&&typeof a=="object"||typeof a=="function")for(let r of S(a))!x.call(t,r)&&r!==o&&p(t,r,{get:()=>a[r],enumerable:!(l=b(a,r))||l.enumerable});return t};var s=(t,a,o)=>(o=t!=null?N(E(t)):{},g(a||!t||!t.__esModule?p(o,"default",{value:t,enumerable:!0}):o,t));var d=m((D,u)=>{u.exports=window.React});var f=m((I,R)=>{R.exports=window.ReactDOM});var e=s(d());var v=s(d()),y=s(f()),C=window.Endfield;function w(t){(0,y.createRoot)(document.getElementById("root")).render(t)}var{Card:n,StatCard:h,EntryCard:c,CapsuleButton:i,Tag:P,Status:B}=C;w(e.createElement("div",{className:"stage"},e.createElement("div",{style:{width:"100%"}},e.createElement(c,{title:"官网改版评审",meta:"12 / 18",action:e.createElement(i,null,"前往")},"剩余 6 项待评审，预计 40 分钟。"),e.createElement(c,{title:"季度规划",meta:"3 / 3",action:e.createElement(i,{busy:!0},"已完成")},"本周规划项已全部完成。"),e.createElement(c,{off:!0,title:"上线复盘",meta:"未开放",action:e.createElement(i,{disabled:!0},"查看")},"归档期间不生成复盘记录。")),e.createElement("div",{className:"cards"},e.createElement(n,{eyebrow:"Static",title:"维护说明",footer:e.createElement(e.Fragment,null,e.createElement("code",null,"DOC-000031"),e.createElement(P,{size:"sm"},"文档"))},"每周一同步进度，每月底整理归档。"),e.createElement(n,{eyebrow:"Interactive",title:"官网改版",href:"#c-card",footer:e.createElement(e.Fragment,null,e.createElement("code",null,"PRJ-0142"),e.createElement(B,{tone:"warn"},"待处理"))},"产品部"),e.createElement(n,{eyebrow:"Selectable",title:"标准评审模板",selectable:!0,defaultSelected:!0,footer:e.createElement("code",null,"TPL-0007")},"12 个检查项，预计 25 分钟。"),e.createElement(h,{eyebrow:"Readout",label:"今日访问",value:18406,unit:"次",delta:{text:"+6.2% 较昨日",direction:"up"}}),e.createElement(n,{eyebrow:"Disabled",title:"已归档",disabled:!0},"该项目已归档，数据仅供查阅。"))));})();</script>
+</body>
+</html>

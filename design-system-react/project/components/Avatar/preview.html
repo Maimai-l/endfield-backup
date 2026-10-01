@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=221 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Avatar</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var A=Object.create;var v=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var R=(e,a)=>()=>{try{return a||e((a={exports:{}}).exports,a),a.exports}catch(o){throw a=0,o}};var h=(e,a,o,d)=>{if(a&&typeof a=="object"||typeof a=="function")for(let i of E(a))!b.call(e,i)&&i!==o&&v(e,i,{get:()=>a[i],enumerable:!(d=x(a,i))||d.enumerable});return e};var l=(e,a,o)=>(o=e!=null?A(g(e)):{},h(a||!e||!e.__esModule?v(o,"default",{value:e,enumerable:!0}):o,e));var p=R((z,u)=>{u.exports=window.React});var y=R((j,f)=>{f.exports=window.ReactDOM});var t=l(p());var s=l(p()),N=l(y()),w=window.Endfield;function S(e){(0,N.createRoot)(document.getElementById("root")).render(e)}function C(){return s.createElement("span",{className:"prov"},"新增")}function I({children:e,prov:a}){return s.createElement(s.Fragment,null,a&&s.createElement(C,null),s.createElement("div",{className:"stage"},e))}function m({label:e,children:a,style:o}){return s.createElement("div",{className:"row"},s.createElement("span",{className:"row-label"},e),s.createElement("div",{className:"items",style:o},a))}function c({cap:e,children:a,style:o}){return s.createElement("div",{className:"item",style:o},a,e!==void 0&&s.createElement("span",{className:"cap"},e))}var{Avatar:r,AvatarStack:k}=w,n={justifyItems:"center"};S(t.createElement(I,null,t.createElement(m,{label:"尺寸"},[24,32,40,64].map(e=>t.createElement(c,{key:e,cap:e,style:n},t.createElement(r,{size:e},"周")))),t.createElement(m,{label:"变体"},t.createElement(c,{cap:"图片",style:n},t.createElement(r,{className:"av--img",alt:"头像图片"})),t.createElement(c,{cap:"文字",style:n},t.createElement(r,null,"林")),t.createElement(c,{cap:"占位",style:n},t.createElement(r,{alt:"未设置头像"})),t.createElement(c,{cap:"在线",style:n},t.createElement(r,{status:"online"},"陈")),t.createElement(c,{cap:"已归档",style:n},t.createElement(r,{status:"off"},"吴")),t.createElement(c,{cap:"可点击 hover",style:n},t.createElement(r,{className:"is-hover",label:"账户：成员 302",onClick:()=>{}},"周")),t.createElement(c,{cap:"堆叠",style:n},t.createElement(k,{more:4},t.createElement(r,{size:32},"周"),t.createElement(r,{size:32},"林"),t.createElement(r,{size:32},"陈"))))));})();</script>
+</body>
+</html>

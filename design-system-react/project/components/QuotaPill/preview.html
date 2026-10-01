@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=88 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>QuotaPill</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var b=Object.create;var p=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var d=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var L=(e,t,o,l)=>{if(t&&typeof t=="object"||typeof t=="function")for(let c of S(t))!g.call(e,c)&&c!==o&&p(e,c,{get:()=>t[c],enumerable:!(l=y(t,c))||l.enumerable});return e};var r=(e,t,o)=>(o=e!=null?b(E(e)):{},L(t||!e||!e.__esModule?p(o,"default",{value:e,enumerable:!0}):o,e));var s=d((C,m)=>{m.exports=window.React});var R=d((B,u)=>{u.exports=window.ReactDOM});var n=r(s());var a=r(s()),v=r(R()),f=window.Endfield;function x(e){(0,v.createRoot)(document.getElementById("root")).render(e)}function P(){return a.createElement("span",{className:"prov"},"新增")}function N({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(P,null),a.createElement("div",{className:"stage"},e))}function w({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}var{QuotaPill:i}=f;x(n.createElement(N,null,n.createElement(w,{label:"示例",style:{gap:12}},n.createElement(i,{icon:"i-box",value:820,max:1e3,unit:"GB",actionLabel:"扩容存储"}),n.createElement(i,{icon:"i-user",value:18,max:20,unit:"席位",actionLabel:"增加席位"}),n.createElement(i,{icon:"i-bolt",value:235,max:235,actionLabel:"补充调用配额"}),n.createElement(i,{icon:"i-list",value:1300,unit:"元",actionLabel:"充值预算"}))));})();</script>
+</body>
+</html>

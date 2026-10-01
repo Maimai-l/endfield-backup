@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=239 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Tag</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var d=Object.defineProperty;var T=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var u=(t,a)=>()=>{try{return a||t((a={exports:{}}).exports,a),a.exports}catch(o){throw a=0,o}};var k=(t,a,o,m)=>{if(a&&typeof a=="object"||typeof a=="function")for(let r of x(a))!b.call(t,r)&&r!==o&&d(t,r,{get:()=>a[r],enumerable:!(m=T(a,r))||m.enumerable});return t};var p=(t,a,o)=>(o=t!=null?y(E(t)):{},k(a||!t||!t.__esModule?d(o,"default",{value:t,enumerable:!0}):o,t));var i=u((P,R)=>{R.exports=window.React});var f=u((z,g)=>{g.exports=window.ReactDOM});var e=p(i());var n=p(i()),w=p(f()),N=window.Endfield;function S(t){(0,w.createRoot)(document.getElementById("root")).render(t)}function I(){return n.createElement("span",{className:"prov"},"新增")}function v({children:t,prov:a}){return n.createElement(n.Fragment,null,a&&n.createElement(I,null),n.createElement("div",{className:"stage"},t))}function c({label:t,children:a,style:o}){return n.createElement("div",{className:"row"},n.createElement("span",{className:"row-label"},t),n.createElement("div",{className:"items",style:o},a))}var{Tag:s,Status:l,TagDate:h}=N;S(e.createElement(v,null,e.createElement(c,{label:"变体",style:{gap:10,alignItems:"center"}},e.createElement(s,null,"中性"),e.createElement(s,{variant:"accent"},"强调"),e.createElement(s,{status:"ok"},"进行中"),e.createElement(s,{status:"warn"},"待处理"),e.createElement(s,{status:"err"},"已暂停"),e.createElement(s,{status:"plain"},"已排期"),e.createElement(s,{onRemove:()=>{}},"表格")),e.createElement(c,{label:"尺寸",style:{gap:10,alignItems:"center"}},e.createElement(s,{size:"sm"},"sm 20"),e.createElement(s,null,"md 24"),e.createElement(s,{size:"sm",status:"ok"},"进行中"),e.createElement(s,{status:"ok"},"进行中")),e.createElement(c,{label:"状态点",style:{gap:16,alignItems:"center"}},e.createElement(l,{tone:"ok"},"进行中"),e.createElement(l,{tone:"warn"},"待处理"),e.createElement(l,{tone:"err"},"已暂停"),e.createElement(l,{tone:"off"},"已归档"),e.createElement("span",{className:"cap"},"表格与列表中使用，8px 圆点，1px 墨色描边")),e.createElement(c,{label:"源站"},e.createElement(h,{type:"公告",date:"2026.09.30"}),e.createElement("span",{className:"cap",style:{alignSelf:"center"}},"类型加日期组合，仅用于公告与版本记录"))));})();</script>
+</body>
+</html>

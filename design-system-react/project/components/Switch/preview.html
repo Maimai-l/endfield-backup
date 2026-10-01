@@ -1,0 +1,13 @@
+<!-- @dsCard group="表单输入" height=304 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Switch</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var g=Object.create;var f=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var C=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var u=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}};var E=(e,t,s,m)=>{if(t&&typeof t=="object"||typeof t=="function")for(let i of C(t))!k.call(e,i)&&i!==s&&f(e,i,{get:()=>t[i],enumerable:!(m=x(t,i))||m.enumerable});return e};var d=(e,t,s)=>(s=e!=null?g(y(e)):{},E(t||!e||!e.__esModule?f(s,"default",{value:e,enumerable:!0}):s,e));var p=u((z,R)=>{R.exports=window.React});var h=u((F,w)=>{w.exports=window.ReactDOM});var a=d(p());var o=d(p()),S=d(h()),N=window.Endfield;function v(e){(0,S.createRoot)(document.getElementById("root")).render(e)}function P(){return o.createElement("span",{className:"prov"},"新增")}function b({children:e,prov:t}){return o.createElement(o.Fragment,null,t&&o.createElement(P,null),o.createElement("div",{className:"stage"},e))}function l({label:e,children:t,style:s}){return o.createElement("div",{className:"row"},o.createElement("span",{className:"row-label"},e),o.createElement("div",{className:"items",style:s},t))}var{Switch:c,VerticalSwitch:n}=N,r=["二维","三维"];v(a.createElement(b,{prov:!0},a.createElement(l,{label:"变体"},a.createElement(c,null,"自动更新"),a.createElement(c,{defaultChecked:!0},"消息通知"),a.createElement(c,{size:"lg",defaultChecked:!0},"夜间模式")),a.createElement(l,{label:"状态"},a.createElement(c,{className:"is-hover"},"悬停"),a.createElement(c,{className:"is-focus",defaultChecked:!0},"焦点"),a.createElement(c,{disabled:!0},"禁用"),a.createElement(c,{defaultChecked:!0,disabled:!0},"禁用开启"),a.createElement(c,{defaultChecked:!0,loading:!0},"提交中")),a.createElement(l,{label:"竖向",style:{gap:"20px 48px",alignItems:"flex-start"}},a.createElement(n,{options:r,label:"三维视图"}),a.createElement(n,{options:r,label:"三维视图",defaultChecked:!0}),a.createElement(n,{options:r,label:"三维视图",defaultChecked:!0,disabled:!0}),a.createElement(n,{options:r,label:"三维视图",defaultChecked:!0,size:"lg"}))));})();</script>
+</body>
+</html>

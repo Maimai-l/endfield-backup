@@ -1,0 +1,52 @@
+<div style="padding:0 16px 16px">
+  
+
+  <h3 class="sub-h">间距阶梯 <small>Scale</small></h3>
+  <div class="sp-scale">
+    <div class="sp-scale-row"><code>--space-1</code><b>4</b><i style="width:4px"></i><span>文字组内：分类行与标题（工作页）、标签与输入框</span></div><div class="sp-scale-row"><code>--space-2</code><b>8</b><i style="width:8px"></i><span>元素内：图标与文字、按钮之间；内容页文字组内</span></div><div class="sp-scale-row"><code>--space-3</code><b>12</b><i style="width:12px"></i><span>工作页小标题与其内容</span></div><div class="sp-scale-row"><code>--space-4</code><b>16</b><i style="width:16px"></i><span>工作页组件内边距与同级组件间距</span></div><div class="sp-scale-row"><code>--space-5</code><b>24</b><i style="width:24px"></i><span>内容页列间距；工作页标题区与工具栏；页边距（768 至 1279）</span></div><div class="sp-scale-row"><code>--space-6</code><b>32</b><i style="width:32px"></i><span>内容页媒体与文字；工作页区块之间；页边距（1280 以上）</span></div><div class="sp-scale-row"><code>--space-7</code><b>48</b><i style="width:48px"></i><span>工作页大区块之间</span></div><div class="sp-scale-row"><code>--space-8</code><b>64</b><i style="width:64px"></i><span>内容页小区块之间</span></div><div class="sp-scale-row"><code>--space-9</code><b>80</b><i style="width:80px"></i><span>内容页列表行间距</span></div><div class="sp-scale-row"><code>--space-10</code><b>96</b><i style="width:96px"></i><span>内容页区块之间，如列表与分页</span></div>
+  </div>
+
+  <h3 class="sub-h">五个层级 <small>Levels</small></h3>
+  <div class="tbl-wrap"><table class="tok">
+    <thead><tr><th>层级</th><th>工作页</th><th>内容页</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>1 元素内</td><td>8</td><td>16</td><td>图标与文字、按钮之间、分类与日期</td></tr>
+      <tr><td>2 文字组</td><td>4</td><td>8</td><td>分类行与标题、标题与摘要；属于同一条信息的几行文字</td></tr>
+      <tr><td>3 组件内</td><td>16</td><td>32</td><td>卡片内边距、图片与其下方文字</td></tr>
+      <tr><td>4 同级组件</td><td>16</td><td>列 24，行 80</td><td>卡片、列表项、表单字段之间；内容页的行间距远大于列间距，使每一列读作一条</td></tr>
+      <tr><td>5 区块</td><td>32</td><td>96</td><td>标题区与内容、列表与分页、两个独立区块之间</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="rules" style="margin-top:16px">
+    <li>内层间距必须小于外层间距：同一组内的距离小于组与组之间的距离，否则标题会被读成属于下一张图。</li>
+    <li>相邻两层至少相差一档阶梯；同一层级在同一页面只用一个值。</li>
+    <li>只使用阶梯中的值；控件自身的内边距由控件规范给出，不在页面里另行调整。</li>
+    <li>内容页用于公告、新闻、文档阅读；工作页用于表格、表单、看板。一个页面只属于一种。</li>
+  </ul>
+
+  <h3 class="sub-h">样例：新闻列表 <small>Content page</small></h3>
+  <p class="sec-lead" style="margin:-4px 0 14px">按 1920 宽设计稿绘制并等比缩小。容器宽 1830，三列，每项宽 592、固定高 534（标题最多两行）；图片宽高比 16 比 9，圆角 8。</p>
+  <div class="sp-toggle" style="margin-bottom:12px"><label class="switch"><input type="checkbox" checked="" data-sp-toggle=""><span class="track"></span></label>显示间距标注</div>
+  <div class="sp-frame"><div class="spx is-marked" data-w="1830"><div class="spx-z"><div class="nl"><div class="nl-row"><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px" data-v="32"></i><div class="nl-sub"><b>公告</b><i class="sp sp-h sp--sm" style="--v:16px" data-v="16"></i><span>2026.09.30</span></div><i class="sp sp-v sp--sm" style="--v:8px" data-v="8"></i><div class="nl-title">10 月版本发布安排</div></div><i class="sp sp-h" style="--v:24px" data-v="24"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>调研</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.28</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">第三季度用户访谈结果汇总，共收集 42 条建议</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>更新</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.25</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">新版评审模板上线</div></div></div><i class="sp sp-v" style="--v:80px" data-v="80"></i><div class="nl-row"><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>公告</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.22</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">设计规范 2.0 正式发布</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>规则</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.18</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">项目编号规则调整说明</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>运营</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.12</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">国庆期间客服排班调整</div></div></div><i class="sp sp-v" style="--v:96px" data-v="96"></i><div class="nl-pg"><div class="pcap" aria-hidden="true"><span class="rbtn" style="display:inline-block"><svg class="ic"><use href="#i-chev-l"></use></svg></span><span class="pnums"><span aria-current="page">01</span><span>02</span></span><span class="rbtn" style="display:inline-block"><svg class="ic"><use href="#i-chev-r"></use></svg></span></div></div></div></div></div></div>
+
+  <h3 class="sub-h">样例：工作页 <small>Work page</small></h3>
+  <p class="sec-lead" style="margin:-4px 0 14px">按 960 宽内容区绘制。页边距 32，标题区与工具栏 24，工具栏与卡片 16，卡片之间 16，卡片内边距 16，区块之间 32。</p>
+  <div class="sp-frame"><div class="spx is-marked" data-w="960"><div class="spx-z"><div class="pad wp" style="--v:32px" data-v="32"><div class="in"><div class="wp-head"><div><span class="wp-eyebrow">Projects</span><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><h4>产品部</h4></div><div class="wp-acts"><button class="btn btn--secondary" type="button" tabindex="-1"><span class="lbl">导出</span></button><i class="sp sp-h sp--sm" style="--v:8px" data-v="8"></i><button class="btn btn--primary" type="button" tabindex="-1"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建项目</span></button></div></div><i class="sp sp-v" style="--v:24px" data-v="24"></i><div class="wp-tool"><div class="input" style="width:240px"><svg class="ic"><use href="#i-search"></use></svg><input tabindex="-1" aria-label="搜索项目" placeholder="搜索项目编号"></div><i class="sp sp-h sp--sm" style="--v:8px" data-v="8"></i><div class="input select" style="width:160px"><span class="val">状态：全部</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div><span class="grow"></span><div class="seg" role="group" aria-label="视图"><button type="button" tabindex="-1" aria-pressed="true">卡片</button><button type="button" tabindex="-1" aria-pressed="false">表格</button></div></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="wp-cards"><div class="pad wp-card" style="--v:16px" data-v="16"><div class="in"><span class="wp-eyebrow">进行中</span><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><b>18</b></div></div><i class="sp sp-h sp--sm" style="--v:16px" data-v="16"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">待处理</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>3</b></div></div><i class="sp sp-h sp--sm" style="--v:16px"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">已暂停</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>1</b></div></div><i class="sp sp-h sp--sm" style="--v:16px"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">已归档</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>2</b></div></div></div><i class="sp sp-v" style="--v:32px" data-v="32"></i><h5 class="wp-sec">最近任务</h5><i class="sp sp-v sp--sm" style="--v:12px" data-v="12"></i><div class="wp-rows"><div><span>官网改版 首页定稿</span><code>TK-2611</code></div><div><span>移动端应用 周会评审</span><code>TK-2608</code></div><div><span>支付接入 上线复盘</span><code>TK-2597</code></div></div></div></div></div></div></div>
+
+  <h3 class="sub-h">对比 <small>Wrong and right</small></h3>
+  <div class="sp-cmp">
+    <figure><div class="spx is-marked"><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:8px" data-v="8"></i><div class="ci-sub"><b>公告</b>2026.09.30</div><i class="sp sp-v" style="--v:24px" data-v="24"></i><div class="ci-title">10 月版本发布安排</div></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="ci-sub"><b>公告</b>2026.09.28</div><i class="sp sp-v" style="--v:24px"></i><div class="ci-title">第三季度用户访谈结果汇总</div></div></div><figcaption><b>错误</b>：图片与文字 8、文字之间 24、条目之间 16。组内间距大于组间间距，第一条的标题离第二张图更近，归属无法判断。</figcaption></figure>
+    <figure><div class="spx is-marked"><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="ci-sub"><b>公告</b>2026.09.30</div><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><div class="ci-title">10 月版本发布安排</div></div><i class="sp sp-v" style="--v:40px" data-v="40"></i><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:16px"></i><div class="ci-sub"><b>公告</b>2026.09.28</div><i class="sp sp-v sp--sm" style="--v:4px"></i><div class="ci-title">第三季度用户访谈结果汇总</div></div></div><figcaption><b>正确</b>：图片与文字 16、文字之间 4、条目之间 40。由内到外逐层加大，每条信息自成一组。</figcaption></figure>
+  </div>
+
+  <h3 class="sub-h">页边距 <small>Page margins</small></h3>
+  <div class="tbl-wrap"><table class="tok">
+    <thead><tr><th>视口宽度</th><th>工作页</th><th>内容页</th><th>内容页列数</th></tr></thead>
+    <tbody>
+      <tr><td>1920 及以上</td><td>32</td><td>容器 1830 居中</td><td>3</td></tr>
+      <tr><td>1280 至 1919</td><td>32</td><td>32</td><td>3</td></tr>
+      <tr><td>768 至 1279</td><td>24</td><td>24</td><td>2</td></tr>
+      <tr><td>767 及以下</td><td>16</td><td>16</td><td>1</td></tr>
+    </tbody>
+  </table></div>
+</div>
