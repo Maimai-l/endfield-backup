@@ -30,8 +30,8 @@
   <span class="v">
     820
     <small>/1000</small>
+    <small class="u">GB</small>
   </span>
-  <span class="u">GB</span>
   <span class="sep"></span>
   <button class="rplus" type="button" aria-label="扩容存储">
     <svg class="ic"><use href="#i-plus"></use></svg>

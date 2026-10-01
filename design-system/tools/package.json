@@ -1,0 +1,11 @@
+{
+  "name": "endfield-ds-tools",
+  "private": true,
+  "description": "设计系统发布前检查：对齐与内距。",
+  "scripts": {
+    "check-align": "node check-align.js http://localhost:8765"
+  },
+  "dependencies": {
+    "playwright-core": "^1.47.0"
+  }
+}
