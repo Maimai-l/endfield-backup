@@ -17,7 +17,7 @@
 
 ## 规格
 
-- **尺寸**：24、32、40、64，圆形；文字为直径的 40%；状态点为 10px 方块，1px 墨色描边，外围 2px 页面底色
+- **尺寸**：24、32、40、64，圆形；文字为直径的 40%；状态点为 10px 圆点，1px 墨色描边，外围 2px 页面底色
 - **Token**：`--radius-full --color-bg-muted --color-text-secondary --color-success --color-bg-page`
 - **键盘**：可点击头像 `Enter` 打开账户菜单
 

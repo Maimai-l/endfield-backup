@@ -22,10 +22,12 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 - 颜色只用 tokens 中的值，不新增颜色。正文 `color-text-primary` 放在 `color-bg-page`、`color-bg-surface`、`color-bg-raised` 上；次要文字 `color-text-secondary`；`color-text-tertiary` 只放不承载必读信息的补充说明（源站值在 `color-bg-surface` 上为 4.00:1，未达 4.5:1）。
 - 品牌黄 `y-300` 只作纯色填充，其上文字用 `color-text-on-accent`。浅色面上不用黄色作文字、边框或焦点环。
 - 勾选类控件、开关、进度填充、选中分段一律用 `color-checked` 加 `color-on-checked`：浅色为墨色加黄色，深色反转为黄色加墨色。
-- 功能色只作纯色标记（图标、状态点、左侧色条），不作浅色衬底：成功 `color-success`、错误 `color-error`、警告 `color-warning` 加 `color-mark-stroke` 描边、信息 `color-info`。错误说明文字用 `color-error-text`，深色下改为正文色并配错误图标。成功与错误的亮度对比为 3.6:1，且始终配图标。
+- 整体用色以黑、白、灰为主，品牌黄只作少量强调，参照游戏内名片的克制用法。
+- 功能色只作纯色标记（图标、圆形状态点、左侧色条），不作浅色衬底：成功与在线 `color-success`（即品牌黄）、警告 `color-warning`（橙色，与提醒角标同色）、错误 `color-error`（红色）、信息 `color-info`（墨色）。浅色面上的黄色与橙色标记加 1px `color-mark-stroke` 描边。错误说明文字用 `color-error-text`，深色下改为正文色并配错误图标。
+- 红色只用于错误与危险操作；同一屏内避免红色与大面积其他饱和色并置。
 - 不用半透明叠加；唯一例外是对话框遮罩 `color-bg-overlay`。不用渐变、光晕和浅色黄底。
 - 提醒角标用 `color-badge`，8px 橙色菱形，不写数字。菱形的中心落在所属元素的右上角，不遮挡图标与文字：带边框的按钮与头像落在外框转角上；标签页落在右侧分隔线的上端；导航项落在图标右上角的外侧。
-- 粉 `deco-pink`、绿 `deco-green`、黄 `deco-yellow` 只以装饰色条的形式一起出现，见 ColorLine。
+- 粉 `deco-pink`、绿 `deco-green` 只在装饰色条 ColorLine 中与黄色一起出现，不作功能色，不用于任何控件；黄色 `deco-yellow` 即品牌黄。
 
 ### 字体
 
@@ -93,7 +95,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 - 图标全部为 `bundle.js` 内置的 SVG 雪碧图，16 网格，1.6px 描边，直角端点与斜接转角，单色 `currentColor`；尺寸 16、20、32。
 - 箭头统一用源站的两种实心形状：区块标题的折角箭头（`i-arrow-dr`，旋转得到 `i-arrow-r` 与 `k-up`、`k-down`、`k-left`、`k-right`）与翻页按钮的粗折线箭头（`i-chev-l`、`i-chev-r`、`i-chev-d`）。
 - 导航图标 `n-home`、`n-operator`、`n-lore`、`n-notice`、`n-calendar` 取自源站侧边导航。
-- 状态标记 `s-success`、`s-error`、`s-warning`、`s-info` 为实心色块加墨色描边。
+- 状态标记 `s-success`、`s-error`、`s-warning`、`s-info` 为实心标记加墨色描边：成功与信息为圆形，警告为三角形，错误为八边形。
 - 不用表情符号、图标字体或第三方图标库。Icons 资源组中的 SVG 文件为同一套图标，墨色为 `#191919`，用于 `<img>` 场景。
 
 ## 控件清单
