@@ -43,7 +43,7 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
         const vis=[...document.querySelectorAll('.stage *')].filter(e=>{const s=getComputedStyle(e),q=e.getBoundingClientRect();
           if(!q.width||!q.height||s.visibility==='hidden'||+s.opacity===0)return false;
           const painted=s.backgroundColor!=='rgba(0, 0, 0, 0)'||parseFloat(s.borderTopWidth)>0||parseFloat(s.borderLeftWidth)>0||e.tagName==='svg'||(e.children.length===0&&e.textContent.trim());
-          return painted&&!e.closest('.row-label,.cap,.prov')&&s.animationName==='none'});
+          return painted&&!e.closest('.row-label,.cap,.prov,[role=progressbar]')&&s.animationName==='none'});
         const out=[];
         for(let i=0;i<vis.length;i++)for(let j=i+1;j<vis.length;j++){
           const A=vis[i],B=vis[j];if(A.contains(B)||B.contains(A))continue;
