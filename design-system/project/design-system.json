@@ -10,6 +10,7 @@
  "libraries": [],
  "sections": {},
  "groups": [
+  "Logos",
   "Icons",
   "Textures",
   "Illustrations"
@@ -423,6 +424,28 @@
      "type": "image/svg+xml"
     }
    }
+  },
+  "Logos": {
+   "name": "Logos",
+   "tile": "l",
+   "order": [
+    "endfield-wordmark.svg",
+    "endfield-wordmark-white.svg"
+   ],
+   "files": {
+    "endfield-wordmark.svg": {
+     "name": "endfield-wordmark.svg",
+     "blob": "e84c1fb55305af99be5c1f0899e2db71",
+     "size": 2244,
+     "type": "image/svg+xml"
+    },
+    "endfield-wordmark-white.svg": {
+     "name": "endfield-wordmark-white.svg",
+     "blob": "81ef737e8c202aa1bce808eccd4b908a",
+     "size": 2244,
+     "type": "image/svg+xml"
+    }
+   }
   }
  },
  "blobs": {},
@@ -432,8 +455,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-01T03:40:37Z",
+  "at": "2026-10-01T03:46:41Z",
   "via": "Claude Code",
-  "note": "由 showcase.html 转换：tokens、30 个控件与 4 张基础和装饰卡片、图标与纹理；原规格页存于 archived/"
+  "note": "加入 ENDFIELD 字标（Logos 组），封面名称改用字标"
  }
 }
