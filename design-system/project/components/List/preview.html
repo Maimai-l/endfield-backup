@@ -1,29 +1,17 @@
-<!-- @dsCard group="内容展示" height=654 -->
+<!-- @dsCard group="内容展示" height=824 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <title>List</title>
-<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
 </head>
 <body>
+<span class="prov">新增</span>
 <div class="stage">
-      <div class="row"><span class="row-label">侧边菜单</span><div class="items"><ul class="smenu" data-smenu="" aria-label="手册分类">
-        <li><button class="smi" type="button" aria-current="true"><span class="seltag">SELECTED</span>设备养护</button></li>
-        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>备件管理</button></li>
-        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>故障复盘</button></li>
-        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>能耗记录</button></li>
-      </ul></div></div>
-      <div class="row"><span class="row-label">双行</span><div class="items" style="width:100%"><ul class="list" role="listbox" aria-label="设备" data-list="">
-        <li class="li li--2" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>输送带 A-02</b><span>北区装配线</span></span><span class="trail"><span class="stat stat--warn">待检修</span><svg class="ic"><use href="#i-chev-r"></use></svg></span></li>
-        <li class="li li--2" role="option" aria-selected="true" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>冷却泵 P-11</b><span>北区仓储</span></span><span class="trail"><span class="stat stat--ok">运行中</span><svg class="ic"><use href="#i-chev-r"></use></svg></span></li>
-        <li class="li li--2 is-hover" role="option" aria-selected="false" tabindex="0"><span class="av" style="--s:32px">林</span><span class="main"><b>林工</b><span>当班负责人，3 个进行中工单</span></span><span class="trail"><code>ID-000240</code></span></li>
-        <li class="li li--2 is-disabled" role="option" aria-selected="false" aria-disabled="true"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>破碎机 C-03</b><span>南区已封存</span></span><span class="trail"><span class="stat stat--off">离线</span></span></li>
-      </ul></div></div>
-      <div class="row"><span class="row-label">单行</span><div class="items" style="width:100%;gap:24px">
-        <ul class="list list--plain" style="max-width:300px"><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>保养规程.pdf</b></span><span class="trail"><code>2.4 MB</code></span></li><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>接线图 v3.dwg</b></span><span class="trail"><code>860 KB</code></span></li></ul>
-        <ul class="list list--plain" style="max-width:260px"><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>14:20</code></span></li><li class="li li--c" aria-selected="true"><span class="main"><b>紧凑，选中</b></span><span class="trail"><code>14:05</code></span></li><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>13:48</code></span></li></ul>
-      </div></div>
+      <div class="row"><span class="row-label">入口菜单</span><div class="items"><ul class="smenu" data-smenu="" aria-label="栏目"><li><a class="smi" href="#"><span class="smi-ic"><svg class="ic"><use href="#n-notice"></use></svg><svg class="ic smi-go"><use href="#i-arrow-r"></use></svg></span><span class="smi-tx">通知公告</span></a></li><li><a class="smi" href="#"><span class="smi-ic"><svg class="ic"><use href="#n-calendar"></use></svg><svg class="ic smi-go"><use href="#i-arrow-r"></use></svg></span><span class="smi-tx">活动日历</span></a></li><li><a class="smi" href="#" aria-current="true"><span class="smi-ic"><svg class="ic"><use href="#n-lore"></use></svg><svg class="ic smi-go"><use href="#i-arrow-r"></use></svg></span><span class="smi-tx">资料档案</span></a></li><li><a class="smi" href="#"><span class="smi-ic"><svg class="ic"><use href="#i-grid"></use></svg><svg class="ic smi-go"><use href="#i-arrow-r"></use></svg></span><span class="smi-tx">数据汇总</span></a></li><li><a class="smi" href="#"><span class="smi-ic"><svg class="ic"><use href="#i-user"></use></svg><svg class="ic smi-go"><use href="#i-arrow-r"></use></svg></span><span class="smi-tx">账户设置</span></a></li></ul></div></div>
+      <div class="row"><span class="row-label">双行</span><div class="items" style="width:100%"><ul class="list" role="listbox" aria-label="文件" data-list=""><li class="li li--2" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-doc"></use></svg></span><span class="main"><b>季度报告</b><span>9 月 30 日更新</span></span><span class="trail">2.4 MB</span></li><li class="li li--2" role="option" aria-selected="true" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-list"></use></svg></span><span class="main"><b>评审纪要</b><span>12 条意见</span></span><span class="trail">14:05</span></li><li class="li li--2 is-hover" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-user"></use></svg></span><span class="main"><b>成员 ID-000240</b><span>3 项进行中</span></span><span class="trail"></span></li><li class="li li--2 is-disabled" role="option" aria-selected="false" aria-disabled="true"><span class="lead"><svg class="ic"><use href="#i-doc"></use></svg></span><span class="main"><b>旧版说明</b><span>已归档</span></span><span class="trail"></span></li></ul></div></div>
+      <div class="row"><span class="row-label">单行与紧凑</span><div class="items" style="width:100%;gap:24px;align-items:flex-start"><ul class="list" style="max-width:300px"><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>季度报告.pdf</b></span><span class="trail">2.4 MB</span></li><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>评审纪要.docx</b></span><span class="trail">860 KB</span></li></ul><ul class="list" style="max-width:260px"><li class="li li--c"><span class="main"><b>同步完成</b></span><span class="trail">14:20</span></li><li class="li li--c" aria-selected="true"><span class="main"><b>导出报告</b></span><span class="trail">14:05</span></li><li class="li li--c"><span class="main"><b>新增成员</b></span><span class="trail">13:48</span></li></ul></div></div>
     </div>
 <script>window.Endfield&&Endfield.init(document)</script>
 </body>

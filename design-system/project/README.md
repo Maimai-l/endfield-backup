@@ -65,7 +65,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 - 悬停换底色 `color-state-hover`，按下换 `color-state-pressed`；无位移、无缩放。
 - 键盘焦点为 2px 实线 `color-focus-ring`，外偏移 2px；浅色为墨色，深色为品牌黄，在各自页面底色上超过 15:1。
-- 选中：勾选类为 `color-checked`；列表与侧边菜单为纯黄色块；表格行为 `color-bg-selected` 加左侧 3px 竖条；标签页为底部 2px 指示条。
+- 选中：勾选类为 `color-checked`；列表与入口菜单为 `color-checked` 实底胶囊，同一时刻只有一项高亮；表格行为 `color-bg-selected` 加左侧 3px 竖条；标签页为底部 2px 指示条。
 - 禁用文字 `color-text-disabled`，底色 `color-bg-disabled`，并去掉指针事件。
 
 ### 动效
@@ -113,13 +113,13 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 | toast | Toast |
 | card、media-card | Card；新闻列表数值见 Spacing |
 | tag-date、label-bar | Tag |
-| list-button | List |
+| list-button | 45 度细条纹底纹（见纹理与装饰） |
 | avatar-switch | Avatar |
 | color-deco | ColorLine |
 | hollow-text、title-block、section-title、divider-band | SectionHeader；区块标题的折角箭头动作用于可交互卡片 |
 | cta、share-button、play-button、download-tile、item-icon | 未收录：营销页专用，工作界面没有对应场景 |
 
-有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏、条目卡片和侧边菜单。PageLoader 按源站首屏加载重建。
+有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏和条目卡片。List 的版式参照官网菜单面板。设计系统中新增的控件在卡片右上角标有“新增”。PageLoader 按源站首屏加载重建。
 
 ## 未同步
 

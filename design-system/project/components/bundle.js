@@ -90,7 +90,7 @@ function init(root){
       box.innerHTML=h;c.querySelector('[data-step="-1"]').disabled=cur<=1;c.querySelector('[data-step="1"]').disabled=cur>=total}
     c.addEventListener('click',function(e){var b=e.target.closest('[data-step]');if(!b)return;c.dataset.pcap=Math.min(total,Math.max(1,+c.dataset.pcap+ +b.dataset.step));draw()});
     draw();});
-  /* 可选卡片、列表、侧边菜单 */
+  /* 可选卡片、列表、入口菜单 */
   all(root,'[data-selectable]').forEach(function(c){if(!once(c,'selc'))return;c.addEventListener('click',function(){c.setAttribute('aria-pressed',String(c.getAttribute('aria-pressed')!=='true'))})});
   all(root,'[data-list]').forEach(function(l){if(!once(l,'list'))return;
     function pick(li){if(!li||li.classList.contains('is-disabled'))return;all(l,'.li').forEach(function(x){x.setAttribute('aria-selected',String(x===li))});all(l,'.is-hover').forEach(function(x){x.classList.remove('is-hover')})}
