@@ -2,20 +2,16 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="bundle.css">
 <style>
-/* 单页工具：顶栏 + 居中工作区（最大宽 1120）。颜色、字体、间距、控件全部取自 ENDFIELD tokens 与 bundle.css。
-   工作页间距：页边距与区块之间 space-6；同级组件 space-4；元素内 space-2。 */
+/* 布局：顶栏与居中工作区，最大宽度 1120px。间距按工作页层级取值。 */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tex-invert:1;color-scheme:dark}}
 [hidden]{display:none!important}
 body{background:var(--color-bg-page);color:var(--color-text-primary)}
 .fc-top{position:sticky;top:env(safe-area-inset-top,0px);z-index:var(--z-sticky)}
-.fc-top .title{flex-direction:row;align-items:center;gap:var(--space-4)}
-.fc-mark{display:block;flex:none;width:120px;height:auto}
-.fc-mark path{fill:var(--color-text-primary)}
-.fc-top .vsep{height:20px}
 .fc-page{display:flex;flex-direction:column;gap:var(--space-6);width:100%;max-width:1120px;margin:0 auto;padding:var(--space-6)}
 .fc-drop{width:100%;padding:var(--space-7) var(--space-5);transition:border-color var(--duration-base) ease,background-color var(--duration-base) ease}
 .fc-drop.is-over{border-color:var(--color-border-strong);background-color:var(--color-state-hover)}
-.fc-drop p{max-width:44em}
+.fc-drop p{max-width:none}
+.check.is-disabled{color:var(--color-text-disabled);cursor:not-allowed}
 .fc-settings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
 .fc-panel{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-4);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-surface);min-width:0}
 .fc-panel-h{display:flex;flex-direction:column;gap:var(--space-1)}
@@ -46,20 +42,16 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
 </style>
 
 <header class="topbar fc-top">
-  <div class="title">
-    <svg class="fc-mark" viewBox="0 0 1902 254" role="img" aria-label="ENDFIELD"><path fill-rule="evenodd" d="M1863.706,219.782 C1840.213,241.185 1807.123,252.972 1770.532,252.972 L1669.786,252.972 L1669.786,3.795 L1769.824,3.795 C1847.265,3.795 1901.347,55.463 1901.347,129.442 C1901.347,166.108 1888.331,197.346 1863.706,219.782 ZM1766.994,51.305 L1720.915,51.305 L1720.915,205.461 L1767.701,205.461 C1807.422,205.461 1849.864,185.492 1849.864,129.442 C1849.864,75.467 1808.243,51.305 1766.994,51.305 ZM1480.643,3.795 L1531.773,3.795 L1531.773,205.461 L1649.231,205.461 L1649.231,252.972 L1480.643,252.972 L1480.643,3.795 ZM1280.887,3.795 L1458.674,3.795 L1458.674,51.303 L1332.017,51.303 L1332.017,101.272 L1450.532,101.272 L1450.532,149.137 L1332.017,149.137 L1332.017,205.461 L1460.089,205.461 L1460.089,252.972 L1280.887,252.972 L1280.887,3.795 ZM1209.203,3.795 L1260.332,3.795 L1260.332,252.972 L1209.203,252.972 L1209.203,3.795 ZM1064.467,108.338 L1177.499,108.338 L1177.499,156.199 L1064.467,156.199 L1064.467,252.972 L1013.338,252.972 L1013.338,3.795 L1188.648,3.795 L1188.648,51.303 L1064.467,51.303 L1064.467,108.338 ZM861.967,252.972 L761.221,252.972 L761.221,3.795 L861.258,3.795 C938.699,3.795 992.784,55.463 992.784,129.442 C992.784,166.108 979.768,197.346 955.142,219.782 C931.647,241.185 898.555,252.972 861.967,252.972 ZM858.428,51.305 L812.351,51.305 L812.351,205.461 L859.136,205.461 C898.858,205.461 941.300,185.492 941.300,129.442 C941.300,75.467 899.678,51.305 858.428,51.305 ZM588.885,46.805 L582.835,46.805 L582.835,252.972 L534.276,252.972 L534.276,3.795 L627.973,3.795 L686.052,209.927 L692.106,209.927 L692.106,3.795 L740.667,3.795 L740.667,252.972 L646.968,252.972 L588.885,46.805 ZM335.636,3.795 L513.422,3.795 L513.422,51.303 L386.766,51.303 L386.766,101.272 L505.281,101.272 L505.281,149.137 L386.766,149.137 L386.766,205.461 L514.838,205.461 L514.838,252.972 L335.636,252.972 L335.636,3.795 ZM153.454,250.837 L104.764,250.837 L102.293,250.837 L235.621,0.803 L238.092,0.803 L286.782,0.803 L289.253,0.803 L155.925,250.837 L153.454,250.837 ZM51.905,250.837 L3.216,250.837 L0.745,250.837 L134.073,0.803 L136.543,0.803 L185.233,0.803 L187.704,0.803 L54.377,250.837 L51.905,250.837 Z"/></svg>
-    <span class="vsep" aria-hidden="true"></span>
-    <b>文件转换</b>
-  </div>
+  <div class="title"><b>文件转换</b></div>
 </header>
 
 <main class="fc-page">
-  <div class="alert alert--info" role="status" id="no-dl" hidden><svg class="ic"><use href="#s-info"/></svg><div class="alert-title">这个视图不能保存文件</div><div class="alert-body">转换照常进行，但结果只能在 claude.ai 中打开本页后保存。</div></div>
+  <div class="alert alert--info" role="status" id="no-dl" hidden><svg class="ic"><use href="#s-info"/></svg><div class="alert-title">当前环境无法保存文件</div><div class="alert-body">在 claude.ai 中打开此页面后可保存转换结果。</div></div>
 
   <section class="empty fc-drop" id="drop" aria-label="添加文件">
     <span class="empty-ic"><svg class="ic ic--xl"><use href="#i-upload"/></svg></span>
-    <h5>拖入文件，或点击选择</h5>
-    <p>图片支持 PNG、JPEG、WebP、GIF、BMP、SVG；表格支持 XLSX、XLS、CSV、TSV、JSON。文件只在本页内转换，不会上传。</p>
+    <h5>拖入文件或点击选择</h5>
+    <p>图片：PNG、JPEG、WebP、GIF、BMP、SVG<br>表格：XLSX、XLS、CSV、TSV、JSON</p>
     <button class="btn btn--secondary" type="button" id="pick"><span class="lbl">选择文件</span></button>
     <input type="file" id="file" multiple accept=".png,.jpg,.jpeg,.webp,.gif,.bmp,.svg,.xlsx,.xls,.csv,.tsv,.json" hidden>
   </section>
@@ -73,26 +65,24 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
       <div class="fc-row">
         <div class="field"><span class="field-label" id="l-q">质量</span>
           <div class="dd" data-dd id="dd-q">
-            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-q"><span class="val" data-val>标准（0.85）</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
+            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-q"><span class="val" data-val>标准</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
             <div class="menu" role="listbox" hidden>
-              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="0.95">高（0.95）<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="true" data-v="0.85">标准（0.85）<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="0.7">小文件（0.7）<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="0.95">高<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="true" data-v="0.85">标准<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="0.7">低<svg class="ic ok"><use href="#i-check"/></svg></button>
             </div>
           </div>
-          <div class="field-help" id="q-help">只对 JPEG 与 WebP 生效</div>
         </div>
         <div class="field"><span class="field-label" id="l-size">尺寸</span>
           <div class="dd" data-dd id="dd-size">
-            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-size"><span class="val" data-val>保持原尺寸</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
+            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="l-size"><span class="val" data-val>原尺寸</span><svg class="ic tri"><use href="#i-tri-d"/></svg></button>
             <div class="menu" role="listbox" hidden>
-              <button class="menu-item" type="button" role="option" aria-selected="true" data-v="0">保持原尺寸<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="2048">长边不超过 2048<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="1280">长边不超过 1280<svg class="ic ok"><use href="#i-check"/></svg></button>
-              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="640">长边不超过 640<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="true" data-v="0">原尺寸<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="2048">长边 2048<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="1280">长边 1280<svg class="ic ok"><use href="#i-check"/></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false" data-v="640">长边 640<svg class="ic ok"><use href="#i-check"/></svg></button>
             </div>
           </div>
-          <div class="field-help">只缩小，不放大</div>
         </div>
       </div>
     </div>
@@ -103,20 +93,18 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
         <div class="seg" role="group" aria-labelledby="l-tblfmt" data-seg id="seg-tbl"><button type="button" aria-pressed="true" data-v="xlsx">XLSX</button><button type="button" aria-pressed="false" data-v="csv">CSV</button><button type="button" aria-pressed="false" data-v="json">JSON</button></div>
       </div>
       <div class="fc-opts">
-        <label class="check" id="o-bom-l"><input type="checkbox" id="o-bom" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>CSV 带 BOM，Excel 打开中文不乱码</label>
-        <label class="check" id="o-head-l"><input type="checkbox" id="o-head" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>JSON 以第一行作为字段名</label>
+        <label class="check" id="o-bom-l"><input type="checkbox" id="o-bom" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>CSV 包含 BOM</label>
+        <label class="check" id="o-head-l"><input type="checkbox" id="o-head" checked><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span>JSON 首行作为字段名</label>
       </div>
-      <div class="field-help">CSV 与 JSON 只取第一个工作表；XLSX 保留全部工作表。</div>
     </div>
   </section>
 
-  <section class="fc-queue" aria-labelledby="q-title">
+  <section class="fc-queue" id="queue" aria-labelledby="q-title" hidden>
     <div class="fc-head"><h2 id="q-title">转换队列</h2><span class="sum" id="sum" aria-live="polite"></span></div>
     <div class="tbl-wrap" id="q-wrap"><table class="dt">
       <thead><tr><th>文件</th><th>原格式</th><th class="num">大小</th><th>输出</th><th>状态</th><th class="num">操作</th></tr></thead>
       <tbody id="q-rows"></tbody>
     </table></div>
-    <p class="fc-sub" id="q-empty" hidden>队列为空。添加文件后在这里转换和保存。</p>
     <div class="fc-foot">
       <button class="btn btn--ghost" type="button" id="b-clear"><span class="lbl">清空队列</span></button>
       <button class="btn btn--secondary" type="button" id="b-zip"><span class="lbl">全部保存为 ZIP</span></button>
@@ -146,17 +134,17 @@ function pressed(id){return $(id).querySelector('[aria-pressed="true"]').dataset
 function picked(id){return $(id).querySelector('.menu-item[aria-selected="true"]').dataset.v}
 function settings(){return {img:pressed('seg-img'),q:+picked('dd-q'),max:+picked('dd-size'),tbl:pressed('seg-tbl'),bom:$('o-bom').checked,head:$('o-head').checked}}
 
-/* 保存：downloads 能力 */
+/* 保存能力 */
 var use=window.claude&&window.claude.use?window.claude.use('downloads'):Promise.resolve(null);
 use.then(function(d){DL=d;dlReady=true;$('no-dl').hidden=!!d;render()},function(){DL=null;dlReady=true;$('no-dl').hidden=false;render()});
 
-/* 添加文件 */
-function add(files,sample){
+/* 文件添加 */
+function add(files){
   var bad=[];
   [].forEach.call(files,function(f){
     var e=ext(f.name),kind=IMG.indexOf(e)>=0?'image':TBL.indexOf(e)>=0?'table':null;
     if(!kind){bad.push(f.name);return}
-    Q.push({id:++seq,file:f,name:f.name,ext:e,kind:kind,status:'wait',sample:!!sample,thumb:kind==='image'?URL.createObjectURL(f):null});
+    Q.push({id:++seq,file:f,name:f.name,ext:e,kind:kind,status:'wait',thumb:kind==='image'?URL.createObjectURL(f):null});
   });
   if(bad.length)Endfield.toast('warning','不支持的格式：'+bad.join('、'),'');
   render();
@@ -168,12 +156,13 @@ var drop=$('drop');
 ['dragleave','drop'].forEach(function(t){drop.addEventListener(t,function(e){e.preventDefault();if(t==='dragleave'&&drop.contains(e.relatedTarget))return;drop.classList.remove('is-over')})});
 drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files.length)add(e.dataTransfer.files)});
 
-/* 设置变更：已完成的同类文件回到待转换 */
+/* 设置变更后重置受影响的结果 */
 var last=JSON.stringify(settings());
 function onSettings(){
   var s=settings(),now=JSON.stringify(s);
-  $('q-help').textContent=s.img==='png'?'PNG 为无损格式，不使用质量设置':'只对 JPEG 与 WebP 生效';
-  $('o-bom-l').style.opacity=s.tbl==='csv'?'':'.5';$('o-head-l').style.opacity=s.tbl==='json'?'':'.5';
+  var qt=$('dd-q').querySelector('.select');qt.disabled=s.img==='png';qt.classList.toggle('is-disabled',s.img==='png');
+  $('o-bom').disabled=s.tbl!=='csv';$('o-bom-l').classList.toggle('is-disabled',s.tbl!=='csv');
+  $('o-head').disabled=s.tbl!=='json';$('o-head-l').classList.toggle('is-disabled',s.tbl!=='json');
   if(now===last)return;var p=JSON.parse(last);last=now;
   var imgChanged=p.img!==s.img||p.q!==s.q||p.max!==s.max,tblChanged=p.tbl!==s.tbl||p.bom!==s.bom||p.head!==s.head;
   Q.forEach(function(it){if(it.status!=='busy'&&((it.kind==='image'&&imgChanged)||(it.kind==='table'&&tblChanged))){it.status='wait';it.out=null;it.err=null}});
@@ -198,13 +187,13 @@ async function convImage(it,s){
   return {blob:blob,name:base(it.name)+(oe===it.ext||(oe==='jpg'&&it.ext==='jpeg')?'-converted':'')+'.'+oe,label:FMT_LABEL[s.img],note:'宽 '+w+'，高 '+h};
 }
 async function readBook(it){
-  if(typeof XLSX==='undefined')throw new Error('表格组件未加载，请检查网络后刷新');
+  if(typeof XLSX==='undefined')throw new Error('表格解析库未能加载');
   if(it.ext==='json'){
     var d;try{d=JSON.parse(await it.file.text())}catch(e){throw new Error('JSON 格式有误')}
     var ws;if(Array.isArray(d)&&d.length&&Array.isArray(d[0]))ws=XLSX.utils.aoa_to_sheet(d);
     else if(Array.isArray(d))ws=XLSX.utils.json_to_sheet(d);
     else if(d&&typeof d==='object')ws=XLSX.utils.json_to_sheet([d]);
-    else throw new Error('JSON 需为数组或对象');
+    else throw new Error('JSON 顶层须为数组或对象');
     var wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Sheet1');return wb;
   }
   if(it.ext==='csv'||it.ext==='tsv'){var t=await it.file.text();if(t.charCodeAt(0)===0xFEFF)t=t.slice(1);return XLSX.read(t,{type:'string',raw:true,FS:it.ext==='tsv'?'\t':undefined})}
@@ -218,7 +207,7 @@ async function convTable(it,s){
   else{
     var text=s.tbl==='csv'?(s.bom?'﻿':'')+XLSX.utils.sheet_to_csv(ws):JSON.stringify(s.head?XLSX.utils.sheet_to_json(ws,{defval:''}):XLSX.utils.sheet_to_json(ws,{header:1,defval:''}),null,2);
     blob=new Blob([text],{type:MIME[s.tbl]});
-    note=rows+' 行'+(wb.SheetNames.length>1?'，取自工作表 '+first:'');
+    note=rows+' 行'+(wb.SheetNames.length>1?'，工作表 '+first:'');
   }
   return {blob:blob,name:base(it.name)+(s.tbl===it.ext?'-converted':'')+'.'+s.tbl,label:FMT_LABEL[s.tbl],note:note};
 }
@@ -229,12 +218,12 @@ async function run(){
     try{it.out=it.kind==='image'?await convImage(it,s):await convTable(it,s);it.status='done';ok++}catch(e){it.status='fail';it.err=e.message||'转换失败';fail++}
     render();}
   busy=false;render();
-  if(fail)Endfield.toast('error',ok+' 个文件已转换，'+fail+' 个失败，原因见队列','');else Endfield.toast('success',ok+' 个文件已转换','');
+  if(fail)Endfield.toast('error',ok+' 个文件已转换，'+fail+' 个失败','');else Endfield.toast('success',ok+' 个文件已转换','');
 }
 $('b-run').addEventListener('click',run);
 
 /* 保存与打包 */
-function saveErr(e){if(!e||e.code==='declined')return;if(e.code==='rate_limited')Endfield.toast('warning','已有一个保存确认未处理，请先完成它','');else Endfield.toast('error','保存失败：'+(e.message||e.code),'')}
+function saveErr(e){if(!e||e.code==='declined')return;if(e.code==='rate_limited')Endfield.toast('warning','请先处理当前的保存确认','');else Endfield.toast('error','保存失败：'+(e.message||e.code),'')}
 function save(it){if(!DL||!it.out)return;DL.save({filename:it.out.name,data:it.out.blob}).then(function(){Endfield.toast('success','已保存 '+it.out.name,'')},saveErr)}
 $('b-zip').addEventListener('click',async function(){
   var done=Q.filter(function(it){return it.status==='done'});if(!DL||done.length<2||typeof JSZip==='undefined')return;
@@ -262,7 +251,7 @@ function render(){
   $('q-rows').innerHTML=Q.map(function(it){
     var target=it.out?it.out.label:FMT_LABEL[it.kind==='image'?s.img:s.tbl];
     var thumb=it.thumb?'<img src="'+it.thumb+'" alt="">':'<svg class="ic"><use href="#i-grid"/></svg>';
-    return '<tr data-id="'+it.id+'"><td><div class="fc-file"><span class="fc-thumb">'+thumb+'</span><span class="fc-name"><b><span title="'+esc(it.name)+'">'+esc(it.name)+'</span>'+(it.sample?'<span class="tag tag--sm">示例</span>':'')+'</b><span class="fc-sub">'+(it.kind==='image'?'图片':'表格')+'</span></span></div></td>'+
+    return '<tr data-id="'+it.id+'"><td><div class="fc-file"><span class="fc-thumb">'+thumb+'</span><span class="fc-name"><b><span title="'+esc(it.name)+'">'+esc(it.name)+'</span>'+'</b><span class="fc-sub">'+(it.kind==='image'?'图片':'表格')+'</span></span></div></td>'+
       '<td><code>'+it.ext.toUpperCase()+'</code></td><td class="num">'+size(it.file.size)+'</td>'+
       '<td><div class="fc-name"><span>'+target+(it.out?'，'+size(it.out.blob.size):'')+'</span>'+(it.out?'<span class="fc-sub">'+esc(it.out.note)+'</span>':'')+'</div></td>'+
       '<td>'+status(it)+'</td>'+
@@ -270,18 +259,11 @@ function render(){
       '<button class="btn btn--ghost ibtn btn--sm" type="button" data-act="rm" aria-label="移除 '+esc(it.name)+'"'+(it.status==='busy'?' disabled':'')+'><svg class="ic ic--close"><use href="#i-close"/></svg></button></div></td></tr>';
   }).join('');
   var done=Q.filter(function(it){return it.status==='done'}).length,wait=Q.filter(function(it){return it.status==='wait'||it.status==='fail'}).length;
-  $('q-wrap').hidden=!Q.length;$('q-empty').hidden=!!Q.length;
+  $('queue').hidden=!Q.length;
   $('sum').textContent=Q.length?'共 '+Q.length+' 个文件，'+done+' 个已完成':'';
   $('b-run').disabled=busy||!wait;$('b-zip').disabled=busy||done<2||!DL;$('b-clear').disabled=busy||!Q.length;
 }
 
-/* 示例文件：一份设备台账 CSV 与一张巡检照片，标为“示例” */
-var csv='设备编号,名称,区域,状态,负载,运行时长\nEQ-0142,输送带 A-02,北区装配线,待检修,91%,412 h\nEQ-0207,冷却泵 P-11,北区仓储,运行中,68%,"1,206 h"\nEQ-0311,分拣机 S-04,北区装配线,运行中,54%,88 h\nEQ-0418,空压机 K-02,南区冶炼,停机,0%,"2,940 h"\nEQ-0425,熔炼炉 F-01,南区冶炼,运行中,82%,"3,310 h"\n';
-var c=document.createElement('canvas');c.width=1600;c.height=900;var x=c.getContext('2d');
-x.fillStyle='#e6e6e6';x.fillRect(0,0,1600,900);x.fillStyle='#fffa00';x.fillRect(720,0,880,640);
-x.fillStyle='#191919';for(var i=-2;i<40;i++){x.beginPath();x.moveTo(720+i*48,640);x.lineTo(744+i*48,640);x.lineTo(840+i*48,544);x.lineTo(816+i*48,544);x.closePath();x.fill()}
-x.fillStyle='#383838';x.fillRect(96,200,480,560);
-c.toBlob(function(b){add([new File([csv],'设备台账.csv',{type:'text/csv'}),new File([b],'巡检照片-A02.png',{type:'image/png'})],true)},'image/png');
 onSettings();render();
 })();
 </script>
