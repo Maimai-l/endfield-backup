@@ -92,19 +92,16 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
             </div>
             <span class="grow"></span>
             <button class="btn btn--danger btn--sm" type="button" id="btn-del" disabled><span class="lbl">删除所选</span></button>
-            <span class="vsep" aria-hidden="true"></span>
-            <div class="seg" role="group" aria-label="行高" data-density><button type="button" aria-pressed="true" data-d="std">标准</button><button type="button" aria-pressed="false" data-d="compact">紧凑</button></div>
           </div>
 
-          <div class="tbl-wrap"><table class="dt" id="dt">
-            <thead><tr>
-              <th class="w-check"><label class="check"><input type="checkbox" aria-label="全选" data-all><span class="box"><svg class="ic tick"><use href="#i-check"/></svg><svg class="ic mix"><use href="#i-minus"/></svg></span></label></th>
-              <th>设备编号</th><th>名称</th><th>区域</th><th>状态</th>
-              <th class="num" aria-sort="descending"><button class="sort" type="button">负载<svg class="ic"><use href="#i-sort-d"/></svg></button></th>
-              <th class="num"><button class="sort" type="button">运行时长<svg class="ic"><use href="#i-sort"/></svg></button></th>
-              <th>更新时间</th></tr></thead>
-            <tbody id="rows"></tbody>
-          </table></div>
+          <div class="tbl-frame" id="tbl-frame">
+            <i></i><i></i><i></i><i></i>
+            <div class="tbl-scroll"><table class="tbl" id="dt" aria-multiselectable="true" aria-label="设备列表">
+              <colgroup><col style="width:128px"><col><col style="width:112px"><col style="width:96px"><col style="width:112px"><col style="width:128px"><col style="width:128px"></colgroup>
+              <thead><tr><th scope="col"><button type="button"><span class="in"><span>设备编号</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>名称</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>区域</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>状态</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col" class="num" aria-sort="descending"><button type="button"><span class="in"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg><span>负载</span></span></button></th><th scope="col" class="num"><button type="button"><span class="in"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg><span>运行时长</span></span></button></th><th scope="col"><button type="button"><span class="in"><span>更新时间</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table></div>
+          </div>
         </div>
 
         <div class="empty" id="empty" hidden><span class="empty-ic"><svg class="ic ic--xl"><use href="#i-search"/></svg></span><h5>没有符合条件的设备</h5><p>换一个关键词，或把状态筛选改回“全部状态”。</p></div>
@@ -175,25 +172,24 @@ var DEVICES=[
   ['EQ-0418','空压机 K-02','南区冶炼','停机',0,2940,'09-30 13:52'],
   ['EQ-0502','破碎机 C-03','南区封存','离线',null,5118,'09-12 08:00']
 ];
-var STAT={'运行中':'stat--ok','待检修':'stat--warn','停机':'stat--err','离线':'stat--off'};
 function fmt(n){return n.toLocaleString('en-US')}
 document.getElementById('rows').innerHTML=DEVICES.map(function(d){
   var off=d[3]==='离线';
-  var load=d[4]===null?'未上报':'<span class="meter"><i style="--v:'+d[4]+'%"></i><b>'+d[4]+'%</b></span>';
-  return '<tr'+(off?' class="is-disabled"':'')+' data-region="'+d[2].slice(0,2)+'" data-status="'+d[3]+'"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 '+d[0]+'"'+(off?' disabled':' data-row')+'><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td>'+
-    '<td><code>'+d[0]+'</code></td><td>'+d[1]+'</td><td>'+d[2]+'</td><td><span class="stat '+STAT[d[3]]+'">'+d[3]+'</span></td>'+
-    '<td class="num">'+load+'</td><td class="num">'+fmt(d[5])+' h</td><td><code>'+d[6]+'</code></td></tr>';
+  var load=d[4]===null?'<td class="num" data-value="-1">未上报</td>':'<td class="num"><b>'+d[4]+'</b>%</td>';
+  return '<tr'+(off?' aria-disabled="true"':'')+' data-region="'+d[2].slice(0,2)+'" data-status="'+d[3]+'">'+
+    '<td class="c-id">'+d[0]+'</td><td class="c-name">'+d[1]+'</td><td>'+d[2]+'</td><td class="c-stat'+(d[3]==='停机'?' is-err':'')+'">'+d[3]+'</td>'+
+    load+'<td class="num"><b>'+fmt(d[5])+'</b>h</td><td class="c-time">'+d[6]+'</td></tr>';
 }).join('');
 
 Endfield.init(document);
 
 /* 筛选：区域标签、关键词、状态。隐藏不符合的行。 */
-var dt=document.getElementById('dt'),empty=document.getElementById('empty'),wrap=dt.closest('.tbl-wrap');
+var dt=document.getElementById('dt'),empty=document.getElementById('empty'),wrap=dt.closest('.tbl-frame');
 var region='',status='',query='';
 function apply(){
   var shown=0;
   [].forEach.call(dt.tBodies[0].rows,function(r){
-    var text=r.cells[1].textContent+r.cells[2].textContent;
+    var text=r.cells[0].textContent+r.cells[1].textContent;
     var ok=(!region||r.dataset.region===region)&&(!status||r.dataset.status===status)&&(!query||text.toLowerCase().indexOf(query)>=0);
     r.hidden=!ok;if(ok)shown++;
   });
@@ -205,15 +201,15 @@ document.getElementById('dd-status').querySelector('.menu').addEventListener('cl
 
 /* 选择计数与删除按钮 */
 var delBtn=document.getElementById('btn-del'),selCount=document.getElementById('sel-count');
-function selected(){return [].slice.call(dt.querySelectorAll('[data-row]:checked')).map(function(c){return c.closest('tr').cells[1].textContent})}
+function selected(){return dt.Endfield.selected().filter(function(r){return !r.hidden}).map(function(r){return r.cells[0].textContent})}
 function syncSel(){var s=selected();delBtn.disabled=!s.length;selCount.textContent=s.length?'已选择 '+s.length+' 台设备':'未选择设备'}
-dt.addEventListener('change',function(){setTimeout(syncSel,0)});syncSel();
+dt.addEventListener('tbl-select',syncSel);syncSel();
 delBtn.addEventListener('click',function(){
   var s=selected();document.getElementById('del-text').innerHTML='将删除 '+s.map(function(c){return '<span class="confirm-code">'+c+'</span>'}).join(' ')+' 的全部运行记录，且无法恢复。输入 <span class="confirm-code">删除</span> 以确认。';
   document.getElementById('dlg-del').showModal();
 });
 document.getElementById('del-go').addEventListener('click',function(){
-  var s=selected();dt.querySelectorAll('[data-row]:checked').forEach(function(c){c.closest('tr').remove()});
+  var s=selected();dt.Endfield.selected().forEach(function(r){if(!r.hidden)r.remove()});
   document.getElementById('dlg-del').close();syncSel();Endfield.toast('success','已删除 '+s.length+' 台设备','');
 });
 

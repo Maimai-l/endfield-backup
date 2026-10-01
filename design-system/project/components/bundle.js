@@ -104,23 +104,32 @@ function init(root){
     v.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});});
   all(root,'[data-smenu]').forEach(function(m){if(!once(m,'smenu'))return;m.addEventListener('click',function(e){var b=e.target.closest('.smi');if(!b)return;
     all(m,'.smi').forEach(function(x){if(x===b)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
-  /* 表格：全选、行选、排序、密度 */
-  all(root,'table.dt').forEach(function(dt){if(!once(dt,'dt'))return;
-    var a=dt.querySelector('[data-all]'),rows=all(dt,'[data-row]');
-    function sync(){var n=rows.filter(function(r){return r.checked}).length;if(a){a.checked=n===rows.length;a.indeterminate=n>0&&n<rows.length}
-      rows.forEach(function(r){r.closest('tr').classList.toggle('is-selected',r.checked)})}
-    rows.forEach(function(r){r.addEventListener('change',sync)});
-    if(a)a.addEventListener('change',function(){rows.forEach(function(r){r.checked=a.checked});sync()});sync();
-    var tb=dt.tBodies[0];
-    all(dt,'th .sort').forEach(function(b){b.addEventListener('click',function(){
-      var th=b.closest('th'),col=th.cellIndex,asc=th.getAttribute('aria-sort')==='descending';
-      all(dt,'th').forEach(function(h){if(h!==th){h.removeAttribute('aria-sort');var u=h.querySelector('.sort use');if(u){u.setAttribute('href','#i-sort');u.parentNode.style.transform=''}}});
-      th.setAttribute('aria-sort',asc?'ascending':'descending');
-      var u=b.querySelector('use');u.setAttribute('href','#i-sort-d');u.parentNode.style.transform=asc?'rotate(180deg)':'';
-      function val(r){var t=r.cells[col].textContent.replace(/[^\d.]/g,'');return t?+t:-1}
-      [].slice.call(tb.rows).sort(function(x,y){return asc?val(x)-val(y):val(y)-val(x)}).forEach(function(r){tb.appendChild(r)});})});});
-  all(root,'[data-density]').forEach(function(g){if(!once(g,'den'))return;g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
-    var dt=(g.closest('[data-table-scope]')||root).querySelector('table.dt');if(dt)dt.classList.toggle('is-compact',b.dataset.d==='compact')})});
+  /* 表格：单击表头排序，再次单击反转；单击行或按空格、回车切换选中；上下方向键移动焦点，跳过禁用行 */
+  all(root,'table.tbl').forEach(function(tb){if(!once(tb,'tbl'))return;
+    var body=tb.tBodies[0],multi=tb.getAttribute('aria-multiselectable')==='true';
+    function prep(tr){if(!multi)return;if(tr.getAttribute('aria-disabled')==='true'){tr.removeAttribute('tabindex');tr.removeAttribute('aria-selected');return}
+      if(!tr.hasAttribute('tabindex'))tr.tabIndex=0;if(!tr.hasAttribute('aria-selected'))tr.setAttribute('aria-selected','false')}
+    all(body,'tr').forEach(prep);
+    function cellVal(tr,i,num){var c=tr.cells[i],v=c.getAttribute('data-value')!=null?c.getAttribute('data-value'):c.textContent;
+      if(num){v=parseFloat(String(v).replace(/[^\d.-]/g,''));return isNaN(v)?-Infinity:v}return v.trim()}
+    tb.tHead.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+      var th=b.closest('th'),i=th.cellIndex,num=th.classList.contains('num'),cur=th.getAttribute('aria-sort');
+      var dir=cur==='descending'?1:cur==='ascending'?-1:(num?-1:1);
+      all(tb,'thead th').forEach(function(h){if(h!==th)h.removeAttribute('aria-sort')});
+      th.setAttribute('aria-sort',dir>0?'ascending':'descending');
+      all(body,'tr').sort(function(x,y){var a=cellVal(x,i,num),c=cellVal(y,i,num);
+        var r=num?a-c:String(a).localeCompare(String(c),'zh-Hans-CN');return r*dir||cellVal(x,0).localeCompare(cellVal(y,0))})
+        .forEach(function(tr){body.appendChild(tr)})});
+    function toggle(tr){if(!multi||!tr||tr.getAttribute('aria-disabled')==='true'||!body.contains(tr))return;
+      tr.setAttribute('aria-selected',String(tr.getAttribute('aria-selected')!=='true'));
+      tb.dispatchEvent(new CustomEvent('tbl-select',{bubbles:true}))}
+    body.addEventListener('click',function(e){if(e.target.closest('button,a,input,label,select,textarea'))return;toggle(e.target.closest('tr'))});
+    body.addEventListener('keydown',function(e){var tr=e.target.closest('tr');if(!tr)return;
+      if(!multi||e.target!==tr)return;
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(tr)}
+      else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var n=tr;
+        do{n=e.key==='ArrowDown'?n.nextElementSibling:n.previousElementSibling}while(n&&n.getAttribute('aria-disabled')==='true');if(n)n.focus()}});
+    tb.Endfield={prep:prep,selected:function(){return all(body,'tr[aria-selected="true"]')}}});
   /* 切换型图标按钮、清除按钮 */
   all(root,'.ibtn[aria-pressed]').forEach(function(b){if(!once(b,'tg'))return;b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));b.classList.toggle('is-pressed',on)})});
   all(root,'.clear').forEach(function(b){if(!once(b,'clr'))return;b.addEventListener('click',function(){var i=b.parentNode.querySelector('input');if(i){i.value='';i.focus()}})});

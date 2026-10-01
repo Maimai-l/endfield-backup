@@ -33,11 +33,14 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
 .fc-busy{display:inline-flex;align-items:center;gap:var(--space-2);font-size:13px;color:var(--color-text-secondary)}
 .fc-ops{display:flex;justify-content:flex-end;gap:var(--space-2)}
 .fc-foot{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:var(--space-2)}
-.fc-queue .dt td{white-space:nowrap}
+.fc-queue .tbl{min-width:760px}
+.fc-queue .tbl td{height:64px}
+.fc-head + .tbl-frame{margin-top:8px}
 @media (max-width:760px){
   .fc-settings,.fc-row{grid-template-columns:minmax(0,1fr)}
   .fc-page{padding:var(--space-4)}
-  .fc-queue .dt th:nth-child(2),.fc-queue .dt td:nth-child(2),.fc-queue .dt th:nth-child(3),.fc-queue .dt td:nth-child(3){display:none}
+  .fc-queue .tbl{min-width:0}
+  .fc-queue .tbl :is(col,th,td):is(:nth-child(2),:nth-child(3),:nth-child(4)){display:none}
 }
 </style>
 
@@ -101,10 +104,14 @@ body{background:var(--color-bg-page);color:var(--color-text-primary)}
 
   <section class="fc-queue" id="queue" aria-labelledby="q-title" hidden>
     <div class="fc-head"><h2 id="q-title">转换队列</h2><span class="sum" id="sum" aria-live="polite"></span></div>
-    <div class="tbl-wrap" id="q-wrap"><table class="dt">
-      <thead><tr><th>文件</th><th>原格式</th><th class="num">大小</th><th>输出</th><th>状态</th><th class="num">操作</th></tr></thead>
-      <tbody id="q-rows"></tbody>
-    </table></div>
+    <div class="tbl-frame" id="q-wrap">
+      <i></i><i></i><i></i><i></i>
+      <div class="tbl-scroll"><table class="tbl" aria-label="转换队列">
+        <colgroup><col><col style="width:96px"><col style="width:112px"><col style="width:200px"><col style="width:144px"><col style="width:176px"></colgroup>
+        <thead><tr><th scope="col">文件</th><th scope="col">原格式</th><th scope="col" class="num">大小</th><th scope="col">输出</th><th scope="col">状态</th><th scope="col" class="num">操作</th></tr></thead>
+        <tbody id="q-rows"></tbody>
+      </table></div>
+    </div>
     <div class="fc-foot">
       <button class="btn btn--ghost" type="button" id="b-clear"><span class="lbl">清空队列</span></button>
       <button class="btn btn--secondary" type="button" id="b-zip"><span class="lbl">全部保存为 ZIP</span></button>
@@ -129,6 +136,7 @@ var $=function(id){return document.getElementById(id)};
 function ext(n){var m=/\.([^.]+)$/.exec(n);return m?m[1].toLowerCase():''}
 function base(n){return n.replace(/\.[^.]+$/,'')}
 function size(n){return n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(2)+' MB'}
+function sizeCell(n){var t=size(n).split(' ');return '<b>'+t[0]+'</b>'+t[1]}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function pressed(id){return $(id).querySelector('[aria-pressed="true"]').dataset.v}
 function picked(id){return $(id).querySelector('.menu-item[aria-selected="true"]').dataset.v}
@@ -242,8 +250,8 @@ $('q-rows').addEventListener('click',function(e){
 /* 渲染 */
 function status(it){
   if(it.status==='busy')return '<span class="fc-busy"><span class="spin spin--16" aria-hidden="true"></span>转换中</span>';
-  if(it.status==='done')return '<span class="stat stat--ok">完成</span>';
-  if(it.status==='fail')return '<span class="stat stat--err">失败</span><div class="fc-err">'+esc(it.err)+'</div>';
+  if(it.status==='done')return '<span class="c-stat">完成</span>';
+  if(it.status==='fail')return '<span class="c-stat is-err">失败</span><div class="fc-err">'+esc(it.err)+'</div>';
   return '<span class="fc-sub">待转换</span>';
 }
 function render(){
@@ -252,7 +260,7 @@ function render(){
     var target=it.out?it.out.label:FMT_LABEL[it.kind==='image'?s.img:s.tbl];
     var thumb=it.thumb?'<img src="'+it.thumb+'" alt="">':'<svg class="ic"><use href="#i-grid"/></svg>';
     return '<tr data-id="'+it.id+'"><td><div class="fc-file"><span class="fc-thumb">'+thumb+'</span><span class="fc-name"><b><span title="'+esc(it.name)+'">'+esc(it.name)+'</span>'+'</b><span class="fc-sub">'+(it.kind==='image'?'图片':'表格')+'</span></span></div></td>'+
-      '<td><code>'+it.ext.toUpperCase()+'</code></td><td class="num">'+size(it.file.size)+'</td>'+
+      '<td class="c-id">'+it.ext.toUpperCase()+'</td><td class="num" data-value="'+it.file.size+'">'+sizeCell(it.file.size)+'</td>'+
       '<td><div class="fc-name"><span>'+target+(it.out?'，'+size(it.out.blob.size):'')+'</span>'+(it.out?'<span class="fc-sub">'+esc(it.out.note)+'</span>':'')+'</div></td>'+
       '<td>'+status(it)+'</td>'+
       '<td class="num"><div class="fc-ops"><button class="btn btn--secondary btn--sm" type="button" data-act="save"'+(it.status==='done'&&DL?'':' disabled')+'><span class="lbl">保存</span></button>'+

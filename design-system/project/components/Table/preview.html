@@ -1,40 +1,36 @@
-<!-- @dsCard group="内容展示" height=406 -->
+<!-- @dsCard group="内容展示" height=593 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <title>Table</title>
-<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:13px/1.5 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
 </head>
 <body>
 <span class="prov">新增</span>
 <div class="stage">
-      <div style="min-width:0">
-        <div class="toolbar">
-          <div class="input input--sm"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索" placeholder="搜索编号或名称"></div>
-          <button class="btn btn--ghost" type="button"><span class="lbl"><svg class="ic"><use href="#i-filter"></use></svg>状态：全部</span></button>
-          <div class="tb-end">
-          <div class="seg" role="group" aria-label="行高" data-density=""><button type="button" aria-pressed="true" data-d="std">标准</button><button type="button" aria-pressed="false" data-d="compact">紧凑</button></div>
-          <span class="vsep" aria-hidden="true"></span>
-          <button class="btn btn--primary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建项目</span></button>
-          </div>
-        </div>
-        <div class="tbl-wrap"><table class="dt" id="dt">
-          <thead><tr>
-            <th class="w-check"><label class="check"><input type="checkbox" aria-label="全选" data-all=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span></label></th>
-            <th>项目编号</th><th>名称</th><th class="c-opt">部门</th><th>状态</th>
-            <th class="num" aria-sort="descending"><button class="sort" type="button">进度<svg class="ic"><use href="#i-sort-d"></use></svg></button></th>
-            <th class="num c-opt2"><button class="sort" type="button">工时<svg class="ic"><use href="#i-sort"></use></svg></button></th>
-            <th class="c-opt">更新时间</th></tr></thead>
-          <tbody>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0142" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0142</code></td><td>官网改版</td><td class="c-opt">产品部</td><td><span class="stat stat--info">待处理</span></td><td class="num"><span class="meter"><i style="--v:91%"></i><b>91%</b></span></td><td class="num c-opt2">412 h</td><td class="c-opt"><code>09-30 14:20</code></td></tr>
-            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0207" data-row="" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0207</code></td><td>移动端应用</td><td class="c-opt">运营部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i><b>68%</b></span></td><td class="num c-opt2">1,206 h</td><td class="c-opt"><code>09-30 14:18</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0311" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0311</code></td><td>数据看板</td><td class="c-opt">产品部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i><b>54%</b></span></td><td class="num c-opt2">88 h</td><td class="c-opt"><code>09-30 14:15</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0418" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0418</code></td><td>支付接入</td><td class="c-opt">设计部</td><td><span class="stat stat--warn">已暂停</span></td><td class="num"><span class="meter"><i style="--v:0%"></i><b>0%</b></span></td><td class="num c-opt2">2,940 h</td><td class="c-opt"><code>09-30 13:52</code></td></tr>
-            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0502" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0502</code></td><td>旧版官网</td><td class="c-opt">产品部</td><td><span class="stat stat--off">已归档</span></td><td class="num"><span class="meter"><i style="--v:100%"></i><b>100%</b></span></td><td class="num c-opt2">5,118 h</td><td class="c-opt"><code>09-12 08:00</code></td></tr>
-          </tbody></table></div>
-      </div>
+  <div class="tbl-frame">
+    <i></i><i></i><i></i><i></i>
+    <div class="tbl-scroll">
+      <table class="tbl" aria-multiselectable="true">
+        <colgroup><col style="width:128px"><col><col style="width:96px"><col style="width:96px"><col style="width:112px"><col style="width:128px"><col style="width:128px"></colgroup>
+        <thead><tr><th scope="col"><button type="button"><span class="in"><span>项目编号</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>名称</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>部门</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col"><button type="button"><span class="in"><span>状态</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th><th scope="col" class="num" aria-sort="descending"><button type="button"><span class="in"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg><span>进度</span></span></button></th><th scope="col" class="num"><button type="button"><span class="in"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg><span>工时</span></span></button></th><th scope="col"><button type="button"><span class="in"><span>更新时间</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor"/></svg></span></button></th></tr></thead>
+        <tbody>
+        <tr aria-disabled="true"><td class="c-id">PRJ-0502</td><td class="c-name">旧版官网</td><td>产品部</td><td class="c-stat">已归档</td><td class="num"><b>100</b>%</td><td class="num"><b>5,118</b>h</td><td class="c-time">09-12 08:00</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0142</td><td class="c-name">官网改版</td><td>产品部</td><td class="c-stat">进行中</td><td class="num"><b>91</b>%</td><td class="num"><b>412</b>h</td><td class="c-time">09-30 14:20</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0604</td><td class="c-name">搜索优化</td><td>产品部</td><td class="c-stat">进行中</td><td class="num"><b>79</b>%</td><td class="num"><b>934</b>h</td><td class="c-time">09-28 09:30</td></tr>
+        <tr tabindex="0" aria-selected="true"><td class="c-id">PRJ-0207</td><td class="c-name">移动端应用</td><td>运营部</td><td class="c-stat">进行中</td><td class="num"><b>68</b>%</td><td class="num"><b>1,206</b>h</td><td class="c-time">09-30 14:18</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0418</td><td class="c-name">支付接入</td><td>设计部</td><td class="c-stat">已暂停</td><td class="num"><b>54</b>%</td><td class="num"><b>2,940</b>h</td><td class="c-time">09-30 13:52</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0648</td><td class="c-name">设计规范</td><td>设计部</td><td class="c-stat">已暂停</td><td class="num"><b>45</b>%</td><td class="num"><b>1,512</b>h</td><td class="c-time">09-27 17:26</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0466</td><td class="c-name">权限重构</td><td>平台部</td><td class="c-stat is-err">已逾期</td><td class="num"><b>37</b>%</td><td class="num"><b>640</b>h</td><td class="c-time">09-29 18:04</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0533</td><td class="c-name">消息中心</td><td>平台部</td><td class="c-stat">进行中</td><td class="num"><b>22</b>%</td><td class="num"><b>176</b>h</td><td class="c-time">09-29 11:40</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0311</td><td class="c-name">数据看板</td><td>产品部</td><td class="c-stat">待处理</td><td class="num"><b>0</b>%</td><td class="num"><b>88</b>h</td><td class="c-time">09-30 14:15</td></tr>
+        <tr tabindex="0" aria-selected="false"><td class="c-id">PRJ-0571</td><td class="c-name">报表导出</td><td>运营部</td><td class="c-stat">待处理</td><td class="num"><b>0</b>%</td><td class="num"><b>0</b>h</td><td class="c-time">09-28 16:02</td></tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
 <script>window.Endfield&&Endfield.init(document)</script>
 </body>
 </html>
