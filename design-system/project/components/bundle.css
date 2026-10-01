@@ -237,21 +237,22 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ldr-app h5{grid-column:1/-1;margin:0;font:16px/1.4 var(--font-bold);color:var(--color-text-primary)}
 .ldr-app i{border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-surface)}
 .ldr-app i:last-child{grid-column:1/-1}
-.ldr-screen{--p:0;position:absolute;inset:0;z-index:1;background:var(--color-bg-page)}
+.ldr-screen{--p:0;position:absolute;inset:0;z-index:1;background:#141414;color:#ffffff}
 .ldr-screen::after{content:"";position:absolute;inset:0;background:#fffa00;transform:scaleX(0);transform-origin:left;pointer-events:none}
 .ldr-screen.is-leaving{opacity:0;transition:opacity .5s ease 1s}
 .ldr-screen.is-leaving::after{animation:ldr-wipe .6s cubic-bezier(1,0,.7,1) .3s forwards}
 .ldr-screen.is-done{visibility:hidden}
 @keyframes ldr-wipe{to{transform:scaleX(1)}}
+@keyframes ldr-wipe-v{to{transform:scaleY(1)}}
 .ldr-bar{position:absolute;left:0;top:0;width:10px;height:100%}
-.ldr-bar i{display:block;width:100%;height:calc(var(--p) * 1%);background:var(--color-checked);transition:height .15s linear}
-.ldr-read{position:absolute;left:25px;top:clamp(64px,calc(var(--p) * 1%),calc(100% - 24px));height:0;color:var(--color-checked);transition:top .15s linear}
+.ldr-bar i{display:block;width:100%;height:calc(var(--p) * 1%);background:#fffa00;transition:height .15s linear}
+.ldr-read{position:absolute;left:25px;top:clamp(64px,calc(var(--p) * 1%),calc(100% - 24px));height:0;color:#fffa00;transition:top .15s linear}
 .ldr-core{position:absolute;left:0;bottom:12px;display:flex;flex-direction:column;align-items:flex-start;white-space:nowrap}
 .ldr-core::before{content:"";width:4px;height:15px;margin-bottom:4px;border-radius:2px;background:currentColor}
 .ldr-core b{font:35px/1 var(--font-medium);font-weight:400;font-variant-numeric:tabular-nums}
 .ldr-core small{font:26px/1 var(--font-body)}
-.ldr-deco{position:absolute;left:0;top:-4px;box-sizing:content-box;width:2px;height:4px;border-left:4px solid var(--color-text-secondary);border-right:4px solid var(--color-text-secondary)}
-.ldr-label{position:absolute;left:0;top:6px;font-size:11px;line-height:1;color:var(--color-text-secondary);white-space:nowrap}
+.ldr-deco{position:absolute;left:0;top:-4px;box-sizing:content-box;width:2px;height:4px;border-left:4px solid #666666;border-right:4px solid #666666}
+.ldr-label{position:absolute;left:0;top:6px;font-size:11px;line-height:1;color:#a6a6a6;white-space:nowrap}
 @container (max-width:480px){
   .ldr-app{padding:16px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 64px 64px 1fr}
   .ldr-app i:nth-of-type(3){display:none}
@@ -260,6 +261,8 @@ button,input,select,textarea{font:inherit;color:inherit}
   .ldr-read{top:auto;bottom:72px;left:clamp(0px,calc(var(--p) * .82% - 24px),calc(82% - 64px));transition:left .15s linear}
   .ldr-deco{top:4px}
   .ldr-label{top:22px}
+  .ldr-screen::after{transform:scaleY(0);transform-origin:bottom}
+  .ldr-screen.is-leaving::after{animation-name:ldr-wipe-v}
 }
 .dot{display:inline-block;width:12px;height:12px;border-radius:1px;vertical-align:-2px;margin-right:6px;box-shadow:inset 0 0 0 1px #858585}
 .tbl-wrap{overflow-x:auto;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page)}
@@ -513,8 +516,8 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .prog-fill{height:100%;width:var(--v);background:var(--color-checked);transition:width var(--duration-slow) ease}
 .prog.is-error .prog-fill{background:var(--color-error)}
 .prog.is-paused .prog-fill{background:var(--color-text-tertiary)}
-.prog-indet .prog-fill{width:100%;background:repeating-linear-gradient(-45deg,var(--color-checked) 0 5px,transparent 5px 10px);background-size:14.14px 14.14px;animation:stripe .6s linear infinite}
-@keyframes stripe{to{background-position:14.14px 0}}
+.prog-indet .prog-fill{width:30%;animation:prog-run 1.4s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes prog-run{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
 .prog-note{font-size:12px;color:var(--color-text-secondary);display:flex;gap:4px;align-items:center}
 .tabs{display:flex;gap:32px;border-bottom:1px solid var(--color-border-subtle);overflow-x:auto;max-width:100%}
 .tab{position:relative;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0;border:0;background:none;color:var(--color-text-secondary);font-size:14px;cursor:pointer;white-space:nowrap;transition:color var(--duration-base) ease}
@@ -593,9 +596,9 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .sn-item[aria-current] .sn-ic{color:var(--color-text-primary)}
 .sn-tx{position:absolute;left:64px;top:50%;font:15px/1.25 var(--font-medium);white-space:nowrap;color:var(--color-text-primary);opacity:0;transform:translate(-8px,-50%);transition:opacity var(--duration-base) ease,transform var(--duration-slow) ease;pointer-events:none}
 .sn.is-open .sn-tx{opacity:1;transform:translate(0,-50%)}
-.sn-cap{position:absolute;left:12px;bottom:16px;width:40px;padding:4px 0;border-radius:20px;background:var(--nav-capsule);transition:width var(--duration-slow) ease,border-radius var(--duration-slow) ease}
-.sn.is-open .sn-cap{width:200px;border-radius:var(--radius-md)}
-.sn-cbtn{position:relative;display:block;width:100%;height:40px;border:0;background:none;padding:0;color:var(--nav-capsule-icon);cursor:pointer;border-radius:var(--radius-sm);transition:color var(--duration-base) ease,background-color var(--duration-base) ease}
+.sn-cap{position:absolute;left:12px;bottom:16px;width:40px;padding:0;border-radius:20px;background:var(--nav-capsule);transition:width var(--duration-slow) ease,border-radius var(--duration-slow) ease}
+.sn.is-open .sn-cap{width:200px}
+.sn-cbtn{position:relative;display:block;width:100%;height:40px;border:0;background:none;padding:0;color:var(--nav-capsule-icon);cursor:pointer;border-radius:20px;transition:color var(--duration-base) ease,background-color var(--duration-base) ease}
 .sn-cbtn .ic{position:absolute;left:20px;top:50%;width:18px;height:18px;transform:translate(-50%,-50%)}
 .sn-cbtn .sn-tx{left:44px;font-size:14px}
 .sn-cbtn:hover{color:var(--color-text-primary)}
