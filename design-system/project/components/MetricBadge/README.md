@@ -26,9 +26,9 @@
 
 ```html
 <div class="ipill">
-  <span class="l">巡检等级</span>
+  <span class="l">评审等级</span>
   <span class="v">02</span>
-  <button class="ibtn-i" type="button" aria-label="巡检等级说明">
+  <button class="ibtn-i" type="button" aria-label="评审等级说明">
     <svg class="ic"><use href="#i-info-plain"></use></svg>
   </button>
 </div>

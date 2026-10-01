@@ -27,16 +27,16 @@
 <nav aria-label="面包屑">
   <ol class="crumbs">
     <li>
-      <a href="#c-crumbs">设备管理</a>
+      <a href="#c-crumbs">项目管理</a>
     </li>
     <li>
-      <a href="#c-crumbs">北区</a>
+      <a href="#c-crumbs">产品部</a>
     </li>
     <li>
-      <a href="#c-crumbs">装配线</a>
+      <a href="#c-crumbs">官网</a>
     </li>
     <li>
-      <span aria-current="page">输送带 A-02</span>
+      <span aria-current="page">官网改版</span>
     </li>
   </ol>
 </nav>

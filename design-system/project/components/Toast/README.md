@@ -27,7 +27,7 @@
 ```html
 <div class="toast toast--success">
   <svg class="ic"><use href="#s-success"></use></svg>
-  <div class="msg">工单 WO-2026-0930 已关闭</div>
+  <div class="msg">任务 TK-0930 已关闭</div>
   <button class="act" type="button">撤销</button>
 </div>
 ```

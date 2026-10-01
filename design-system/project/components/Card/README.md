@@ -26,12 +26,12 @@
 ```html
 <a class="card card--link" href="#c-card">
   <span class="card-eyebrow">Interactive</span>
-  <span class="card-title">输送带 A-02</span>
+  <span class="card-title">官网改版</span>
   <svg class="ic go"><use href="#i-arrow-dr"></use></svg>
-  <span class="card-body">北区装配线</span>
+  <span class="card-body">产品部</span>
   <div class="card-foot">
-    <code>EQ-0142</code>
-    <span class="stat stat--warn">待检修</span>
+    <code>PRJ-0142</code>
+    <span class="stat stat--warn">待处理</span>
   </div>
 </a>
 ```

@@ -24,8 +24,8 @@
 ## 结构
 
 ```html
-<span class="tag">巡检</span>
-<span class="stat stat--ok">运行中</span>
+<span class="tag">评审</span>
+<span class="stat stat--ok">进行中</span>
 <span class="badge" aria-label="有新内容"></span>
 ```
 

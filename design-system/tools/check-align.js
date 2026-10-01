@@ -58,7 +58,7 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
           const baseline=(isText(A)&&isText(B)&&getComputedStyle(A).fontSize!==getComputedStyle(B).fontSize)||unit(A)||unit(B);
           if(vOver&&!hOver&&!baseline){const d=Math.abs((a.top+a.bottom)/2-(b.top+b.bottom)/2);if(d>=1&&d<=3)out.push(`同行中线 ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}
           const viaParent=(E,k,v)=>{let e=E.parentElement;for(let i=0;i<5&&e;i++,e=e.parentElement){const q=e.getBoundingClientRect();if(Math.abs(q[k]-v)<0.5)return true}return false};
-          if(hOver&&!vOver){for(const [n,k] of [['左边','left'],['右边','right']]){const x=a[k],y=b[k],d=Math.abs(x-y);if(viaParent(A,k,y)||viaParent(B,k,x))continue;if(d>=1&&d<=3)out.push(`上下${n} ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}}
+          if(hOver&&!vOver){for(const [n,k] of [['左边','left'],['右边','right']]){const x=a[k],y=b[k],d=Math.abs(x-y);if(viaParent(A,k,y)||viaParent(B,k,x))continue;if(k==='right'&&isText(A)&&isText(B))continue;if(d>=1&&d<=3)out.push(`上下${n} ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}}
         }
         /* 方圆关系：圆形或胶囊与带明显边界的方形同一行内高度相差不足 4 且间距不足 64，或间距不足 16；或等宽上下相接时报出 */
         const shape=e=>{const s=getComputedStyle(e),q=e.getBoundingClientRect();const r=parseFloat(s.borderTopLeftRadius)||0;

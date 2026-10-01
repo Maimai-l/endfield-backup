@@ -28,19 +28,19 @@
 <tr>
   <td class="w-check">
     <label class="check">
-      <input type="checkbox" aria-label="选择 EQ-0142">
+      <input type="checkbox" aria-label="选择 PRJ-0142">
       <span class="box">
         <svg class="ic tick"><use href="#i-check"></use></svg>
       </span>
     </label>
   </td>
   <td>
-    <code>EQ-0142</code>
+    <code>PRJ-0142</code>
   </td>
-  <td>输送带 A-02</td>
-  <td>北区装配线</td>
+  <td>官网改版</td>
+  <td>产品部</td>
   <td>
-    <span class="stat stat--warn">待检修</span>
+    <span class="stat stat--warn">待处理</span>
   </td>
   <td class="num">
     <span class="meter hi">

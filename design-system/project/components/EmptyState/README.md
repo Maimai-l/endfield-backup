@@ -27,12 +27,12 @@
   <span class="empty-ic">
     <svg class="ic ic--xl"><use href="#i-box"></use></svg>
   </span>
-  <h5>还没有设备</h5>
-  <p>添加第一台设备后，这里会显示它的运行状态与负载。</p>
+  <h5>还没有项目</h5>
+  <p>新建第一个项目后，这里会显示它的进度与成员。</p>
   <button class="btn btn--primary btn--sm" type="button">
     <span class="lbl">
       <svg class="ic ic--plus"><use href="#i-plus"></use></svg>
-      新建设备
+      新建项目
     </span>
   </button>
 </div>

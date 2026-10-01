@@ -24,9 +24,9 @@
 ## 结构
 
 ```html
-<div class="prog" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="固件上传">
+<div class="prog" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="版本上传">
   <div class="prog-top">
-    <span>固件上传</span>
+    <span>版本上传</span>
     <span class="v">64%</span>
   </div>
   <div class="prog-track">

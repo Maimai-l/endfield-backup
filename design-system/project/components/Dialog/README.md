@@ -27,19 +27,19 @@
 ```html
 <div class="dialog dialog--danger" role="alertdialog" aria-labelledby="d2t">
   <div class="dlg-head">
-    <h4 id="d2t">删除设备</h4>
+    <h4 id="d2t">删除项目</h4>
     <button class="cbtn cbtn--inv" type="button" aria-label="关闭">
       <svg class="ic ic--close"><use href="#i-close"></use></svg>
     </button>
   </div>
   <div class="dlg-body">
     <p>
-      删除后该设备的 1,284 条运行记录将一并清除，且无法恢复。输入
-      <span class="confirm-code">EQ-0142</span>
+      删除后该项目的 1,284 条记录将一并清除，且无法恢复。输入
+      <span class="confirm-code">PRJ-0142</span>
       以确认。
     </p>
     <div class="input">
-      <input aria-label="确认编号" placeholder="EQ-0142">
+      <input aria-label="确认编号" placeholder="PRJ-0142">
     </div>
   </div>
   <div class="dlg-foot">

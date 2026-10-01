@@ -25,7 +25,7 @@
 
 ```html
 <fieldset class="opt-group">
-  <legend>巡检频率</legend>
+  <legend>评审频率</legend>
   <label class="check radio">
     <input type="radio" name="freq">
     <span class="box"></span>

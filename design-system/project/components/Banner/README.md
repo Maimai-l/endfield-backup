@@ -26,10 +26,10 @@
 ```html
 <div class="alert alert--warning" role="status">
   <svg class="ic"><use href="#s-warning"></use></svg>
-  <div class="alert-title">A-02 负载连续 30 分钟高于 85%</div>
+  <div class="alert-title">存储用量已超过 85%</div>
   <div class="alert-body">
-    建议降低进料速度。
-    <a class="link" href="#c-alert">查看负载曲线</a>
+    建议清理过期文件。
+    <a class="link" href="#c-alert">查看用量</a>
   </div>
 </div>
 ```

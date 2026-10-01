@@ -27,7 +27,7 @@
 ```html
 <header class="topbar">
   <div class="title">
-    <b>设备总览</b>
+    <b>项目总览</b>
   </div>
 </header>
 ```
