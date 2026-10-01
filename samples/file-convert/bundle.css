@@ -57,7 +57,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 .mtab[aria-selected="true"] + .key::before{display:none}
 .mtab[aria-selected="true"]::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:10px;transform:translateY(-50%);border-left:2px solid #191919;border-right:2px solid #191919;pointer-events:none}
 .cap-btn{display:inline-flex;align-items:center;gap:10px;height:32px;min-width:144px;padding:0 4px 0 14px;border:1px solid var(--color-border-subtle);border-radius:16px;background:var(--color-bg-page);color:var(--color-text-primary);font:13px/1 var(--font-medium);cursor:pointer;transition:border-color var(--duration-base) ease;white-space:nowrap;flex:none}
-.cap-btn::before{content:"";width:18px;height:1px;background:var(--color-text-secondary)}
 .cap-btn .lbl{flex:1;min-width:44px;text-align:center}
 .cap-btn .go{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--color-text-primary);color:var(--color-bg-page);transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
 .cap-btn .go .ic{width:12px;height:12px;stroke-width:2;transition:transform var(--duration-slow) ease}
@@ -67,7 +66,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 .cap-btn:not(:disabled):active .go{background:var(--y-500);color:#191919}
 .cap-btn:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
 .cap-btn.is-busy{border-color:transparent;background:var(--color-bg-muted);color:var(--color-text-secondary);box-shadow:none;cursor:default;padding:0 20px}
-.cap-btn.is-busy::before{display:none}
 .cap-btn:disabled{border-color:var(--color-border-subtle);color:var(--color-text-disabled);box-shadow:none;cursor:not-allowed}
 .cap-btn:disabled .go{background:var(--color-text-disabled)}
 .cbtn{display:inline-grid;place-items:center;width:32px;height:32px;border:0;border-radius:var(--radius-sm);background:none;color:var(--color-text-primary);cursor:pointer;padding:0;flex:none;transition:color var(--duration-base) ease}
@@ -152,7 +150,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sn-group{position:relative;flex:none;width:64px;height:36px}
 .sn-group:first-child,.sn-ind + .sn-group{height:28px}
 .sn-group::before{content:"";position:absolute;left:20px;top:50%;width:24px;height:1px;background:var(--color-border-subtle);transition:opacity var(--duration-base) ease}
-.sn-group span{position:absolute;left:12px;bottom:4px;line-height:16px;font-size:12px;color:var(--color-text-tertiary);white-space:nowrap;opacity:0;transition:opacity var(--duration-base) ease}
+.sn-group span{position:absolute;left:21px;bottom:4px;line-height:16px;font-size:11px;color:var(--color-text-tertiary);white-space:nowrap;opacity:0;transition:opacity var(--duration-base) ease}
 .sn.is-open .sn-group::before{opacity:0}
 .sn.is-open .sn-group span{opacity:1}
 .sn-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;width:100%}
@@ -523,7 +521,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .prog{display:flex;flex-direction:column;gap:6px;width:340px;max-width:100%}
 .prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px}
 .prog-top .v{font:12px var(--font-numeric);font-variant-numeric:tabular-nums;color:var(--color-text-secondary)}
-.prog-track{position:relative;height:8px;border-radius:1px;background:var(--track-bg) var(--tex-track);box-shadow:inset 0 0 0 1px var(--track-edge);overflow:hidden}
+.prog-track{position:relative;height:8px;border-radius:1px;background:var(--track-bg);box-shadow:inset 0 0 0 1px var(--track-edge);overflow:hidden}
 .prog--thin .prog-track{height:4px}
 .prog-fill{height:100%;width:var(--v);background:var(--color-checked);transition:width var(--duration-slow) ease}
 .prog.is-error .prog-fill{background:var(--color-error)}
@@ -746,3 +744,11 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 kbd.k .ic{width:11px;height:11px;stroke-width:1.8;vertical-align:-1px}
 kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px solid var(--color-border-control);border-bottom-width:2px;border-radius:var(--radius-sm);font:11px/18px var(--font-tech);text-align:center;color:var(--color-text-primary);background:var(--color-bg-page)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+/* 大色面与磨砂玻璃 */
+.surf{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--radius-md)}
+.surf--brand{background:var(--y-300);color:#191919;--color-text-primary:#191919;--color-text-secondary:#383838;--color-text-tertiary:#383838;--color-text-link:#191919;--color-primary:#191919;--color-primary-hover:#383838;--color-primary-active:#000000;--color-on-primary:#ffffff;--color-primary-tick:#fffa00;--color-checked:#191919;--color-on-checked:#fffa00;--color-border-strong:#191919;--color-focus-ring:#191919}
+.surf--ink{background:#191919;color:#ededed;--color-text-primary:#ededed;--color-text-secondary:#a6a6a6;--color-text-tertiary:#999999;--color-text-link:#fffa00;--color-primary:#ededed;--color-primary-hover:#ffffff;--color-primary-active:#d9d9d9;--color-on-primary:#131315;--color-primary-tick:#191919;--color-checked:#fffa00;--color-on-checked:#191919;--color-border-subtle:#35373c;--color-border-strong:#ededed;--color-focus-ring:#fffa00}
+.surf--contour::before{content:"";position:absolute;inset:0;z-index:-1;background:url(textures/wave-bg.png) right -40px center/auto 150% no-repeat;pointer-events:none}
+.glass{--glass-blur:8px;position:relative;border-radius:var(--radius-md);background:var(--glass-bg);-webkit-backdrop-filter:blur(var(--glass-blur));backdrop-filter:blur(var(--glass-blur));color:#ffffff;--color-text-primary:#ffffff;--color-text-secondary:#a6a6a6;--color-text-tertiary:#999999;--color-checked:#fffa00;--color-on-checked:#191919;--color-border-subtle:rgba(255,255,255,.12);--track-bg:rgba(255,255,255,.08);--track-edge:transparent}
+.surf-num{position:absolute;right:calc(32px - .032em);top:calc(33px - .35em);z-index:-1;font:400px/1 var(--font-giant);color:#191919;pointer-events:none}
+.surf-col{position:absolute;left:32px;top:0;bottom:0;width:96px;background:var(--y-300)}

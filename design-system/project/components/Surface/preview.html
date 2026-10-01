@@ -1,0 +1,63 @@
+<!-- @dsCard group="基础" height=704 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Surface</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}
+.sf{width:100%}
+.sf-hero{height:320px}
+.sf-copy{position:absolute;left:32px;top:32px;bottom:32px;width:296px;display:flex;flex-direction:column;align-items:flex-start}
+.sf-eyebrow{font:12px/16px var(--font-en);letter-spacing:.12em;text-transform:uppercase}
+.sf-title{margin:12px 0 0;font:28px/36px var(--font-bold)}
+.sf-text{margin:12px 0 0;font:14px/22px var(--font-body);color:var(--color-text-secondary)}
+.sf-acts{display:flex;gap:16px;margin-top:auto}
+.sf-panel{position:absolute;right:32px;bottom:32px;width:280px;box-sizing:border-box;padding:20px 24px 24px;display:flex;flex-direction:column;gap:16px}
+.sf-panel h3{margin:0;font:16px/24px var(--font-medium)}
+.sf-panel .prog{width:auto}
+.sf-meta{font:12px/16px var(--font-body);color:var(--color-text-secondary)}
+.sf-arch{height:280px}
+.sf-bar{position:absolute;left:0;right:0;top:0;height:56px;border-radius:0;display:flex;align-items:center;gap:32px;padding:0 32px}.sf-bar b{width:96px;margin-right:0}
+.sf-bar b{font:16px/24px var(--font-medium)}
+.sf-bar span{font:14px/24px var(--font-body);color:var(--color-text-secondary)}
+.sf-bar span[aria-current]{color:var(--color-text-primary)}
+.sf-rows{position:absolute;left:160px;right:32px;top:80px;display:flex;flex-direction:column}
+.sf-row{display:flex;align-items:center;height:48px;border-top:1px solid var(--color-border-subtle);gap:24px}
+.sf-row .id{width:96px;font:12px/1 var(--font-numeric);letter-spacing:.08em;color:var(--color-text-secondary)}
+.sf-row .t{flex:1}
+.sf-row .d{font:12px/1 var(--font-numeric);color:var(--color-text-secondary)}
+</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+  <div class="row"><span class="row-label">黄色整面</span><div class="items">
+    <div class="sf surf surf--brand surf--contour sf-hero">
+      <span class="surf-num" aria-hidden="true">04</span>
+      <div class="sf-copy">
+        <span class="sf-eyebrow">Q4 RELEASE</span>
+        <h2 class="sf-title">第四季度版本</h2>
+        <p class="sf-text">合并 18 个项目，统一权限与导出格式。</p>
+        <div class="sf-acts"><button class="btn btn--primary" type="button"><span class="lbl">查看详情</span></button></div>
+      </div>
+      <div class="glass sf-panel">
+        <div class="prog" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="发布进度"><div class="prog-top"><span>发布进度</span><span class="v">72%</span></div><div class="prog-track"><div class="prog-fill" style="--v:72%"></div></div></div>
+        <span class="sf-meta">18 个项目中 13 个已完成</span>
+      </div>
+    </div>
+  </div></div>
+  <div class="row"><span class="row-label">墨色整面</span><div class="items">
+    <div class="sf surf surf--ink sf-arch">
+      <span class="surf-col" aria-hidden="true"></span>
+      <div class="sf-rows">
+        <div class="sf-row"><span class="id">PRJ-0412</span><span class="t">权限模型重构</span><span class="d">2026.09.28</span></div>
+        <div class="sf-row"><span class="id">PRJ-0398</span><span class="t">数据导出格式统一</span><span class="d">2026.09.14</span></div>
+        <div class="sf-row"><span class="id">PRJ-0371</span><span class="t">成员邀请流程</span><span class="d">2026.08.30</span></div>
+        <div class="sf-row"><span class="id">PRJ-0355</span><span class="t">通知中心</span><span class="d">2026.08.11</span></div>
+      </div>
+      <nav class="glass sf-bar"><b>归档</b><span aria-current="page">全部</span><span>本季度</span><span>已关闭</span></nav>
+    </div>
+  </div></div>
+</div>
+</body>
+</html>
