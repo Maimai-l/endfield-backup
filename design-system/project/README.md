@@ -1,4 +1,4 @@
-ENDFIELD 是一套功能性 Web App 控件规范，视觉语言取自《明日方舟：终末地》官网与游戏系统界面：白底墨字、单一的品牌黄、45 度警示条纹、近似直角的圆角和工程制图式的标注。它用于工单、设备、数据看板一类的工作界面；品牌标识只收录 ENDFIELD 字标，不含游戏角色与其他品牌素材。
+ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系统界面：白底墨字、单一的品牌黄、45 度警示条纹、近似直角的圆角和工程制图式的标注，用于工单、设备、数据看板一类的工作界面。
 
 ## 使用方式
 
@@ -98,7 +98,7 @@ ENDFIELD 是一套功能性 Web App 控件规范，视觉语言取自《明日�
 
 ## 控件清单
 
-本系统按功能性 Web App 的需要组织控件。源站控件包共 30 项，全部是营销站点控件；下表列出它们在本系统中的去向。
+本系统的控件按工作界面的需要组织。源站控件包共 30 项，全部是营销站点控件；下表列出它们在本系统中的去向。
 
 | 源站控件 | 本系统 |
 | --- | --- |
@@ -119,7 +119,7 @@ ENDFIELD 是一套功能性 Web App 控件规范，视觉语言取自《明日�
 | hollow-text、title-block、section-title、divider-band | SectionHeader；区块标题的折角箭头动作用于可交互卡片 |
 | cta、share-button、play-button、download-tile、item-icon | 未收录：营销页专用，工作界面没有对应场景 |
 
-有意新增（源站没有，功能性界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏、条目卡片和侧边菜单。PageLoader 按源站首屏加载重建。
+有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏、条目卡片和侧边菜单。PageLoader 按源站首屏加载重建。
 
 ## 未同步
 
