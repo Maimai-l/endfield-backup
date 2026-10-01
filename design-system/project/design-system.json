@@ -13,7 +13,8 @@
   "Logos",
   "Icons",
   "Textures",
-  "Illustrations"
+  "Illustrations",
+  "References"
  ],
  "assetGroups": {
   "Textures": {
@@ -446,6 +447,56 @@
      "type": "image/svg+xml"
     }
    }
+  },
+  "References": {
+   "name": "References",
+   "tile": "l",
+   "order": [
+    "menu-panel.png",
+    "game-badge-tile.png",
+    "game-map-hud.webp",
+    "page-loader.webp",
+    "section-title.png",
+    "color-line.png"
+   ],
+   "files": {
+    "menu-panel.png": {
+     "name": "menu-panel.png",
+     "blob": "ce8e06bbcee00f2e498681afac8f28e9",
+     "size": 82367,
+     "type": "image/png"
+    },
+    "game-badge-tile.png": {
+     "name": "game-badge-tile.png",
+     "blob": "56c8fd879cef6dda4a2e138509dd5c50",
+     "size": 470398,
+     "type": "image/png"
+    },
+    "game-map-hud.webp": {
+     "name": "game-map-hud.webp",
+     "blob": "df70d728a7e3482dced8c51b65918276",
+     "size": 224738,
+     "type": "image/webp"
+    },
+    "page-loader.webp": {
+     "name": "page-loader.webp",
+     "blob": "c408297c6033134e1d092eee2bb370c9",
+     "size": 55154,
+     "type": "image/webp"
+    },
+    "section-title.png": {
+     "name": "section-title.png",
+     "blob": "14e35242887400614c5d214c132806a7",
+     "size": 18599,
+     "type": "image/png"
+    },
+    "color-line.png": {
+     "name": "color-line.png",
+     "blob": "03c2f2f955fe4e7c383b77c07a430a96",
+     "size": 680,
+     "type": "image/png"
+    }
+   }
   }
  },
  "blobs": {},
@@ -455,8 +506,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-01T05:48:50Z",
+  "at": "2026-10-01T07:29:07Z",
   "via": "Claude Code",
-  "note": "提醒角标按所属元素的转角定位"
+  "note": "新增 References 资源组：源站与游戏界面原始截图"
  }
 }
