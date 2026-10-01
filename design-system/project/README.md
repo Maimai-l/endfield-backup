@@ -106,7 +106,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 | 源站控件 | 本系统 |
 | --- | --- |
 | button、home-button | Button（主要、强调） |
-| round-button、close-button、back-button、pagination-button | IconButton（圆形关闭、返回、圆形翻页） |
+| round-button、close-button、back-button、pagination-button | IconButton（关闭、返回、圆形翻页） |
 | selector | Tabs（分段）、Pagination（翻页胶囊）与选择轨道纹理 |
 | tabs | Tabs |
 | nav-item、utility-capsule | Sidebar（导航项、底部工具区） |
