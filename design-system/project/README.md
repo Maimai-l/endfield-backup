@@ -24,7 +24,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 - 勾选类控件、开关、进度填充、选中分段一律用 `color-checked` 加 `color-on-checked`：浅色为墨色加黄色，深色反转为黄色加墨色。
 - 功能色只作纯色标记（图标、状态点、左侧色条），不作浅色衬底：成功 `color-success`、错误 `color-error`、警告 `color-warning` 加 `color-mark-stroke` 描边、信息 `color-info`。错误说明文字用 `color-error-text`，深色下改为正文色并配错误图标。成功与错误的亮度对比为 3.6:1，且始终配图标。
 - 不用半透明叠加；唯一例外是对话框遮罩 `color-bg-overlay`。不用渐变、光晕和浅色黄底。
-- 提醒角标用 `color-badge`，8px 橙色菱形，不写数字。菱形的中心落在所属元素的右上角，不遮挡图标与文字：带边框的按钮与头像落在外框转角上；标签页落在右侧分隔线的上端；导航项落在图标右上角的外侧。参考 References 组 `game-badge-tile.png`。
+- 提醒角标用 `color-badge`，8px 橙色菱形，不写数字。菱形的中心落在所属元素的右上角，不遮挡图标与文字：带边框的按钮与头像落在外框转角上；标签页落在右侧分隔线的上端；导航项落在图标右上角的外侧。
 - 粉 `deco-pink`、绿 `deco-green`、黄 `deco-yellow` 只以装饰色条的形式一起出现，见 ColorLine。
 
 ### 字体
@@ -125,5 +125,4 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 - 仓库 `components/` 下原有的 React 包装组件（`*.jsx`）与 `_ds_bundle.js` 未带入；本系统的控件为 HTML 加 CSS，交互由 `bundle.js` 提供。
 - 上表“未收录”的 5 个营销页控件未带入。
-- 源站与游戏界面的原始截图存放在 References 资源组，用于核对规则，不在页面中使用。
 - 原始规格页 `showcase.html` 与 `design-system-spec.md` 存放在 `archived/`。
