@@ -18,7 +18,7 @@
 ## 规格
 
 - **尺寸**：继承上下文字号；下划线 1px，偏移 3px；悬停时下划线加粗为 2px，不加底色
-- **Token**：`--color-text-link --color-bg-selected --color-text-disabled --color-focus-ring`
+- **Token**：`--color-text-link --color-text-secondary --color-text-disabled --color-focus-ring`
 - **键盘**：`Enter` 打开
 
 ## 结构

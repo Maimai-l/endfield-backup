@@ -18,7 +18,7 @@
 ## 规格
 
 - **尺寸**：图标 32，外框 64 带对角括号；标题 16 Medium；说明 14，最大宽 30 字；背景点阵纹理 8% 并自下而上渐隐
-- **Token**：`--color-text-tertiary --color-text-primary --color-text-secondary --tex-points`
+- **Token**：`--color-text-tertiary --color-text-primary --color-text-secondary --tex-invert`；底纹为素材 `Textures/points-bg.png`
 
 ## 结构
 

@@ -82,7 +82,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 - 悬停换底色 `color-state-hover`，按下换 `color-state-pressed`；无位移、无缩放。
 - 键盘焦点为 2px 实线 `color-focus-ring`，外偏移 2px；浅色为墨色，深色为品牌黄，在各自页面底色上超过 15:1。
-- 选中：勾选类为 `color-checked`；列表与入口菜单为 `color-checked` 实底胶囊，同一时刻只有一项高亮；表格行为 `color-bg-selected` 加左侧 3px 竖条；标签页为底部 2px 指示条。
+- 选中：勾选类为 `color-checked`；列表与入口菜单为 `color-checked` 实底胶囊，同一时刻只有一项高亮；表格行为 `color-state-hover` 加左侧 3px `color-checked` 竖条（悬停为更浅的 `color-bg-surface`）；标签页为底部 2px 指示条。
 - 禁用文字 `color-text-disabled`，底色 `color-bg-disabled`，并去掉指针事件。
 
 ### 动效
