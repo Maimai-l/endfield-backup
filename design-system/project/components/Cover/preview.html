@@ -1,0 +1,50 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>ENDFIELD</title>
+<style>
+  html,body{margin:0;height:100%}
+  body{background:var(--color-bg-page);color:var(--color-text-primary);font-family:var(--font-body);overflow:hidden}
+  .cover{position:relative;width:960px;height:288px;overflow:hidden}
+  .art{position:absolute;top:0;left:480px;width:480px;height:288px;overflow:hidden}
+  .art svg{display:block;width:480px;height:288px}
+  .y{fill:var(--y-300)}
+  .k{fill:var(--strip)}
+  .s{fill:var(--hazard-ink)}
+  .p{fill:var(--deco-pink)}
+  .g{fill:var(--deco-green)}
+  .yy{fill:var(--deco-yellow)}
+  .blk{rx:var(--radius-sm)}
+  .words{position:absolute;left:var(--space-6);bottom:var(--space-6);max-width:440px}
+  .name{margin:0;font-family:var(--font-giant);font-weight:700;font-size:86px;line-height:.92;letter-spacing:.01em;color:var(--color-text-primary)}
+  .tagline{margin:var(--space-3) 0 0 2px;font-size:14px;line-height:20px;color:var(--color-text-secondary)}
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="480 0 480 288" width="480" height="288">
+<!--
+  blocks      y-300 192 by 232 bled off the top (the brand colour, largest) · strip 272 by 240 bled off the right and bottom (the ink surface) · deco-pink, deco-green, deco-yellow as the 4px colour line, 42/42/112 wide, the only place the trio appears; about 38% of 960 by 288
+  arrangement one tall yellow slab beside an ink slab that bleeds out of the frame, offset by space-9 vertically, gutter space-4
+  pattern     45-degree hazard stripes, from "45 度黄黑警示条纹" in the README: hazard-ink bars 12 wide at a space-5 pitch, cut into the lower band of the yellow slab
+  scales      sides in space-2 multiples; gutter space-4; stripe pitch space-5; band height space-7; corners radius-sm
+-->
+<defs><clipPath id="slab"><rect x="496" y="176" width="192" height="48"/></clipPath></defs>
+<rect class="y blk" x="496" y="-8" width="192" height="232" rx="2"/>
+<g clip-path="url(#slab)"><polygon class="s" points="448,224 460,224 508,176 496,176"/><polygon class="s" points="472,224 484,224 532,176 520,176"/><polygon class="s" points="496,224 508,224 556,176 544,176"/><polygon class="s" points="520,224 532,224 580,176 568,176"/><polygon class="s" points="544,224 556,224 604,176 592,176"/><polygon class="s" points="568,224 580,224 628,176 616,176"/><polygon class="s" points="592,224 604,224 652,176 640,176"/><polygon class="s" points="616,224 628,224 676,176 664,176"/><polygon class="s" points="640,224 652,224 700,176 688,176"/><polygon class="s" points="664,224 676,224 724,176 712,176"/><polygon class="s" points="688,224 700,224 748,176 736,176"/><polygon class="s" points="712,224 724,224 772,176 760,176"/></g>
+<rect class="k blk" x="704" y="56" width="272" height="240" rx="2"/>
+<rect class="p" x="736" y="88" width="42" height="4"/>
+<rect class="g" x="778" y="88" width="42" height="4"/>
+<rect class="yy" x="820" y="88" width="112" height="4"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">ENDFIELD</h1>
+<p class="tagline">白底墨字、单一品牌黄与警示条纹的工作界面控件。</p>
+</div>
+</div>
+</body>
+</html>

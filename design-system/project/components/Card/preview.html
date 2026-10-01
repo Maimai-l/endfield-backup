@@ -1,0 +1,26 @@
+<!-- @dsCard group="内容展示" height=708 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div style="width:100%">
+        <div class="entry"><div class="entry-strip">北区装配线巡检<span class="meta">12 / 18</span></div><div class="entry-body"><span class="desc">剩余 6 台设备待巡检，预计 40 分钟。</span><button class="cap-btn" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"></use></svg></span></button></div></div>
+        <div class="entry"><div class="entry-strip">冷却系统保养计划<span class="meta">3 / 3</span></div><div class="entry-body"><span class="desc">本周保养项已全部完成。</span><span class="cap-btn is-busy">已完成</span></div></div>
+        <div class="entry is-off"><div class="entry-strip">南区故障复盘<span class="meta">未开放</span></div><div class="entry-body"><span class="desc">南区封存期间不生成复盘记录。</span><button class="cap-btn" type="button" disabled=""><span class="lbl">查看</span><span class="go"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button></div></div>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="card-eyebrow">Static</span><span class="card-title">保养说明</span><span class="card-body">驱动端轴承每 400 小时补充润滑脂，每 2,000 小时更换。</span><div class="card-foot"><code>DOC-000031</code><span class="tag tag--sm">规程</span></div></div>
+        <a class="card card--link" href="#c-card"><span class="card-eyebrow">Interactive</span><span class="card-title">输送带 A-02</span><svg class="ic go"><use href="#i-arrow-dr"></use></svg><span class="card-body">北区装配线</span><div class="card-foot"><code>EQ-0142</code><span class="stat stat--warn">待检修</span></div></a>
+        <button class="card card--link" type="button" aria-pressed="true" data-selectable=""><span class="corner" aria-hidden="true"><svg class="ic"><use href="#i-check"></use></svg></span><span class="card-eyebrow">Selectable</span><span class="card-title">标准巡检模板</span><span class="card-body">12 个检查项，预计 25 分钟。</span><div class="card-foot"><code>TPL-0007</code><span class="cap">点击切换选中</span></div></button>
+        <div class="card card--stat"><span class="card-eyebrow">Readout</span><span class="card-body" style="color:var(--color-text-secondary)">今日产量</span><div class="num"><b>18,406</b><span>PCS</span></div><span class="delta up"><svg class="ic" style="width:12px;height:12px;transform:rotate(180deg)"><use href="#i-sort-d"></use></svg>+6.2% 较昨日</span></div>
+        <div class="card is-disabled" aria-disabled="true"><span class="card-eyebrow">Disabled</span><span class="card-title">南区封存中</span><span class="card-body">该区域已停用，数据仅供查阅。</span></div>
+      </div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

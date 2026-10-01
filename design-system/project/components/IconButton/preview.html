@@ -1,0 +1,42 @@
+<!-- @dsCard group="基础操作" height=374 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>IconButton</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">方形</span><div class="items">
+        <div class="item"><span class="tip-host"><button class="btn btn--primary ibtn" type="button" aria-label="上传"><svg class="ic"><use href="#i-upload"></use></svg></button><span class="tip" role="tooltip">上传</span></span><span class="cap">primary</span></div>
+        <div class="item"><span class="tip-host"><button class="btn btn--accent ibtn" type="button" aria-label="新建"><svg class="ic ic--plus"><use href="#i-plus"></use></svg></button><span class="tip" role="tooltip">新建</span></span><span class="cap">accent</span></div>
+        <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="筛选"><svg class="ic"><use href="#i-filter"></use></svg></button><span class="tip" role="tooltip">筛选</span></span><span class="cap">secondary</span></div>
+        <div class="item"><span class="tip-host"><button class="btn btn--ghost ibtn" type="button" aria-label="更多操作"><svg class="ic"><use href="#i-more"></use></svg></button><span class="tip" role="tooltip">更多操作</span></span><span class="cap">ghost</span></div>
+        <div class="item"><span class="tip-host"><button class="btn btn--danger ibtn" type="button" aria-label="删除"><svg class="ic"><use href="#i-trash"></use></svg></button><span class="tip" role="tooltip">删除</span></span><span class="cap">danger</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn is-pressed" type="button" aria-pressed="true" aria-label="网格视图"><svg class="ic"><use href="#i-grid"></use></svg></button><span class="cap">toggle 已按下</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item"><button class="btn btn--secondary ibtn btn--sm" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"></use></svg></button><span class="cap">24</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"></use></svg></button><span class="cap">32</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn btn--lg" type="button" aria-label="复制"><svg class="ic ic--lg"><use href="#i-copy"></use></svg></button><span class="cap">40</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn" type="button" disabled="" aria-label="复制"><svg class="ic"><use href="#i-copy"></use></svg></button><span class="cap">disabled</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">关闭</span><div class="items">
+        <div class="item"><button class="cbtn" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button><span class="cap">default</span></div>
+        <div class="item"><button class="cbtn is-hover" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button><span class="cap">hover</span></div>
+        <div class="item"><button class="cbtn" type="button" aria-label="返回"><svg class="ic"><use href="#i-chev-l"></use></svg></button><span class="cap">返回</span></div>
+        <div class="item"><span style="display:inline-grid;place-items:center;background:var(--strip);padding:8px;border-radius:2px"><button class="cbtn cbtn--inv" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></span><span class="cap">深色面</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn" type="button" aria-label="通知，有 3 条未读"><svg class="ic"><use href="#i-list"></use></svg><span class="badge"></span></button><span class="cap">提醒角标</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">圆形</span><div class="items">
+        <div class="item"><button class="rbtn" type="button" aria-label="上一张"><svg class="ic"><use href="#i-chev-l"></use></svg></button><span class="cap">default</span></div>
+        <div class="item"><button class="rbtn is-hover" type="button" aria-label="下一张"><svg class="ic"><use href="#i-chev-r"></use></svg></button><span class="cap">hover</span></div>
+        <div class="item"><button class="rbtn rbtn--lg" type="button" aria-label="下一张"><svg class="ic"><use href="#i-chev-r"></use></svg></button><span class="cap">44</span></div>
+        <div class="item"><button class="rbtn" type="button" disabled="" aria-label="上一张"><svg class="ic"><use href="#i-chev-l"></use></svg></button><span class="cap">disabled</span></div>
+        <div class="item"><span class="cap" style="max-width:26ch">圆形保留源站样式，仅用于轮播与图集翻页</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

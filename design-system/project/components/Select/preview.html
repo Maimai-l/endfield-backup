@@ -1,0 +1,45 @@
+<!-- @dsCard group="表单输入" height=548 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Select</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">交互</span><div class="items" style="align-items:flex-start">
+        <div class="field"><span class="field-label" id="dl1">所属区域</span>
+          <div class="dd" data-dd="">
+            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dl1"><span class="val" data-val="">北区装配线</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></button>
+            <div class="menu" role="listbox" hidden="">
+              <div class="menu-group">North</div>
+              <button class="menu-item" type="button" role="option" aria-selected="true">北区装配线<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false">北区仓储<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <div class="menu-group">South</div>
+              <button class="menu-item" type="button" role="option" aria-selected="false">南区冶炼<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <button class="menu-item is-disabled" type="button" role="option" aria-selected="false" aria-disabled="true">南区封存中<span class="meta">不可选</span></button>
+            </div>
+          </div><div class="field-help">点击展开，可用键盘 Tab 切换选项</div></div>
+      </div></div>
+      <div class="row"><span class="row-label">静态</span><div class="items" style="align-items:flex-start">
+        <div class="item" style="width:260px"><span class="cap">展开，可搜索</span>
+          <button class="input select is-open" type="button" aria-expanded="true" aria-label="负责人"><span class="val">周工</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></button>
+          <div class="menu" style="width:100%">
+            <div class="input input--sm menu-search"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索负责人" value="工"></div>
+            <div class="menu-item">陈工<span class="meta">ID-000118</span></div>
+            <div class="menu-item is-hover">林工<span class="meta">ID-000240</span></div>
+            <div class="menu-item" aria-selected="true">周工<svg class="ic ok"><use href="#i-check"></use></svg></div>
+          </div></div>
+        <div class="item" style="width:280px"><span class="cap">多选，已选值为标签</span>
+          <div class="input select multi" style="width:100%"><span class="tag tag--sm">冷却<button class="rm" type="button" aria-label="移除 冷却"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></span><span class="tag tag--sm">电气<button class="rm" type="button" aria-label="移除 电气"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></span><span class="tag tag--sm">另 2 项</span><svg class="ic tri" style="margin-left:auto"><use href="#i-tri-d"></use></svg></div></div>
+        <div class="item" style="width:220px"><span class="cap">占位、错误、禁用、加载</span>
+          <div class="input select" style="width:100%"><span class="val ph">选择设备类型</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select is-error" style="width:100%"><span class="val ph">选择设备类型</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select is-disabled" style="width:100%"><span class="val">泵组</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select" style="width:100%"><span class="val ph">正在加载选项</span><span class="spin spin--track" aria-hidden="true"></span></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

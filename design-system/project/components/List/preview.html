@@ -1,0 +1,30 @@
+<!-- @dsCard group="内容展示" height=654 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>List</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">侧边菜单</span><div class="items"><ul class="smenu" data-smenu="" aria-label="手册分类">
+        <li><button class="smi" type="button" aria-current="true"><span class="seltag">SELECTED</span>设备养护</button></li>
+        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>备件管理</button></li>
+        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>故障复盘</button></li>
+        <li><button class="smi" type="button"><span class="seltag">SELECTED</span>能耗记录</button></li>
+      </ul></div></div>
+      <div class="row"><span class="row-label">双行</span><div class="items" style="width:100%"><ul class="list" role="listbox" aria-label="设备" data-list="">
+        <li class="li li--2" role="option" aria-selected="false" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>输送带 A-02</b><span>北区装配线</span></span><span class="trail"><span class="stat stat--warn">待检修</span><svg class="ic"><use href="#i-chev-r"></use></svg></span></li>
+        <li class="li li--2" role="option" aria-selected="true" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>冷却泵 P-11</b><span>北区仓储</span></span><span class="trail"><span class="stat stat--ok">运行中</span><svg class="ic"><use href="#i-chev-r"></use></svg></span></li>
+        <li class="li li--2 is-hover" role="option" aria-selected="false" tabindex="0"><span class="av" style="--s:32px">林</span><span class="main"><b>林工</b><span>当班负责人，3 个进行中工单</span></span><span class="trail"><code>ID-000240</code></span></li>
+        <li class="li li--2 is-disabled" role="option" aria-selected="false" aria-disabled="true"><span class="lead"><svg class="ic"><use href="#i-box"></use></svg></span><span class="main"><b>破碎机 C-03</b><span>南区已封存</span></span><span class="trail"><span class="stat stat--off">离线</span></span></li>
+      </ul></div></div>
+      <div class="row"><span class="row-label">单行</span><div class="items" style="width:100%;gap:24px">
+        <ul class="list list--plain" style="max-width:300px"><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>保养规程.pdf</b></span><span class="trail"><code>2.4 MB</code></span></li><li class="li"><svg class="ic"><use href="#i-doc"></use></svg><span class="main"><b>接线图 v3.dwg</b></span><span class="trail"><code>860 KB</code></span></li></ul>
+        <ul class="list list--plain" style="max-width:260px"><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>14:20</code></span></li><li class="li li--c" aria-selected="true"><span class="main"><b>紧凑，选中</b></span><span class="trail"><code>14:05</code></span></li><li class="li li--c"><span class="main"><b>紧凑 32</b></span><span class="trail"><code>13:48</code></span></li></ul>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

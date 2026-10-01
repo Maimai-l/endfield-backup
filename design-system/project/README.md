@@ -1,0 +1,121 @@
+ENDFIELD 是一套功能性 Web App 控件规范，视觉语言取自《明日方舟：终末地》官网与游戏系统界面：白底墨字、单一的品牌黄、45 度警示条纹、近似直角的圆角和工程制图式的标注。它不含任何游戏品牌标识，用于工单、设备、数据看板一类的工作界面。
+
+## 使用方式
+
+- 在页面上依次加载 `tokens.css`、`components/bundle.css`、`components/bundle.js`，然后调用 `Endfield.init(document)`。`bundle.js` 是纯 JavaScript，不依赖 React，会挂载图标并为控件绑定交互。
+- 主题写在 `<html data-theme="light">` 或 `data-theme="dark"` 上，浅色为默认。
+- 控件的结构见各控件 README 的“结构”一节，直接复制 HTML；类名不带前缀，如与现有样式冲突，把页面包在独立容器中再加载。
+- 图标写作 `<svg class="ic"><use href="#i-check"/></svg>`，全部图标 id 见 `Endfield.icons` 与 Icons 资源组。
+
+## 内容原则
+
+- 中文为主，英文只作装饰层：区块标签与分组标题用大写英文（`fs-overline`，Gilroy），例如 `SETTINGS`、`SECTION 04`。
+- 文案简短、陈述式。按钮用动词开头，2 至 6 个字：“保存设置”“部署到产线”“新建设备”。
+- 不用感叹号、不用表情符号、不用口语。结果提示写清结果本身：“工单 WO-2026-0930 已关闭”，不写“操作成功！”。
+- 示例数据用中性编号，例如 `EQ-0142`、`ID-000302`，不编造电话号码等个人信息。
+- 页面任何位置都不用 unicode 字符充当图标或分隔符：箭头、方向键、省略号、间隔号、乘号、度数符号、斜杠分隔一律改为 SVG、CSS 绘制或中文表述（“宽 24、高 24”“转 90 度”）。只保留中文标点，以及作为数据出现的色值、带符号的变化量（`+6.2%`）和分数读数（`1 / 25`）。
+
+## 视觉基础
+
+### 颜色
+
+- 颜色只用 tokens 中的值，不新增颜色。正文 `color-text-primary` 放在 `color-bg-page`、`color-bg-surface`、`color-bg-raised` 上；次要文字 `color-text-secondary`；`color-text-tertiary` 只放不承载必读信息的补充说明（源站值在 `color-bg-surface` 上为 4.00:1，未达 4.5:1）。
+- 品牌黄 `y-300` 只作纯色填充，其上文字用 `color-text-on-accent`。浅色面上不用黄色作文字、边框或焦点环。
+- 勾选类控件、开关、进度填充、选中分段一律用 `color-checked` 加 `color-on-checked`：浅色为墨色加黄色，深色反转为黄色加墨色。
+- 功能色只作纯色标记（图标、状态点、左侧色条），不作浅色衬底：成功 `color-success`、错误 `color-error`、警告 `color-warning` 加 `color-mark-stroke` 描边、信息 `color-info`。错误说明文字用 `color-error-text`，深色下改为正文色并配错误图标。成功与错误的亮度对比为 3.6:1，且始终配图标。
+- 不用半透明叠加；唯一例外是对话框遮罩 `color-bg-overlay`。不用渐变、光晕和浅色黄底。
+- 提醒角标用 `color-badge`，9px 橙色菱形，只放在图标或标签右上角。
+- 粉 `deco-pink`、绿 `deco-green`、黄 `deco-yellow` 只以装饰色条的形式一起出现，见 ColorLine。
+
+### 字体
+
+- 界面文字用 `font-body`、`font-medium`、`font-bold`（SansRegular、SansMedium、SansBold）。标题 `fs-display`、`fs-h2` 用 Bold，`fs-h3`、`fs-lead` 用 Medium，正文 `fs-body`。
+- 英文标签用 `font-en`（Gilroy），一律大写，字距 0.12em。
+- 数字读数、页码、百分比用 `font-numeric`（Novecento Sans Wide），等宽数字。镂空大字用 `font-giant`，只作装饰。
+- 编号、快捷键、时间戳用 `font-tech`（Space Grotesk）。
+
+### 间距
+
+- 只取 `space-1` 至 `space-10` 的阶梯值：4、8、12、16、24、32、48、64、80、96。
+- 按五个层级使用，内层间距必须小于外层，相邻两层至少相差一档，同一层级在同一页面只用一个值：
+
+| 层级 | 工作页 | 内容页 |
+| --- | --- | --- |
+| 元素内：图标与文字、按钮之间 | `space-2` | `space-4` |
+| 文字组：分类行与标题 | `space-1` | `space-2` |
+| 组件内：卡片内边距、图片与文字 | `space-4` | `space-6` |
+| 同级组件：卡片、列表项、字段之间 | `space-4` | 列 `space-5`，行 `space-9` |
+| 区块之间 | `space-6` | `space-10` |
+
+- 工作页（表格、表单、看板）页边距：1280 以上 `space-6`，768 至 1279 `space-5`，767 以下 `space-4`。内容页（公告、新闻、文档）在 1920 以上用居中容器 1830，三列，每项宽 592。样例见 Spacing。
+
+### 尺寸
+
+- 控件高度三档：`size-control-sm` 24、`size-control-md` 32、`size-control-lg` 40。同一行内的按钮与输入框取同一档。
+- sm 用于表格工具栏、行内操作、卡片底部与筛选条；md 为默认，用于表单、对话框底部、页面标题区与顶栏；lg 只用于触屏与单一主流程（移动端底部操作栏、登录与首次设置、空状态唯一主操作），触屏上通栏显示。一个页面只混用相邻两档。
+- 按钮最小宽为高度的 4 倍（96、128、160），保持细长比例。
+
+### 圆角、边框与阴影
+
+- 近似直角：按钮、输入框、标签用 `radius-sm`（按钮悬停时圆角变为 6px），卡片、对话框、菜单用 `radius-md`；头像、圆形按钮、胶囊用 `radius-full`。
+- 层级靠 1px `color-border-subtle` 边框区分，卡片不用阴影。阴影只用于按钮 `shadow-sm`、浮层 `shadow-lg` 与展开的侧边导航 `shadow-panel`，均为无方向的环境阴影。
+
+### 状态与焦点
+
+- 悬停换底色 `color-state-hover`，按下换 `color-state-pressed`；无位移、无缩放。
+- 键盘焦点为 2px 实线 `color-focus-ring`，外偏移 2px；浅色为墨色，深色为品牌黄，在各自页面底色上超过 15:1。
+- 选中：勾选类为 `color-checked`；列表与侧边菜单为纯黄色块；表格行为 `color-bg-selected` 加左侧 3px 竖条；标签页为底部 2px 指示条。
+- 禁用文字 `color-text-disabled`，底色 `color-bg-disabled`，并去掉指针事件。
+
+### 动效
+
+- 颜色、边框、圆角、竖条变形用 `duration-base`（0.2 秒），开关、图标动作、导航面板与指示块用 `duration-slow`（0.3 秒），缓动 ease，不用回弹。
+- 源站按钮的标志性竖条只用于纯文字的主要、强调、危险按钮：静止为 2px 竖条，悬停时变为指向右侧的三角。带图标的按钮由图标执行动作：加号转 90 度、箭头右移 3px、关闭转 90 度、刷新点击转一周。
+- 尊重系统的减少动效设置。
+
+### 纹理与装饰
+
+- 45 度黄黑警示条纹只用于危险确认对话框标题栏、警告色条与不确定进度。
+- 选择轨道纹理（`track-bg`、`track-stripe`、`track-edge`）取自源站翻页胶囊，用于分段控件、翻页胶囊与进度条轨道。
+- 按钮与圆形翻页按钮叠加 Textures 组中的源站纹理图。空状态背景可用点阵纹理。
+- 装饰色条与区块标题（镂空条纹大字、黄色分区带、线稿插图）只用于页面级装饰，不进入控件内部，每屏至多一处。
+- 左侧竖条出自源站（6px 黑色或黄色竖条），用于轻提示、提示条、选中行与侧边导航指示块，不用于普通卡片。
+
+## 图标
+
+- 图标全部为 `bundle.js` 内置的 SVG 雪碧图，16 网格，1.6px 描边，直角端点与斜接转角，单色 `currentColor`；尺寸 16、20、32。
+- 箭头统一用源站的两种实心形状：区块标题的折角箭头（`i-arrow-dr`，旋转得到 `i-arrow-r` 与 `k-up`、`k-down`、`k-left`、`k-right`）与翻页按钮的粗折线箭头（`i-chev-l`、`i-chev-r`、`i-chev-d`）。
+- 导航图标 `n-home`、`n-operator`、`n-lore`、`n-notice`、`n-calendar` 取自源站侧边导航。
+- 状态标记 `s-success`、`s-error`、`s-warning`、`s-info` 为实心色块加墨色描边。
+- 不用表情符号、图标字体或第三方图标库。Icons 资源组中的 SVG 文件为同一套图标，墨色为 `#191919`，用于 `<img>` 场景。
+
+## 控件清单
+
+本系统按功能性 Web App 的需要组织控件。源站控件包共 30 项，全部是营销站点控件；下表列出它们在本系统中的去向。
+
+| 源站控件 | 本系统 |
+| --- | --- |
+| button、home-button | Button（主要、强调） |
+| round-button、close-button、back-button、pagination-button | IconButton（圆形关闭、返回、圆形翻页） |
+| selector | Tabs（分段）、Pagination（翻页胶囊）与选择轨道纹理 |
+| tabs | Tabs |
+| nav-item、utility-capsule | Sidebar（导航项、底部工具区） |
+| page-header | TopBar |
+| dropdown-trigger | Select |
+| modal-frame | Dialog |
+| toast | Toast |
+| card、media-card | Card；新闻列表数值见 Spacing |
+| tag-date、label-bar | Tag |
+| list-button | List |
+| avatar-switch | Avatar |
+| color-deco | ColorLine |
+| hollow-text、title-block、section-title、divider-band | SectionHeader；区块标题的折角箭头动作用于可交互卡片 |
+| cta、share-button、play-button、download-tile、item-icon | 未收录：营销页专用，工作界面没有对应场景 |
+
+有意新增（源站没有，功能性界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏、条目卡片和侧边菜单。PageLoader 按源站首屏加载重建。
+
+## 未同步
+
+- 仓库 `components/` 下原有的 React 包装组件（`*.jsx`）与 `_ds_bundle.js` 未带入；本系统的控件为 HTML 加 CSS，交互由 `bundle.js` 提供。
+- 上表“未收录”的 5 个营销页控件未带入。
+- 原始规格页 `showcase.html` 与 `design-system-spec.md` 存放在 `archived/`。

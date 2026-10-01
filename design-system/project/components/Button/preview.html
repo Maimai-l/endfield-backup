@@ -1,0 +1,64 @@
+<!-- @dsCard group="基础操作" height=1141 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:212px" role="img" aria-label="按钮结构标注：高 32，最小宽 128，左内边距 20，右内边距 16，竖条 2 乘 50%，文字 14 SansMedium，圆角 2">
+        <span class="anat-cap"><span>SCALE 2:1</span><span>PRIMARY MD</span></span>
+        <div class="anat-btn" style="left:100px;top:52px;width:256px"><i></i>保存设置</div>
+        <span class="dv" style="left:78px;top:52px;height:64px"></span><span class="dl" style="left:46px;top:77px">32</span>
+        <span class="dh" style="left:100px;top:138px;width:40px"></span><span class="dl" style="left:112px;top:148px">20</span>
+        <span class="dh" style="left:324px;top:138px;width:32px"></span><span class="dl" style="left:332px;top:148px">16</span><span class="dh" style="left:100px;top:174px;width:256px"></span><span class="dl" style="left:196px;top:184px">最小宽 128</span>
+        <span class="ld" style="left:116px;top:66px;width:276px"></span><span class="dl" style="left:404px;top:59px">竖条 宽 2、高 55%，悬停变为三角；--color-primary-tick</span>
+        <span class="ld" style="left:290px;top:84px;width:102px"></span><span class="dl" style="left:404px;top:77px">文字 13，SansMedium；--color-on-primary</span>
+        <span class="ld" style="left:356px;top:112px;width:36px"></span><span class="dl" style="left:404px;top:105px">圆角 2（悬停 6），纹理 soft-light；--shadow-sm</span>
+      </div></div></div>
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存设置</span></button><span class="cap">primary 主要</span></div>
+        <div class="item"><button class="btn btn--accent" type="button"><span class="lbl">部署到产线</span></button><span class="cap">accent 强调，每屏至多 1 个</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">导出</span></button><span class="cap">secondary 次要</span></div>
+        <div class="item"><button class="btn btn--ghost" type="button"><span class="lbl">取消</span></button><span class="cap">ghost 幽灵</span></div>
+        <div class="item"><button class="btn btn--danger" type="button"><span class="lbl">删除设备</span></button><span class="cap">danger 危险</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">胶囊</span><div class="items">
+        <div class="item"><button class="cap-btn" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"></use></svg></span></button><span class="cap">default</span></div>
+        <div class="item"><button class="cap-btn is-hover" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"></use></svg></span></button><span class="cap">hover</span></div>
+        <div class="item"><span class="cap-btn is-busy" role="status">进行中</span><span class="cap">in progress</span></div>
+        <div class="item"><button class="cap-btn" type="button" disabled=""><span class="lbl">前往</span><span class="go"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button><span class="cap">disabled</span></div>
+        <div class="item"><span class="cap" style="max-width:30ch">用于列表与卡片中的跳转类操作</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item"><button class="btn btn--primary btn--sm" type="button"><span class="lbl">保存</span></button><span class="cap">sm 24</span></div>
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><span class="cap">md 32</span></div>
+        <div class="item"><button class="btn btn--primary btn--lg" type="button"><span class="lbl">保存</span></button><span class="cap">lg 40</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建工单</span></button><span class="cap">图标加文字</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">下一步<svg class="ic ic--arrow"><use href="#i-arrow-r"></use></svg></span></button><span class="cap">文字加图标</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">场景</span><div class="items" style="width:100%"><div class="scn-grid">
+        <div class="scn"><div class="scn-h"><b>sm 24</b><span>密集区域</span></div>
+          <div class="scn-demo"><div class="input input--sm" style="flex:1 1 80px;min-width:0"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索编号" style="min-width:0" placeholder="搜索编号"></div><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">筛选</span></button><button class="btn btn--primary btn--sm" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建</span></button></div>
+          <p>表格工具栏、表格行内操作、卡片底部、筛选条。与 24 高的搜索框和下拉选择同排</p></div>
+        <div class="scn"><div class="scn-h"><b>md 32</b><span>默认尺寸</span></div>
+          <div class="scn-demo"><div class="input" style="flex:1 1 80px;min-width:0"><input aria-label="设备编号" value="EQ-0142" style="min-width:0;width:100%"></div><button class="btn btn--primary" type="button"><span class="lbl">查询</span></button><button class="btn btn--ghost" type="button"><span class="lbl">重置</span></button></div>
+          <p>表单、对话框底部、页面标题区的操作。与 32 高的输入框同排；未特别说明时一律使用此尺寸</p></div>
+        <div class="scn"><div class="scn-h"><b>lg 40</b><span>触屏与单一主流程</span></div>
+          <div class="scn-demo"><div class="input input--lg" style="width:100%"><input aria-label="巡检备注" placeholder="巡检备注"></div><button class="btn btn--primary btn--lg" type="button" style="width:100%"><span class="lbl">提交巡检结果</span></button></div>
+          <p>移动端底部操作栏、登录与首次设置页、空状态中的唯一主操作；触屏上通栏显示</p></div>
+      </div><p class="scn-rule">规则：同一行内的按钮与输入框高度一致；一个页面只混用相邻两档。</p></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items">
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">默认</span></button><span class="cap">default</span></div>
+        <div class="item"><button class="btn btn--primary is-hover" type="button"><span class="lbl">悬停</span></button><span class="cap">hover</span></div>
+        <div class="item"><button class="btn btn--primary is-hover is-active" type="button"><span class="lbl">按下</span></button><span class="cap">active</span></div>
+        <div class="item"><button class="btn btn--primary is-focus" type="button"><span class="lbl">焦点</span></button><span class="cap">focus</span></div>
+        <div class="item"><button class="btn btn--primary" type="button" disabled=""><span class="lbl">禁用</span></button><span class="cap">disabled</span></div>
+        <div class="item"><button class="btn btn--primary is-loading" type="button" aria-busy="true"><span class="lbl">加载中</span><span class="spin" aria-hidden="true"></span></button><span class="cap">loading</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

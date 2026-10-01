@@ -1,0 +1,45 @@
+<!-- @dsCard group="表单输入" height=704 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:220px" role="img" aria-label="文本框结构标注：标签 13 Medium，间距 4，高 32，内边距 12，边框 1，说明 13">
+        <span class="anat-cap"><span>SCALE 2:1</span><span>MD</span></span>
+        <span class="anat-lbl" style="left:100px;top:22px">设备名称</span>
+        <div class="anat-in" style="left:100px;top:64px;width:280px">EQ-0000</div>
+        <span class="anat-help" style="left:100px;top:142px">名称不可重复</span>
+        <span class="dv" style="left:78px;top:64px;height:64px"></span><span class="dl" style="left:46px;top:89px">32</span>
+        <span class="dv" style="left:78px;top:48px;height:16px"></span><span class="dl" style="left:52px;top:49px">4</span>
+        <span class="dh" style="left:102px;top:184px;width:22px"></span><span class="dl" style="left:106px;top:192px">12</span>
+        <span class="ld" style="left:208px;top:35px;width:212px"></span><span class="dl" style="left:432px;top:28px">标签 13，SansMedium，与输入框间距 4</span>
+        <span class="ld" style="left:380px;top:80px;width:40px"></span><span class="dl" style="left:432px;top:73px">边框 1，#858585，聚焦 #191919 加 1px 内描边</span>
+        <span class="ld" style="left:256px;top:96px;width:164px"></span><span class="dl" style="left:432px;top:89px">值 14，占位 #666，圆角 2</span>
+        <span class="ld" style="left:268px;top:155px;width:152px"></span><span class="dl" style="left:432px;top:148px">说明 13，#666，与输入框间距 4</span>
+      </div></div></div>
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <div class="field"><label class="field-label" for="f1">设备名称<span class="req">必填</span></label><div class="input"><input id="f1" placeholder="例如：输送带 A-02"></div><div class="field-help">名称在同一区域内不可重复</div></div>
+        <div class="field"><label class="field-label" for="f2">搜索</label><div class="input"><svg class="ic"><use href="#i-search"></use></svg><input id="f2" value="EQ-01"><button class="clear" type="button" aria-label="清除"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></div><div class="field-help">前缀图标加清除按钮</div></div>
+        <div class="field"><label class="field-label" for="f3">额定功率</label><div class="input"><input id="f3" value="7.5" inputmode="decimal"><span class="unit">kW</span></div><div class="field-help">后缀单位</div></div>
+        <div class="field"><label class="field-label" for="f4">备注编号</label><div class="input input--filled"><input id="f4" placeholder="ID-000000"></div><div class="field-help">filled 填充型，用于表格内与工具栏</div></div>
+      </div></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item"><div class="input input--sm" style="width:180px"><input aria-label="sm" placeholder="sm 24"></div></div>
+        <div class="item"><div class="input" style="width:180px"><input aria-label="md" placeholder="md 32"></div></div>
+        <div class="item"><div class="input input--lg" style="width:180px"><input aria-label="lg" placeholder="lg 40"></div></div>
+      </div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items">
+        <div class="field" style="width:200px"><span class="cap">hover</span><div class="input is-hover"><input aria-label="hover" placeholder="设备编号"></div></div>
+        <div class="field" style="width:200px"><span class="cap">focus</span><div class="input is-focus"><input aria-label="focus" value="EQ-0142"></div></div>
+        <div class="field" style="width:200px"><span class="cap">error</span><div class="input is-error"><input aria-label="error" value="EQ-01" aria-invalid="true" aria-describedby="e1"></div><div class="field-help field-err" id="e1"><svg class="ic"><use href="#s-error"></use></svg>应为 EQ- 加 4 位数字</div></div>
+        <div class="field" style="width:200px"><span class="cap">disabled</span><div class="input is-disabled"><input aria-label="disabled" placeholder="不可编辑" disabled=""></div></div>
+        <div class="field" style="width:200px"><span class="cap">readonly</span><div class="input is-readonly"><input aria-label="readonly" value="EQ-0142" readonly=""></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

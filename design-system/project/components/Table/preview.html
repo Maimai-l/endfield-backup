@@ -1,0 +1,38 @@
+<!-- @dsCard group="内容展示" height=374 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Table</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div style="min-width:0">
+        <div class="toolbar">
+          <div class="input input--sm"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索" placeholder="搜索编号或名称"></div>
+          <button class="btn btn--secondary btn--sm" type="button"><span class="lbl"><svg class="ic"><use href="#i-filter"></use></svg>状态：全部</span></button>
+          <span class="grow"></span>
+          <div class="seg" role="group" aria-label="行高" data-density=""><button type="button" aria-pressed="true" data-d="std">标准</button><button type="button" aria-pressed="false" data-d="compact">紧凑</button></div>
+          <span class="vsep" aria-hidden="true"></span>
+          <button class="btn btn--primary btn--sm" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建设备</span></button>
+        </div>
+        <div class="tbl-wrap"><table class="dt" id="dt">
+          <thead><tr>
+            <th class="w-check"><label class="check"><input type="checkbox" aria-label="全选" data-all=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span></label></th>
+            <th>设备编号</th><th>名称</th><th>区域</th><th>状态</th>
+            <th class="num" aria-sort="descending"><button class="sort" type="button">负载<svg class="ic"><use href="#i-sort-d"></use></svg></button></th>
+            <th class="num"><button class="sort" type="button">运行时长<svg class="ic"><use href="#i-sort"></use></svg></button></th>
+            <th>更新时间</th></tr></thead>
+          <tbody>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0142" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>EQ-0142</code></td><td>输送带 A-02</td><td>北区装配线</td><td><span class="stat stat--warn">待检修</span></td><td class="num"><span class="meter hi"><i style="--v:91%"></i>91%</span></td><td class="num">412 h</td><td><code>09-30 14:20</code></td></tr>
+            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0207" data-row="" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>EQ-0207</code></td><td>冷却泵 P-11</td><td>北区仓储</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i>68%</span></td><td class="num">1,206 h</td><td><code>09-30 14:18</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0311" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>EQ-0311</code></td><td>分拣机 S-04</td><td>北区装配线</td><td><span class="stat stat--ok">运行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i>54%</span></td><td class="num">88 h</td><td><code>09-30 14:15</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0418" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>EQ-0418</code></td><td>空压机 K-02</td><td>南区冶炼</td><td><span class="stat stat--err">停机</span></td><td class="num"><span class="meter"><i style="--v:0%"></i>0%</span></td><td class="num">2,940 h</td><td><code>09-30 13:52</code></td></tr>
+            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 EQ-0502" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>EQ-0502</code></td><td>破碎机 C-03</td><td>南区封存</td><td><span class="stat stat--off">离线</span></td><td class="num">未上报</td><td class="num">5,118 h</td><td><code>09-12 08:00</code></td></tr>
+          </tbody></table></div>
+      </div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>
