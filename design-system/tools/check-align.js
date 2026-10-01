@@ -60,7 +60,19 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
           const viaParent=(E,k,v)=>{let e=E.parentElement;for(let i=0;i<5&&e;i++,e=e.parentElement){const q=e.getBoundingClientRect();if(Math.abs(q[k]-v)<0.5)return true}return false};
           if(hOver&&!vOver){for(const [n,k] of [['左边','left'],['右边','right']]){const x=a[k],y=b[k],d=Math.abs(x-y);if(viaParent(A,k,y)||viaParent(B,k,x))continue;if(d>=1&&d<=3)out.push(`上下${n} ${d.toFixed(1)}px  ${name(A)} / ${name(B)}`)}}
         }
-        return [...new Set(out)].slice(0,20)});
+        /* 方圆关系：圆形或胶囊与带明显边界的方形同一行内高度相差不足 4 且间距不足 64，或间距不足 16；或等宽上下相接时报出 */
+        const shape=e=>{const s=getComputedStyle(e),q=e.getBoundingClientRect();const r=parseFloat(s.borderTopLeftRadius)||0;
+          const bounded=s.backgroundColor!=='rgba(0, 0, 0, 0)'||(parseFloat(s.borderTopWidth)>0&&s.borderTopStyle!=='none'&&s.borderTopColor!=='rgba(0, 0, 0, 0)');
+          if(!bounded||q.width<16||q.height<16)return null;return r>=q.height/2-0.5?'round':r<=6?'square':null};
+        const ctl=[...document.querySelectorAll('.stage button,.stage .input,.stage .btn,.stage .seg,.stage .tag,.stage .card,.stage .rpill,.stage .rbtn,.stage .cap-btn,.stage .li,.stage .smi')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&q.height&&!e.closest('.row-label,.cap,.prov')});
+        for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){const A=ctl[i],B=ctl[j];if(A.contains(B)||B.contains(A))continue;
+          const sa=shape(A),sb=shape(B);if(!sa||!sb||sa===sb)continue;const a=A.getBoundingClientRect(),b=B.getBoundingClientRect();
+          const sameRow=a.top<b.bottom&&b.top<a.bottom,gapX=Math.max(b.left-a.right,a.left-b.right),gapY=Math.max(b.top-a.bottom,a.top-b.bottom);
+          const name=e=>(e.className.baseVal??e.className)||e.tagName.toLowerCase();
+          if(sameRow&&gapX<64&&(Math.abs(a.height-b.height)<4||gapX<16))out.push(`方圆${Math.abs(a.height-b.height)<4?'同高':'贴近'}并排 间距 ${gapX.toFixed(0)}px  高 ${a.height.toFixed(0)}/${b.height.toFixed(0)}  ${name(A)} / ${name(B)}`);
+          if(!sameRow&&gapY<16&&Math.abs(a.width-b.width)<1.5&&Math.abs(a.left-b.left)<1.5)out.push(`方圆等宽相接 间距 ${gapY.toFixed(0)}px  ${name(A)} / ${name(B)}`);
+        }
+        return [...new Set(out)].slice(0,30)});
       for(const n of near){console.log(`近似对齐  ${comp} ${theme}  ${n}`);fails++}
       await p.close();
     }
