@@ -41,11 +41,12 @@
   --font-numeric:Novecentosanswide-Medium,"Arial Narrow",Arial,sans-serif;
   --font-giant:Novecentosanswide-Bold,"Arial Black",Arial,sans-serif;
   --font-tech:SpaceGrotesk,ui-monospace,Menlo,monospace;
-  --size-control-sm:28px;--size-control-md:36px;--size-control-lg:44px;
+  --size-control-sm:24px;--size-control-md:32px;--size-control-lg:40px;
   --radius-sm:2px;--radius-md:4px;--radius-full:9999px;
   --duration-base:.2s;--duration-slow:.3s;
   --z-dropdown:100;--z-sticky:200;--z-modal:300;--z-toast:400;--z-tooltip:500;
   --track-bg:#e6e6e6;--track-stripe:#d9d9d9;--track-edge:#e6e6e6;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:80px;--space-10:96px;
   --tex-track:repeating-linear-gradient(-45deg,var(--track-stripe) 0 1.5px,transparent 1.5px 3px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -135,8 +136,10 @@ main{min-width:0}
   background-color:var(--color-bg-page);background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:24px 24px}
 .row{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start}
 .row-label{font:11px/28px var(--font-tech);color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.04em}
-.items{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:flex-end;min-width:0}
-.item{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+/* 示例行：同一行的控件按中线对齐，说明文字统一贴底 */
+.items{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:stretch;min-width:0}
+.item{display:grid;grid-template-rows:1fr auto;gap:8px;align-items:center;justify-items:start;min-width:0}
+.item > .cap{align-self:end}
 .cap{font:11px/1.3 var(--font-tech);color:var(--color-text-tertiary)}
 .ctl-spec{display:grid;grid-template-columns:72px minmax(0,1fr);gap:6px 16px;margin:14px 0 0;font-size:13px;color:var(--color-text-secondary)}
 .ctl-spec dt{font:11px/20px var(--font-tech);text-transform:uppercase;color:var(--color-text-tertiary)}
@@ -181,10 +184,10 @@ main{min-width:0}
 .dl{position:absolute;white-space:nowrap}
 .ld{position:absolute;border-top:1px dashed var(--color-text-primary)}
 .ld::before{content:"";position:absolute;left:-2px;top:-3px;width:5px;height:5px;background:var(--color-text-primary)}
-.anat-btn{position:absolute;display:flex;align-items:center;justify-content:center;height:72px;border-radius:4px;background:var(--color-primary);color:var(--color-on-primary);font:28px/1 var(--font-medium);overflow:hidden;isolation:isolate;box-shadow:0 0 4px rgba(0,0,0,.25)}
+.anat-btn{position:absolute;display:flex;align-items:center;justify-content:center;height:64px;border-radius:4px;background:var(--color-primary);color:var(--color-on-primary);font:26px/1 var(--font-medium);overflow:hidden;isolation:isolate;box-shadow:0 0 4px rgba(0,0,0,.25)}
 .anat-btn::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/textures/button-texture.png) center/cover no-repeat;mix-blend-mode:soft-light;opacity:.6}
-.anat-btn i{position:absolute;left:12px;top:16px;width:4px;height:40px;background:var(--color-primary-tick)}
-.anat-in{position:absolute;height:72px;border:2px solid var(--color-border-control);border-radius:4px;background:var(--color-bg-page);display:flex;align-items:center;padding:0 24px;font:28px/1 var(--font-body);color:var(--color-text-secondary);box-sizing:border-box}
+.anat-btn i{position:absolute;left:10px;top:14px;width:4px;height:36px;background:var(--color-primary-tick)}
+.anat-in{position:absolute;height:64px;border:2px solid var(--color-border-control);border-radius:4px;background:var(--color-bg-page);display:flex;align-items:center;padding:0 24px;font:28px/1 var(--font-body);color:var(--color-text-secondary);box-sizing:border-box}
 .anat-lbl{position:absolute;font:26px/1 var(--font-medium)}
 .anat-help{position:absolute;font:26px/1 var(--font-body);color:var(--color-text-secondary)}
 
@@ -203,11 +206,11 @@ main{min-width:0}
 .mtab[aria-selected="true"]::before,.mtab[aria-selected="true"] + .mtab::before{display:none}
 .mtab[aria-selected="true"]::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:10px;transform:translateY(-50%);border-left:2px solid #191919;border-right:2px solid #191919;pointer-events:none}
 /* 胶囊操作按钮：左侧短线 + 右侧圆形箭头 */
-.cap-btn{display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 4px 0 14px;border:1px solid var(--color-border-subtle);border-radius:18px;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1 var(--font-medium);cursor:pointer;transition:border-color var(--duration-base) ease;white-space:nowrap;flex:none}
+.cap-btn{display:inline-flex;align-items:center;gap:10px;height:32px;min-width:144px;padding:0 4px 0 14px;border:1px solid var(--color-border-subtle);border-radius:16px;background:var(--color-bg-page);color:var(--color-text-primary);font:13px/1 var(--font-medium);cursor:pointer;transition:border-color var(--duration-base) ease;white-space:nowrap;flex:none}
 .cap-btn::before{content:"";width:18px;height:1px;background:var(--color-text-secondary)}
-.cap-btn .lbl{min-width:44px;text-align:center}
-.cap-btn .go{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--color-text-primary);color:var(--color-bg-page);transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
-.cap-btn .go .ic{width:14px;height:14px;stroke-width:2;transition:transform var(--duration-slow) ease}
+.cap-btn .lbl{flex:1;min-width:44px;text-align:center}
+.cap-btn .go{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--color-text-primary);color:var(--color-bg-page);transition:background-color var(--duration-base) ease,color var(--duration-base) ease}
+.cap-btn .go .ic{width:12px;height:12px;stroke-width:2;transition:transform var(--duration-slow) ease}
 .cap-btn:not(:disabled):hover,.cap-btn.is-hover{border-color:var(--color-border-strong)}
 .cap-btn:not(:disabled):hover .go,.cap-btn.is-hover .go{background:var(--y-300);color:#191919}
 .cap-btn:not(:disabled):hover .go .ic,.cap-btn.is-hover .go .ic{transform:translateX(2px)}
@@ -280,13 +283,114 @@ main{min-width:0}
 .ibtn-i:hover{background:var(--color-text-primary);color:var(--color-bg-page)}.ibtn-i:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:2px}
 .ibtn-i .ic{stroke-width:2.2}
 
-.scn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;width:100%}
-.scn{display:flex;flex-direction:column;gap:12px;padding:14px 16px;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page);min-width:0}
-.scn-h{display:flex;align-items:baseline;gap:10px;font-size:13px;color:var(--color-text-secondary)}
+.scn-grid{display:flex;flex-direction:column;width:100%;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page)}
+.scn{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,240px);gap:12px 24px;align-items:center;padding:16px;min-width:0}
+.scn + .scn{border-top:1px solid var(--color-border-subtle)}
+@media (max-width:760px){.scn{grid-template-columns:minmax(0,1fr)}}
+.scn-h{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--color-text-secondary)}
 .scn-h b{font:13px var(--font-numeric);font-weight:400;color:var(--color-text-primary)}
 .scn-demo{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .scn p{margin:0;font-size:12px;line-height:1.6;color:var(--color-text-secondary)}
 .scn-rule{margin:4px 0 0;width:100%;font-size:13px;color:var(--color-text-primary)}
+.sn-item .badge{left:40px;right:auto;top:9px}
+/* 分组标题：收起时为 1px 短线，展开时为文字 */
+.sn-group{position:relative;flex:none;width:64px;height:28px}
+.sn-group::before{content:"";position:absolute;left:20px;top:50%;width:24px;height:1px;background:var(--color-border-subtle);transition:opacity var(--duration-base) ease}
+.sn-group span{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--color-text-tertiary);white-space:nowrap;opacity:0;transition:opacity var(--duration-base) ease}
+.sn.is-open .sn-group::before{opacity:0}
+.sn.is-open .sn-group span{opacity:1}
+/* 元素拆解：每个元素给出收起与展开两种状态 */
+.sn-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;width:100%}
+.snp-card{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page);min-width:0}
+.snp-h{display:flex;align-items:center;gap:8px;font:14px var(--font-medium)}
+.snp-h .need{padding:0 6px;border:1px solid var(--color-border-control);border-radius:var(--radius-sm);font:11px/18px var(--font-body);color:var(--color-text-secondary)}
+.snp-h .need.is-req{border-color:var(--color-checked);background:var(--color-checked);color:var(--color-on-checked)}
+.snp-pair{display:flex;gap:16px;align-items:flex-start}
+.snp{position:relative;flex:none;width:64px;overflow:hidden;border:1px solid var(--color-border-subtle);background:var(--color-bg-surface)}
+.snp--open{width:224px}
+.snp .sn-list{top:8px}
+.snp-card p{margin:0;font-size:12px;line-height:1.6;color:var(--color-text-secondary)}
+.sn-combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;width:100%}
+.sn-combo{display:flex;flex-direction:column;gap:8px;min-width:0}
+.app--sm{height:420px}
+.app--sm .app-main .topbar{height:48px}
+.rules{margin:0;padding:0 0 0 18px;font-size:13px;line-height:1.7;color:var(--color-text-primary)}
+.rules li + li{margin-top:4px}
+/* 顶栏槽位标注 */
+.tb-frame{border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;background:var(--color-bg-page);width:100%}
+.tb-slots{padding:28px 8px 8px;width:100%;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page)}
+.tb-slots .topbar{border-bottom:0}
+.slot{position:relative;outline:1px dashed var(--color-border-control);outline-offset:4px}
+.slot::after{content:attr(data-slot);position:absolute;left:-4px;top:-26px;font:11px/1 var(--font-body);color:var(--color-text-secondary);white-space:nowrap}
+.tb-combo{display:flex;flex-direction:column;gap:6px}
+.topbar .acts{display:flex;align-items:center;gap:8px}
+
+/* ===== 间距与布局 ===== */
+.sp{position:relative;display:block;flex:none}
+.sp-v{width:100%;height:var(--v)}
+.sp-h{width:var(--v);align-self:stretch}
+.spx{--mark-fs:12px;width:100%;overflow:hidden}
+.spx-z{zoom:var(--z,1);transform-origin:0 0}
+.spx.is-marked .sp,.spx.is-marked .pad{background-image:repeating-linear-gradient(-45deg,var(--color-text-disabled) 0 1px,transparent 1px 6px)}
+.spx.is-marked .sp[data-v]::after,.spx.is-marked .pad[data-v]::before{content:attr(data-v);position:absolute;z-index:3;padding:2px 6px;background:var(--color-checked);color:var(--color-on-checked);font:var(--mark-fs)/1 var(--font-numeric);white-space:nowrap;pointer-events:none}
+.spx.is-marked .sp[data-v]::after{left:50%;top:50%;transform:translate(-50%,-50%)}
+/* 小间距的标签放在外侧，避免盖住内容 */
+.spx.is-marked .sp-v.sp--sm[data-v]::after{left:100%;transform:translate(6px,-50%)}
+.spx.is-marked .sp-h.sp--sm[data-v]::after{top:0;transform:translate(-50%,calc(-100% - 4px))}
+.pad{position:relative;padding:var(--v)}
+.spx.is-marked .pad[data-v]::before{left:calc(var(--v) / 2);top:calc(var(--v) / 2);transform:translate(-50%,-50%)}
+.pad > .in{background:var(--color-bg-page)}
+.sp-toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-text-secondary)}
+.sp-scale{display:flex;flex-direction:column;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page);overflow:hidden}
+.sp-scale-row{display:grid;grid-template-columns:96px 48px 110px minmax(0,1fr);gap:16px;align-items:center;padding:10px 16px}
+.sp-scale-row + .sp-scale-row{border-top:1px solid var(--color-border-subtle)}
+.sp-scale-row code{font-size:11px}
+.sp-scale-row b{font:13px var(--font-numeric);font-weight:400}
+.sp-scale-row i{display:block;height:12px;background-image:repeating-linear-gradient(-45deg,var(--color-text-tertiary) 0 1px,transparent 1px 5px);box-shadow:inset 0 0 0 1px var(--color-text-tertiary)}
+.sp-scale-row span{font-size:12px;color:var(--color-text-secondary)}
+@media (max-width:640px){.sp-scale-row{grid-template-columns:72px 36px minmax(0,1fr)}.sp-scale-row span{grid-column:1/-1}}
+.sp-frame{border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);background:var(--color-bg-page);padding:16px}
+/* 新闻列表样例：按 1920 设计稿绘制，容器宽 1830 */
+.nl{--mark-fs:26px;width:1830px}
+.spx:has(.nl){--mark-fs:26px}
+.nl-row{display:flex}
+.nl-item{display:flex;flex-direction:column;width:592px;height:534px}
+.nl-img{flex:none;height:333px;border-radius:8px;background:var(--color-bg-muted);box-shadow:0 0 8px rgba(0,0,0,.15)}
+.nl-sub{display:flex;align-items:center;font-size:20px;line-height:1.2;color:var(--color-text-secondary)}
+.nl-sub b{font-family:var(--font-medium);font-weight:400;color:var(--color-text-primary)}
+.nl-title{font:28px/1.45 var(--font-medium);color:var(--color-text-primary)}
+.nl-pg{display:flex;justify-content:center}
+.nl-pg .pcap,.nl-pg .rbtn{--u:16px}
+.nl-pg .pnums{font-size:24px;min-width:200px}
+.nl-pg .pnums span{padding:0 20px}
+/* 工作页样例：按 960 宽绘制 */
+.wp{width:960px;--mark-fs:12px}
+.wp-head{display:flex;align-items:flex-end;justify-content:space-between}
+.wp-head h4{margin:0;font:24px/1.2 var(--font-bold)}
+.wp-eyebrow{font:11px var(--font-en);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-tertiary)}
+.wp-acts,.wp-tool,.wp-cards{display:flex;align-items:center}
+.wp-tool .grow{flex:1}
+.wp-cards{align-items:stretch}
+.wp-card{flex:1;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md)}
+.wp-card .in{display:flex;flex-direction:column}
+.wp-card b{font:28px/1 var(--font-numeric);font-weight:400}
+.wp-sec{font:16px/1.3 var(--font-medium);margin:0}
+.wp-rows{border:1px solid var(--color-border-subtle);border-radius:var(--radius-md)}
+.wp-rows div{display:flex;justify-content:space-between;align-items:center;height:40px;padding:0 16px;font-size:13px}
+.wp-rows div + div{border-top:1px solid var(--color-border-subtle)}
+.wp-rows code{font-size:12px}
+/* 对比 */
+.sp-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;width:100%}
+.sp-cmp figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.sp-cmp .spx{width:260px;max-width:100%;overflow:visible}
+.sp-cmp figcaption{font-size:13px;line-height:1.6}
+.sp-cmp figcaption b{font-family:var(--font-medium);font-weight:400}
+.ci{display:flex;flex-direction:column;width:260px}
+.ci-img{height:146px;border-radius:4px;background:var(--color-bg-muted)}
+.ci-sub{font-size:12px;color:var(--color-text-secondary)}
+.ci-sub b{font-weight:400;font-family:var(--font-medium);color:var(--color-text-primary);margin-right:8px}
+.ci-title{font:15px/1.45 var(--font-medium)}
+
 /* ===== 页面加载：按源站首屏 Loading 重建 ===== */
 .ldr{position:relative;container-type:inline-size;width:100%;max-width:760px;height:320px;border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);overflow:hidden;background:var(--color-bg-page)}
 .ldr--narrow{max-width:320px;height:400px}
@@ -385,8 +489,8 @@ main{min-width:0}
 
 /* ===== 按钮 ===== */
 .btn{--h:var(--size-control-md);--px:16px;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  height:var(--h);min-width:64px;padding:0 var(--px) 0 calc(var(--px) + var(--tick-pad,0px));border:1px solid var(--btn-bd,transparent);border-radius:var(--radius-sm);
-  background-color:var(--btn-bg);color:var(--btn-fg);font:14px/1 var(--font-medium);white-space:nowrap;cursor:pointer;overflow:hidden;
+  height:var(--h);min-width:calc(var(--h) * 4);padding:0 var(--px) 0 calc(var(--px) + var(--tick-pad,0px));border:1px solid var(--btn-bd,transparent);border-radius:var(--radius-sm);
+  background-color:var(--btn-bg);color:var(--btn-fg);font:13px/1 var(--font-medium);white-space:nowrap;cursor:pointer;overflow:hidden;
   box-shadow:var(--btn-shadow,none);transition:background-color var(--duration-base) ease,color var(--duration-base) ease,border-color var(--duration-base) ease}
 .btn::before{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/textures/button-texture.png) center/cover no-repeat;mix-blend-mode:soft-light;opacity:var(--tex,0);pointer-events:none}
 /* 左侧竖条：静止时为按钮高度的一半，悬停时向上下延伸，按下时贴满内边距 */
@@ -405,8 +509,8 @@ main{min-width:0}
 .btn--secondary{--btn-bg:var(--color-bg-page);--btn-bg-h:var(--color-state-hover);--btn-bg-a:var(--color-state-pressed);--btn-fg:var(--color-text-primary);--btn-bd:var(--color-border-control);--btn-bd-h:var(--color-border-strong)}
 .btn--ghost{--btn-bg:transparent;--btn-bg-h:var(--color-state-hover);--btn-bg-a:var(--color-state-pressed);--btn-fg:var(--color-text-primary)}
 .btn--danger{--btn-bg:var(--color-error);--btn-bg-h:var(--color-error-hover);--btn-bg-a:var(--color-error-active);--btn-fg:#ffffff;--btn-tick:#ffffff;--tick:block;--tick-pad:4px}
-.btn--sm{--h:var(--size-control-sm);--px:12px;font-size:13px;min-width:56px}
-.btn--lg{--h:var(--size-control-lg);--px:20px;font-size:16px;min-width:80px}
+.btn--sm{--h:var(--size-control-sm);--px:12px;font-size:12px}
+.btn--lg{--h:var(--size-control-lg);--px:20px;font-size:14px}
 .btn:disabled,.btn.is-disabled{--btn-bg:var(--color-bg-disabled);--btn-fg:var(--color-text-disabled);--btn-bd:var(--color-border-subtle);--btn-tick:var(--color-text-disabled);--tex:0;--btn-shadow:none;cursor:not-allowed}
 .btn--ghost:disabled,.btn--ghost.is-disabled{--btn-bg:transparent;--btn-bd:transparent}
 .btn .lbl{display:inline-flex;align-items:center;gap:6px}
@@ -421,11 +525,19 @@ main{min-width:0}
 .btn.is-loading .spin{position:absolute;left:50%;top:50%;margin:-7px 0 0 -7px}
 .ibtn{min-width:0;width:var(--h);padding:0;--tick:none}
 .ibtn.is-pressed{--btn-bg:var(--color-checked);--btn-bg-h:var(--color-checked);--btn-bg-a:var(--color-checked);--btn-fg:var(--color-on-checked);--btn-bd:var(--color-checked)}
-.rbtn{position:relative;width:36px;height:36px;border-radius:50%;border:0;padding:0;cursor:pointer;display:inline-grid;place-items:center;color:var(--round-icon);
-  background:var(--round-bg);box-shadow:inset 0 0 0 3px var(--round-ring),inset 0 0 0 5px var(--round-ring-inner),0 0 5px rgba(2,2,2,.3);transition:background-color var(--duration-base) ease}
-.rbtn::before{content:"";position:absolute;inset:5px;border-radius:50%;background:url(assets/textures/pag-button-texture.png) center/cover;opacity:.4;pointer-events:none}
-.rbtn .ic{position:relative;stroke-width:2}
+/* 圆形翻页按钮：按源站 Pagination_button 的结构重建。--u 为源站 1rem 的换算值，按钮直径 = 4.625u，36 与 44 两档只改 --u */
+.rbtn{--u:calc(36px / 4.625);position:relative;flex:none;width:calc(var(--u) * 4.625);height:calc(var(--u) * 4.625);border-radius:50%;border:0;padding:0;cursor:pointer;color:var(--round-icon);
+  background-color:var(--round-bg);box-shadow:0 0 calc(var(--u) * .625) rgba(2,2,2,.3);transition:background-color var(--duration-base) ease}
+.rbtn--lg{--u:calc(44px / 4.625)}
+/* 纹理层：满尺寸，静止 0.4，悬停 1 */
+.rbtn::before{content:"";position:absolute;inset:0;border-radius:50%;background:url(assets/textures/pag-button-texture.png) center/cover no-repeat;opacity:.4;transition:opacity var(--duration-base) ease;pointer-events:none}
+/* 双圈：源站为满尺寸 0.375u 灰圈上叠 0.25u 白圈，外沿为白、内侧露出灰 */
+.rbtn::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 calc(var(--u) * .25) var(--round-ring-inner),inset 0 0 0 calc(var(--u) * .375) var(--round-ring);pointer-events:none}
+/* 箭头：宽 1.125u、高 1.6875u；左箭头 left 1.75u，右箭头 left 1.9375u，与源站一致 */
+.rbtn .ic{position:absolute;top:50%;left:calc(var(--u) * 1.75);width:calc(var(--u) * 1.125);height:calc(var(--u) * 1.6875);transform:translateY(-50%);transition:color var(--duration-base) ease}
+.rbtn:has(use[href="#i-chev-r"]) .ic{left:calc(var(--u) * 1.9375)}
 .rbtn:not(:disabled):hover,.rbtn.is-hover{background-color:var(--color-accent)}
+.rbtn:not(:disabled):hover::before,.rbtn.is-hover::before{opacity:1}
 .rbtn:not(:disabled):active,.rbtn.is-active{background-color:var(--color-accent-active)}
 .rbtn:focus-visible,.rbtn.is-focus{outline:2px solid var(--color-focus-ring);outline-offset:2px}
 .rbtn:disabled{color:#aaaaaa;cursor:not-allowed}
@@ -473,8 +585,8 @@ main{min-width:0}
 .input--filled{background:var(--color-bg-surface);border-color:transparent;border-bottom-color:var(--color-border-control);border-radius:var(--radius-sm) var(--radius-sm) 0 0}
 .input--filled:hover{border-color:transparent;border-bottom-color:var(--color-border-strong)}
 .input--filled:focus-within,.input--filled.is-focus{border-color:transparent;border-bottom-color:var(--color-border-strong);box-shadow:inset 0 -1px 0 var(--color-border-strong)}
-.input--sm{--h:var(--size-control-sm);padding:0 8px;font-size:13px}
-.input--lg{--h:var(--size-control-lg);font-size:16px}
+.input--sm{--h:var(--size-control-sm);padding:0 8px;font-size:12px}
+.input--lg{--h:var(--size-control-lg);font-size:15px}
 .input--area{height:auto;align-items:stretch;padding:8px 12px}
 .input--area textarea{min-height:80px;resize:vertical;line-height:1.6}
 .clear{display:grid;place-items:center;width:20px;height:20px;border:0;background:none;border-radius:var(--radius-sm);color:var(--color-text-tertiary);cursor:pointer;padding:0}
@@ -623,7 +735,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 
 /* ===== 导航 ===== */
 .tabs{display:flex;gap:4px;border-bottom:1px solid var(--color-border-subtle);overflow-x:auto;max-width:100%}
-.tab{position:relative;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border:0;background:none;color:var(--color-text-secondary);font-size:14px;cursor:pointer;white-space:nowrap;border-radius:var(--radius-sm) var(--radius-sm) 0 0}
+.tab{position:relative;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;background:none;color:var(--color-text-secondary);font-size:14px;cursor:pointer;white-space:nowrap;border-radius:var(--radius-sm) var(--radius-sm) 0 0}
 .tab::after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:2px;background:var(--color-checked);transform:scaleX(0);transition:transform var(--duration-base) ease}
 .tab:hover,.tab.is-hover{background:var(--color-state-hover);color:var(--color-text-primary)}
 .tab:active,.tab.is-active{background:var(--color-state-pressed)}
@@ -632,7 +744,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .tab[aria-selected="true"]::after{transform:scaleX(1)}
 .tab:disabled,.tab.is-disabled{color:var(--color-text-disabled);background:none;cursor:not-allowed}
 .tab .n{font:11px var(--font-numeric);padding:2px 5px;border-radius:var(--radius-sm);background:var(--color-bg-muted);color:var(--color-text-secondary)}
-.tabs--lg .tab{height:44px;padding:0 16px;font-size:16px}
+.tabs--lg .tab{height:40px;padding:0 16px;font-size:15px}
 .btabs{display:flex;align-items:center;height:44px;gap:0}
 .btab{position:relative;display:inline-flex;align-items:center;height:44px;padding:0 20px;border:0;border-radius:var(--radius-md);background:none;font:15px var(--font-medium);color:var(--color-text-primary);cursor:pointer;transition:background-color var(--duration-base) ease,padding var(--duration-base) ease}
 .btab .arr{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--color-bg-surface);color:var(--color-text-tertiary);margin-left:10px;opacity:0;width:0;margin-left:0;transition:opacity var(--duration-base) ease}
@@ -661,7 +773,8 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .pager .jump{display:inline-flex;align-items:center;gap:6px;margin-left:12px;color:var(--color-text-secondary)}
 .pager .jump .input{width:56px}
 .pager .size{margin-left:8px;width:112px}
-.pcap{position:relative;display:inline-flex;align-items:center;gap:20px;height:42px;padding:0;border:3px solid var(--track-edge);border-radius:21px;background:var(--track-bg) var(--tex-track)}
+/* 翻页胶囊：源站 Pagination 高 5.25u、边框 0.375u，内放 4.625u 圆钮 */
+.pcap{--u:calc(36px / 4.625);position:relative;display:inline-flex;align-items:center;gap:20px;box-sizing:border-box;height:calc(var(--u) * 5.25);padding:0;border:calc(var(--u) * .375) solid var(--track-edge);border-radius:calc(var(--u) * 2.625);background:var(--track-bg) var(--tex-track)}
 .pnums{display:flex;align-items:center;min-width:150px;justify-content:center;font:12px/1 var(--font-numeric);font-variant-numeric:tabular-nums;color:var(--color-text-secondary)}
 .pnums span{padding:0 10px}
 .pnums span + span{border-left:1px solid var(--color-text-primary)}
@@ -689,17 +802,17 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .sn-toggle .mark{width:20px;height:20px;background:var(--color-accent);clip-path:polygon(0 0,100% 0,100% 60%,60% 100%,0 100%)}
 .sn-name{font:12px var(--font-en);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateX(-8px);transition:opacity var(--duration-base) ease,transform var(--duration-slow) ease}
 .sn.is-open .sn-name{opacity:1;transform:none}
-.sn-list{position:absolute;top:72px;left:0;right:0}
+.sn-list{position:absolute;top:72px;left:0;right:0;display:flex;flex-direction:column}
 .sn-ind{position:absolute;left:0;top:0;z-index:1;width:56px;height:var(--row);box-sizing:border-box;border-left:6px solid var(--nav-bar);background:var(--nav-indicator);
-  transform:translateY(calc(var(--at,0) * var(--row)));transition:transform var(--duration-slow) ease,width var(--duration-slow) ease;pointer-events:none}
+  transform:translateY(var(--y,0px));transition:transform var(--duration-slow) ease,width var(--duration-slow) ease;pointer-events:none}
 .sn.is-open .sn-ind{width:216px}
-.sn-item{position:absolute;left:0;top:calc(var(--i) * var(--row));z-index:2;isolation:isolate;display:block;width:64px;height:var(--row);color:var(--color-text-primary);text-decoration:none;cursor:pointer;transition:width var(--duration-slow) ease}
+.sn-item{position:relative;flex:none;z-index:2;isolation:isolate;display:block;width:64px;height:var(--row);color:var(--color-text-primary);text-decoration:none;cursor:pointer;transition:width var(--duration-slow) ease}
 .sn.is-open .sn-item{width:224px}
 .sn-item::before{content:"";position:absolute;z-index:-1;left:12px;top:2px;bottom:2px;width:200px;border-radius:var(--radius-sm);background:var(--nav-hover);opacity:0;transition:opacity var(--duration-base) ease;pointer-events:none}
-.sn.is-open .sn-item:not([aria-current]):hover::before{opacity:1}
+.sn.is-open .sn-item:not([aria-current]):hover::before,.sn.is-open .sn-item.is-hover::before{opacity:1}
 .sn-item:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:-2px}
 .sn-ic{position:absolute;left:33px;top:50%;width:22px;height:22px;transform:translate(-50%,-50%);color:var(--nav-icon);transition:color var(--duration-base) ease}
-.sn-item:hover .sn-ic{color:var(--nav-icon-hover)}
+.sn-item:hover .sn-ic,.sn-item.is-hover .sn-ic{color:var(--nav-icon-hover)}
 .sn-item[aria-current] .sn-ic{color:var(--color-text-primary)}
 .sn-tx{position:absolute;left:64px;top:50%;font:15px/1.25 var(--font-medium);white-space:nowrap;color:var(--color-text-primary);opacity:0;transform:translate(-8px,-50%);transition:opacity var(--duration-base) ease,transform var(--duration-slow) ease;pointer-events:none}
 .sn.is-open .sn-tx{opacity:1;transform:translate(0,-50%)}
@@ -712,7 +825,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .sn.is-open .sn-cbtn:hover{background:var(--color-state-pressed)}
 .sn-cbtn:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset:-2px}
 .app-main{flex:1;display:flex;flex-direction:column;min-width:0;background:var(--color-bg-page);border-left:1px solid var(--color-border-subtle)}
-.topbar{display:flex;align-items:center;gap:12px;height:56px;padding:0 16px;border-bottom:1px solid var(--color-border-subtle);background:var(--color-bg-page)}
+.topbar{display:flex;align-items:center;gap:16px;height:56px;padding:0 16px;border-bottom:1px solid var(--color-border-subtle);background:var(--color-bg-page)}
 .topbar .title{display:flex;flex-direction:column;min-width:0;flex:1}
 .topbar .title b{font:16px/1.3 var(--font-medium);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .topbar .search{width:220px}
@@ -882,8 +995,8 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-chev-l" viewBox="-4.5 0 27 27"><path d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-chev-r" viewBox="-4.5 0 27 27"><path transform="matrix(-1 0 0 1 18 0)" d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 18 27"><path d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 18 27"><path transform="matrix(-1 0 0 1 18 0)" d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-chev-d" viewBox="0 -4.5 27 27"><path transform="rotate(-90 13.5 13.5) translate(4.5 0)" d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-tri-d" viewBox="0 0 16 16"><path d="M4 6h8l-4 5z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.8"/></symbol>
@@ -937,12 +1050,13 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <a href="#inventory">控件盘点 <span>26</span></a>
   <a href="#color">颜色</a>
   <a href="#foundation">基础 token</a>
+  <a href="#spacing">间距与布局</a>
   <a href="#states">交互状态 <span>08</span></a>
   <div class="toc-label">Controls</div>
   <a href="#basic">基础操作 <span>03</span></a>
   <a href="#form">表单输入 <span>06</span></a>
   <a href="#feedback">反馈与提示 <span>07</span></a>
-  <a href="#navigation">导航 <span>04</span></a>
+  <a href="#navigation">导航 <span>05</span></a>
   <a href="#display">内容展示 <span>09</span></a>
 </nav>
 
@@ -1003,7 +1117,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
       <li><a href="#c-tabs">标签页</a><span class="prov prov--mod">改造</span><small>源站 SubpageTab、Selector；补线型标签页</small></li>
       <li><a href="#c-pager">分页器</a><span class="prov prov--mod">改造</span><small>源站 Pagination 只能翻轮播；补页码分页</small></li>
       <li><a href="#c-crumbs">面包屑</a><span class="prov prov--new">新增</span><small>源站无</small></li>
-      <li><a href="#c-nav">导航栏</a><span class="prov prov--mod">改造</span><small>源站 NavSidebar 为 60px 图标栏；补分组、计数、顶部栏</small></li>
+      <li><a href="#c-nav">导航栏</a><span class="prov prov--mod">改造</span><small>拆为侧边导航与顶栏两个控件；侧边导航由标识区、导航项、分组标题、底部工具区组成</small></li>
     </ul></div>
     <div class="inv-group"><h3>内容展示 <span>7</span></h3><ul>
       <li><a href="#c-card">卡片</a><span class="prov prov--mod">改造</span><small>源站 NoticeCard 为图片公告卡；补信息卡、读数卡、可选卡</small></li>
@@ -1163,17 +1277,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     <div class="scale-row"><code>--fs-overline</code><span class="v">11px<br>行高 1.3</span><span class="sample" style="font:11px var(--font-en);letter-spacing:.12em;text-transform:uppercase">Settings</span><span class="u">英文标签，Gilroy 大写</span></div>
   </div>
 
-  <h3 class="sub-h">间距 <small>Spacing, 4px base</small></h3>
-  <div class="scale">
-    <div class="scale-row"><code>--space-1</code><span class="v">4</span><span><i class="bar" style="display:block;width:4px"></i></span><span class="u">图标与文字、标签与输入框</span></div>
-    <div class="scale-row"><code>--space-2</code><span class="v">8</span><span><i class="bar" style="display:block;width:8px"></i></span><span class="u">控件内元素、按钮组</span></div>
-    <div class="scale-row"><code>--space-3</code><span class="v">12</span><span><i class="bar" style="display:block;width:12px"></i></span><span class="u">输入框与 sm 按钮内边距</span></div>
-    <div class="scale-row"><code>--space-4</code><span class="v">16</span><span><i class="bar" style="display:block;width:16px"></i></span><span class="u">卡片内边距、md 按钮内边距</span></div>
-    <div class="scale-row"><code>--space-5</code><span class="v">20</span><span><i class="bar" style="display:block;width:20px"></i></span><span class="u">lg 按钮内边距</span></div>
-    <div class="scale-row"><code>--space-6</code><span class="v">24</span><span><i class="bar" style="display:block;width:24px"></i></span><span class="u">对话框内边距、区块内分组</span></div>
-    <div class="scale-row"><code>--space-8</code><span class="v">32</span><span><i class="bar" style="display:block;width:32px"></i></span><span class="u">区块内段落之间</span></div>
-    <div class="scale-row"><code>--space-12</code><span class="v">48</span><span><i class="bar" style="display:block;width:48px"></i></span><span class="u">区块之间</span></div>
-  </div>
+  <p class="sec-lead" style="margin:32px 0 0">间距阶梯与使用规则见第 04 节“间距与布局”。</p>
 
   <div class="found-grid" style="margin-top:40px">
     <div><h3 class="sub-h" style="margin-top:0">圆角 <small>Radius</small></h3>
@@ -1209,11 +1313,69 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <div class="icons" id="iconGrid"></div>
 </section>
 
+<!-- ================= 间距与布局 ================= -->
+<section class="sec" id="spacing">
+  <div class="bp-head">
+    <div class="hollow" aria-hidden="true">SPACING</div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en"><span>Section 04</span><span>Spacing and layout</span></span><h2>间距与布局</h2></div></div>
+    <p class="sec-lead">间距决定元素的归属关系：读者靠距离判断哪些内容属于同一组。没有规定时，同一页面会出现 10、14、18 这类随手取的值，层级也会互相颠倒。本节规定间距只取阶梯中的值，并按五个层级使用；内容页与工作页使用同一套层级、不同的取值。</p>
+  </div>
+
+  <h3 class="sub-h">间距阶梯 <small>Scale</small></h3>
+  <div class="sp-scale">
+    <div class="sp-scale-row"><code>--space-1</code><b>4</b><i style="width:4px"></i><span>文字组内：分类行与标题（工作页）、标签与输入框</span></div><div class="sp-scale-row"><code>--space-2</code><b>8</b><i style="width:8px"></i><span>元素内：图标与文字、按钮之间；内容页文字组内</span></div><div class="sp-scale-row"><code>--space-3</code><b>12</b><i style="width:12px"></i><span>工作页小标题与其内容</span></div><div class="sp-scale-row"><code>--space-4</code><b>16</b><i style="width:16px"></i><span>工作页组件内边距与同级组件间距</span></div><div class="sp-scale-row"><code>--space-5</code><b>24</b><i style="width:24px"></i><span>内容页列间距；工作页标题区与工具栏；页边距（768 至 1279）</span></div><div class="sp-scale-row"><code>--space-6</code><b>32</b><i style="width:32px"></i><span>内容页媒体与文字；工作页区块之间；页边距（1280 以上）</span></div><div class="sp-scale-row"><code>--space-7</code><b>48</b><i style="width:48px"></i><span>工作页大区块之间</span></div><div class="sp-scale-row"><code>--space-8</code><b>64</b><i style="width:64px"></i><span>内容页小区块之间</span></div><div class="sp-scale-row"><code>--space-9</code><b>80</b><i style="width:80px"></i><span>内容页列表行间距</span></div><div class="sp-scale-row"><code>--space-10</code><b>96</b><i style="width:96px"></i><span>内容页区块之间，如列表与分页</span></div>
+  </div>
+
+  <h3 class="sub-h">五个层级 <small>Levels</small></h3>
+  <div class="tbl-wrap"><table class="tok">
+    <thead><tr><th>层级</th><th>工作页</th><th>内容页</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>1 元素内</td><td>8</td><td>16</td><td>图标与文字、按钮之间、分类与日期</td></tr>
+      <tr><td>2 文字组</td><td>4</td><td>8</td><td>分类行与标题、标题与摘要；属于同一条信息的几行文字</td></tr>
+      <tr><td>3 组件内</td><td>16</td><td>32</td><td>卡片内边距、图片与其下方文字</td></tr>
+      <tr><td>4 同级组件</td><td>16</td><td>列 24，行 80</td><td>卡片、列表项、表单字段之间；内容页的行间距远大于列间距，使每一列读作一条</td></tr>
+      <tr><td>5 区块</td><td>32</td><td>96</td><td>标题区与内容、列表与分页、两个独立区块之间</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="rules" style="margin-top:16px">
+    <li>内层间距必须小于外层间距：同一组内的距离小于组与组之间的距离，否则标题会被读成属于下一张图。</li>
+    <li>相邻两层至少相差一档阶梯；同一层级在同一页面只用一个值。</li>
+    <li>只使用阶梯中的值；控件自身的内边距由控件规范给出，不在页面里另行调整。</li>
+    <li>内容页用于公告、新闻、文档阅读；工作页用于表格、表单、看板。一个页面只属于一种。</li>
+  </ul>
+
+  <h3 class="sub-h">样例：新闻列表 <small>Content page</small></h3>
+  <p class="sec-lead" style="margin:-4px 0 14px">按 1920 宽设计稿绘制并等比缩小。容器宽 1830，三列，每项宽 592、固定高 534（标题最多两行）；图片宽高比 16 比 9，圆角 8。</p>
+  <div class="sp-toggle" style="margin-bottom:12px"><label class="switch"><input type="checkbox" checked data-sp-toggle><span class="track"></span></label>显示间距标注</div>
+  <div class="sp-frame"><div class="spx is-marked" data-w="1830"><div class="spx-z"><div class="nl"><div class="nl-row"><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px" data-v="32"></i><div class="nl-sub"><b>公告</b><i class="sp sp-h sp--sm" style="--v:16px" data-v="16"></i><span>2026.09.30</span></div><i class="sp sp-v sp--sm" style="--v:8px" data-v="8"></i><div class="nl-title">北区装配线 10 月停机检修安排</div></div><i class="sp sp-h" style="--v:24px" data-v="24"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>保养</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.28</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">冷却系统季度保养完成，共更换 42 个密封件</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>更新</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.25</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">新版巡检模板上线</div></div></div><i class="sp sp-v" style="--v:80px" data-v="80"></i><div class="nl-row"><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>公告</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.22</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">南区冶炼线恢复生产</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>规则</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.18</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">设备编号规则调整说明</div></div><i class="sp sp-h" style="--v:24px"></i><div class="nl-item"><div class="nl-img"></div><i class="sp sp-v" style="--v:32px"></i><div class="nl-sub"><b>排班</b><i class="sp sp-h sp--sm" style="--v:16px"></i><span>2026.09.12</span></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="nl-title">值班表更新：国庆期间排班</div></div></div><i class="sp sp-v" style="--v:96px" data-v="96"></i><div class="nl-pg"><div class="pcap" aria-hidden="true"><span class="rbtn" style="display:inline-block"><svg class="ic"><use href="#i-chev-l"/></svg></span><span class="pnums"><span aria-current="page">01</span><span>02</span></span><span class="rbtn" style="display:inline-block"><svg class="ic"><use href="#i-chev-r"/></svg></span></div></div></div></div></div></div>
+
+  <h3 class="sub-h">样例：工作页 <small>Work page</small></h3>
+  <p class="sec-lead" style="margin:-4px 0 14px">按 960 宽内容区绘制。页边距 32，标题区与工具栏 24，工具栏与卡片 16，卡片之间 16，卡片内边距 16，区块之间 32。</p>
+  <div class="sp-frame"><div class="spx is-marked" data-w="960"><div class="spx-z"><div class="pad wp" style="--v:32px" data-v="32"><div class="in"><div class="wp-head"><div><span class="wp-eyebrow">Equipment</span><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><h4>北区装配线</h4></div><div class="wp-acts"><button class="btn btn--secondary" type="button" tabindex="-1"><span class="lbl">导出</span></button><i class="sp sp-h sp--sm" style="--v:8px" data-v="8"></i><button class="btn btn--primary" type="button" tabindex="-1"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建设备</span></button></div></div><i class="sp sp-v" style="--v:24px" data-v="24"></i><div class="wp-tool"><div class="input" style="width:240px"><svg class="ic"><use href="#i-search"/></svg><input tabindex="-1" aria-label="搜索设备" placeholder="搜索设备编号"></div><i class="sp sp-h sp--sm" style="--v:8px" data-v="8"></i><div class="input select" style="width:160px"><span class="val">状态：全部</span><svg class="ic tri"><use href="#i-tri-d"/></svg></div><span class="grow"></span><div class="seg" role="group" aria-label="视图"><button type="button" tabindex="-1" aria-pressed="true">卡片</button><button type="button" tabindex="-1" aria-pressed="false">表格</button></div></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="wp-cards"><div class="pad wp-card" style="--v:16px" data-v="16"><div class="in"><span class="wp-eyebrow">运行中</span><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><b>18</b></div></div><i class="sp sp-h sp--sm" style="--v:16px" data-v="16"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">待检修</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>3</b></div></div><i class="sp sp-h sp--sm" style="--v:16px"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">停机</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>1</b></div></div><i class="sp sp-h sp--sm" style="--v:16px"></i><div class="pad wp-card" style="--v:16px"><div class="in"><span class="wp-eyebrow">离线</span><i class="sp sp-v sp--sm" style="--v:4px"></i><b>2</b></div></div></div><i class="sp sp-v" style="--v:32px" data-v="32"></i><h5 class="wp-sec">最近工单</h5><i class="sp sp-v sp--sm" style="--v:12px" data-v="12"></i><div class="wp-rows"><div><span>更换输送带 A-02 托辊</span><code>WO-2611</code></div><div><span>冷却泵 P-11 例行巡检</span><code>WO-2608</code></div><div><span>空压机 K-02 故障复盘</span><code>WO-2597</code></div></div></div></div></div></div></div>
+
+  <h3 class="sub-h">对比 <small>Wrong and right</small></h3>
+  <div class="sp-cmp">
+    <figure><div class="spx is-marked"><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:8px" data-v="8"></i><div class="ci-sub"><b>公告</b>2026.09.30</div><i class="sp sp-v" style="--v:24px" data-v="24"></i><div class="ci-title">北区装配线 10 月停机检修安排</div></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:8px"></i><div class="ci-sub"><b>公告</b>2026.09.28</div><i class="sp sp-v" style="--v:24px"></i><div class="ci-title">冷却系统季度保养完成</div></div></div><figcaption><b>错误</b>：图片与文字 8、文字之间 24、条目之间 16。组内间距大于组间间距，第一条的标题离第二张图更近，归属无法判断。</figcaption></figure>
+    <figure><div class="spx is-marked"><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:16px" data-v="16"></i><div class="ci-sub"><b>公告</b>2026.09.30</div><i class="sp sp-v sp--sm" style="--v:4px" data-v="4"></i><div class="ci-title">北区装配线 10 月停机检修安排</div></div><i class="sp sp-v" style="--v:40px" data-v="40"></i><div class="ci"><div class="ci-img"></div><i class="sp sp-v sp--sm" style="--v:16px"></i><div class="ci-sub"><b>公告</b>2026.09.28</div><i class="sp sp-v sp--sm" style="--v:4px"></i><div class="ci-title">冷却系统季度保养完成</div></div></div><figcaption><b>正确</b>：图片与文字 16、文字之间 4、条目之间 40。由内到外逐层加大，每条信息自成一组。</figcaption></figure>
+  </div>
+
+  <h3 class="sub-h">页边距 <small>Page margins</small></h3>
+  <div class="tbl-wrap"><table class="tok">
+    <thead><tr><th>视口宽度</th><th>工作页</th><th>内容页</th><th>内容页列数</th></tr></thead>
+    <tbody>
+      <tr><td>1920 及以上</td><td>32</td><td>容器 1830 居中</td><td>3</td></tr>
+      <tr><td>1280 至 1919</td><td>32</td><td>32</td><td>3</td></tr>
+      <tr><td>768 至 1279</td><td>24</td><td>24</td><td>2</td></tr>
+      <tr><td>767 及以下</td><td>16</td><td>16</td><td>1</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
 <!-- ================= 交互状态 ================= -->
 <section class="sec" id="states">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">STATES</div>
-    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en"><span>Section 04</span><span>Interaction states</span></span><h2>交互状态</h2></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en"><span>Section 05</span><span>Interaction states</span></span><h2>交互状态</h2></div></div>
     <p class="sec-lead">右侧示例为静态定格，便于对照；页面其余控件均可直接用指针和键盘操作。</p></div>
   <div class="states">
     <div class="st"><div class="st-name"><b>默认</b><span>无交互</span></div>
@@ -1247,20 +1409,20 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="basic">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">ACTIONS</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en"><span>Section 05</span><span>Actions</span></span><h2>基础操作</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en"><span>Section 06</span><span>Actions</span></span><h2>基础操作</h2></div></div></div>
 
   <article class="ctl" id="c-button">
     <div class="ctl-head"><h3>按钮 <small>Button</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：Button（主要）、HomeButton（强调）</span></div>
     <div class="stage">
-      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:700px" role="img" aria-label="按钮结构标注：高 36，左内边距 20，右内边距 16，竖条 2 乘 50%，文字 14 SansMedium，圆角 2">
+      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:212px" role="img" aria-label="按钮结构标注：高 32，最小宽 128，左内边距 20，右内边距 16，竖条 2 乘 50%，文字 14 SansMedium，圆角 2">
         <span class="anat-cap"><span>SCALE 2:1</span><span>PRIMARY MD</span></span>
-        <div class="anat-btn" style="left:100px;top:52px;width:220px;padding-left:16px"><i></i>保存设置</div>
-        <span class="dv" style="left:78px;top:52px;height:72px"></span><span class="dl" style="left:46px;top:81px">36</span>
-        <span class="dh" style="left:100px;top:146px;width:40px"></span><span class="dl" style="left:112px;top:156px">20</span>
-        <span class="dh" style="left:288px;top:146px;width:32px"></span><span class="dl" style="left:296px;top:156px">16</span>
-        <span class="ld" style="left:118px;top:62px;width:262px"></span><span class="dl" style="left:392px;top:55px">竖条 宽 2、高 55%，悬停变为三角；--color-primary-tick</span>
-        <span class="ld" style="left:268px;top:88px;width:112px"></span><span class="dl" style="left:392px;top:81px">文字 14，SansMedium；--color-on-primary</span>
-        <span class="ld" style="left:320px;top:122px;width:60px"></span><span class="dl" style="left:392px;top:115px">圆角 2（悬停 6），纹理 soft-light；--shadow-sm</span>
+        <div class="anat-btn" style="left:100px;top:52px;width:256px"><i></i>保存设置</div>
+        <span class="dv" style="left:78px;top:52px;height:64px"></span><span class="dl" style="left:46px;top:77px">32</span>
+        <span class="dh" style="left:100px;top:138px;width:40px"></span><span class="dl" style="left:112px;top:148px">20</span>
+        <span class="dh" style="left:324px;top:138px;width:32px"></span><span class="dl" style="left:332px;top:148px">16</span><span class="dh" style="left:100px;top:174px;width:256px"></span><span class="dl" style="left:196px;top:184px">最小宽 128</span>
+        <span class="ld" style="left:116px;top:66px;width:276px"></span><span class="dl" style="left:404px;top:59px">竖条 宽 2、高 55%，悬停变为三角；--color-primary-tick</span>
+        <span class="ld" style="left:290px;top:84px;width:102px"></span><span class="dl" style="left:404px;top:77px">文字 13，SansMedium；--color-on-primary</span>
+        <span class="ld" style="left:356px;top:112px;width:36px"></span><span class="dl" style="left:404px;top:105px">圆角 2（悬停 6），纹理 soft-light；--shadow-sm</span>
       </div></div></div>
       <div class="row"><span class="row-label">变体</span><div class="items">
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存设置</span></button><span class="cap">primary 主要</span></div>
@@ -1277,22 +1439,22 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><span class="cap" style="max-width:30ch">用于列表与卡片中的跳转类操作</span></div>
       </div></div>
       <div class="row"><span class="row-label">尺寸</span><div class="items">
-        <div class="item"><button class="btn btn--primary btn--sm" type="button"><span class="lbl">保存</span></button><span class="cap">sm 28</span></div>
-        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><span class="cap">md 36</span></div>
-        <div class="item"><button class="btn btn--primary btn--lg" type="button"><span class="lbl">保存</span></button><span class="cap">lg 44</span></div>
+        <div class="item"><button class="btn btn--primary btn--sm" type="button"><span class="lbl">保存</span></button><span class="cap">sm 24</span></div>
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><span class="cap">md 32</span></div>
+        <div class="item"><button class="btn btn--primary btn--lg" type="button"><span class="lbl">保存</span></button><span class="cap">lg 40</span></div>
         <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建工单</span></button><span class="cap">图标加文字</span></div>
         <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">下一步<svg class="ic ic--arrow"><use href="#i-arrow-r"/></svg></span></button><span class="cap">文字加图标</span></div>
       </div></div>
       <div class="row"><span class="row-label">场景</span><div class="items" style="width:100%"><div class="scn-grid">
-        <div class="scn"><div class="scn-h"><b>sm 28</b><span>密集区域</span></div>
-          <div class="scn-demo"><div class="input input--sm" style="flex:1 1 120px;min-width:0"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索编号" style="min-width:0" placeholder="搜索编号"></div><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">筛选</span></button><button class="btn btn--primary btn--sm" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建</span></button></div>
-          <p>表格工具栏、表格行内操作、卡片底部、筛选条。与 28 高的搜索框和下拉选择同排</p></div>
-        <div class="scn"><div class="scn-h"><b>md 36</b><span>默认尺寸</span></div>
-          <div class="scn-demo"><div class="input" style="flex:1 1 110px;min-width:0"><input aria-label="设备编号" value="EQ-0142" style="min-width:0;width:100%"></div><button class="btn btn--primary" type="button"><span class="lbl">查询</span></button><button class="btn btn--ghost" type="button"><span class="lbl">重置</span></button></div>
-          <p>表单、对话框底部、页面标题区的操作。与 36 高的输入框同排；未特别说明时一律使用此尺寸</p></div>
-        <div class="scn"><div class="scn-h"><b>lg 44</b><span>触屏与单一主流程</span></div>
+        <div class="scn"><div class="scn-h"><b>sm 24</b><span>密集区域</span></div>
+          <div class="scn-demo"><div class="input input--sm" style="flex:1 1 80px;min-width:0"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索编号" style="min-width:0" placeholder="搜索编号"></div><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">筛选</span></button><button class="btn btn--primary btn--sm" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建</span></button></div>
+          <p>表格工具栏、表格行内操作、卡片底部、筛选条。与 24 高的搜索框和下拉选择同排</p></div>
+        <div class="scn"><div class="scn-h"><b>md 32</b><span>默认尺寸</span></div>
+          <div class="scn-demo"><div class="input" style="flex:1 1 80px;min-width:0"><input aria-label="设备编号" value="EQ-0142" style="min-width:0;width:100%"></div><button class="btn btn--primary" type="button"><span class="lbl">查询</span></button><button class="btn btn--ghost" type="button"><span class="lbl">重置</span></button></div>
+          <p>表单、对话框底部、页面标题区的操作。与 32 高的输入框同排；未特别说明时一律使用此尺寸</p></div>
+        <div class="scn"><div class="scn-h"><b>lg 40</b><span>触屏与单一主流程</span></div>
           <div class="scn-demo"><div class="input input--lg" style="width:100%"><input aria-label="巡检备注" placeholder="巡检备注"></div><button class="btn btn--primary btn--lg" type="button" style="width:100%"><span class="lbl">提交巡检结果</span></button></div>
-          <p>移动端底部操作栏、登录与首次设置页、空状态中的唯一主操作。44 是触控目标的最小边长</p></div>
+          <p>移动端底部操作栏、登录与首次设置页、空状态中的唯一主操作；触屏上通栏显示</p></div>
       </div><p class="scn-rule">规则：同一行内的按钮与输入框高度一致；一个页面只混用相邻两档。</p></div></div>
       <div class="row"><span class="row-label">状态</span><div class="items">
         <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">默认</span></button><span class="cap">default</span></div>
@@ -1303,7 +1465,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><button class="btn btn--primary is-loading" type="button" aria-busy="true"><span class="lbl">加载中</span><span class="spin" aria-hidden="true"></span></button><span class="cap">loading</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28、36、44；水平内边距 12、16、20；字号 13、14、16；胶囊按钮高 36、全圆角，左侧 18px 短线，右侧 26px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角从 2px 变为 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90 度，箭头悬停右移 3px，刷新点击转一周</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 24、32、40；最小宽度为高度的 4 倍（96、128、160），保持细长比例，文字居中；水平内边距 12、16、20；字号 12、13、14；胶囊按钮高 32、最小宽 144、全圆角，左侧 18px 短线，右侧 22px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角从 2px 变为 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90 度，箭头悬停右移 3px，刷新点击转一周</dd>
       <dt>Token</dt><dd><code>--color-primary --color-primary-hover --color-primary-active --color-primary-tick --color-accent --color-accent-hover --color-accent-active --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Enter</kbd> 或 <kbd class="k">Space</kbd> 触发；加载中不响应重复触发</dd></dl>
   </article>
@@ -1320,9 +1482,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><button class="btn btn--secondary ibtn is-pressed" type="button" aria-pressed="true" aria-label="网格视图"><svg class="ic"><use href="#i-grid"/></svg></button><span class="cap">toggle 已按下</span></div>
       </div></div>
       <div class="row"><span class="row-label">尺寸</span><div class="items">
-        <div class="item"><button class="btn btn--secondary ibtn btn--sm" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"/></svg></button><span class="cap">28</span></div>
-        <div class="item"><button class="btn btn--secondary ibtn" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"/></svg></button><span class="cap">36</span></div>
-        <div class="item"><button class="btn btn--secondary ibtn btn--lg" type="button" aria-label="复制"><svg class="ic ic--lg"><use href="#i-copy"/></svg></button><span class="cap">44</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn btn--sm" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"/></svg></button><span class="cap">24</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn" type="button" aria-label="复制"><svg class="ic"><use href="#i-copy"/></svg></button><span class="cap">32</span></div>
+        <div class="item"><button class="btn btn--secondary ibtn btn--lg" type="button" aria-label="复制"><svg class="ic ic--lg"><use href="#i-copy"/></svg></button><span class="cap">40</span></div>
         <div class="item"><button class="btn btn--secondary ibtn" type="button" disabled aria-label="复制"><svg class="ic"><use href="#i-copy"/></svg></button><span class="cap">disabled</span></div>
       </div></div>
       <div class="row"><span class="row-label">关闭</span><div class="items">
@@ -1340,7 +1502,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><span class="cap" style="max-width:26ch">圆形保留源站样式，仅用于轮播与图集翻页</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形关闭与返回 32，1.5px 墨色描边，悬停填充墨色、关闭符号转 90 度，深色面上为白色实心；提醒角标为 9px 橙色菱形 #fb7803，位于右上角；方形 28、36、44，图标 16、16、20；圆形 36、44，双描边 3px加2px；无文字时必须有 aria-label 与悬浮说明</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>圆形关闭与返回 32，1.5px 墨色描边，悬停填充墨色、关闭符号转 90 度，深色面上为白色实心；提醒角标为 9px 橙色菱形 #fb7803，位于右上角；方形 24、32、40，图标 16、16、20；圆形 36、44，按源站 Pagination 圆钮结构：以直径的 1/4.625 为单位 u，外沿 0.25u 白圈叠在 0.375u 灰圈上，箭头宽 1.125u、高 1.6875u，左箭头距左 1.75u、右箭头距左 1.9375u，阴影 0.625u；无文字时必须有 aria-label 与悬浮说明</dd>
       <dt>Token</dt><dd><code>同按钮 --radius-full --shadow-sm --color-checked（切换型）</code></dd>
       <dt>键盘</dt><dd>同按钮；切换型按 <kbd class="k">Space</kbd> 切换按下状态（<code>aria-pressed</code>）</dd></dl>
   </article>
@@ -1367,23 +1529,23 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="form">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">INPUT</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en"><span>Section 06</span><span>Form input</span></span><h2>表单输入</h2></div></div><p class="sec-lead">源站没有任何表单控件，本组全部新做。边框保持近直角 2px，选中类控件沿用"墨底黄标"。</p></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-pumper.png" alt="" style="width:150px;height:144px"><div class="band-tx" style="--art:150px"><span class="band-en"><span>Section 07</span><span>Form input</span></span><h2>表单输入</h2></div></div><p class="sec-lead">源站没有任何表单控件，本组全部新做。边框保持近直角 2px，选中类控件沿用"墨底黄标"。</p></div>
 
   <article class="ctl" id="c-input">
     <div class="ctl-head"><h3>单行文本框 <small>Text field</small></h3><span class="prov prov--new">新增</span></div>
     <div class="stage">
-      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:220px" role="img" aria-label="文本框结构标注：标签 13 Medium，间距 4，高 36，内边距 12，边框 1，说明 13">
+      <div class="row"><span class="row-label">结构</span><div class="items anat-wrap" style="width:100%"><div class="anat" style="width:760px;height:220px" role="img" aria-label="文本框结构标注：标签 13 Medium，间距 4，高 32，内边距 12，边框 1，说明 13">
         <span class="anat-cap"><span>SCALE 2:1</span><span>MD</span></span>
         <span class="anat-lbl" style="left:100px;top:22px">设备名称</span>
         <div class="anat-in" style="left:100px;top:64px;width:280px">EQ-0000</div>
-        <span class="anat-help" style="left:100px;top:150px">名称不可重复</span>
-        <span class="dv" style="left:78px;top:64px;height:72px"></span><span class="dl" style="left:46px;top:93px">36</span>
+        <span class="anat-help" style="left:100px;top:142px">名称不可重复</span>
+        <span class="dv" style="left:78px;top:64px;height:64px"></span><span class="dl" style="left:46px;top:89px">32</span>
         <span class="dv" style="left:78px;top:48px;height:16px"></span><span class="dl" style="left:52px;top:49px">4</span>
-        <span class="dh" style="left:102px;top:192px;width:22px"></span><span class="dl" style="left:106px;top:200px">12</span>
+        <span class="dh" style="left:102px;top:184px;width:22px"></span><span class="dl" style="left:106px;top:192px">12</span>
         <span class="ld" style="left:208px;top:35px;width:212px"></span><span class="dl" style="left:432px;top:28px">标签 13，SansMedium，与输入框间距 4</span>
         <span class="ld" style="left:380px;top:80px;width:40px"></span><span class="dl" style="left:432px;top:73px">边框 1，#858585，聚焦 #191919 加 1px 内描边</span>
-        <span class="ld" style="left:232px;top:106px;width:188px"></span><span class="dl" style="left:432px;top:99px">值 14，占位 #666，圆角 2</span>
-        <span class="ld" style="left:268px;top:163px;width:152px"></span><span class="dl" style="left:432px;top:156px">说明 13，#666，与输入框间距 4</span>
+        <span class="ld" style="left:256px;top:96px;width:164px"></span><span class="dl" style="left:432px;top:89px">值 14，占位 #666，圆角 2</span>
+        <span class="ld" style="left:268px;top:155px;width:152px"></span><span class="dl" style="left:432px;top:148px">说明 13，#666，与输入框间距 4</span>
       </div></div></div>
       <div class="row"><span class="row-label">变体</span><div class="items">
         <div class="field"><label class="field-label" for="f1">设备名称<span class="req">必填</span></label><div class="input"><input id="f1" placeholder="例如：输送带 A-02"></div><div class="field-help">名称在同一区域内不可重复</div></div>
@@ -1392,9 +1554,9 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="field"><label class="field-label" for="f4">备注编号</label><div class="input input--filled"><input id="f4" placeholder="ID-000000"></div><div class="field-help">filled 填充型，用于表格内与工具栏</div></div>
       </div></div>
       <div class="row"><span class="row-label">尺寸</span><div class="items">
-        <div class="item"><div class="input input--sm" style="width:180px"><input aria-label="sm" placeholder="sm 28"></div></div>
-        <div class="item"><div class="input" style="width:180px"><input aria-label="md" placeholder="md 36"></div></div>
-        <div class="item"><div class="input input--lg" style="width:180px"><input aria-label="lg" placeholder="lg 44"></div></div>
+        <div class="item"><div class="input input--sm" style="width:180px"><input aria-label="sm" placeholder="sm 24"></div></div>
+        <div class="item"><div class="input" style="width:180px"><input aria-label="md" placeholder="md 32"></div></div>
+        <div class="item"><div class="input input--lg" style="width:180px"><input aria-label="lg" placeholder="lg 40"></div></div>
       </div></div>
       <div class="row"><span class="row-label">状态</span><div class="items">
         <div class="field" style="width:200px"><span class="cap">hover</span><div class="input is-hover"><input aria-label="hover" placeholder="设备编号"></div></div>
@@ -1404,7 +1566,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="field" style="width:200px"><span class="cap">readonly</span><div class="input is-readonly"><input aria-label="readonly" value="EQ-0142" readonly></div></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 28、36、44；内边距 8、12、12；标签 13px 在上，说明与错误 13px 在下，间距均为 4</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 24、32、40；内边距 8、12、12；标签 13px 在上，说明与错误 13px 在下，间距均为 4</dd>
       <dt>Token</dt><dd><code>--color-bg-page --color-border-control --color-border-strong --color-text-secondary --color-error --color-bg-disabled --radius-sm</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 或 <kbd class="k">Shift</kbd>加<kbd class="k">Tab</kbd> 切换焦点；清除按钮可单独聚焦，<kbd class="k">Enter</kbd> 清空</dd></dl>
   </article>
@@ -1533,7 +1695,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="feedback">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">FEEDBACK</div>
-    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en"><span>Section 07</span><span>Feedback</span></span><h2>反馈与提示</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/section_divider_icon_lore.png" alt="" style="width:238px;height:120px"><div class="band-tx" style="--art:238px"><span class="band-en"><span>Section 08</span><span>Feedback</span></span><h2>反馈与提示</h2></div></div></div>
 
   <article class="ctl" id="c-toast">
     <div class="ctl-head"><h3>轻提示 <small>Toast</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：Toast（rgba 黑底居中）</span></div>
@@ -1686,7 +1848,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
 <section class="sec" id="navigation">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">NAVIGATION</div>
-    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en"><span>Section 08</span><span>Navigation</span></span><h2>导航</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/tower-bottom.png" alt="" style="width:150px;height:164px"><div class="band-tx" style="--art:150px"><span class="band-en"><span>Section 09</span><span>Navigation</span></span><h2>导航</h2></div></div></div>
 
   <article class="ctl" id="c-tabs">
     <div class="ctl-head"><h3>标签页 <small>Tabs</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：SubpageTab（区块）、Selector（分段）</span></div>
@@ -1711,7 +1873,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
           <button class="tab" type="button" role="tab" aria-selected="false">全部</button>
           <button class="tab" type="button" role="tab" aria-selected="true">进行中</button>
           <button class="tab" type="button" role="tab" aria-selected="false">已关闭</button>
-        </div><span class="cap">md 36、lg 44，指示条 2px</span></div></div>
+        </div><span class="cap">md 32、lg 40，指示条 2px</span></div></div>
       <div class="row"><span class="row-label">区块</span><div class="items"><div class="btabs" role="tablist" data-tabs>
         <button class="btab" type="button" role="tab" aria-selected="true">设备档案<span class="arr"><svg class="ic"><use href="#i-chev-r"/></svg></span></button><span class="div"></span>
         <button class="btab" type="button" role="tab" aria-selected="false">保养计划<span class="arr"><svg class="ic"><use href="#i-chev-r"/></svg></span></button><span class="div"></span>
@@ -1721,7 +1883,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="item"><div class="seg" role="group" aria-label="视图" data-seg><button type="button" aria-pressed="true" aria-label="列表"><svg class="ic" style="vertical-align:-3px"><use href="#i-list"/></svg></button><button type="button" aria-pressed="false" aria-label="网格"><svg class="ic" style="vertical-align:-3px"><use href="#i-grid"/></svg></button></div><span class="cap">图标分段</span></div>
       </div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>主标签高 48、最小宽 132，图标 20加文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 宽 2、高 10 墨色短竖线，两端显示 Q、E 按键提示，有新内容时右上角显示 9px 橙色菱形；线型 36、44，水平内边距 12、16；区块 44，源站样式，用于切换子页面；分段 32，内边距 2</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>主标签高 48、最小宽 132，图标 20加文字 17 Medium，项之间 1px 竖线，选中为纯黄色块、两端内侧各一道 宽 2、高 10 墨色短竖线，两端显示 Q、E 按键提示，有新内容时右上角显示 9px 橙色菱形；线型 32、40，水平内边距 12、16；区块 44，源站样式，用于切换子页面；分段 32，内边距 2</dd>
       <dt>Token</dt><dd><code>--color-text-secondary --color-text-primary --color-checked --color-on-checked --color-bg-muted --color-state-hover</code></dd>
       <dt>键盘</dt><dd><kbd class="k" aria-label="左方向键"><svg class="ic"><use href="#k-left"/></svg></kbd><kbd class="k" aria-label="右方向键"><svg class="ic"><use href="#k-right"/></svg></kbd> 切换，<kbd class="k">Home</kbd> 或 <kbd class="k">End</kbd> 跳到首尾；主标签栏获得焦点时也可用 <kbd class="k">Q</kbd> 或 <kbd class="k">E</kbd> 切换；只有选中项在 Tab 顺序中</dd></dl>
   </article>
@@ -1761,17 +1923,29 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   </article>
 
   <article class="ctl" id="c-nav">
-    <div class="ctl-head"><h3>导航栏 <small>Sidebar and top bar</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NavSidebar（黑色指示条）</span></div>
+    <div class="ctl-head"><h3>侧边导航 <small>Sidebar</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NavSidebar（黑色指示条）</span></div>
     <div class="stage">
-      <div class="app">
+      <div class="row"><span class="row-label">元素</span><div class="items" style="width:100%"><div class="sn-parts">
+          <div class="snp-card"><div class="snp-h">标识区<span class="need is-req">必需</span></div><div class="snp-pair"><div class="snp" style="height:64px" aria-hidden="true"><div class="sn"><div class="sn-head"><button class="sn-toggle" type="button" tabindex="-1" aria-hidden="true"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div></div></div><div class="snp snp--open" style="height:64px" aria-hidden="true"><div class="sn is-open"><div class="sn-head"><button class="sn-toggle" type="button" tabindex="-1" aria-hidden="true"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div></div></div></div><p>左上角黄色标记兼作固定展开开关；展开后显示产品名。高 64，始终位于顶部。</p></div>
+          <div class="snp-card"><div class="snp-h">导航项<span class="need is-req">必需</span></div><div class="snp-pair"><div class="snp" style="height:148px" aria-hidden="true"><div class="sn"><div class="sn-list"><span class="sn-ind"></span><span class="sn-item"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></span><span class="sn-item" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></span><span class="sn-item is-hover"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="badge" aria-label="有新内容"></span><span class="sn-tx">工单</span></span></div></div></div><div class="snp snp--open" style="height:148px" aria-hidden="true"><div class="sn is-open"><div class="sn-list"><span class="sn-ind"></span><span class="sn-item"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></span><span class="sn-item" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></span><span class="sn-item is-hover"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="badge" aria-label="有新内容"></span><span class="sn-tx">工单</span></span></div></div></div></div><p>依次为默认、当前、悬停加提醒角标。项高 44，同一时刻只有一个当前项；指示块随当前项移动。</p></div>
+          <div class="snp-card"><div class="snp-h">分组标题<span class="need">可选</span></div><div class="snp-pair"><div class="snp" style="height:160px" aria-hidden="true"><div class="sn"><div class="sn-list"><span class="sn-ind"></span><div class="sn-group" role="presentation"><span>运维</span></div><span class="sn-item" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></span><div class="sn-group" role="presentation"><span>管理</span></div><span class="sn-item"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></span></div></div></div><div class="snp snp--open" style="height:160px" aria-hidden="true"><div class="sn is-open"><div class="sn-list"><span class="sn-ind"></span><div class="sn-group" role="presentation"><span>运维</span></div><span class="sn-item" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></span><div class="sn-group" role="presentation"><span>管理</span></div><span class="sn-item"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></span></div></div></div></div><p>导航项超过 6 个时使用。高 28；收起时显示为 1px 短线，展开时显示组名。</p></div>
+          <div class="snp-card"><div class="snp-h">底部工具区<span class="need">可选</span></div><div class="snp-pair"><div class="snp" style="height:112px" aria-hidden="true"><div class="sn"><div class="sn-cap"><button class="sn-cbtn" type="button" aria-label="账户"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="sn-tx">账户</span></button><button class="sn-cbtn" type="button" aria-label="设置"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span class="sn-tx">设置</span></button></div></div></div><div class="snp snp--open" style="height:112px" aria-hidden="true"><div class="sn is-open"><div class="sn-cap"><button class="sn-cbtn" type="button" aria-label="账户"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="sn-tx">账户</span></button><button class="sn-cbtn" type="button" aria-label="设置"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span class="sn-tx">设置</span></button></div></div></div></div><p>放账户与设置等全局入口，1 至 3 个按钮，贴底 16。没有全局入口时整块省略。</p></div>
+        </div></div></div>
+      <div class="row"><span class="row-label">组合</span><div class="items" style="width:100%;flex-direction:column;align-items:stretch"><div class="sn-combos"><div class="sn-combo"><div class="app app--sm"><nav class="sn" aria-label="主导航" data-sn><div class="sn-head"><button class="sn-toggle" type="button" aria-expanded="false" aria-label="展开导航"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div><div class="sn-list"><span class="sn-ind" aria-hidden="true"></span><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></a><a class="sn-item" href="#c-nav" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="sn-tx">工单</span></a></div></nav><div class="app-main"><header class="topbar"><div class="title"><b>北区装配线</b></div></header><div class="app-body" aria-hidden="true"><span class="skel" style="width:50%;height:12px"></span><span class="skel" style="width:100%;height:64px"></span><span class="skel" style="width:100%;height:120px"></span></div></div></div><span class="cap">最少：标识区加 3 个导航项，无底部工具区</span></div><div class="sn-combo"><div class="app app--sm"><nav class="sn" aria-label="主导航" data-sn><div class="sn-head"><button class="sn-toggle" type="button" aria-expanded="false" aria-label="展开导航"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div><div class="sn-list"><span class="sn-ind" aria-hidden="true"></span><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></a><a class="sn-item" href="#c-nav" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="badge" aria-label="有新内容"></span><span class="sn-tx">工单</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-calendar"/></svg><span class="sn-tx">排班</span></a></div><div class="sn-cap"><button class="sn-cbtn" type="button" aria-label="账户"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="sn-tx">账户</span></button><button class="sn-cbtn" type="button" aria-label="设置"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span class="sn-tx">设置</span></button></div></nav><div class="app-main"><header class="topbar"><div class="title"><b>北区装配线</b></div></header><div class="app-body" aria-hidden="true"><span class="skel" style="width:50%;height:12px"></span><span class="skel" style="width:100%;height:64px"></span><span class="skel" style="width:100%;height:120px"></span></div></div></div><span class="cap">标准：5 个导航项加底部工具区（账户、设置）</span></div><div class="sn-combo"><div class="app app--sm"><nav class="sn" aria-label="主导航" data-sn><div class="sn-head"><button class="sn-toggle" type="button" aria-expanded="false" aria-label="展开导航"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div><div class="sn-list"><span class="sn-ind" aria-hidden="true"></span><div class="sn-group" role="presentation"><span>运维</span></div><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></a><a class="sn-item" href="#c-nav" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="sn-tx">工单</span></a><div class="sn-group" role="presentation"><span>管理</span></div><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></a><a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-calendar"/></svg><span class="sn-tx">排班</span></a></div><div class="sn-cap"><button class="sn-cbtn" type="button" aria-label="设置"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span class="sn-tx">设置</span></button></div></nav><div class="app-main"><header class="topbar"><div class="title"><b>北区装配线</b></div></header><div class="app-body" aria-hidden="true"><span class="skel" style="width:50%;height:12px"></span><span class="skel" style="width:100%;height:64px"></span><span class="skel" style="width:100%;height:120px"></span></div></div></div><span class="cap">分组：两组共 5 项，底部工具区只有设置</span></div></div><ul class="rules">
+          <li>标识区与导航列表必需；分组标题与底部工具区可选，省略时不留空位，列表与其余元素位置不变。</li>
+          <li>导航列表 2 至 8 项，超过 6 项时分组；更多入口放到二级页面，不继续加长侧栏。</li>
+          <li>列表从顶部 72 开始，项高 44；底部工具区贴底 16，与列表之间至少留 16，空间不足时列表滚动、底部工具区固定。</li>
+          <li>收起宽 64 与展开宽 224 对所有组合相同；展开面板覆盖内容，不推挤页面。</li>
+        </ul></div></div>
+      <div class="row"><span class="row-label">整页</span><div class="items" style="width:100%;flex-direction:column;align-items:stretch"><div class="app">
         <nav class="sn" aria-label="主导航" data-sn>
           <div class="sn-head"><button class="sn-toggle" type="button" aria-expanded="false" aria-label="展开导航"><span class="mark"></span></button><span class="sn-name">Ops Console</span></div>
-          <div class="sn-list" style="--at:1"><span class="sn-ind" aria-hidden="true"></span>
-        <a class="sn-item" href="#c-nav" style="--i:0"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></a>
-        <a class="sn-item" href="#c-nav" style="--i:1" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></a>
-        <a class="sn-item" href="#c-nav" style="--i:2"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="sn-tx">工单</span></a>
-        <a class="sn-item" href="#c-nav" style="--i:3"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></a>
-        <a class="sn-item" href="#c-nav" style="--i:4"><svg class="sn-ic" aria-hidden="true"><use href="#n-calendar"/></svg><span class="sn-tx">排班</span></a>
+          <div class="sn-list"><span class="sn-ind" aria-hidden="true"></span>
+        <a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-home"/></svg><span class="sn-tx">总览</span></a>
+        <a class="sn-item" href="#c-nav" aria-current="page"><svg class="sn-ic" aria-hidden="true"><use href="#n-operator"/></svg><span class="sn-tx">设备</span></a>
+        <a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-notice"/></svg><span class="sn-tx">工单</span></a>
+        <a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-lore"/></svg><span class="sn-tx">归档</span></a>
+        <a class="sn-item" href="#c-nav"><svg class="sn-ic" aria-hidden="true"><use href="#n-calendar"/></svg><span class="sn-tx">排班</span></a>
           </div>
           <div class="sn-cap">
             <button class="sn-cbtn" type="button" aria-label="账户"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="sn-tx">账户</span></button>
@@ -1781,7 +1955,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
         <div class="app-main">
           <header class="topbar">
             <div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-nav">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区装配线</b></div>
-            <div class="input input--sm search"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索设备" placeholder="搜索设备编号"></div>
+            <div class="input search"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索设备" placeholder="搜索设备编号"></div>
             <span class="tip-host"><button class="btn btn--ghost ibtn btn--sm" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><span class="tip tip--below" role="tooltip">刷新</span></span>
             <button class="av" style="--s:28px" type="button" aria-label="账户：周工">周</button>
           </header>
@@ -1791,20 +1965,40 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
             <span class="skel" style="width:100%;height:160px"></span>
           </div>
         </div>
-      </div>
-      <p class="cap" style="margin:0">指针移入左侧栏或用 Tab 聚焦时展开，移出后收起；点击左上角标记可固定展开。点击导航项，指示块平移到该项。</p>
+      </div><p class="cap" style="margin:0">侧边导航与顶栏组合。指针移入左侧栏或用 Tab 聚焦时展开，移出后收起；点击左上角标记可固定展开。点击导航项，指示块平移到该项。</p></div></div>
     </div>
-    <dl class="ctl-spec"><dt>尺寸</dt><dd>收起 64，展开 224；导航项高 44，图标 22（源站图标），文字 15 Medium；指示块为 6px 墨色左边加#e6e6e6 底（深色为黄色左边加#35373c 底），收起宽 56、展开宽 216；图标默认 #d9d9d9，悬停 #858585，当前 #191919；展开时面板覆盖内容并带 0 0 8px 阴影；底部胶囊宽 40、全圆角，展开后宽 200、圆角 4；过渡均为 0.3s</dd>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>收起 64，展开 224；标识区高 64；导航项高 44，分组标题高 28，图标 22（源站图标），文字 15 Medium；指示块为 6px 墨色左边加#e6e6e6 底（深色为黄色左边加#35373c 底），收起宽 56、展开宽 216；图标默认 #d9d9d9，悬停 #858585，当前 #191919；展开时面板覆盖内容并带 0 0 8px 阴影；底部胶囊宽 40、全圆角，展开后宽 200、圆角 4；过渡均为 0.3s</dd>
       <dt>Token</dt><dd><code>--nav-icon --nav-icon-hover --nav-indicator --nav-bar --nav-hover --nav-capsule --shadow-panel --duration-slow</code></dd>
       <dt>键盘</dt><dd><kbd class="k">Tab</kbd> 进入侧栏即展开，在导航项之间移动，<kbd class="k">Enter</kbd> 打开；焦点离开侧栏后收起；当前页标注 <code>aria-current="page"</code></dd></dl>
   </article>
+  <article class="ctl" id="c-topbar">
+    <div class="ctl-head"><h3>顶栏 <small>Top bar</small></h3><span class="prov prov--new">新增</span></div>
+    <div class="stage">
+      <div class="row"><span class="row-label">槽位</span><div class="items" style="width:100%"><div class="tb-slots"><header class="topbar"><div class="title slot" data-slot="标题区（必需）"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区装配线</b></div><div class="input search slot" data-slot="搜索（可选）"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索设备" placeholder="搜索设备编号"></div><div class="acts slot" data-slot="操作（0 至 3 个）"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><button class="btn btn--primary" type="button"><span class="lbl">导出</span></button></div><span class="slot" data-slot="账户（可选）" style="display:inline-flex"><button class="av" style="--s:28px" type="button" aria-label="账户：周工">周</button></span></header></div></div></div>
+      <div class="row"><span class="row-label">组合</span><div class="items" style="width:100%;flex-direction:column;align-items:stretch;gap:24px">
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><b>设备总览</b></div></header></div><span class="cap">只有标题区</span></div>
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区装配线</b></div><div class="acts"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><button class="btn btn--primary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"/></svg>新建设备</span></button></div></header></div><span class="cap">标题区带面包屑，操作区为刷新与一个主要按钮</span></div>
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">设备</a></li><li><span aria-current="page">北区</span></li></ol><b>北区装配线</b></div><div class="input search"><svg class="ic"><use href="#i-search"/></svg><input aria-label="搜索设备" placeholder="搜索设备编号"></div><div class="acts"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"/></svg></button><button class="btn btn--ghost ibtn" type="button" aria-label="参数设置"><svg class="ic"><use href="#i-sliders"/></svg></button></div><button class="av" style="--s:28px" type="button" aria-label="账户：周工">周</button></header></div><span class="cap">完整：标题区、搜索、两个图标操作、账户</span></div>
+        <ul class="rules">
+          <li>槽位从左到右固定为标题区、搜索、操作、账户；缺省的槽位直接省略，其余槽位位置不变。</li>
+          <li>标题区占满剩余宽度，标题过长时截断；有上级页面时在标题上方放面包屑。</li>
+          <li>操作区最多 3 个，图标按钮在前、文字按钮在后，至多一个主要按钮，间距 8。</li>
+          <li>侧边导航已有账户入口时，顶栏不再放账户。</li>
+        </ul>
+      </div></div>
+    </div>
+    <dl class="ctl-spec"><dt>尺寸</dt><dd>高 56，左右内边距 16，槽位间距 16；标题 16 Medium，面包屑 12；搜索框 md 32、宽 220；操作区按钮 md 32；账户头像 28；底部 1px 分隔线</dd>
+      <dt>Token</dt><dd><code>--color-bg-page --color-border-subtle --color-text-primary --size-control-md</code></dd>
+      <dt>键盘</dt><dd>顶栏使用 <code>header</code> 元素；<kbd class="k">Tab</kbd> 顺序与槽位顺序一致</dd></dl>
+  </article>
+
 </section>
 
 <!-- ================= 内容展示 ================= -->
 <section class="sec" id="display">
   <div class="bp-head">
     <div class="hollow" aria-hidden="true">DISPLAY</div>
-    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en"><span>Section 09</span><span>Data display</span></span><h2>内容展示</h2></div></div></div>
+    <div class="band"><img class="band-art" src="assets/textures/subpage-title-bolt.png" alt="" style="width:206px;height:140px"><div class="band-tx" style="--art:206px"><span class="band-en"><span>Section 10</span><span>Data display</span></span><h2>内容展示</h2></div></div></div>
 
   <article class="ctl" id="c-card">
     <div class="ctl-head"><h3>卡片 <small>Card</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：NoticeCard；标签与标题的中英配对来自 SectionTitle</span></div>
@@ -1846,20 +2040,20 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   <article class="ctl" id="c-avatar">
     <div class="ctl-head"><h3>头像 <small>Avatar</small></h3><span class="prov prov--mod">源站改造</span><span class="ctl-src">来源：AvatarChip</span></div>
     <div class="stage">
-      <div class="row"><span class="row-label">尺寸</span><div class="items" style="align-items:center">
-        <div class="item" style="align-items:center"><span class="av" style="--s:24px">周</span><span class="cap">24</span></div>
-        <div class="item" style="align-items:center"><span class="av" style="--s:32px">周</span><span class="cap">32</span></div>
-        <div class="item" style="align-items:center"><span class="av" style="--s:40px">周</span><span class="cap">40</span></div>
-        <div class="item" style="align-items:center"><span class="av" style="--s:64px">周</span><span class="cap">64</span></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item" style="justify-items:center"><span class="av" style="--s:24px">周</span><span class="cap">24</span></div>
+        <div class="item" style="justify-items:center"><span class="av" style="--s:32px">周</span><span class="cap">32</span></div>
+        <div class="item" style="justify-items:center"><span class="av" style="--s:40px">周</span><span class="cap">40</span></div>
+        <div class="item" style="justify-items:center"><span class="av" style="--s:64px">周</span><span class="cap">64</span></div>
       </div></div>
-      <div class="row"><span class="row-label">变体</span><div class="items" style="align-items:center">
-        <div class="item" style="align-items:center"><span class="av av--img" role="img" aria-label="头像图片"></span><span class="cap">图片</span></div>
-        <div class="item" style="align-items:center"><span class="av">林</span><span class="cap">文字</span></div>
-        <div class="item" style="align-items:center"><span class="av" role="img" aria-label="未设置头像"><svg class="ic"><use href="#i-user"/></svg></span><span class="cap">占位</span></div>
-        <div class="item" style="align-items:center"><span class="av">陈<span class="dotst" aria-label="在线"></span></span><span class="cap">在线</span></div>
-        <div class="item" style="align-items:center"><span class="av">吴<span class="dotst off" aria-label="离线"></span></span><span class="cap">离线</span></div>
-        <div class="item" style="align-items:center"><button class="av is-hover" type="button" aria-label="账户：周工">周</button><span class="cap">可点击 hover</span></div>
-        <div class="item" style="align-items:center"><div class="av-stack"><span class="av" style="--s:32px">周</span><span class="av" style="--s:32px">林</span><span class="av" style="--s:32px">陈</span><span class="av more" style="--s:32px" role="img" aria-label="另外 4 人"><svg class="ic"><use href="#i-more"/></svg></span></div><span class="cap">堆叠</span></div>
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <div class="item" style="justify-items:center"><span class="av av--img" role="img" aria-label="头像图片"></span><span class="cap">图片</span></div>
+        <div class="item" style="justify-items:center"><span class="av">林</span><span class="cap">文字</span></div>
+        <div class="item" style="justify-items:center"><span class="av" role="img" aria-label="未设置头像"><svg class="ic"><use href="#i-user"/></svg></span><span class="cap">占位</span></div>
+        <div class="item" style="justify-items:center"><span class="av">陈<span class="dotst" aria-label="在线"></span></span><span class="cap">在线</span></div>
+        <div class="item" style="justify-items:center"><span class="av">吴<span class="dotst off" aria-label="离线"></span></span><span class="cap">离线</span></div>
+        <div class="item" style="justify-items:center"><button class="av is-hover" type="button" aria-label="账户：周工">周</button><span class="cap">可点击 hover</span></div>
+        <div class="item" style="justify-items:center"><div class="av-stack"><span class="av" style="--s:32px">周</span><span class="av" style="--s:32px">林</span><span class="av" style="--s:32px">陈</span><span class="av more" style="--s:32px" role="img" aria-label="另外 4 人"><svg class="ic"><use href="#i-more"/></svg></span></div><span class="cap">堆叠</span></div>
       </div></div>
     </div>
     <dl class="ctl-spec"><dt>尺寸</dt><dd>24、32、40、64，圆形；文字为直径的 40%；状态点为 10px 方块，1px 墨色描边，外围 2px 页面底色</dd>
@@ -2110,8 +2304,10 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
     tg.addEventListener('click',function(){pinned=!pinned;set(pinned)});
     list.addEventListener('click',function(e){var a=e.target.closest('.sn-item');if(!a)return;e.preventDefault();
       list.querySelectorAll('.sn-item').forEach(function(x){if(x===a)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});
-      list.style.setProperty('--at',a.style.getPropertyValue('--i'))});
+      list.style.setProperty('--y',a.offsetTop+'px')});
   });
+  /* 指示块定位到当前项（含静态拆解示例） */
+  document.querySelectorAll('.sn-list').forEach(function(list){var c=list.querySelector('.sn-item[aria-current]');if(c)list.style.setProperty('--y',c.offsetTop+'px')});
   /* ---- 刷新图标：点击转一周 ---- */
   document.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var ic=b.querySelector('.ic--refresh');if(!ic)return;
     ic.classList.remove('is-turning');void ic.getBoundingClientRect();ic.classList.add('is-turning')});
@@ -2137,7 +2333,7 @@ kbd.k{display:inline-block;min-width:20px;padding:0 5px;margin:0 2px;border:1px 
   })});
 
   /* ---- HTML 结构 ---- */
-  var SNIP={'c-loader':'[data-ldr]','c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-rpill':'.rpill','c-badge':'.ipill'};
+  var SNIP={'c-topbar':'.tb-frame .topbar','c-loader':'[data-ldr]','c-button':'.btn--primary','c-ibtn':'.tip-host','c-link':'.prose','c-input':'.field','c-textarea':'.field','c-select':'.field','c-check':'.opt-group','c-radio':'.opt-group','c-switch':'.switch','c-toast':'.toast--success','c-alert':'.alert--warning','c-dialog':'.dialog--danger','c-tip':'.tip-host','c-loading':'.spin','c-progress':'.prog','c-tabs':'.tabs','c-pager':'[data-pager]','c-crumbs':'nav','c-nav':'.sn','c-card':'.card--link','c-tag':'.tag--success','c-avatar':'.av','c-list':'.li--2','c-table':'.dt tbody tr','c-divider':'.hr-sec','c-empty':'.empty','c-rpill':'.rpill','c-badge':'.ipill'};
   function fmt(html){
     var tk=html.replace(/>\s+</g,'><').split(/(<[^>]+>)/).filter(function(t){return t.trim()}),m=[];
     for(var i=0;i<tk.length;i++){
@@ -2205,5 +2401,14 @@ document.querySelectorAll('[data-pcap]').forEach(function(c){
     list.forEach(function(l){io.observe(l)});
   }else list.forEach(run);
   document.querySelectorAll('[data-ldr-replay]').forEach(function(b){b.addEventListener('click',function(){b.closest('.ctl').querySelectorAll('[data-ldr]').forEach(run)})});
+})();
+
+/* 间距样例：按容器宽度等比缩放；标注开关 */
+(function(){
+  var list=[].slice.call(document.querySelectorAll('.spx[data-w]'));
+  function fit(){list.forEach(function(x){x.style.setProperty('--z',Math.min(1,x.clientWidth/ +x.dataset.w))})}
+  fit();window.addEventListener('resize',fit);
+  var t=document.querySelector('[data-sp-toggle]');
+  if(t)t.addEventListener('change',function(){document.querySelectorAll('#spacing .spx').forEach(function(x){x.classList.toggle('is-marked',t.checked)})});
 })();
 </script>
