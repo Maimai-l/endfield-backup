@@ -8,18 +8,21 @@
 
 ## 使用方提供
 
-`table.dt`；全选框 `data-all`，行选择框 `data-row`；可排序表头 `button.sort`；密度切换 `[data-density]`。
+`table.dt`，外层 `.tbl-wrap`；全选框 `data-all`，行选择框 `data-row`；可排序表头 `button.sort`；密度切换 `[data-density]`；次要列加 `c-opt`（容器窄于 720 时隐藏），再次要的列加 `c-opt2`（窄于 560 时隐藏）；进度单元格 `.meter`，内含轨道 `i` 与数值 `b`。
 
 ## 规则
 
-- 数字列右对齐，等宽数字。
-- 选中行为 `color-bg-selected` 底加左侧 3px 竖条。
-- 窄屏时表格区域横向滚动，不折行。
+- 数字列右对齐，等宽数字；编号与时间用 `font-tech`。
+- 悬停行为 `color-bg-surface` 底；选中行为 `color-state-hover` 底加左侧 3px `color-checked` 竖条，比悬停更深一档。
+- 进度单元格的轨道宽 64，数值固定宽 36 并右对齐，各行轨道左端对齐；轨道为 `color-border-subtle`，在选中行上仍可辨认；填充一律为 `color-checked`，不按数值改变颜色。
+- 状态点：进行中 `color-success`，待处理 `color-info`，已暂停 `color-warning`，已归档为空心；红色只用于失败与错误。
+- 窄屏时先按优先级隐藏次要列，编号、名称、状态与主要数值列始终保留；隐藏后仍放不下时表格区域横向滚动，不折行。
+- 工具栏左侧为胶囊搜索与筛选，右侧控件放在 `.tb-end` 内，换行时整组靠右。
 
 ## 规格
 
-- **尺寸**：表头 40，字号 13 Medium；数据行 48、36（紧凑）；单元格水平内边距 16、12；数字列右对齐，等宽数字；窄屏时表格区域横向滚动
-- **Token**：`--color-bg-surface --color-border-subtle --color-state-hover --color-bg-selected --color-checked --color-text-secondary`
+- **尺寸**：表头 40，字号 13；数据行 48、36（紧凑）；单元格水平内边距 16、12；状态点 8；进度轨道 64×4
+- **Token**：`--color-bg-surface --color-border-subtle --color-state-hover --color-checked --color-text-secondary --font-tech`
 - **键盘**：`Space` 勾选行；可排序表头 `Enter` 切换升降序
 
 ## 结构

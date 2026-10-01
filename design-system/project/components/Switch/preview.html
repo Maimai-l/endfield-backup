@@ -1,10 +1,10 @@
-<!-- @dsCard group="表单输入" height=368 -->
+<!-- @dsCard group="表单输入" height=304 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <title>Switch</title>
-<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}.vs-scene{display:flex;gap:48px;padding:32px 48px;border-radius:var(--radius-md);background:#131315}</style>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
 </head>
 <body>
 <span class="prov">新增</span>
@@ -21,10 +21,12 @@
         <label class="switch"><input type="checkbox" role="switch" checked="" disabled=""><span class="track"></span>禁用开启</label>
         <label class="switch is-loading"><input type="checkbox" role="switch" checked="" disabled=""><span class="track"></span>提交中</label>
       </div></div>
-      <div class="row"><span class="row-label">竖向</span><div class="items"><div class="vs-scene">
-        <button class="vswitch" type="button" role="switch" aria-checked="false" aria-label="三维视图"></button>
-        <button class="vswitch" type="button" role="switch" aria-checked="true" aria-label="三维视图"></button>
-      </div></div></div>
+      <div class="row"><span class="row-label">竖向</span><div class="items" style="gap:20px 48px;align-items:flex-start">
+        <div class="vsfield"><button class="vswitch" type="button" role="switch" aria-checked="false" aria-label="三维视图"></button><span class="vs-opts" aria-hidden="true"><span>二维</span><span>三维</span></span></div>
+        <div class="vsfield"><button class="vswitch" type="button" role="switch" aria-checked="true" aria-label="三维视图"></button><span class="vs-opts" aria-hidden="true"><span>二维</span><span>三维</span></span></div>
+        <div class="vsfield"><button class="vswitch" type="button" role="switch" aria-checked="true" aria-label="三维视图" disabled></button><span class="vs-opts" aria-hidden="true"><span>二维</span><span>三维</span></span></div>
+        <div class="vsfield"><button class="vswitch vswitch--lg" type="button" role="switch" aria-checked="true" aria-label="三维视图"></button><span class="vs-opts" aria-hidden="true"><span>二维</span><span>三维</span></span></div>
+      </div></div>
     </div>
 <script>window.Endfield&&Endfield.init(document)</script>
 </body>

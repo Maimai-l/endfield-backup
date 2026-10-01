@@ -12,25 +12,26 @@
       <div style="min-width:0">
         <div class="toolbar">
           <div class="input input--sm"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索" placeholder="搜索编号或名称"></div>
-          <button class="btn btn--ghost btn--sm" type="button"><span class="lbl"><svg class="ic"><use href="#i-filter"></use></svg>状态：全部</span></button>
-          <span class="grow"></span>
+          <button class="btn btn--ghost" type="button"><span class="lbl"><svg class="ic"><use href="#i-filter"></use></svg>状态：全部</span></button>
+          <div class="tb-end">
           <div class="seg" role="group" aria-label="行高" data-density=""><button type="button" aria-pressed="true" data-d="std">标准</button><button type="button" aria-pressed="false" data-d="compact">紧凑</button></div>
           <span class="vsep" aria-hidden="true"></span>
-          <button class="btn btn--primary btn--sm" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建项目</span></button>
+          <button class="btn btn--primary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建项目</span></button>
+          </div>
         </div>
         <div class="tbl-wrap"><table class="dt" id="dt">
           <thead><tr>
             <th class="w-check"><label class="check"><input type="checkbox" aria-label="全选" data-all=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span></label></th>
-            <th>项目编号</th><th>名称</th><th>区域</th><th>状态</th>
+            <th>项目编号</th><th>名称</th><th class="c-opt">部门</th><th>状态</th>
             <th class="num" aria-sort="descending"><button class="sort" type="button">进度<svg class="ic"><use href="#i-sort-d"></use></svg></button></th>
-            <th class="num"><button class="sort" type="button">工时<svg class="ic"><use href="#i-sort"></use></svg></button></th>
-            <th>更新时间</th></tr></thead>
+            <th class="num c-opt2"><button class="sort" type="button">工时<svg class="ic"><use href="#i-sort"></use></svg></button></th>
+            <th class="c-opt">更新时间</th></tr></thead>
           <tbody>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0142" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0142</code></td><td>官网改版</td><td>产品部</td><td><span class="stat stat--warn">待处理</span></td><td class="num"><span class="meter hi"><i style="--v:91%"></i>91%</span></td><td class="num">412 h</td><td><code>09-30 14:20</code></td></tr>
-            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0207" data-row="" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0207</code></td><td>移动端应用</td><td>运营部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i>68%</span></td><td class="num">1,206 h</td><td><code>09-30 14:18</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0311" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0311</code></td><td>数据看板</td><td>产品部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i>54%</span></td><td class="num">88 h</td><td><code>09-30 14:15</code></td></tr>
-            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0418" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0418</code></td><td>支付接入</td><td>设计部</td><td><span class="stat stat--err">已暂停</span></td><td class="num"><span class="meter"><i style="--v:0%"></i>0%</span></td><td class="num">2,940 h</td><td><code>09-30 13:52</code></td></tr>
-            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0502" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0502</code></td><td>旧版官网</td><td>已归档</td><td><span class="stat stat--off">已归档</span></td><td class="num">未上报</td><td class="num">5,118 h</td><td><code>09-12 08:00</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0142" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0142</code></td><td>官网改版</td><td class="c-opt">产品部</td><td><span class="stat stat--info">待处理</span></td><td class="num"><span class="meter"><i style="--v:91%"></i><b>91%</b></span></td><td class="num c-opt2">412 h</td><td class="c-opt"><code>09-30 14:20</code></td></tr>
+            <tr class="is-selected"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0207" data-row="" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0207</code></td><td>移动端应用</td><td class="c-opt">运营部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:68%"></i><b>68%</b></span></td><td class="num c-opt2">1,206 h</td><td class="c-opt"><code>09-30 14:18</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0311" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0311</code></td><td>数据看板</td><td class="c-opt">产品部</td><td><span class="stat stat--ok">进行中</span></td><td class="num"><span class="meter"><i style="--v:54%"></i><b>54%</b></span></td><td class="num c-opt2">88 h</td><td class="c-opt"><code>09-30 14:15</code></td></tr>
+            <tr><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0418" data-row=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0418</code></td><td>支付接入</td><td class="c-opt">设计部</td><td><span class="stat stat--warn">已暂停</span></td><td class="num"><span class="meter"><i style="--v:0%"></i><b>0%</b></span></td><td class="num c-opt2">2,940 h</td><td class="c-opt"><code>09-30 13:52</code></td></tr>
+            <tr class="is-disabled"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 PRJ-0502" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span></label></td><td><code>PRJ-0502</code></td><td>旧版官网</td><td class="c-opt">产品部</td><td><span class="stat stat--off">已归档</span></td><td class="num"><span class="meter"><i style="--v:100%"></i><b>100%</b></span></td><td class="num c-opt2">5,118 h</td><td class="c-opt"><code>09-12 08:00</code></td></tr>
           </tbody></table></div>
       </div>
     </div>

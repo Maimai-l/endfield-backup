@@ -179,7 +179,7 @@ var STAT={'运行中':'stat--ok','待检修':'stat--warn','停机':'stat--err','
 function fmt(n){return n.toLocaleString('en-US')}
 document.getElementById('rows').innerHTML=DEVICES.map(function(d){
   var off=d[3]==='离线';
-  var load=d[4]===null?'未上报':'<span class="meter'+(d[4]>=85?' hi':'')+'"><i style="--v:'+d[4]+'%"></i>'+d[4]+'%</span>';
+  var load=d[4]===null?'未上报':'<span class="meter"><i style="--v:'+d[4]+'%"></i><b>'+d[4]+'%</b></span>';
   return '<tr'+(off?' class="is-disabled"':'')+' data-region="'+d[2].slice(0,2)+'" data-status="'+d[3]+'"><td class="w-check"><label class="check"><input type="checkbox" aria-label="选择 '+d[0]+'"'+(off?' disabled':' data-row')+'><span class="box"><svg class="ic tick"><use href="#i-check"/></svg></span></label></td>'+
     '<td><code>'+d[0]+'</code></td><td>'+d[1]+'</td><td>'+d[2]+'</td><td><span class="stat '+STAT[d[3]]+'">'+d[3]+'</span></td>'+
     '<td class="num">'+load+'</td><td class="num">'+fmt(d[5])+' h</td><td><code>'+d[6]+'</code></td></tr>';
