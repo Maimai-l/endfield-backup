@@ -4,7 +4,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 - 页面依次加载 `tokens.css`、`components/bundle.css`、React 18 与 ReactDOM 18（`components/lib/` 中的两个文件）、`components/bundle.js`。组件挂在 `window.Endfield` 上：`const { Button, Table } = window.Endfield`。
 - 组件输出的结构与类名和 HTML 版设计系统相同，样式全部来自 `bundle.css`，不需要另写样式。属性见各组件 README 的“使用方提供”与 `components/index.d.ts`。
-- 主题写在 `<html data-theme="light">` 或 `data-theme="dark"` 上，浅色为默认。
+- 主题写在 `<html data-theme="light">` 或 `data-theme="dark"` 上，深色为默认：未写 `data-theme` 时按深色显示。
 - 图标用 `<Icon name="i-check" />`；组件包加载后自动写入图标雪碧图，全部图标名见 `Endfield.ICONS` 与 Icons 资源组。按钮等组件的 `icon` 属性直接接收图标名。
 - 展开、选中、排序、翻页等状态由组件自己管理；需要由外部控制时传 `value`（或 `checked`、`page`、`selected`、`sort`）与对应的变更回调，初始值用 `default` 开头的属性。
 - 轻提示：在应用根部放一次 `ToastProvider`，在组件内用 `useToast()` 取得显示函数。

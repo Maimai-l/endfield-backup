@@ -3,7 +3,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 ## 使用方式
 
 - 在页面上依次加载 `tokens.css`、`components/bundle.css`、`components/bundle.js`，然后调用 `Endfield.init(document)`。`bundle.js` 是纯 JavaScript，不依赖 React，会挂载图标并为控件绑定交互。
-- 主题写在 `<html data-theme="light">` 或 `data-theme="dark"` 上，浅色为默认。
+- 主题写在 `<html data-theme="light">` 或 `data-theme="dark"` 上，深色为默认：未写 `data-theme` 时按深色显示。
 - 控件的结构见各控件 README 的“结构”一节，直接复制 HTML；类名不带前缀，如与现有样式冲突，把页面包在独立容器中再加载。
 - 图标写作 `<svg class="ic"><use href="#i-check"/></svg>`，全部图标 id 见 `Endfield.icons` 与 Icons 资源组。
 
