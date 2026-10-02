@@ -1,0 +1,27 @@
+<!-- @dsCard group="导航" height=605 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>TopBar</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">槽位</span><div class="items" style="width:100%"><div class="tb-slots"><header class="topbar"><div class="title slot" data-slot="标题区（必需）"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">项目</a></li><li><span aria-current="page">产品部</span></li></ol><b>产品部</b></div><div class="input search slot" data-slot="搜索（可选）"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索项目" placeholder="搜索项目编号"></div><div class="acts slot" data-slot="操作（0 至 3 个）"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg></button><button class="btn btn--primary" type="button"><span class="lbl">导出</span></button></div><span class="slot" data-slot="账户（可选）" style="display:inline-flex"><button class="av" style="--s:28px" type="button" aria-label="账户：成员 302">周</button></span></header></div></div></div>
+      <div class="row"><span class="row-label">组合</span><div class="items" style="width:100%;flex-direction:column;align-items:stretch;gap:24px">
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><b>项目总览</b></div></header></div><span class="cap">只有标题区</span></div>
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">项目</a></li><li><span aria-current="page">产品部</span></li></ol><b>产品部</b></div><div class="acts"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg></button><button class="btn btn--primary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建项目</span></button></div></header></div><span class="cap">标题区带面包屑，操作区为刷新与一个主要按钮</span></div>
+        <div class="tb-combo"><div class="tb-frame"><header class="topbar"><div class="title"><ol class="crumbs" style="font-size:12px;min-height:18px"><li><a href="#c-topbar">项目</a></li><li><span aria-current="page">产品部</span></li></ol><b>产品部</b></div><div class="input search"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索项目" placeholder="搜索项目编号"></div><div class="acts"><button class="btn btn--ghost ibtn" type="button" aria-label="刷新"><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg></button><button class="btn btn--ghost ibtn" type="button" aria-label="参数设置"><svg class="ic"><use href="#i-sliders"></use></svg></button></div><button class="av" style="--s:28px" type="button" aria-label="账户：成员 302">周</button></header></div><span class="cap">完整：标题区、搜索、两个图标操作、账户</span></div>
+        <ul class="rules">
+          <li>槽位从左到右固定为标题区、搜索、操作、账户；缺省的槽位直接省略，其余槽位位置不变。</li>
+          <li>标题区占满剩余宽度，标题过长时截断；有上级页面时在标题上方放面包屑。</li>
+          <li>操作区最多 3 个，图标按钮在前、文字按钮在后，至多一个主要按钮，间距 8。</li>
+          <li>侧边导航已有账户入口时，顶栏不再放账户。</li>
+        </ul>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

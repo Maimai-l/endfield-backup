@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=232 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Divider</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var p=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,E=Object.prototype.hasOwnProperty;var m=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}};var g=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of b(t))!E.call(e,r)&&r!==n&&p(e,r,{get:()=>t[r],enumerable:!(d=S(t,r))||d.enumerable});return e};var c=(e,t,n)=>(n=e!=null?x(h(e)):{},g(t||!e||!e.__esModule?p(n,"default",{value:e,enumerable:!0}):n,e));var l=m((D,R)=>{R.exports=window.React});var w=m((F,v)=>{v.exports=window.ReactDOM});var a=c(l());var o=c(l()),u=c(w()),f=window.Endfield;function N(e){(0,u.createRoot)(document.getElementById("root")).render(e)}function P(){return o.createElement("span",{className:"prov"},"新增")}function y({children:e,prov:t}){return o.createElement(o.Fragment,null,t&&o.createElement(P,null),o.createElement("div",{className:"stage"},e))}function s({label:e,children:t,style:n}){return o.createElement("div",{className:"row"},o.createElement("span",{className:"row-label"},e),o.createElement("div",{className:"items",style:n},t))}var{Divider:i}=f;N(a.createElement(y,null,a.createElement(s,{label:"水平",style:{width:"100%"}},a.createElement(i,null)),a.createElement(s,{label:"带文字",style:{width:"100%"}},a.createElement(i,{variant:"label"},"以下为已归档记录")),a.createElement(s,{label:"区块",style:{width:"100%"}},a.createElement(i,{variant:"section"},"Archive")),a.createElement(s,{label:"垂直"},a.createElement("div",{className:"vdemo"},a.createElement("span",null,"PRJ-0142"),a.createElement(i,{variant:"vertical"}),a.createElement("span",null,"产品部"),a.createElement(i,{variant:"vertical"}),a.createElement("span",null,"12 项")))));})();</script>
+</body>
+</html>

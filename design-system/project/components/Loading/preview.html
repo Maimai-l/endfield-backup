@@ -1,0 +1,25 @@
+<!-- @dsCard group="反馈与提示" height=278 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Loading</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">旋转</span><div class="items">
+        <div class="item"><span class="spin spin--track spin--16" role="status" aria-label="加载中"></span><span class="cap">16</span></div>
+        <div class="item"><span class="spin spin--track spin--20" role="status" aria-label="加载中"></span><span class="cap">20</span></div>
+        <div class="item"><span class="spin spin--track spin--32" role="status" aria-label="加载中"></span><span class="cap">32</span></div>
+        <div class="item"><span style="display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--color-text-secondary)"><span class="spin spin--track spin--16" aria-hidden="true"></span>正在读取 18 个文件</span><span class="cap">带文字</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">骨架</span><div class="items" style="width:100%">
+        <div class="card" style="width:280px" aria-busy="true"><span class="skel" style="width:40%;height:10px"></span><span class="skel" style="width:75%;height:16px"></span><span class="skel" style="width:100%"></span><span class="skel" style="width:90%"></span></div>
+        <div class="list" style="max-width:320px" aria-busy="true"><div class="li li--2"><span class="skel" style="width:40px;height:40px;border-radius:50%"></span><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="skel" style="width:60%"></span><span class="skel" style="width:40%;height:10px"></span></span></div><div class="li li--2"><span class="skel" style="width:40px;height:40px;border-radius:50%"></span><span style="flex:1;display:flex;flex-direction:column;gap:6px"><span class="skel" style="width:70%"></span><span class="skel" style="width:30%;height:10px"></span></span></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

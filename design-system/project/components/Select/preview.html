@@ -1,0 +1,45 @@
+<!-- @dsCard group="表单输入" height=339 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Select</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">交互</span><div class="items" style="align-items:flex-start">
+        <div class="field"><span class="field-label" id="dl1">所属部门</span>
+          <div class="dd" data-dd="">
+            <button class="input select" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="dl1"><span class="val" data-val="">产品部</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></button>
+            <div class="menu" role="listbox" hidden="">
+              <div class="menu-group">Product</div>
+              <button class="menu-item" type="button" role="option" aria-selected="true">产品部<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <button class="menu-item" type="button" role="option" aria-selected="false">运营部<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <div class="menu-group">Operations</div>
+              <button class="menu-item" type="button" role="option" aria-selected="false">设计部<svg class="ic ok"><use href="#i-check"></use></svg></button>
+              <button class="menu-item is-disabled" type="button" role="option" aria-selected="false" aria-disabled="true">已停用<span class="meta">不可选</span></button>
+            </div>
+          </div><div class="field-help"></div></div>
+      </div></div>
+      <div class="row"><span class="row-label">静态</span><div class="items" style="align-items:flex-start">
+        <div class="item" style="width:260px"><span class="cap">展开，可搜索</span>
+          <button class="input select is-open" type="button" aria-expanded="true" aria-label="成员"><span class="val">成员 302</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></button>
+          <div class="menu" style="width:100%">
+            <div class="input input--sm menu-search"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索成员" value="3"></div>
+            <div class="menu-item">成员 118<span class="meta">ID-000118</span></div>
+            <div class="menu-item is-hover">成员 240<span class="meta">ID-000240</span></div>
+            <div class="menu-item" aria-selected="true">成员 302<svg class="ic ok"><use href="#i-check"></use></svg></div>
+          </div></div>
+        <div class="item" style="width:280px"><span class="cap">多选，已选值为标签</span>
+          <div class="input select multi" style="width:100%"><span class="tag tag--sm">报告<button class="rm" type="button" aria-label="移除 报告"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></span><span class="tag tag--sm">表格<button class="rm" type="button" aria-label="移除 表格"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></span><span class="tag tag--sm">另 2 项</span><svg class="ic tri" style="margin-left:auto"><use href="#i-tri-d"></use></svg></div></div>
+        <div class="item" style="width:220px"><span class="cap">占位、错误、禁用、加载</span>
+          <div class="input select" style="width:100%"><span class="val ph">选择类型</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select is-error" style="width:100%"><span class="val ph">选择类型</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select is-disabled" style="width:100%"><span class="val">文档</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></div>
+          <div class="input select" style="width:100%"><span class="val ph">正在加载选项</span><span class="spin spin--track" aria-hidden="true"></span></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

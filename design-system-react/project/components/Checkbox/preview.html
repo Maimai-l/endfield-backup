@@ -1,0 +1,13 @@
+<!-- @dsCard group="表单输入" height=283 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Checkbox</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var k=Object.create;var p=Object.defineProperty;var N=Object.getOwnPropertyDescriptor;var v=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(r){throw t=0,r}};var y=(e,t,r,l)=>{if(t&&typeof t=="object"||typeof t=="function")for(let s of v(t))!g.call(e,s)&&s!==r&&p(e,s,{get:()=>t[s],enumerable:!(l=N(t,s))||l.enumerable});return e};var d=(e,t,r)=>(r=e!=null?k(w(e)):{},y(t||!e||!e.__esModule?p(r,"default",{value:e,enumerable:!0}):r,e));var i=m((O,u)=>{u.exports=window.React});var h=m((F,R)=>{R.exports=window.ReactDOM});var o=d(i());var c=d(i()),x=d(h()),C=window.Endfield;function f(e){(0,x.createRoot)(document.getElementById("root")).render(e)}function S(){return c.createElement("span",{className:"prov"},"新增")}function b({children:e,prov:t}){return c.createElement(c.Fragment,null,t&&c.createElement(S,null),c.createElement("div",{className:"stage"},e))}function n({label:e,children:t,style:r}){return c.createElement("div",{className:"row"},c.createElement("span",{className:"row-label"},e),c.createElement("div",{className:"items",style:r},t))}var{Checkbox:a,OptionGroup:E}=C;f(o.createElement(b,{prov:!0},o.createElement(n,{label:"变体"},o.createElement(a,null,"未选"),o.createElement(a,{defaultChecked:!0},"已选"),o.createElement(a,{indeterminate:!0},"部分选中"),o.createElement(a,{size:"lg",defaultChecked:!0},"lg 20")),o.createElement(n,{label:"状态"},o.createElement(a,{className:"is-hover"},"悬停"),o.createElement(a,{className:"is-focus",defaultChecked:!0},"焦点"),o.createElement(a,{disabled:!0},"禁用"),o.createElement(a,{defaultChecked:!0,disabled:!0},"禁用已选"),o.createElement(a,{error:!0},"错误")),o.createElement(n,{label:"组"},o.createElement(E,{legend:"通知渠道"},o.createElement(a,{defaultChecked:!0},"站内消息"),o.createElement(a,{defaultChecked:!0},"邮件"),o.createElement(a,null,"短信（每月上限 200 条）")))));})();</script>
+</body>
+</html>

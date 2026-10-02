@@ -1,0 +1,13 @@
+<!-- @dsCard group="反馈与提示" height=792 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PageLoader</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var d=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var p=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}};var h=(e,t,n,l)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of g(t))!b.call(e,r)&&r!==n&&d(e,r,{get:()=>t[r],enumerable:!(l=S(t,r))||l.enumerable});return e};var s=(e,t,n)=>(n=e!=null?x(E(e)):{},h(t||!e||!e.__esModule?d(n,"default",{value:e,enumerable:!0}):n,e));var c=p((K,m)=>{m.exports=window.React});var u=p((z,R)=>{R.exports=window.ReactDOM});var a=s(c());var o=s(c()),f=s(u()),y=window.Endfield;function N(e){(0,f.createRoot)(document.getElementById("root")).render(e)}function C(){return o.createElement("span",{className:"prov"},"新增")}function v({children:e,prov:t}){return o.createElement(o.Fragment,null,t&&o.createElement(C,null),o.createElement("div",{className:"stage"},e))}function i({label:e,children:t,style:n}){return o.createElement("div",{className:"row"},o.createElement("span",{className:"row-label"},e),o.createElement("div",{className:"items",style:n},t))}var{PageLoader:w,Button:P}=y;function k(){let[e,t]=a.useState(0);return a.createElement(v,null,a.createElement(i,{label:"纵向",style:{width:"100%"}},a.createElement(w,{label:"正在载入工作区",replayKey:e})),a.createElement(i,{label:"横向"},a.createElement(w,{orientation:"horizontal",label:"正在载入工作区",replayKey:e}),a.createElement("div",{className:"item",style:{alignSelf:"flex-end"}},a.createElement(P,{size:"sm",icon:"i-refresh",onClick:()=>t(e+1)},"重新播放"))))}N(a.createElement(k,null));})();</script>
+</body>
+</html>

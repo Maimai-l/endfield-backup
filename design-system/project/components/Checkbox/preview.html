@@ -1,0 +1,32 @@
+<!-- @dsCard group="表单输入" height=283 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Checkbox</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <label class="check"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span>未选</label>
+        <label class="check"><input type="checkbox" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span>已选</label>
+        <label class="check"><input type="checkbox" data-indet=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span>部分选中</label>
+        <label class="check check--lg"><input type="checkbox" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg><svg class="ic mix"><use href="#i-minus"></use></svg></span>lg 20</label>
+      </div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items">
+        <label class="check is-hover"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>悬停</label>
+        <label class="check is-focus"><input type="checkbox" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>焦点</label>
+        <label class="check"><input type="checkbox" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>禁用</label>
+        <label class="check"><input type="checkbox" checked="" disabled=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>禁用已选</label>
+        <label class="check is-error"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>错误</label>
+      </div></div>
+      <div class="row"><span class="row-label">组</span><div class="items"><fieldset class="opt-group"><legend>通知渠道</legend>
+        <label class="check"><input type="checkbox" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>站内消息</label>
+        <label class="check"><input type="checkbox" checked=""><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>邮件</label>
+        <label class="check"><input type="checkbox"><span class="box"><svg class="ic tick"><use href="#i-check"></use></svg></span>短信（每月上限 200 条）</label></fieldset></div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

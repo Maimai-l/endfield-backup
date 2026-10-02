@@ -1,0 +1,462 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-01T03:40:37Z"
+ },
+ "title": "ENDFIELD",
+ "namespace": "Endfield",
+ "libraries": [],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Icons",
+  "Textures",
+  "Illustrations"
+ ],
+ "assetGroups": {
+  "Textures": {
+   "name": "Textures",
+   "tile": "m",
+   "order": [
+    "button-texture.png",
+    "pag-button-texture.png",
+    "points-bg.png",
+    "wave-bg.png"
+   ],
+   "files": {
+    "button-texture.png": {
+     "name": "button-texture.png",
+     "blob": "36ffd2a482f81228cca50484ad359bd4",
+     "size": 10300,
+     "type": "image/png"
+    },
+    "pag-button-texture.png": {
+     "name": "pag-button-texture.png",
+     "blob": "8d87152543033ba59f609ecfc7d0ecbe",
+     "size": 7641,
+     "type": "image/png"
+    },
+    "points-bg.png": {
+     "name": "points-bg.png",
+     "blob": "b2eebc34c6c6658209c01c60e1d51277",
+     "size": 8777,
+     "type": "image/png"
+    },
+    "wave-bg.png": {
+     "name": "wave-bg.png",
+     "blob": "6b9d11aeb61fef6ed2660bc0382e361d",
+     "size": 22854,
+     "type": "image/png"
+    }
+   }
+  },
+  "Illustrations": {
+   "name": "Illustrations",
+   "tile": "l",
+   "order": [
+    "section_divider_icon_lore.png",
+    "subpage-title-bolt.png",
+    "subpage-title-pumper.png",
+    "tower-bottom.png"
+   ],
+   "files": {
+    "section_divider_icon_lore.png": {
+     "name": "section_divider_icon_lore.png",
+     "blob": "2d779b15a8059d171e1f1c28336785eb",
+     "size": 98996,
+     "type": "image/png"
+    },
+    "subpage-title-bolt.png": {
+     "name": "subpage-title-bolt.png",
+     "blob": "69e78f058e4272ea1e5633884b2ec586",
+     "size": 32797,
+     "type": "image/png"
+    },
+    "subpage-title-pumper.png": {
+     "name": "subpage-title-pumper.png",
+     "blob": "9d11a8677a56051f3a4b2e5a17abdc6c",
+     "size": 38598,
+     "type": "image/png"
+    },
+    "tower-bottom.png": {
+     "name": "tower-bottom.png",
+     "blob": "c284a3b5e9796910661c935984241367",
+     "size": 30787,
+     "type": "image/png"
+    }
+   }
+  },
+  "Icons": {
+   "name": "Icons",
+   "tile": "s",
+   "order": [
+    "i-arrow-dr.svg",
+    "i-arrow-r.svg",
+    "i-bolt.svg",
+    "i-box.svg",
+    "i-check.svg",
+    "i-chev-d.svg",
+    "i-chev-l.svg",
+    "i-chev-r.svg",
+    "i-close.svg",
+    "i-copy.svg",
+    "i-doc.svg",
+    "i-error.svg",
+    "i-filter.svg",
+    "i-grid.svg",
+    "i-home.svg",
+    "i-inbox.svg",
+    "i-info-plain.svg",
+    "i-info.svg",
+    "i-list.svg",
+    "i-menu.svg",
+    "i-minus.svg",
+    "i-more.svg",
+    "i-plus.svg",
+    "i-refresh.svg",
+    "i-search.svg",
+    "i-sliders.svg",
+    "i-sort-d.svg",
+    "i-sort.svg",
+    "i-success.svg",
+    "i-trash.svg",
+    "i-tri-d.svg",
+    "i-upload.svg",
+    "i-user.svg",
+    "i-warning.svg",
+    "k-down.svg",
+    "k-left.svg",
+    "k-right.svg",
+    "k-up.svg",
+    "n-calendar.svg",
+    "n-home.svg",
+    "n-lore.svg",
+    "n-notice.svg",
+    "n-operator.svg",
+    "s-error.svg",
+    "s-info.svg",
+    "s-success.svg",
+    "s-warning.svg"
+   ],
+   "files": {
+    "i-arrow-dr.svg": {
+     "name": "i-arrow-dr.svg",
+     "blob": "d682029a962eea20efdd96978769d0c9",
+     "size": 377,
+     "type": "image/svg+xml"
+    },
+    "i-arrow-r.svg": {
+     "name": "i-arrow-r.svg",
+     "blob": "94e7b1984453f8279cd5e6e271087342",
+     "size": 411,
+     "type": "image/svg+xml"
+    },
+    "i-bolt.svg": {
+     "name": "i-bolt.svg",
+     "blob": "5102ab8f56f8c3fb517af563033b1b60",
+     "size": 231,
+     "type": "image/svg+xml"
+    },
+    "i-box.svg": {
+     "name": "i-box.svg",
+     "blob": "ead20b20948776da7e4e0667abead18d",
+     "size": 250,
+     "type": "image/svg+xml"
+    },
+    "i-check.svg": {
+     "name": "i-check.svg",
+     "blob": "127071dc1d90cebf0f1ec9e7f10b046c",
+     "size": 219,
+     "type": "image/svg+xml"
+    },
+    "i-chev-d.svg": {
+     "name": "i-chev-d.svg",
+     "blob": "133996ff2f190761a8cb25b3c1f84a02",
+     "size": 382,
+     "type": "image/svg+xml"
+    },
+    "i-chev-l.svg": {
+     "name": "i-chev-l.svg",
+     "blob": "6b1bcd0a8b8cb7b5d4057f35d8580ab6",
+     "size": 328,
+     "type": "image/svg+xml"
+    },
+    "i-chev-r.svg": {
+     "name": "i-chev-r.svg",
+     "blob": "0ca164316a5c00956bba8306cc91d038",
+     "size": 362,
+     "type": "image/svg+xml"
+    },
+    "i-close.svg": {
+     "name": "i-close.svg",
+     "blob": "52de2b314a013fc95cabdd401aab447c",
+     "size": 430,
+     "type": "image/svg+xml"
+    },
+    "i-copy.svg": {
+     "name": "i-copy.svg",
+     "blob": "14e0d6e98bc72ee97781527db6754e52",
+     "size": 218,
+     "type": "image/svg+xml"
+    },
+    "i-doc.svg": {
+     "name": "i-doc.svg",
+     "blob": "6d1f29628b7a8a65d1fbd3c46abc9134",
+     "size": 244,
+     "type": "image/svg+xml"
+    },
+    "i-error.svg": {
+     "name": "i-error.svg",
+     "blob": "3a5e8f6e388bd3b3e940f1310535bd67",
+     "size": 283,
+     "type": "image/svg+xml"
+    },
+    "i-filter.svg": {
+     "name": "i-filter.svg",
+     "blob": "cd23900dae026d6ec4cd4e6cc1e25d57",
+     "size": 228,
+     "type": "image/svg+xml"
+    },
+    "i-grid.svg": {
+     "name": "i-grid.svg",
+     "blob": "512962dafac4ab484a286632d7e8a6fb",
+     "size": 242,
+     "type": "image/svg+xml"
+    },
+    "i-home.svg": {
+     "name": "i-home.svg",
+     "blob": "837dce98217e8fc1b8aa354a4913cb73",
+     "size": 234,
+     "type": "image/svg+xml"
+    },
+    "i-inbox.svg": {
+     "name": "i-inbox.svg",
+     "blob": "7905d145a939ce2d0cd916e6cf3f9de5",
+     "size": 246,
+     "type": "image/svg+xml"
+    },
+    "i-info-plain.svg": {
+     "name": "i-info-plain.svg",
+     "blob": "3eab564d434d50e34dff337da27e0d11",
+     "size": 270,
+     "type": "image/svg+xml"
+    },
+    "i-info.svg": {
+     "name": "i-info.svg",
+     "blob": "322e33f6e0a27088b5a0d0e4df0c9490",
+     "size": 228,
+     "type": "image/svg+xml"
+    },
+    "i-list.svg": {
+     "name": "i-list.svg",
+     "blob": "fe126bbe074bbff0e769a5ac775ccc57",
+     "size": 223,
+     "type": "image/svg+xml"
+    },
+    "i-menu.svg": {
+     "name": "i-menu.svg",
+     "blob": "4cff45a1a74ddc357d851f69ef4bcc16",
+     "size": 220,
+     "type": "image/svg+xml"
+    },
+    "i-minus.svg": {
+     "name": "i-minus.svg",
+     "blob": "d686c70f0e23ac8d9f608028f199827d",
+     "size": 204,
+     "type": "image/svg+xml"
+    },
+    "i-more.svg": {
+     "name": "i-more.svg",
+     "blob": "fcf08628affeeb3137a29ead7bbd4db7",
+     "size": 262,
+     "type": "image/svg+xml"
+    },
+    "i-plus.svg": {
+     "name": "i-plus.svg",
+     "blob": "60ed27304806274f39eb1dbd4d28a855",
+     "size": 212,
+     "type": "image/svg+xml"
+    },
+    "i-refresh.svg": {
+     "name": "i-refresh.svg",
+     "blob": "c1d71b5d0a8f4e283a7784e55f6620f4",
+     "size": 235,
+     "type": "image/svg+xml"
+    },
+    "i-search.svg": {
+     "name": "i-search.svg",
+     "blob": "a97cfda39739bcf346ae53520277a614",
+     "size": 257,
+     "type": "image/svg+xml"
+    },
+    "i-sliders.svg": {
+     "name": "i-sliders.svg",
+     "blob": "0b564992577a4286ddf2103a5fccd453",
+     "size": 246,
+     "type": "image/svg+xml"
+    },
+    "i-sort-d.svg": {
+     "name": "i-sort-d.svg",
+     "blob": "bb027bfec2695eab0252c3842d7ab2cc",
+     "size": 410,
+     "type": "image/svg+xml"
+    },
+    "i-sort.svg": {
+     "name": "i-sort.svg",
+     "blob": "57e837058ffae193cd40130759f34ec4",
+     "size": 262,
+     "type": "image/svg+xml"
+    },
+    "i-success.svg": {
+     "name": "i-success.svg",
+     "blob": "23a5f836f97bd2cd2b75fc07bad601fc",
+     "size": 234,
+     "type": "image/svg+xml"
+    },
+    "i-trash.svg": {
+     "name": "i-trash.svg",
+     "blob": "ef3c519b2c2387210e3f3adb7064ecdd",
+     "size": 256,
+     "type": "image/svg+xml"
+    },
+    "i-tri-d.svg": {
+     "name": "i-tri-d.svg",
+     "blob": "77b18a823c08206439c6aa897da58ba1",
+     "size": 239,
+     "type": "image/svg+xml"
+    },
+    "i-upload.svg": {
+     "name": "i-upload.svg",
+     "blob": "e104d66b467e66a22678878a0a8fc437",
+     "size": 469,
+     "type": "image/svg+xml"
+    },
+    "i-user.svg": {
+     "name": "i-user.svg",
+     "blob": "6efdc4205b8926b16e454ea62718302e",
+     "size": 246,
+     "type": "image/svg+xml"
+    },
+    "i-warning.svg": {
+     "name": "i-warning.svg",
+     "blob": "1fefd2f56d87bf325f8c386596188e71",
+     "size": 236,
+     "type": "image/svg+xml"
+    },
+    "k-down.svg": {
+     "name": "k-down.svg",
+     "blob": "61f1adce7273f9732809d6650004ff16",
+     "size": 410,
+     "type": "image/svg+xml"
+    },
+    "k-left.svg": {
+     "name": "k-left.svg",
+     "blob": "6d4e23a09ec28925a8a161bd9181a22c",
+     "size": 411,
+     "type": "image/svg+xml"
+    },
+    "k-right.svg": {
+     "name": "k-right.svg",
+     "blob": "45a55d2cb34f595b4586ac8098b32152",
+     "size": 411,
+     "type": "image/svg+xml"
+    },
+    "k-up.svg": {
+     "name": "k-up.svg",
+     "blob": "ee01a0434fe8cf551af6341dd9cbefd1",
+     "size": 412,
+     "type": "image/svg+xml"
+    },
+    "n-calendar.svg": {
+     "name": "n-calendar.svg",
+     "blob": "2711a7886b7177987157968fdfc31985",
+     "size": 2838,
+     "type": "image/svg+xml"
+    },
+    "n-home.svg": {
+     "name": "n-home.svg",
+     "blob": "bab3c8eacaa31ac19f4b7b4ff5251370",
+     "size": 1137,
+     "type": "image/svg+xml"
+    },
+    "n-lore.svg": {
+     "name": "n-lore.svg",
+     "blob": "1ab622d23a86f48cc863bc140e1af7e4",
+     "size": 964,
+     "type": "image/svg+xml"
+    },
+    "n-notice.svg": {
+     "name": "n-notice.svg",
+     "blob": "60b60c6c4909aeb1edf3142d9caea0fe",
+     "size": 671,
+     "type": "image/svg+xml"
+    },
+    "n-operator.svg": {
+     "name": "n-operator.svg",
+     "blob": "07fa1bdb7724664cc18724dbac9ffd35",
+     "size": 1009,
+     "type": "image/svg+xml"
+    },
+    "s-error.svg": {
+     "name": "s-error.svg",
+     "blob": "f11ac0cc24ad95eb2736a5c62a74f512",
+     "size": 400,
+     "type": "image/svg+xml"
+    },
+    "s-info.svg": {
+     "name": "s-info.svg",
+     "blob": "d446361277828d79f599a9c6ffc5b1dc",
+     "size": 351,
+     "type": "image/svg+xml"
+    },
+    "s-success.svg": {
+     "name": "s-success.svg",
+     "blob": "651b2384b8b78f6dd21f2dd08987567b",
+     "size": 357,
+     "type": "image/svg+xml"
+    },
+    "s-warning.svg": {
+     "name": "s-warning.svg",
+     "blob": "6947c8f98530d02d7eddba4a0355d912",
+     "size": 351,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Logos": {
+   "name": "Logos",
+   "tile": "l",
+   "order": [
+    "endfield-wordmark.svg",
+    "endfield-wordmark-white.svg"
+   ],
+   "files": {
+    "endfield-wordmark.svg": {
+     "name": "endfield-wordmark.svg",
+     "blob": "e84c1fb55305af99be5c1f0899e2db71",
+     "size": 2244,
+     "type": "image/svg+xml"
+    },
+    "endfield-wordmark-white.svg": {
+     "name": "endfield-wordmark-white.svg",
+     "blob": "81ef737e8c202aa1bce808eccd4b908a",
+     "size": 2244,
+     "type": "image/svg+xml"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Claude",
+  "at": "2026-10-02T05:35:25Z",
+  "via": "Claude Code",
+  "note": "表格加全选：表头左侧 6×6 方块，描边为未全选、实心黄为全选，无部分选中；Shift 连续选中，Ctrl/Cmd+A 全选，Esc 清除"
+ }
+}

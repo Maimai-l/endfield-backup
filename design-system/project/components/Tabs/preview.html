@@ -1,0 +1,37 @@
+<!-- @dsCard group="导航" height=305 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Tabs</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">主标签</span><div class="items" style="width:100%"><div class="mtabs" role="tablist" aria-label="手册" data-tabs="" data-qe="">
+        <span class="key" aria-hidden="true">Q</span>
+        <button class="mtab" type="button" role="tab" aria-selected="false"><svg class="ic"><use href="#i-doc"></use></svg>节点</button>
+        <button class="mtab" type="button" role="tab" aria-selected="true"><svg class="ic"><use href="#i-grid"></use></svg>日常</button>
+        <button class="mtab" type="button" role="tab" aria-selected="false"><svg class="ic"><use href="#i-list"></use></svg>索引</button>
+        <button class="mtab" type="button" role="tab" aria-selected="false"><svg class="ic"><use href="#i-sliders"></use></svg>训练<span class="badge" aria-label="有新内容"></span></button>
+        <span class="key" aria-hidden="true">E</span>
+      </div></div></div>
+      <div class="row"><span class="row-label">线型</span><div class="items" style="width:100%"><div class="tabs" role="tablist" data-tabs="" style="width:100%">
+          <button class="tab" type="button" role="tab" aria-selected="true">概览</button>
+          <button class="tab" type="button" role="tab" aria-selected="false">动态<span class="n">128</span></button>
+          <button class="tab" type="button" role="tab" aria-selected="false">评论<span class="n">3</span></button>
+          <button class="tab" type="button" role="tab" aria-selected="false">设置</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" disabled="">归档</button>
+        </div></div></div>
+      <div class="row"><span class="row-label">区块</span><div class="items"><div class="btabs" role="tablist" data-tabs="">
+        <button class="btab" type="button" role="tab" aria-selected="true">资料<span class="arr"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button><span class="div"></span>
+        <button class="btab" type="button" role="tab" aria-selected="false">计划<span class="arr"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button><span class="div"></span>
+        <button class="btab" type="button" role="tab" aria-selected="false">归档<span class="arr"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button></div></div></div>
+      <div class="row"><span class="row-label">分段</span><div class="items">
+        <div class="item"><div class="seg" role="group" aria-label="时间范围" data-seg=""><button type="button" aria-pressed="false">24 小时</button><button type="button" aria-pressed="true">7 天</button><button type="button" aria-pressed="false">30 天</button></div></div>
+        <div class="item"><div class="seg" role="group" aria-label="视图" data-seg=""><button type="button" aria-pressed="true" aria-label="列表"><svg class="ic"><use href="#i-list"></use></svg></button><button type="button" aria-pressed="false" aria-label="网格"><svg class="ic"><use href="#i-grid"></use></svg></button></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

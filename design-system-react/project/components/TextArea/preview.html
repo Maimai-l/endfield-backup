@@ -1,0 +1,13 @@
+<!-- @dsCard group="表单输入" height=226 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>TextArea</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var d=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var b=(e,t,o,l)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of S(t))!g.call(e,r)&&r!==o&&i(e,r,{get:()=>t[r],enumerable:!(l=h(t,r))||l.enumerable});return e};var s=(e,t,o)=>(o=e!=null?y(E(e)):{},b(t||!e||!e.__esModule?i(o,"default",{value:e,enumerable:!0}):o,e));var c=d((F,p)=>{p.exports=window.React});var R=d((I,m)=>{m.exports=window.ReactDOM});var n=s(c());var a=s(c()),u=s(R()),f=window.Endfield;function w(e){(0,u.createRoot)(document.getElementById("root")).render(e)}function C(){return a.createElement("span",{className:"prov"},"新增")}function N({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(C,null),a.createElement("div",{className:"stage"},e))}function v({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}var{TextArea:x}=f;w(n.createElement(N,{prov:!0},n.createElement(v,{label:"变体"},n.createElement(x,{label:"描述",maxLength:200,placeholder:"补充背景与目标",style:{width:340},defaultValue:"本季度目标是完成三项核心功能的上线，并把平均响应时间降到 200 毫秒以内。"}),n.createElement(x,{label:"结论",error:"提交前需要填写结论",placeholder:"必填",style:{width:340}}))));})();</script>
+</body>
+</html>

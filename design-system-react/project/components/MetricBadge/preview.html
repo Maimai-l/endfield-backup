@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=92 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>MetricBadge</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var p=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,E=Object.prototype.hasOwnProperty;var d=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var L=(e,t,o,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of S(t))!E.call(e,r)&&r!==o&&p(e,r,{get:()=>t[r],enumerable:!(i=y(t,r))||i.enumerable});return e};var c=(e,t,o)=>(o=e!=null?x(g(e)):{},L(t||!e||!e.__esModule?p(o,"default",{value:e,enumerable:!0}):o,e));var l=d((P,m)=>{m.exports=window.React});var u=d((B,R)=>{R.exports=window.ReactDOM});var n=c(l());var a=c(l()),f=c(u()),v=window.Endfield;function N(e){(0,f.createRoot)(document.getElementById("root")).render(e)}function h(){return a.createElement("span",{className:"prov"},"新增")}function b({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(h,null),a.createElement("div",{className:"stage"},e))}function w({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}var{MetricBadge:s}=v;N(n.createElement(b,null,n.createElement(w,{label:"示例",style:{gap:12}},n.createElement(s,{label:"评审等级",value:"02",infoLabel:"评审等级说明"}),n.createElement(s,{label:"服务等级",value:"A",infoLabel:"服务等级说明"}),n.createElement(s,{label:"告警级别",value:"3",infoLabel:"告警级别说明"}),n.createElement(s,{label:"当前班次",value:"B2",infoLabel:"班次说明"}))));})();</script>
+</body>
+</html>

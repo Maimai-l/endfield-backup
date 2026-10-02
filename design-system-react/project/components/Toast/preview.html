@@ -1,0 +1,13 @@
+<!-- @dsCard group="反馈与提示" height=314 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Toast</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var d=Object.defineProperty;var T=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,C=Object.prototype.hasOwnProperty;var m=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(a){throw t=0,a}};var S=(e,t,a,p)=>{if(t&&typeof t=="object"||typeof t=="function")for(let s of g(t))!C.call(e,s)&&s!==a&&d(e,s,{get:()=>t[s],enumerable:!(p=T(t,s))||p.enumerable});return e};var c=(e,t,a)=>(a=e!=null?x(E(e)):{},S(t||!e||!e.__esModule?d(a,"default",{value:e,enumerable:!0}):a,e));var i=m((k,u)=>{u.exports=window.React});var f=m((D,R)=>{R.exports=window.ReactDOM});var o=c(i());var n=c(i()),v=c(f()),N=window.Endfield;function w(e){(0,v.createRoot)(document.getElementById("root")).render(e)}function l({label:e,children:t,style:a}){return n.createElement("div",{className:"row"},n.createElement("span",{className:"row-label"},e),n.createElement("div",{className:"items",style:a},t))}var{Toast:r,ToastProvider:P,useToast:b,Button:y}=N;function h(){let e=b();return o.createElement(l,{label:"演示"},o.createElement(y,{size:"sm",onClick:()=>e("success","任务 TK-0930 已关闭","撤销")},"触发成功提示"),o.createElement(y,{size:"sm",onClick:()=>e("error","保存失败：网络连接已断开","重试")},"触发错误提示"),o.createElement("span",{className:"cap"},"出现在页面顶部居中，最多 3 条"))}w(o.createElement("div",{className:"stage"},o.createElement(P,null,o.createElement(l,{label:"变体",style:{flexDirection:"column",alignItems:"flex-start",gap:10}},o.createElement(r,null,"筛选条件已重置"),o.createElement(r,{type:"success",action:"撤销"},"任务 TK-0930 已关闭"),o.createElement(r,{type:"warning"},"3 个项目未同步，将在联网后重试"),o.createElement(r,{type:"error",action:"重试",onClose:()=>{}},"保存失败：网络连接已断开")),o.createElement(h,null))));})();</script>
+</body>
+</html>

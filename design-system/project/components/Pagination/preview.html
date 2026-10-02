@@ -1,0 +1,27 @@
+<!-- @dsCard group="导航" height=167 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Pagination</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">完整</span><div class="items"><nav class="pager" aria-label="分页" data-pager="">
+        <span class="total">共 <b>248</b> 条</span>
+        <button class="pg" type="button" aria-label="上一页" data-prev=""><svg class="ic"><use href="#i-chev-l"></use></svg></button>
+        <button class="pg" type="button">1</button><button class="pg" type="button">2</button><button class="pg" type="button" aria-current="page">3</button><button class="pg" type="button">4</button><button class="pg" type="button">5</button>
+        <span class="pg-gap" aria-hidden="true"><svg class="ic"><use href="#i-more"></use></svg></span><button class="pg" type="button">25</button>
+        <button class="pg" type="button" aria-label="下一页" data-next=""><svg class="ic"><use href="#i-chev-r"></use></svg></button>
+        <span class="size"><button class="input select input--sm" type="button" aria-label="每页条数"><span class="val">每页 10 条</span><svg class="ic tri"><use href="#i-tri-d"></use></svg></button></span>
+        <span class="jump">跳至<span class="input input--sm"><input aria-label="页码" value="3" inputmode="numeric"></span>页</span>
+      </nav></div></div>
+      <div class="row"><span class="row-label">简洁</span><div class="items">
+        <div class="item"><nav class="pager" aria-label="分页"><button class="pg" type="button" aria-label="上一页" disabled=""><svg class="ic"><use href="#i-chev-l"></use></svg></button><span class="total" style="margin:0 8px"><b>1</b> / <b>25</b></span><button class="pg" type="button" aria-label="下一页"><svg class="ic"><use href="#i-chev-r"></use></svg></button></nav><span class="cap">首页，上一页禁用</span></div>
+        <div class="item"><div class="pcap" data-pcap="1" data-total="8"><button class="rbtn" type="button" aria-label="上一张" data-step="-1"><svg class="ic"><use href="#i-chev-l"></use></svg></button><div class="pcar" aria-live="polite"></div><button class="rbtn" type="button" aria-label="下一张" data-step="1"><svg class="ic"><use href="#i-chev-r"></use></svg></button></div><span class="cap">源站胶囊，轮播</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

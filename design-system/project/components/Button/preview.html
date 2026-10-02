@@ -1,0 +1,54 @@
+<!-- @dsCard group="基础操作" height=814 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存设置</span></button><span class="cap">primary 主要</span></div>
+        <div class="item"><button class="btn btn--accent" type="button"><span class="lbl">发布到线上</span></button><span class="cap">accent 强调，每屏至多 1 个</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">导出</span></button><span class="cap">secondary 次要</span></div>
+        <div class="item"><button class="btn btn--ghost" type="button"><span class="lbl">取消</span></button><span class="cap">ghost 幽灵</span></div>
+        <div class="item"><button class="btn btn--danger" type="button"><span class="lbl">删除项目</span></button><span class="cap">danger 危险</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">胶囊</span><div class="items">
+        <div class="item"><button class="cap-btn" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"></use></svg></span></button><span class="cap">default</span></div>
+        <div class="item"><button class="cap-btn is-hover" type="button"><span class="lbl">前往</span><span class="go"><svg class="ic ic--arrow"><use href="#i-chev-r"></use></svg></span></button><span class="cap">hover</span></div>
+        <div class="item"><span class="cap-btn is-busy" role="status">进行中</span><span class="cap">in progress</span></div>
+        <div class="item"><button class="cap-btn" type="button" disabled=""><span class="lbl">前往</span><span class="go"><svg class="ic"><use href="#i-chev-r"></use></svg></span></button><span class="cap">disabled</span></div>
+        <div class="item"><span class="cap" style="max-width:30ch">用于列表与卡片中的跳转类操作</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item"><button class="btn btn--primary btn--sm" type="button"><span class="lbl">保存</span></button><span class="cap">sm 24</span></div>
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">保存</span></button><span class="cap">md 32</span></div>
+        <div class="item"><button class="btn btn--primary btn--lg" type="button"><span class="lbl">保存</span></button><span class="cap">lg 40</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建任务</span></button><span class="cap">图标加文字</span></div>
+        <div class="item"><button class="btn btn--secondary" type="button"><span class="lbl">下一步<svg class="ic ic--arrow"><use href="#i-arrow-r"></use></svg></span></button><span class="cap">文字加图标</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">场景</span><div class="items" style="width:100%"><div class="scn-grid">
+        <div class="scn"><div class="scn-h"><b>sm 24</b><span>密集区域</span></div>
+          <div class="scn-demo"><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">编辑</span></button><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">删除</span></button></div>
+          <p>表格行内、卡片底部、对话框底部与筛选条</p></div>
+        <div class="scn"><div class="scn-h"><b>md 32</b><span>默认尺寸</span></div>
+          <div class="scn-demo"><div class="input input--sm" style="flex:1 1 120px;min-width:0"><svg class="ic"><use href="#i-search"></use></svg><input aria-label="搜索" style="min-width:0" placeholder="搜索"></div><button class="btn btn--ghost btn--sm" type="button"><span class="lbl"><svg class="ic"><use href="#i-filter"></use></svg>筛选</span></button><span class="sp" aria-hidden="true"></span><button class="btn btn--primary" type="button"><span class="lbl"><svg class="ic ic--plus"><use href="#i-plus"></use></svg>新建</span></button></div>
+          <p>表单、页面标题区的操作；未特别说明时一律使用此尺寸</p></div>
+        <div class="scn"><div class="scn-h"><b>lg 40</b><span>触屏与单一主流程</span></div>
+          <div class="scn-demo" style="flex-direction:column;align-items:stretch;gap:24px"><div class="input input--lg"><input aria-label="备注" placeholder="备注"></div><div style="display:flex;justify-content:flex-end;gap:8px"><button class="btn btn--secondary btn--lg" type="button"><span class="lbl">稍后</span></button><button class="btn btn--primary btn--lg" type="button"><span class="lbl">提交</span></button></div></div>
+          <p>移动端底部操作栏、登录与首次设置页、空状态中的唯一主操作</p></div>
+      </div><p class="scn-rule">规则：胶囊输入框与方形按钮同排时，两者高度相差一档且相隔至少 24；只作用于输入框的操作（搜索、筛选、重置）用幽灵按钮。</p></div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items">
+        <div class="item"><button class="btn btn--primary" type="button"><span class="lbl">默认</span></button><span class="cap">default</span></div>
+        <div class="item"><button class="btn btn--primary is-hover" type="button"><span class="lbl">悬停</span></button><span class="cap">hover</span></div>
+        <div class="item"><button class="btn btn--primary is-hover is-active" type="button"><span class="lbl">按下</span></button><span class="cap">active</span></div>
+        <div class="item"><button class="btn btn--primary is-focus" type="button"><span class="lbl">焦点</span></button><span class="cap">focus</span></div>
+        <div class="item"><button class="btn btn--primary" type="button" disabled=""><span class="lbl">禁用</span></button><span class="cap">disabled</span></div>
+        <div class="item"><button class="btn btn--primary is-loading" type="button" aria-busy="true"><span class="lbl">加载中</span><span class="spin" aria-hidden="true"></span></button><span class="cap">loading</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="表单输入" height=207 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Radio</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">组</span><div class="items" style="gap:20px 48px"><fieldset class="opt-group"><legend>评审频率</legend>
+        <label class="check radio"><input type="radio" name="freq"><span class="box"></span>每班一次</label>
+        <label class="check radio"><input type="radio" name="freq" checked=""><span class="box"></span>每日一次</label>
+        <label class="check radio"><input type="radio" name="freq"><span class="box"></span>每周一次</label>
+        <label class="check radio"><input type="radio" name="freq" disabled=""><span class="box"></span>按需（需管理员权限）</label></fieldset>
+        <fieldset class="opt-group"><legend>状态示例</legend>
+        <label class="check radio is-hover"><input type="radio" name="r2"><span class="box"></span>悬停</label>
+        <label class="check radio is-focus"><input type="radio" name="r2" checked=""><span class="box"></span>焦点已选</label>
+        <label class="check radio is-error"><input type="radio" name="r3"><span class="box"></span>错误</label>
+        <label class="check radio check--lg"><input type="radio" name="r4" checked=""><span class="box"></span>lg 20</label></fieldset></div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

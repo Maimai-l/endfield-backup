@@ -1,0 +1,14 @@
+{
+  "name": "endfield-ds-react",
+  "private": true,
+  "description": "ENDFIELD 设计系统的 React 版本：构建组件包、类型声明与预览。",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+<!-- @dsCard group="反馈与提示" height=342 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Progress</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var y=Object.create;var d=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var m=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(s){throw t=0,s}};var P=(e,t,s,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of S(t))!h.call(e,r)&&r!==s&&d(e,r,{get:()=>t[r],enumerable:!(i=g(t,r))||i.enumerable});return e};var l=(e,t,s)=>(s=e!=null?y(E(e)):{},P(t||!e||!e.__esModule?d(s,"default",{value:e,enumerable:!0}):s,e));var c=m((F,u)=>{u.exports=window.React});var v=m((I,R)=>{R.exports=window.ReactDOM});var o=l(c());var a=l(c()),f=l(v()),x=window.Endfield;function N(e){(0,f.createRoot)(document.getElementById("root")).render(e)}function C(){return a.createElement("span",{className:"prov"},"新增")}function w({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(C,null),a.createElement("div",{className:"stage"},e))}function p({label:e,children:t,style:s}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:s},t))}var{Progress:n}=x,b={gap:"24px 40px"};N(o.createElement(w,{prov:!0},o.createElement(p,{label:"变体",style:b},o.createElement(n,{label:"版本上传",value:64}),o.createElement(n,{label:"细型 4px",value:38,thin:!0}),o.createElement(n,{label:"正在校验文件",valueText:"校验中"})),o.createElement(p,{label:"状态",style:b},o.createElement(n,{label:"导出报表",value:100,status:"done",note:"已完成，共 12 个文件"}),o.createElement(n,{label:"同步 B-11",value:72,status:"error",note:"项目无响应，已中止"}),o.createElement(n,{label:"批量导入",value:45,status:"paused",note:"已暂停"}))));})();</script>
+</body>
+</html>

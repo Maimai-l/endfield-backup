@@ -1,0 +1,13 @@
+<!-- @dsCard group="反馈与提示" height=407 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Banner</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var w=Object.create;var d=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var l=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}};var B=(e,t,n,p)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of S(t))!g.call(e,r)&&r!==n&&d(e,r,{get:()=>t[r],enumerable:!(p=x(t,r))||p.enumerable});return e};var c=(e,t,n)=>(n=e!=null?w(E(e)):{},B(t||!e||!e.__esModule?d(n,"default",{value:e,enumerable:!0}):n,e));var i=l((b,m)=>{m.exports=window.React});var f=l((k,R)=>{R.exports=window.ReactDOM});var a=c(i());var o=c(i()),u=c(f()),v=window.Endfield;function N(e){(0,u.createRoot)(document.getElementById("root")).render(e)}function h(){return o.createElement("span",{className:"prov"},"新增")}function y({children:e,prov:t}){return o.createElement(o.Fragment,null,t&&o.createElement(h,null),o.createElement("div",{className:"stage"},e))}var{Banner:s,Link:C}=v;N(a.createElement(y,{prov:!0},a.createElement("div",{className:"alerts"},a.createElement(s,{type:"info",title:"今晚 22:00 至 23:30 进行系统维护",onClose:()=>{}},"维护期间数据只读，请在此之前保存未提交的内容。"),a.createElement(s,{type:"success",title:"版本已更新至 4.2.1"},"共 18 个项目，全部完成迁移。"),a.createElement(s,{type:"warning",title:"存储用量已超过 85%"},"建议清理过期文件。",a.createElement(C,{href:"#c-alert"},"查看用量")),a.createElement(s,{type:"error",title:"同步服务中断"},"最后一次同步为 14:02，6 个项目的数据已停止更新。"))));})();</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="反馈与提示" height=342 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Progress</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">变体</span><div class="items" style="gap:24px 40px">
+        <div class="prog" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="版本上传"><div class="prog-top"><span>版本上传</span><span class="v">64%</span></div><div class="prog-track"><div class="prog-fill" style="--v:64%"></div></div></div>
+        <div class="prog prog--thin" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" aria-label="同步"><div class="prog-top"><span>细型 4px</span><span class="v">38%</span></div><div class="prog-track"><div class="prog-fill" style="--v:38%"></div></div></div>
+        <div class="prog prog-indet" role="progressbar" aria-label="正在校验"><div class="prog-top"><span>正在校验文件</span><span class="v">校验中</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+      </div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items" style="gap:24px 40px">
+        <div class="prog is-done" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="完成"><div class="prog-top"><span>导出报表</span><span class="v">100%</span></div><div class="prog-track"><div class="prog-fill" style="--v:100%"></div></div><span class="prog-note"><svg class="ic"><use href="#s-success"></use></svg>已完成，共 12 个文件</span></div>
+        <div class="prog is-error" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="失败"><div class="prog-top"><span>同步 B-11</span><span class="v">72%</span></div><div class="prog-track"><div class="prog-fill" style="--v:72%"></div></div><span class="prog-note"><svg class="ic"><use href="#s-error"></use></svg>项目无响应，已中止</span></div>
+        <div class="prog is-paused" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="暂停"><div class="prog-top"><span>批量导入</span><span class="v">45%</span></div><div class="prog-track"><div class="prog-fill" style="--v:45%"></div></div><span class="prog-note">已暂停</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

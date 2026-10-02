@@ -1,0 +1,33 @@
+<!-- @dsCard group="表单输入" height=469 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">变体</span><div class="items">
+        <div class="field"><label class="field-label" for="f1">名称<span class="req">必填</span></label><div class="input"><input id="f1" placeholder="例如：季度报告"></div><div class="field-help">同一目录内不可重名</div></div>
+        <div class="field"><label class="field-label" for="f2">搜索</label><div class="input"><svg class="ic"><use href="#i-search"></use></svg><input id="f2" value="季度"><button class="clear" type="button" aria-label="清除"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></div></div>
+        <div class="field"><label class="field-label" for="f3">容量上限</label><div class="input"><input id="f3" value="500" inputmode="numeric"><span class="unit">MB</span></div></div>
+        <div class="field"><label class="field-label" for="f4">编号</label><div class="input input--filled"><input id="f4" placeholder="ID-000000"></div></div>
+      </div></div>
+      <div class="row"><span class="row-label">尺寸</span><div class="items">
+        <div class="item"><div class="input input--sm" style="width:180px"><input aria-label="sm" placeholder="sm 24"></div></div>
+        <div class="item"><div class="input" style="width:180px"><input aria-label="md" placeholder="md 32"></div></div>
+        <div class="item"><div class="input input--lg" style="width:180px"><input aria-label="lg" placeholder="lg 40"></div></div>
+      </div></div>
+      <div class="row"><span class="row-label">状态</span><div class="items">
+        <div class="field" style="width:200px"><span class="cap">hover</span><div class="input is-hover"><input aria-label="hover" placeholder="编号"></div></div>
+        <div class="field" style="width:200px"><span class="cap">focus</span><div class="input is-focus"><input aria-label="focus" value="ID-000302"></div></div>
+        <div class="field" style="width:200px"><span class="cap">error</span><div class="input is-error"><input aria-label="error" value="ID-03" aria-invalid="true" aria-describedby="e1"></div><div class="field-help field-err" id="e1"><svg class="ic"><use href="#s-error"></use></svg>应为 ID- 加 6 位数字</div></div>
+        <div class="field" style="width:200px"><span class="cap">disabled</span><div class="input is-disabled"><input aria-label="disabled" placeholder="不可编辑" disabled=""></div></div>
+        <div class="field" style="width:200px"><span class="cap">readonly</span><div class="input is-readonly"><input aria-label="readonly" value="ID-000302" readonly=""></div></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

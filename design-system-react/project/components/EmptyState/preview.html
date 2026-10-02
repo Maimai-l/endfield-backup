@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=334 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>EmptyState</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var d=Object.defineProperty;var E=Object.getOwnPropertyDescriptor;var w=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var l=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(a){throw t=0,a}};var b=(e,t,a,m)=>{if(t&&typeof t=="object"||typeof t=="function")for(let i of w(t))!h.call(e,i)&&i!==a&&d(e,i,{get:()=>t[i],enumerable:!(m=E(t,i))||m.enumerable});return e};var s=(e,t,a)=>(a=e!=null?x(g(e)):{},b(t||!e||!e.__esModule?d(a,"default",{value:e,enumerable:!0}):a,e));var r=l((P,u)=>{u.exports=window.React});var f=l((z,R)=>{R.exports=window.ReactDOM});var o=s(r());var n=s(r()),v=s(f()),N=window.Endfield;function y(e){(0,v.createRoot)(document.getElementById("root")).render(e)}function B(){return n.createElement("span",{className:"prov"},"新增")}function S({children:e,prov:t}){return n.createElement(n.Fragment,null,t&&n.createElement(B,null),n.createElement("div",{className:"stage"},e))}var{EmptyState:c,Button:p}=N;y(o.createElement(S,{prov:!0},o.createElement("div",{className:"empties"},o.createElement(c,{icon:"i-box",title:"还没有项目",action:o.createElement(p,{variant:"primary",size:"sm",icon:"i-plus"},"新建项目")},"新建第一个项目后，这里会显示它的进度与成员。"),o.createElement(c,{icon:"i-search",title:"没有匹配的结果",action:o.createElement(p,{size:"sm"},"清除筛选")},"当前筛选条件下没有项目。可以放宽状态或部门条件。"),o.createElement(c,{icon:"i-inbox",title:"数据加载失败",action:o.createElement(p,{size:"sm",icon:"i-refresh"},"重试")},"同步服务未响应，页面保留了上次的数据。请检查网络后重试。"))));})();</script>
+</body>
+</html>

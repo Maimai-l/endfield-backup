@@ -1,0 +1,13 @@
+<!-- @dsCard group="基础操作" height=265 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Link</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var m=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var S=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,E=Object.prototype.hasOwnProperty;var R=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(n){throw t=0,n}};var I=(e,t,n,d)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of S(t))!E.call(e,r)&&r!==n&&m(e,r,{get:()=>t[r],enumerable:!(d=y(t,r))||d.enumerable});return e};var l=(e,t,n)=>(n=e!=null?x(b(e)):{},I(t||!e||!e.__esModule?m(n,"default",{value:e,enumerable:!0}):n,e));var p=R((C,f)=>{f.exports=window.React});var N=R((P,u)=>{u.exports=window.ReactDOM});var a=l(p());var o=l(p()),v=l(N()),w=window.Endfield;function k(e){(0,v.createRoot)(document.getElementById("root")).render(e)}function L(){return o.createElement("span",{className:"prov"},"新增")}function h({children:e,prov:t}){return o.createElement(o.Fragment,null,t&&o.createElement(L,null),o.createElement("div",{className:"stage"},e))}function i({label:e,children:t,style:n}){return o.createElement("div",{className:"row"},o.createElement("span",{className:"row-label"},e),o.createElement("div",{className:"items",style:n},t))}function s({cap:e,children:t,style:n}){return o.createElement("div",{className:"item",style:n},t,e!==void 0&&o.createElement("span",{className:"cap"},e))}var{Link:c}=w;k(a.createElement(h,{prov:!0},a.createElement(i,{label:"行内"},a.createElement("p",{className:"prose"},"官网改版已进入第三周，进度落后计划两天。请查看 ",a.createElement(c,{href:"#c-link"},"进度记录")," 并在本周内调整排期。")),a.createElement(i,{label:"独立"},a.createElement(s,{cap:"standalone"},a.createElement(c,{standalone:!0,href:"#c-link"},"查看全部项目"))),a.createElement(i,{label:"状态"},a.createElement(s,{cap:"default"},a.createElement(c,{href:"#c-link"},"进度记录")),a.createElement(s,{cap:"hover"},a.createElement(c,{href:"#c-link",className:"is-hover"},"进度记录")),a.createElement(s,{cap:"focus"},a.createElement(c,{href:"#c-link",className:"is-focus"},"进度记录")),a.createElement(s,{cap:"disabled"},a.createElement(c,{disabled:!0},"进度记录")))));})();</script>
+</body>
+</html>

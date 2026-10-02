@@ -1,0 +1,33 @@
+<!-- @dsCard group="反馈与提示" height=792 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PageLoader</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">纵向</span><div class="items" style="width:100%">
+        <div class="ldr" data-ldr="">
+          <div class="ldr-app" aria-hidden="true"><h5>工作区</h5><i></i><i></i><i></i><i></i></div>
+          <div class="ldr-screen" role="progressbar" aria-label="正在载入工作区" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="ldr-bar"><i></i></div>
+            <div class="ldr-read" aria-hidden="true"><span class="ldr-core"><span><b>0</b><small>%</small></span></span><span class="ldr-deco"></span><span class="ldr-label">正在载入工作区</span></div>
+          </div>
+        </div>
+      </div></div>
+      <div class="row"><span class="row-label">横向</span><div class="items">
+        <div class="ldr ldr--narrow" data-ldr="">
+          <div class="ldr-app" aria-hidden="true"><h5>工作区</h5><i></i><i></i><i></i><i></i></div>
+          <div class="ldr-screen" role="progressbar" aria-label="正在载入工作区" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="ldr-bar"><i></i></div>
+            <div class="ldr-read" aria-hidden="true"><span class="ldr-core"><span><b>0</b><small>%</small></span></span><span class="ldr-deco"></span><span class="ldr-label">正在载入工作区</span></div>
+          </div>
+        </div>
+        <div class="item" style="align-self:flex-end"><button class="btn btn--secondary btn--sm" type="button" data-ldr-replay=""><span class="lbl"><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg>重新播放</span></button></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>
