@@ -383,7 +383,7 @@ export interface TableProps<R extends Record<string, unknown>> {
   rows: R[];
   /** 行的唯一键字段，默认 id。 */
   rowKey?: string;
-  /** 行可选：单击行或按空格、回车切换选中。 */
+  /** 行可选：单击行或按空格、回车切换选中，Shift 连续选中；表头左侧方块全选，Ctrl/Cmd+A 全选，Esc 清除。 */
   selectable?: boolean;
   selected?: string[];
   defaultSelected?: string[];
@@ -418,18 +418,32 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
       return r * d || keyOf(a).localeCompare(keyOf(b));
     });
   }, [rows, srt, columns]);
-  const toggle = (r: R) => {
+  const last = React.useRef<string | null>(null);
+  const live = sorted.filter((r) => !(isDisabled && isDisabled(r))).map(keyOf);
+  const picked = live.filter((k) => sel.indexOf(k) >= 0).length;
+  const allOn = picked > 0 && picked === live.length;
+  const setAll = (on: boolean) => setSel(on ? live.slice() : sel.filter((k) => live.indexOf(k) < 0));
+  /* 单击切换一行；range 为真时把上次单击的行到本行之间的可选行设为同一状态。 */
+  const toggle = (r: R, range?: boolean) => {
     if (!selectable || (isDisabled && isDisabled(r))) return;
     const k = keyOf(r);
-    setSel(sel.indexOf(k) >= 0 ? sel.filter((x) => x !== k) : sel.concat(k));
+    const on = sel.indexOf(k) < 0;
+    const a = last.current ? live.indexOf(last.current) : -1, b = live.indexOf(k);
+    const span = range && a >= 0 && a !== b ? live.slice(Math.min(a, b), Math.max(a, b) + 1) : [k];
+    setSel(on ? sel.concat(span.filter((x) => sel.indexOf(x) < 0)) : sel.filter((x) => span.indexOf(x) < 0));
+    last.current = k;
   };
-  const head = (c: TableColumn<R>) => {
+  const allBtn = selectable
+    ? <button className="tbl-all" type="button" role="checkbox" aria-checked={allOn} aria-label="全选" onClick={() => setAll(!allOn)} />
+    : null;
+  const head = (c: TableColumn<R>, i: number) => {
     const num = c.kind === 'number';
     const on = srt && srt.key === c.key;
-    if (c.sortable === false) return <th key={c.key} scope="col" className={num ? 'num' : undefined}>{c.label}</th>;
+    if (c.sortable === false) return <th key={c.key} scope="col" className={num ? 'num' : undefined}>{i === 0 && allBtn}{c.label}</th>;
     const next = (): TableSort => ({ key: c.key, dir: on ? (srt!.dir === 'descending' ? 'ascending' : 'descending') : (num ? 'descending' : 'ascending') });
     return (
       <th key={c.key} scope="col" className={num ? 'num' : undefined} aria-sort={on ? srt!.dir : undefined}>
+        {i === 0 && allBtn}
         <button type="button" onClick={() => setSrt(next())}>
           <span className="in">{num ? <>{ARROW}<span>{c.label}</span></> : <><span>{c.label}</span>{ARROW}</>}</span>
         </button>
@@ -452,7 +466,12 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
     <div className="tbl-frame">
       <i /><i /><i /><i />
       <div className="tbl-scroll">
-        <table className="tbl" aria-multiselectable={selectable || undefined} aria-label={ariaLabel} style={minWidth !== undefined ? { minWidth } : undefined}>
+        <table className="tbl" aria-multiselectable={selectable || undefined} aria-label={ariaLabel} style={minWidth !== undefined ? { minWidth } : undefined}
+          onKeyDown={selectable ? (e) => {
+            if (!body.current || !body.current.contains(e.target as Node)) return;
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'a') { e.preventDefault(); setAll(true); }
+            else if (e.key === 'Escape') setAll(false);
+          } : undefined}>
           <colgroup>{columns.map((c) => <col key={c.key} style={c.width ? { width: c.width } : undefined} />)}</colgroup>
           <thead><tr>{columns.map(head)}</tr></thead>
           <tbody ref={body}>
@@ -461,10 +480,10 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
               const k = keyOf(r);
               return (
                 <tr key={k} aria-disabled={off || undefined} tabIndex={selectable && !off ? 0 : undefined} aria-selected={selectable && !off ? sel.indexOf(k) >= 0 : undefined}
-                  onClick={(e) => { if (!(e.target as HTMLElement).closest('button,a,input,label,select,textarea')) toggle(r); }}
+                  onClick={(e) => { if (!(e.target as HTMLElement).closest('button,a,input,label,select,textarea')) toggle(r, e.shiftKey); }}
                   onKeyDown={(e) => {
                     if (!selectable || e.target !== e.currentTarget) return;
-                    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(r); }
+                    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(r, e.shiftKey); }
                     else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                       e.preventDefault();
                       let n = e.currentTarget as Element | null;

@@ -455,8 +455,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-02T04:57:22Z",
+  "at": "2026-10-02T05:35:25Z",
   "via": "Claude Code",
-  "note": "翻页胶囊按源站重做：页码整排平移 0.3 秒、窗口 4 个、两端渐隐；Tooltip、EmptyState、Surface 预览整理对齐"
+  "note": "表格加全选：表头左侧 6×6 方块，描边为未全选、实心黄为全选，无部分选中；Shift 连续选中，Ctrl/Cmd+A 全选，Esc 清除"
  }
 }

@@ -311,7 +311,7 @@ export interface TableProps<R extends Record<string, unknown>> {
     rows: R[];
     /** 行的唯一键字段，默认 id。 */
     rowKey?: string;
-    /** 行可选：单击行或按空格、回车切换选中。 */
+    /** 行可选：单击行或按空格、回车切换选中，Shift 连续选中；表头左侧方块全选，Ctrl/Cmd+A 全选，Esc 清除。 */
     selectable?: boolean;
     selected?: string[];
     defaultSelected?: string[];

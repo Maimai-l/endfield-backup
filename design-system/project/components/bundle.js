@@ -109,15 +109,23 @@ function init(root){
     v.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});});
   all(root,'[data-smenu]').forEach(function(m){if(!once(m,'smenu'))return;m.addEventListener('click',function(e){var b=e.target.closest('.smi');if(!b)return;
     all(m,'.smi').forEach(function(x){if(x===b)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current')})})});
-  /* 表格：单击表头排序，再次单击反转；单击行或按空格、回车切换选中；上下方向键移动焦点，跳过禁用行 */
+  /* 表格：单击表头排序，再次单击反转；单击行或按空格、回车切换选中，Shift 加单击连续选中；表头左侧方块全选；Ctrl/Cmd+A 全选，Esc 清除；上下方向键移动焦点，跳过禁用行 */
   all(root,'table.tbl').forEach(function(tb){if(!once(tb,'tbl'))return;
-    var body=tb.tBodies[0],multi=tb.getAttribute('aria-multiselectable')==='true';
+    var body=tb.tBodies[0],multi=tb.getAttribute('aria-multiselectable')==='true',allBtn=null,last=null;
+    function live(){return all(body,'tr').filter(function(tr){return tr.getAttribute('aria-disabled')!=='true'})}
+    function sync(){if(!allBtn)return;var r=live(),n=r.filter(function(tr){return tr.getAttribute('aria-selected')==='true'}).length;
+      allBtn.setAttribute('aria-checked',String(n>0&&n===r.length))}
+    function fire(){sync();tb.dispatchEvent(new CustomEvent('tbl-select',{bubbles:true}))}
+    function setAll(on){live().forEach(function(tr){tr.setAttribute('aria-selected',String(on))});fire()}
     function prep(tr){if(!multi)return;if(tr.getAttribute('aria-disabled')==='true'){tr.removeAttribute('tabindex');tr.removeAttribute('aria-selected');return}
       if(!tr.hasAttribute('tabindex'))tr.tabIndex=0;if(!tr.hasAttribute('aria-selected'))tr.setAttribute('aria-selected','false')}
     all(body,'tr').forEach(prep);
+    if(multi&&tb.tHead){var th0=tb.tHead.rows[0].cells[0];allBtn=document.createElement('button');allBtn.type='button';allBtn.className='tbl-all';
+      allBtn.setAttribute('role','checkbox');allBtn.setAttribute('aria-label','全选');th0.insertBefore(allBtn,th0.firstChild);
+      allBtn.addEventListener('click',function(e){e.stopPropagation();setAll(allBtn.getAttribute('aria-checked')!=='true')});sync()}
     function cellVal(tr,i,num){var c=tr.cells[i],v=c.getAttribute('data-value')!=null?c.getAttribute('data-value'):c.textContent;
       if(num){v=parseFloat(String(v).replace(/[^\d.-]/g,''));return isNaN(v)?-Infinity:v}return v.trim()}
-    tb.tHead.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    tb.tHead.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b===allBtn)return;
       var th=b.closest('th'),i=th.cellIndex,num=th.classList.contains('num'),cur=th.getAttribute('aria-sort');
       var dir=cur==='descending'?1:cur==='ascending'?-1:(num?-1:1);
       all(tb,'thead th').forEach(function(h){if(h!==th)h.removeAttribute('aria-sort')});
@@ -125,16 +133,20 @@ function init(root){
       all(body,'tr').sort(function(x,y){var a=cellVal(x,i,num),c=cellVal(y,i,num);
         var r=num?a-c:String(a).localeCompare(String(c),'zh-Hans-CN');return r*dir||cellVal(x,0).localeCompare(cellVal(y,0))})
         .forEach(function(tr){body.appendChild(tr)})});
-    function toggle(tr){if(!multi||!tr||tr.getAttribute('aria-disabled')==='true'||!body.contains(tr))return;
-      tr.setAttribute('aria-selected',String(tr.getAttribute('aria-selected')!=='true'));
-      tb.dispatchEvent(new CustomEvent('tbl-select',{bubbles:true}))}
-    body.addEventListener('click',function(e){if(e.target.closest('button,a,input,label,select,textarea'))return;toggle(e.target.closest('tr'))});
+    function toggle(tr,range){if(!multi||!tr||tr.getAttribute('aria-disabled')==='true'||!body.contains(tr))return;
+      var on=tr.getAttribute('aria-selected')!=='true',rows=all(body,'tr'),a=rows.indexOf(last),b=rows.indexOf(tr);
+      if(range&&a>=0&&a!==b)rows.slice(Math.min(a,b),Math.max(a,b)+1).forEach(function(x){if(x.getAttribute('aria-disabled')!=='true')x.setAttribute('aria-selected',String(on))});
+      else tr.setAttribute('aria-selected',String(on));
+      last=tr;fire()}
+    body.addEventListener('click',function(e){if(e.target.closest('button,a,input,label,select,textarea'))return;toggle(e.target.closest('tr'),e.shiftKey)});
+    tb.addEventListener('keydown',function(e){if(!multi||!body.contains(e.target))return;
+      if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='a'){e.preventDefault();setAll(true)}else if(e.key==='Escape'){setAll(false)}});
     body.addEventListener('keydown',function(e){var tr=e.target.closest('tr');if(!tr)return;
       if(!multi||e.target!==tr)return;
-      if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(tr)}
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(tr,e.shiftKey)}
       else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var n=tr;
         do{n=e.key==='ArrowDown'?n.nextElementSibling:n.previousElementSibling}while(n&&n.getAttribute('aria-disabled')==='true');if(n)n.focus()}});
-    tb.Endfield={prep:prep,selected:function(){return all(body,'tr[aria-selected="true"]')}}});
+    tb.Endfield={prep:function(tr){prep(tr);sync()},selected:function(){return all(body,'tr[aria-selected="true"]')},selectAll:function(){setAll(true)},clear:function(){setAll(false)}}});
   /* 切换型图标按钮、清除按钮 */
   all(root,'.ibtn[aria-pressed]').forEach(function(b){if(!once(b,'tg'))return;b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));b.classList.toggle('is-pressed',on)})});
   all(root,'.clear').forEach(function(b){if(!once(b,'clr'))return;b.addEventListener('click',function(){var i=b.parentNode.querySelector('input');if(i){i.value='';i.focus()}})});

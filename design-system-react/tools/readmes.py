@@ -28,7 +28,7 @@ USES = {
 'List': '`variant`（two-line、single、compact）、`items`（`{ value, title, subtitle?, icon?, trailing?, disabled? }`）；可选列表传 `selectable` 与 `value` 或 `defaultValue`、`onChange`、`ariaLabel`。入口菜单用 `EntryMenu`（`items`：`{ value, label, icon, href? }`）。',
 'MetricBadge': '`label`、`value`（1 至 3 个字符）、`infoLabel`（说明按钮的无障碍名称）与 `onInfo`。',
 'QuotaPill': '`icon`、`value` 用量、`max` 上限、`unit`、`actionLabel`（加号按钮的无障碍名称）与 `onAction`。用量达到上限时自动显示为已满。',
-'Table': '`columns`（`{ key, label, kind?, unit?, width?, sortable?, error?, render?, sortValue? }`，kind 为 id、name、status、time、text、number）、`rows`、`rowKey`（默认 id）；行可选时传 `selectable` 与 `selected` 或 `defaultSelected`、`onSelectedChange`；排序 `sort` 或 `defaultSort`（`{ key, dir }`）与 `onSortChange`；`isDisabled` 返回禁用行；`minWidth`（默认 880）。',
+'Table': '`columns`（`{ key, label, kind?, unit?, width?, sortable?, error?, render?, sortValue? }`，kind 为 id、name、status、time、text、number）、`rows`、`rowKey`（默认 id）；行可选时传 `selectable` 与 `selected` 或 `defaultSelected`、`onSelectedChange`，表头左侧自动出现全选方块，并支持 `Shift` 连续选中、`Ctrl/Cmd+A` 全选、`Esc` 清除；排序 `sort` 或 `defaultSort`（`{ key, dir }`）与 `onSortChange`；`isDisabled` 返回禁用行；`minWidth`（默认 880）。',
 'Tag': '文字 `children`；`variant`（neutral、accent）、`status`（ok、warn、err、info 带状态图标，off 不带图标）、`size`（sm、md）；可移除时传 `onRemove`。表格与列表中的状态用 `Status`（`tone`），公告的类型加日期用 `TagDate`。',
 'Banner': '`type`（info、success、warning、error）、`title`、说明 `children`（可含链接）；可关闭时传 `onClose`。',
 'Dialog': '`open` 与 `onClose`、`title`、正文 `children`；危险确认传 `danger`，需要输入确认文字时传 `confirmText`；`confirmLabel`、`cancelLabel`、`onConfirm`；自定义底部用 `footer`。嵌在页面中作规格展示时传 `inline`。',
