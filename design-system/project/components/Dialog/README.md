@@ -12,7 +12,7 @@
 
 ## 规则
 
-- 宽 400、560、800 三档；主要操作在最右。
+- 宽 400、560、800 三档；主要操作在最右，取消用次要按钮，与主要按钮同宽。
 - 危险确认的标题栏为源站深色条纹底；红色只出现在确认按钮上。
 - Esc 关闭，焦点锁定在对话框内，关闭后回到触发按钮。
 
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="dlg-foot">
-    <button class="btn btn--ghost" type="button">
+    <button class="btn btn--secondary" type="button">
       <span class="lbl">取消</span>
     </button>
     <button class="btn btn--danger" type="button">

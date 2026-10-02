@@ -173,7 +173,7 @@ export function Dialog({ open, onClose, title, danger, children, confirmText, co
       </div>
       <div className="dlg-foot">
         {footer || <>
-          <Button variant="ghost" onClick={onClose}>{cancelLabel}</Button>
+          <Button variant="secondary" onClick={onClose}>{cancelLabel}</Button>
           <Button variant={danger ? 'danger' : 'primary'} disabled={!ok} onClick={() => { if (onConfirm) onConfirm(); if (onClose) onClose(); }}>{confirmLabel || (danger ? '删除' : '确定')}</Button>
         </>}
       </div>

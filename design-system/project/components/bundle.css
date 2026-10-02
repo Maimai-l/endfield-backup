@@ -760,8 +760,7 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .tbl .c-id{letter-spacing:.04em}
 .tbl .c-name{font:14px/1.5 var(--font-medium);color:var(--color-text-primary)}
 .tbl .c-stat{color:var(--color-text-primary)}
-.tbl .c-stat.is-err{color:var(--color-error-text)}
-.tbl .c-stat .ic{margin-right:6px;vertical-align:-3px}
+.tbl .c-stat.is-err{color:var(--color-error);font-family:var(--font-medium)}
 .tbl td.num{text-align:right;padding-right:32px;font-size:12px}
 .tbl td.num b{font:14px/1.5 var(--font-numeric);font-weight:400;font-variant-numeric:tabular-nums;color:var(--color-text-primary);margin-right:4px}
 .tbl tbody tr[aria-disabled="true"]{cursor:default}

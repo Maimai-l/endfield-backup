@@ -443,10 +443,7 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
       case 'id': return <td key={c.key} className="c-id">{v as React.ReactNode}</td>;
       case 'name': return <td key={c.key} className="c-name">{v as React.ReactNode}</td>;
       case 'time': return <td key={c.key} className="c-time">{v as React.ReactNode}</td>;
-      case 'status': {
-        const err = c.error && c.error(r);
-        return <td key={c.key} className={cx('c-stat', err && 'is-err')}>{err && <Icon name="s-error" />}{v as React.ReactNode}</td>;
-      }
+      case 'status': return <td key={c.key} className={cx('c-stat', c.error && c.error(r) && 'is-err')}>{v as React.ReactNode}</td>;
       case 'number': return <td key={c.key} className="num"><b>{typeof v === 'number' ? v.toLocaleString('en-US') : (v as React.ReactNode)}</b>{c.unit}</td>;
       default: return <td key={c.key}>{v as React.ReactNode}</td>;
     }
