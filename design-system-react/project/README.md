@@ -95,7 +95,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 ### 纹理与装饰
 
-- 源站深色按钮（顶栏按钮、返回按钮）底面带 4px 的 45 度细纹，只作这类按钮的底纹，不作色条、边框或动画。选择轨道纹理（`track-bg`、`track-stripe`、`track-edge`）只用于翻页胶囊；分段控件与进度条轨道只用纯色 `track-bg`，小尺寸上的斜纹过密，显得杂乱。
+- 源站深色按钮（顶栏按钮、返回按钮）底面带 4px 的 45 度细纹，只作这类按钮的底纹，不作色条、边框或动画。选择轨道纹理（`track-bg`、`track-stripe`、`track-edge`）只用于翻页胶囊；进度条轨道只用纯色 `track-bg`，分段控件为描边胶囊，小尺寸上的斜纹过密，显得杂乱。
 - 警告、危险等状态一律用纯色色条，不用黄黑相间的条纹。
 - 按钮与圆形翻页按钮叠加 Textures 组中的源站纹理图。空状态背景可用点阵纹理。
 - 装饰色条与区块标题（镂空条纹大字、黄色分区带、线稿插图）只用于页面级装饰，不进入控件内部，每屏至多一处。
@@ -123,7 +123,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 | --- | --- |
 | button、home-button | Button（主要、强调） |
 | round-button、close-button、back-button、pagination-button | IconButton（关闭、返回、圆形翻页） |
-| selector | Tabs（分段）、Pagination（翻页胶囊）与选择轨道纹理 |
+| selector | Pagination（翻页胶囊）与选择轨道纹理；Tabs 的分段控件参照其胶囊外形新增 |
 | tabs | Tabs |
 | nav-item、utility-capsule | Sidebar（导航项、底部工具区） |
 | page-header | TopBar |
