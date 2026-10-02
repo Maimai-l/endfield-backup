@@ -166,7 +166,7 @@
  {
   "name": "Dialog",
   "group": "反馈与提示",
-  "height": 424,
+  "height": 416,
   "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}"
  },
  {

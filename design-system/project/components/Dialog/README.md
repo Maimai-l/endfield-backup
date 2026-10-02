@@ -12,13 +12,13 @@
 
 ## 规则
 
-- 宽 400、560、800 三档；主要操作在最右，取消用次要按钮，与主要按钮同宽。
+- 宽 400、560、800 三档；底部按钮用 sm 档，主要操作在最右，取消用次要按钮，与主要按钮同宽。
 - 危险确认的标题栏为源站深色条纹底；红色只出现在确认按钮上。
 - Esc 关闭，焦点锁定在对话框内，关闭后回到触发按钮。
 
 ## 规格
 
-- **尺寸**：宽 400、560、800；标题栏 56；内容内边距 24；底部操作区 64，主要操作在最右
+- **尺寸**：宽 400、560、800；标题栏 56；内容内边距 24；底部操作区 56，按钮用 sm 档（高 24、宽 108），主要操作在最右
 - **Token**：`--color-bg-raised --color-bg-overlay --shadow-lg --radius-md --color-border-subtle`
 - **键盘**：`Esc` 关闭；`Tab` 在对话框内循环；关闭后焦点回到触发按钮
 
@@ -43,10 +43,10 @@
     </div>
   </div>
   <div class="dlg-foot">
-    <button class="btn btn--secondary" type="button">
+    <button class="btn btn--secondary btn--sm" type="button">
       <span class="lbl">取消</span>
     </button>
-    <button class="btn btn--danger" type="button">
+    <button class="btn btn--danger btn--sm" type="button">
       <span class="lbl">删除</span>
     </button>
   </div>

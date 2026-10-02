@@ -29,10 +29,10 @@ mount(
       <div className="scn-grid">
         <div className="scn"><div className="scn-h"><b>sm 24</b><span>密集区域</span></div>
           <div className="scn-demo"><Button size="sm">编辑</Button><Button variant="secondary" size="sm">删除</Button></div>
-          <p>表格行内操作、卡片底部、筛选条</p></div>
+          <p>表格行内操作、卡片底部、对话框底部、筛选条</p></div>
         <div className="scn"><div className="scn-h"><b>md 32</b><span>默认尺寸</span></div>
           <div className="scn-demo"><TextField size="sm" icon="i-search" aria-label="搜索" placeholder="搜索" style={{ flex: '1 1 120px', minWidth: 0 }} /><Button variant="ghost" size="sm" icon="i-filter">筛选</Button><span className="sp" aria-hidden="true" /><Button variant="primary" icon="i-plus">新建</Button></div>
-          <p>表单、对话框底部、页面标题区的操作；未特别说明时一律使用此尺寸</p></div>
+          <p>表单、页面标题区的操作；未特别说明时一律使用此尺寸</p></div>
         <div className="scn"><div className="scn-h"><b>lg 40</b><span>触屏与单一主流程</span></div>
           <div className="scn-demo" style={{ flexDirection: 'column', alignItems: 'stretch', gap: 24 }}><TextField size="lg" aria-label="备注" placeholder="备注" /><div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}><Button variant="secondary" size="lg">稍后</Button><Button variant="primary" size="lg">提交</Button></div></div>
           <p>移动端底部操作栏、登录与首次设置页、空状态中的唯一主操作</p></div>

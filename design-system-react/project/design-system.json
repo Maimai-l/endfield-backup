@@ -464,8 +464,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-02T03:13:01Z",
+  "at": "2026-10-02T03:28:36Z",
   "via": "Claude Code",
-  "note": "同步 HTML 版：Dialog 的取消改为次要按钮；表格错误状态去掉图标，只用红色文字"
+  "note": "同步 HTML 版：Dialog 底部按钮改为 sm 档；主题名改为 Light、Dark，预览主题菜单与外观切换可识别深色主题"
  }
 }
