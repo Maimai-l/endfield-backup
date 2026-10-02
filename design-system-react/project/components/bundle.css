@@ -371,7 +371,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .field-help{font-size:13px;line-height:1.4;color:var(--color-text-secondary);display:flex;justify-content:space-between;gap:8px}
 .field-help .count{font:12px var(--font-tech);color:var(--color-text-tertiary)}
 .field-err{color:var(--color-error-text);display:flex;gap:6px;align-items:flex-start;justify-content:flex-start}
-.field-err .ic{margin-top:2px}
+.field-err .ic{flex:none;margin-top:0}
 .input{--h:var(--size-control-md);display:flex;align-items:center;gap:8px;height:var(--h);padding:0 14px;border:1.5px solid var(--color-border-control);border-radius:var(--radius-full);
   background:var(--color-bg-page);color:var(--color-text-primary);transition:border-color var(--duration-base) ease,box-shadow var(--duration-base) ease;min-width:0}
 .input > input,.input > textarea{flex:1;min-width:0;height:100%;border:0;background:transparent;outline:none;padding:0}
@@ -549,6 +549,7 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .prog-indet .prog-fill{width:30%;animation:prog-run 1.4s cubic-bezier(.65,0,.35,1) infinite}
 @keyframes prog-run{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
 .prog-note{font-size:12px;color:var(--color-text-secondary);display:flex;gap:4px;align-items:center}
+.prog-note .ic{position:relative;top:-1px}
 .tabs{display:flex;gap:32px;border-bottom:1px solid var(--color-border-subtle);overflow-x:auto;max-width:100%}
 .tab{position:relative;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0;border:0;background:none;color:var(--color-text-secondary);font-size:14px;cursor:pointer;white-space:nowrap;transition:color var(--duration-base) ease}
 .tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--color-checked);transform:scaleX(0);transition:transform var(--duration-base) ease}
@@ -677,13 +678,10 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .tag .rm:hover{opacity:1;background:var(--color-state-pressed)}
 .tag .rm:focus-visible{outline:2px solid var(--color-focus-ring)}
 .tag .rm .ic{width:10px;height:10px;stroke-width:2}
-.stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;white-space:nowrap}
-.stat::before{content:"";width:8px;height:8px;box-sizing:border-box;border-radius:50%;border:1px solid var(--color-mark-stroke);background:var(--s,var(--color-bg-page))}
-.stat--ok{--s:var(--color-success)}
-.stat--warn{--s:var(--color-warning)}
-.stat--info{--s:var(--color-info)}
-.stat--err{--s:var(--color-error)}
-.stat--off::before{border-color:var(--color-text-disabled);background:transparent}
+.stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;line-height:20px;white-space:nowrap}
+.stat > .ic{flex:none;position:relative;top:-1px}
+.tag.stat{gap:4px}
+.tag.stat > .ic{width:12px;height:12px;top:0}
 .stat--off{color:var(--color-text-secondary)}
 .tagdate{display:inline-flex;align-items:center;gap:12px;padding:6px 10px;border-radius:var(--radius-sm);background:var(--hazard-ink)}
 .tagdate .t{padding:2px 6px;border-radius:var(--radius-sm);background:#38383a;color:#ffffff;font-size:12px}
@@ -763,7 +761,7 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .tbl .c-name{font:14px/1.5 var(--font-medium);color:var(--color-text-primary)}
 .tbl .c-stat{color:var(--color-text-primary)}
 .tbl .c-stat.is-err{color:var(--color-error-text)}
-.tbl .c-stat.is-err::after{content:"";display:inline-block;width:8px;height:8px;margin-left:8px;border-radius:50%;background:var(--color-error);vertical-align:1px}
+.tbl .c-stat .ic{margin-right:6px;vertical-align:-3px}
 .tbl td.num{text-align:right;padding-right:32px;font-size:12px}
 .tbl td.num b{font:14px/1.5 var(--font-numeric);font-weight:400;font-variant-numeric:tabular-nums;color:var(--color-text-primary);margin-right:4px}
 .tbl tbody tr[aria-disabled="true"]{cursor:default}

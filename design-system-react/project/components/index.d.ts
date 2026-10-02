@@ -97,8 +97,8 @@ export type StatusTone = 'ok' | 'warn' | 'err' | 'info' | 'off';
 export interface TagProps {
     /** neutral 中性（默认）；accent 品牌黄强调。 */
     variant?: 'neutral' | 'accent';
-    /** 带状态点的标签；plain 为空心点。 */
-    status?: StatusTone | 'plain';
+    /** 状态标签：图标加文字；off 不带图标。 */
+    status?: StatusTone;
     /** sm 20，md 24（默认）。 */
     size?: 'sm' | 'md';
     /** 提供后显示移除按钮。 */
@@ -110,12 +110,12 @@ export interface TagProps {
 /** 方形标签：分类、状态或已选值。 */
 export declare function Tag({ variant, status, size, onRemove, tabIndex, className, children }: TagProps): React.JSX.Element;
 export interface StatusProps {
-    /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（空心）。 */
+    /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（次要文字色，不带图标）。 */
     tone: StatusTone;
     children: React.ReactNode;
     className?: string;
 }
-/** 8px 圆形状态点加文字，用于表格与列表。 */
+/** 状态图标加文字，用于表格与列表。 */
 export declare function Status({ tone, children, className }: StatusProps): React.JSX.Element;
 export interface TagDateProps {
     type: string;

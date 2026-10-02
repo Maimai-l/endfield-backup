@@ -6,11 +6,14 @@ import { cx, moveFocus, useControllable } from './util';
 
 export type StatusTone = 'ok' | 'warn' | 'err' | 'info' | 'off';
 
+/* 状态对应的图标；off 不带图标。 */
+const STATUS_ICON: Record<StatusTone, IconName | undefined> = { ok: 's-success', warn: 's-warning', err: 's-error', info: 's-info', off: undefined };
+
 export interface TagProps {
   /** neutral 中性（默认）；accent 品牌黄强调。 */
   variant?: 'neutral' | 'accent';
-  /** 带状态点的标签；plain 为空心点。 */
-  status?: StatusTone | 'plain';
+  /** 状态标签：图标加文字；off 不带图标。 */
+  status?: StatusTone;
   /** sm 20，md 24（默认）。 */
   size?: 'sm' | 'md';
   /** 提供后显示移除按钮。 */
@@ -23,7 +26,8 @@ export interface TagProps {
 /** 方形标签：分类、状态或已选值。 */
 export function Tag({ variant = 'neutral', status, size = 'md', onRemove, tabIndex, className, children }: TagProps) {
   return (
-    <span tabIndex={tabIndex} className={cx('tag', variant === 'accent' && 'tag--accent', size === 'sm' && 'tag--sm', status && 'stat', status && status !== 'plain' && 'stat--' + status, className)}>
+    <span tabIndex={tabIndex} className={cx('tag', variant === 'accent' && 'tag--accent', size === 'sm' && 'tag--sm', status && 'stat', status && 'stat--' + status, className)}>
+      {status && STATUS_ICON[status] && <Icon name={STATUS_ICON[status] as IconName} still />}
       {children}
       {onRemove && <button className="rm" type="button" aria-label={'移除 ' + (typeof children === 'string' ? children : '')} onClick={onRemove}><Icon name="i-close" /></button>}
     </span>
@@ -31,15 +35,16 @@ export function Tag({ variant = 'neutral', status, size = 'md', onRemove, tabInd
 }
 
 export interface StatusProps {
-  /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（空心）。 */
+  /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（次要文字色，不带图标）。 */
   tone: StatusTone;
   children: React.ReactNode;
   className?: string;
 }
 
-/** 8px 圆形状态点加文字，用于表格与列表。 */
+/** 状态图标加文字，用于表格与列表。 */
 export function Status({ tone, children, className }: StatusProps) {
-  return <span className={cx('stat', 'stat--' + tone, className)}>{children}</span>;
+  const ic = STATUS_ICON[tone];
+  return <span className={cx('stat', 'stat--' + tone, className)}>{ic && <Icon name={ic} />}{children}</span>;
 }
 
 export interface TagDateProps { type: string; date: string; className?: string }
@@ -438,7 +443,10 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
       case 'id': return <td key={c.key} className="c-id">{v as React.ReactNode}</td>;
       case 'name': return <td key={c.key} className="c-name">{v as React.ReactNode}</td>;
       case 'time': return <td key={c.key} className="c-time">{v as React.ReactNode}</td>;
-      case 'status': return <td key={c.key} className={cx('c-stat', c.error && c.error(r) && 'is-err')}>{v as React.ReactNode}</td>;
+      case 'status': {
+        const err = c.error && c.error(r);
+        return <td key={c.key} className={cx('c-stat', err && 'is-err')}>{err && <Icon name="s-error" />}{v as React.ReactNode}</td>;
+      }
       case 'number': return <td key={c.key} className="num"><b>{typeof v === 'number' ? v.toLocaleString('en-US') : (v as React.ReactNode)}</b>{c.unit}</td>;
       default: return <td key={c.key}>{v as React.ReactNode}</td>;
     }

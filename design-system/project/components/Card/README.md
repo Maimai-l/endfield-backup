@@ -31,7 +31,7 @@
   <span class="card-body">产品部</span>
   <div class="card-foot">
     <code>PRJ-0142</code>
-    <span class="stat stat--warn">待处理</span>
+    <span class="stat stat--warn"><svg class="ic"><use href="#s-warning"></use></svg>待处理</span>
   </div>
 </a>
 ```
