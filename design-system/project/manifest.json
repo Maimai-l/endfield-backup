@@ -1,0 +1,949 @@
+{
+  "manifestVersion": 3,
+  "name": "ENDFIELD",
+  "namespace": "Endfield",
+  "files": [
+    "assets/Icons/README.md",
+    "assets/Illustrations/README.md",
+    "assets/Logos/README.md",
+    "assets/References/README.md",
+    "assets/Textures/README.md",
+    "components/Avatar/README.md",
+    "components/Banner/README.md",
+    "components/Breadcrumb/README.md",
+    "components/Button/README.md",
+    "components/Card/README.md",
+    "components/Checkbox/README.md",
+    "components/ColorLine/README.md",
+    "components/Dialog/README.md",
+    "components/Divider/README.md",
+    "components/EmptyState/README.md",
+    "components/IconButton/README.md",
+    "components/InteractionStates/README.md",
+    "components/Link/README.md",
+    "components/List/README.md",
+    "components/Loading/README.md",
+    "components/MetricBadge/README.md",
+    "components/PageLoader/README.md",
+    "components/Pagination/README.md",
+    "components/Progress/README.md",
+    "components/QuotaPill/README.md",
+    "components/Radio/README.md",
+    "components/SectionHeader/README.md",
+    "components/Select/README.md",
+    "components/Sidebar/README.md",
+    "components/Spacing/README.md",
+    "components/Switch/README.md",
+    "components/Table/README.md",
+    "components/Tabs/README.md",
+    "components/Tag/README.md",
+    "components/TextArea/README.md",
+    "components/TextField/README.md",
+    "components/Toast/README.md",
+    "components/Tooltip/README.md",
+    "components/TopBar/README.md",
+    "components/bundle.css",
+    "components/bundle.js",
+    "fonts/Gilroy-Light.woff2",
+    "fonts/Gilroy-Medium.woff2",
+    "fonts/Novecentosanswide-Bold.woff2",
+    "fonts/Novecentosanswide-DemiBold.woff2",
+    "fonts/Novecentosanswide-Medium.woff2",
+    "fonts/SansBold.woff2",
+    "fonts/SansMedium.woff2",
+    "fonts/SansRegular.woff2",
+    "fonts/SpaceGrotesk.woff2",
+    "tokens.css"
+  ],
+  "libraries": [],
+  "components": [
+    {
+      "name": "Avatar",
+      "group": "内容展示",
+      "summary": "头像，含图片、文字、占位、状态点与堆叠。"
+    },
+    {
+      "name": "Banner",
+      "group": "反馈与提示",
+      "summary": "页面内提示条，常驻在相关内容上方，可关闭。"
+    },
+    {
+      "name": "Breadcrumb",
+      "group": "导航",
+      "summary": "面包屑与路径，显示当前页面的位置。"
+    },
+    {
+      "name": "Button",
+      "group": "基础操作",
+      "summary": "触发一个动作的按钮，分主要、强调、次要、幽灵、危险五种，高 24、32、40 三档。"
+    },
+    {
+      "name": "Card",
+      "group": "内容展示",
+      "summary": "卡片：条目卡片、信息卡片、读数卡片、可交互卡片与可选卡片。"
+    },
+    {
+      "name": "Checkbox",
+      "group": "表单输入",
+      "summary": "复选框，含未选、已选、半选、禁用。"
+    },
+    {
+      "name": "ColorLine",
+      "group": "装饰",
+      "summary": "装饰色条：源站的粉、绿、黄三段色条，只作装饰，每屏至多一处。"
+    },
+    {
+      "name": "Dialog",
+      "group": "反馈与提示",
+      "summary": "模态对话框，含普通确认与危险确认两类。"
+    },
+    {
+      "name": "Divider",
+      "group": "内容展示",
+      "summary": "分隔线：横线、带标题分隔与竖线。"
+    },
+    {
+      "name": "EmptyState",
+      "group": "内容展示",
+      "summary": "空状态：无数据、无搜索结果、无权限。"
+    },
+    {
+      "name": "IconButton",
+      "group": "基础操作",
+      "summary": "只有图标的按钮，含方形、圆形关闭与返回、源站圆形翻页按钮三类。"
+    },
+    {
+      "name": "InteractionStates",
+      "group": "基础",
+      "summary": "交互状态：默认、悬停、按下、聚焦、选中、禁用、加载、错误八种状态在各类控件上的表现。"
+    },
+    {
+      "name": "Link",
+      "group": "基础操作",
+      "summary": "行内文字链接与独立的“查看全部”链接，始终带下划线。"
+    },
+    {
+      "name": "List",
+      "group": "内容展示",
+      "summary": "列表与侧边菜单。"
+    },
+    {
+      "name": "Loading",
+      "group": "反馈与提示",
+      "summary": "局部加载：旋转圆环与骨架块。"
+    },
+    {
+      "name": "MetricBadge",
+      "group": "内容展示",
+      "summary": "指标徽章：名称、大号数值与说明按钮。"
+    },
+    {
+      "name": "PageLoader",
+      "group": "反馈与提示",
+      "summary": "整页加载层，按源站首屏加载重建：纵向进度条与跟随读数，完成后黄色矩形自左向右覆盖再淡出。"
+    },
+    {
+      "name": "Pagination",
+      "group": "导航",
+      "summary": "分页器：完整分页、简洁分页与源站翻页胶囊。"
+    },
+    {
+      "name": "Progress",
+      "group": "反馈与提示",
+      "summary": "进度条，含确定进度、不确定进度、完成、错误、暂停。"
+    },
+    {
+      "name": "QuotaPill",
+      "group": "内容展示",
+      "summary": "额度胶囊：当前值、上限与补充操作。"
+    },
+    {
+      "name": "Radio",
+      "group": "表单输入",
+      "summary": "单选框，同组只能选一项。"
+    },
+    {
+      "name": "SectionHeader",
+      "group": "装饰",
+      "summary": "区块标题：镂空条纹大字、黄色分区带与线稿插图，用于长页面的一级分区。"
+    },
+    {
+      "name": "Select",
+      "group": "表单输入",
+      "summary": "下拉选择，含单选、可搜索、多选三种。"
+    },
+    {
+      "name": "Sidebar",
+      "group": "导航",
+      "summary": "侧边导航，由标识区、导航项、分组标题、底部工具区四个元素组成，收起 64、展开 224。"
+    },
+    {
+      "name": "Spacing",
+      "group": "基础",
+      "summary": "间距：阶梯、五个层级、新闻列表与工作页样例、错误与正确对比、页边距。"
+    },
+    {
+      "name": "Switch",
+      "group": "表单输入",
+      "summary": "开关，用于立即生效的二元设置。"
+    },
+    {
+      "name": "Table",
+      "group": "内容展示",
+      "summary": "数据表格：行选择、排序、标准与紧凑密度。"
+    },
+    {
+      "name": "Tabs",
+      "group": "导航",
+      "summary": "标签页，含主标签栏、线型、区块、分段四种。"
+    },
+    {
+      "name": "Tag",
+      "group": "内容展示",
+      "summary": "标签、状态标记与提醒角标。"
+    },
+    {
+      "name": "TextArea",
+      "group": "表单输入",
+      "summary": "多行文本框，右下角显示字数。"
+    },
+    {
+      "name": "TextField",
+      "group": "表单输入",
+      "summary": "单行文本框，标签在上，说明与错误在下。"
+    },
+    {
+      "name": "Toast",
+      "group": "反馈与提示",
+      "summary": "操作结果的短暂反馈，出现在页面顶部居中，可带一个操作。"
+    },
+    {
+      "name": "Tooltip",
+      "group": "反馈与提示",
+      "summary": "悬浮说明，解释图标按钮或缩写的含义。"
+    },
+    {
+      "name": "TopBar",
+      "group": "导航",
+      "summary": "页面顶栏，槽位从左到右为标题区、搜索、操作、账户。"
+    }
+  ],
+  "assetGroups": [
+    {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "endfield-wordmark.svg",
+        "endfield-wordmark-white.svg"
+      ],
+      "files": [
+        {
+          "path": "assets/Logos/endfield-wordmark.svg",
+          "id": "e84c1fb55305af99be5c1f0899e2db71"
+        },
+        {
+          "path": "assets/Logos/endfield-wordmark-white.svg",
+          "id": "81ef737e8c202aa1bce808eccd4b908a"
+        }
+      ]
+    },
+    {
+      "name": "Icons",
+      "tile": "s",
+      "order": [
+        "i-arrow-dr.svg",
+        "i-arrow-r.svg",
+        "i-bolt.svg",
+        "i-box.svg",
+        "i-check.svg",
+        "i-chev-d.svg",
+        "i-chev-l.svg",
+        "i-chev-r.svg",
+        "i-close.svg",
+        "i-copy.svg",
+        "i-doc.svg",
+        "i-error.svg",
+        "i-filter.svg",
+        "i-grid.svg",
+        "i-home.svg",
+        "i-inbox.svg",
+        "i-info-plain.svg",
+        "i-info.svg",
+        "i-list.svg",
+        "i-menu.svg",
+        "i-minus.svg",
+        "i-more.svg",
+        "i-plus.svg",
+        "i-refresh.svg",
+        "i-search.svg",
+        "i-sliders.svg",
+        "i-sort-d.svg",
+        "i-sort.svg",
+        "i-success.svg",
+        "i-trash.svg",
+        "i-tri-d.svg",
+        "i-upload.svg",
+        "i-user.svg",
+        "i-warning.svg",
+        "k-down.svg",
+        "k-left.svg",
+        "k-right.svg",
+        "k-up.svg",
+        "n-calendar.svg",
+        "n-home.svg",
+        "n-lore.svg",
+        "n-notice.svg",
+        "n-operator.svg",
+        "s-error.svg",
+        "s-info.svg",
+        "s-success.svg",
+        "s-warning.svg"
+      ],
+      "files": [
+        {
+          "path": "assets/Icons/i-arrow-dr.svg",
+          "id": "d682029a962eea20efdd96978769d0c9"
+        },
+        {
+          "path": "assets/Icons/i-arrow-r.svg",
+          "id": "94e7b1984453f8279cd5e6e271087342"
+        },
+        {
+          "path": "assets/Icons/i-bolt.svg",
+          "id": "5102ab8f56f8c3fb517af563033b1b60"
+        },
+        {
+          "path": "assets/Icons/i-box.svg",
+          "id": "ead20b20948776da7e4e0667abead18d"
+        },
+        {
+          "path": "assets/Icons/i-check.svg",
+          "id": "127071dc1d90cebf0f1ec9e7f10b046c"
+        },
+        {
+          "path": "assets/Icons/i-chev-d.svg",
+          "id": "133996ff2f190761a8cb25b3c1f84a02"
+        },
+        {
+          "path": "assets/Icons/i-chev-l.svg",
+          "id": "6b1bcd0a8b8cb7b5d4057f35d8580ab6"
+        },
+        {
+          "path": "assets/Icons/i-chev-r.svg",
+          "id": "0ca164316a5c00956bba8306cc91d038"
+        },
+        {
+          "path": "assets/Icons/i-close.svg",
+          "id": "c114de9900beef7a36fd63ccc00e47f0"
+        },
+        {
+          "path": "assets/Icons/i-copy.svg",
+          "id": "14e0d6e98bc72ee97781527db6754e52"
+        },
+        {
+          "path": "assets/Icons/i-doc.svg",
+          "id": "6d1f29628b7a8a65d1fbd3c46abc9134"
+        },
+        {
+          "path": "assets/Icons/i-error.svg",
+          "id": "3a5e8f6e388bd3b3e940f1310535bd67"
+        },
+        {
+          "path": "assets/Icons/i-filter.svg",
+          "id": "cd23900dae026d6ec4cd4e6cc1e25d57"
+        },
+        {
+          "path": "assets/Icons/i-grid.svg",
+          "id": "512962dafac4ab484a286632d7e8a6fb"
+        },
+        {
+          "path": "assets/Icons/i-home.svg",
+          "id": "837dce98217e8fc1b8aa354a4913cb73"
+        },
+        {
+          "path": "assets/Icons/i-inbox.svg",
+          "id": "7905d145a939ce2d0cd916e6cf3f9de5"
+        },
+        {
+          "path": "assets/Icons/i-info-plain.svg",
+          "id": "3eab564d434d50e34dff337da27e0d11"
+        },
+        {
+          "path": "assets/Icons/i-info.svg",
+          "id": "322e33f6e0a27088b5a0d0e4df0c9490"
+        },
+        {
+          "path": "assets/Icons/i-list.svg",
+          "id": "fe126bbe074bbff0e769a5ac775ccc57"
+        },
+        {
+          "path": "assets/Icons/i-menu.svg",
+          "id": "4cff45a1a74ddc357d851f69ef4bcc16"
+        },
+        {
+          "path": "assets/Icons/i-minus.svg",
+          "id": "d686c70f0e23ac8d9f608028f199827d"
+        },
+        {
+          "path": "assets/Icons/i-more.svg",
+          "id": "fcf08628affeeb3137a29ead7bbd4db7"
+        },
+        {
+          "path": "assets/Icons/i-plus.svg",
+          "id": "60ed27304806274f39eb1dbd4d28a855"
+        },
+        {
+          "path": "assets/Icons/i-refresh.svg",
+          "id": "c1d71b5d0a8f4e283a7784e55f6620f4"
+        },
+        {
+          "path": "assets/Icons/i-search.svg",
+          "id": "a97cfda39739bcf346ae53520277a614"
+        },
+        {
+          "path": "assets/Icons/i-sliders.svg",
+          "id": "0b564992577a4286ddf2103a5fccd453"
+        },
+        {
+          "path": "assets/Icons/i-sort-d.svg",
+          "id": "bb027bfec2695eab0252c3842d7ab2cc"
+        },
+        {
+          "path": "assets/Icons/i-sort.svg",
+          "id": "57e837058ffae193cd40130759f34ec4"
+        },
+        {
+          "path": "assets/Icons/i-success.svg",
+          "id": "23a5f836f97bd2cd2b75fc07bad601fc"
+        },
+        {
+          "path": "assets/Icons/i-trash.svg",
+          "id": "ef3c519b2c2387210e3f3adb7064ecdd"
+        },
+        {
+          "path": "assets/Icons/i-tri-d.svg",
+          "id": "77b18a823c08206439c6aa897da58ba1"
+        },
+        {
+          "path": "assets/Icons/i-upload.svg",
+          "id": "e104d66b467e66a22678878a0a8fc437"
+        },
+        {
+          "path": "assets/Icons/i-user.svg",
+          "id": "6efdc4205b8926b16e454ea62718302e"
+        },
+        {
+          "path": "assets/Icons/i-warning.svg",
+          "id": "1fefd2f56d87bf325f8c386596188e71"
+        },
+        {
+          "path": "assets/Icons/k-down.svg",
+          "id": "61f1adce7273f9732809d6650004ff16"
+        },
+        {
+          "path": "assets/Icons/k-left.svg",
+          "id": "6d4e23a09ec28925a8a161bd9181a22c"
+        },
+        {
+          "path": "assets/Icons/k-right.svg",
+          "id": "45a55d2cb34f595b4586ac8098b32152"
+        },
+        {
+          "path": "assets/Icons/k-up.svg",
+          "id": "ee01a0434fe8cf551af6341dd9cbefd1"
+        },
+        {
+          "path": "assets/Icons/n-calendar.svg",
+          "id": "2711a7886b7177987157968fdfc31985"
+        },
+        {
+          "path": "assets/Icons/n-home.svg",
+          "id": "bab3c8eacaa31ac19f4b7b4ff5251370"
+        },
+        {
+          "path": "assets/Icons/n-lore.svg",
+          "id": "1ab622d23a86f48cc863bc140e1af7e4"
+        },
+        {
+          "path": "assets/Icons/n-notice.svg",
+          "id": "60b60c6c4909aeb1edf3142d9caea0fe"
+        },
+        {
+          "path": "assets/Icons/n-operator.svg",
+          "id": "07fa1bdb7724664cc18724dbac9ffd35"
+        },
+        {
+          "path": "assets/Icons/s-error.svg",
+          "id": "f11ac0cc24ad95eb2736a5c62a74f512"
+        },
+        {
+          "path": "assets/Icons/s-info.svg",
+          "id": "662bc37c6a730e543f68191286170a53"
+        },
+        {
+          "path": "assets/Icons/s-success.svg",
+          "id": "34837070dc3e3b573f2e1c3f880e15c3"
+        },
+        {
+          "path": "assets/Icons/s-warning.svg",
+          "id": "c3f4ec3c8206b87651758ba37a2c40b6"
+        }
+      ]
+    },
+    {
+      "name": "Textures",
+      "order": [
+        "button-texture.png",
+        "pag-button-texture.png",
+        "points-bg.png",
+        "wave-bg.png"
+      ],
+      "files": [
+        {
+          "path": "assets/Textures/button-texture.png",
+          "id": "36ffd2a482f81228cca50484ad359bd4"
+        },
+        {
+          "path": "assets/Textures/pag-button-texture.png",
+          "id": "8d87152543033ba59f609ecfc7d0ecbe"
+        },
+        {
+          "path": "assets/Textures/points-bg.png",
+          "id": "b2eebc34c6c6658209c01c60e1d51277"
+        },
+        {
+          "path": "assets/Textures/wave-bg.png",
+          "id": "6b9d11aeb61fef6ed2660bc0382e361d"
+        }
+      ]
+    },
+    {
+      "name": "Illustrations",
+      "tile": "l",
+      "order": [
+        "section_divider_icon_lore.png",
+        "subpage-title-bolt.png",
+        "subpage-title-pumper.png",
+        "tower-bottom.png"
+      ],
+      "files": [
+        {
+          "path": "assets/Illustrations/section_divider_icon_lore.png",
+          "id": "2d779b15a8059d171e1f1c28336785eb"
+        },
+        {
+          "path": "assets/Illustrations/subpage-title-bolt.png",
+          "id": "69e78f058e4272ea1e5633884b2ec586"
+        },
+        {
+          "path": "assets/Illustrations/subpage-title-pumper.png",
+          "id": "9d11a8677a56051f3a4b2e5a17abdc6c"
+        },
+        {
+          "path": "assets/Illustrations/tower-bottom.png",
+          "id": "c284a3b5e9796910661c935984241367"
+        }
+      ]
+    },
+    {
+      "name": "References",
+      "tile": "l",
+      "order": [
+        "menu-panel.png",
+        "page-loader.webp",
+        "section-title.png",
+        "color-line.png",
+        "README.md"
+      ],
+      "files": [
+        {
+          "path": "assets/References/menu-panel.png",
+          "id": "ce8e06bbcee00f2e498681afac8f28e9"
+        },
+        {
+          "path": "assets/References/page-loader.webp",
+          "id": "c408297c6033134e1d092eee2bb370c9"
+        },
+        {
+          "path": "assets/References/section-title.png",
+          "id": "14e35242887400614c5d214c132806a7"
+        },
+        {
+          "path": "assets/References/color-line.png",
+          "id": "03c2f2f955fe4e7c383b77c07a430a96"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "files": {
+      "assets/Icons/i-arrow-dr.svg": {
+        "store": "blob",
+        "id": "d682029a962eea20efdd96978769d0c9",
+        "bytes": 377,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-arrow-r.svg": {
+        "store": "blob",
+        "id": "94e7b1984453f8279cd5e6e271087342",
+        "bytes": 411,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-bolt.svg": {
+        "store": "blob",
+        "id": "5102ab8f56f8c3fb517af563033b1b60",
+        "bytes": 231,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-box.svg": {
+        "store": "blob",
+        "id": "ead20b20948776da7e4e0667abead18d",
+        "bytes": 250,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-check.svg": {
+        "store": "blob",
+        "id": "127071dc1d90cebf0f1ec9e7f10b046c",
+        "bytes": 219,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-chev-d.svg": {
+        "store": "blob",
+        "id": "133996ff2f190761a8cb25b3c1f84a02",
+        "bytes": 382,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-chev-l.svg": {
+        "store": "blob",
+        "id": "6b1bcd0a8b8cb7b5d4057f35d8580ab6",
+        "bytes": 328,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-chev-r.svg": {
+        "store": "blob",
+        "id": "0ca164316a5c00956bba8306cc91d038",
+        "bytes": 362,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-close.svg": {
+        "store": "blob",
+        "id": "c114de9900beef7a36fd63ccc00e47f0",
+        "bytes": 216,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-copy.svg": {
+        "store": "blob",
+        "id": "14e0d6e98bc72ee97781527db6754e52",
+        "bytes": 218,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-doc.svg": {
+        "store": "blob",
+        "id": "6d1f29628b7a8a65d1fbd3c46abc9134",
+        "bytes": 244,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-error.svg": {
+        "store": "blob",
+        "id": "3a5e8f6e388bd3b3e940f1310535bd67",
+        "bytes": 283,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-filter.svg": {
+        "store": "blob",
+        "id": "cd23900dae026d6ec4cd4e6cc1e25d57",
+        "bytes": 228,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-grid.svg": {
+        "store": "blob",
+        "id": "512962dafac4ab484a286632d7e8a6fb",
+        "bytes": 242,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-home.svg": {
+        "store": "blob",
+        "id": "837dce98217e8fc1b8aa354a4913cb73",
+        "bytes": 234,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-inbox.svg": {
+        "store": "blob",
+        "id": "7905d145a939ce2d0cd916e6cf3f9de5",
+        "bytes": 246,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-info-plain.svg": {
+        "store": "blob",
+        "id": "3eab564d434d50e34dff337da27e0d11",
+        "bytes": 270,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-info.svg": {
+        "store": "blob",
+        "id": "322e33f6e0a27088b5a0d0e4df0c9490",
+        "bytes": 228,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-list.svg": {
+        "store": "blob",
+        "id": "fe126bbe074bbff0e769a5ac775ccc57",
+        "bytes": 223,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-menu.svg": {
+        "store": "blob",
+        "id": "4cff45a1a74ddc357d851f69ef4bcc16",
+        "bytes": 220,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-minus.svg": {
+        "store": "blob",
+        "id": "d686c70f0e23ac8d9f608028f199827d",
+        "bytes": 204,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-more.svg": {
+        "store": "blob",
+        "id": "fcf08628affeeb3137a29ead7bbd4db7",
+        "bytes": 262,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-plus.svg": {
+        "store": "blob",
+        "id": "60ed27304806274f39eb1dbd4d28a855",
+        "bytes": 212,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-refresh.svg": {
+        "store": "blob",
+        "id": "c1d71b5d0a8f4e283a7784e55f6620f4",
+        "bytes": 235,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-search.svg": {
+        "store": "blob",
+        "id": "a97cfda39739bcf346ae53520277a614",
+        "bytes": 257,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-sliders.svg": {
+        "store": "blob",
+        "id": "0b564992577a4286ddf2103a5fccd453",
+        "bytes": 246,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-sort-d.svg": {
+        "store": "blob",
+        "id": "bb027bfec2695eab0252c3842d7ab2cc",
+        "bytes": 410,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-sort.svg": {
+        "store": "blob",
+        "id": "57e837058ffae193cd40130759f34ec4",
+        "bytes": 262,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-success.svg": {
+        "store": "blob",
+        "id": "23a5f836f97bd2cd2b75fc07bad601fc",
+        "bytes": 234,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-trash.svg": {
+        "store": "blob",
+        "id": "ef3c519b2c2387210e3f3adb7064ecdd",
+        "bytes": 256,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-tri-d.svg": {
+        "store": "blob",
+        "id": "77b18a823c08206439c6aa897da58ba1",
+        "bytes": 239,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-upload.svg": {
+        "store": "blob",
+        "id": "e104d66b467e66a22678878a0a8fc437",
+        "bytes": 469,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-user.svg": {
+        "store": "blob",
+        "id": "6efdc4205b8926b16e454ea62718302e",
+        "bytes": 246,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-warning.svg": {
+        "store": "blob",
+        "id": "1fefd2f56d87bf325f8c386596188e71",
+        "bytes": 236,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/k-down.svg": {
+        "store": "blob",
+        "id": "61f1adce7273f9732809d6650004ff16",
+        "bytes": 410,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/k-left.svg": {
+        "store": "blob",
+        "id": "6d4e23a09ec28925a8a161bd9181a22c",
+        "bytes": 411,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/k-right.svg": {
+        "store": "blob",
+        "id": "45a55d2cb34f595b4586ac8098b32152",
+        "bytes": 411,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/k-up.svg": {
+        "store": "blob",
+        "id": "ee01a0434fe8cf551af6341dd9cbefd1",
+        "bytes": 412,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/n-calendar.svg": {
+        "store": "blob",
+        "id": "2711a7886b7177987157968fdfc31985",
+        "bytes": 2838,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/n-home.svg": {
+        "store": "blob",
+        "id": "bab3c8eacaa31ac19f4b7b4ff5251370",
+        "bytes": 1137,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/n-lore.svg": {
+        "store": "blob",
+        "id": "1ab622d23a86f48cc863bc140e1af7e4",
+        "bytes": 964,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/n-notice.svg": {
+        "store": "blob",
+        "id": "60b60c6c4909aeb1edf3142d9caea0fe",
+        "bytes": 671,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/n-operator.svg": {
+        "store": "blob",
+        "id": "07fa1bdb7724664cc18724dbac9ffd35",
+        "bytes": 1009,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/s-error.svg": {
+        "store": "blob",
+        "id": "f11ac0cc24ad95eb2736a5c62a74f512",
+        "bytes": 400,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/s-info.svg": {
+        "store": "blob",
+        "id": "662bc37c6a730e543f68191286170a53",
+        "bytes": 351,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/s-success.svg": {
+        "store": "blob",
+        "id": "34837070dc3e3b573f2e1c3f880e15c3",
+        "bytes": 357,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/s-warning.svg": {
+        "store": "blob",
+        "id": "c3f4ec3c8206b87651758ba37a2c40b6",
+        "bytes": 351,
+        "type": "image/svg+xml"
+      },
+      "assets/Illustrations/section_divider_icon_lore.png": {
+        "store": "blob",
+        "id": "2d779b15a8059d171e1f1c28336785eb",
+        "bytes": 98996,
+        "type": "image/png"
+      },
+      "assets/Illustrations/subpage-title-bolt.png": {
+        "store": "blob",
+        "id": "69e78f058e4272ea1e5633884b2ec586",
+        "bytes": 32797,
+        "type": "image/png"
+      },
+      "assets/Illustrations/subpage-title-pumper.png": {
+        "store": "blob",
+        "id": "9d11a8677a56051f3a4b2e5a17abdc6c",
+        "bytes": 38598,
+        "type": "image/png"
+      },
+      "assets/Illustrations/tower-bottom.png": {
+        "store": "blob",
+        "id": "c284a3b5e9796910661c935984241367",
+        "bytes": 30787,
+        "type": "image/png"
+      },
+      "assets/Logos/endfield-wordmark-white.svg": {
+        "store": "blob",
+        "id": "81ef737e8c202aa1bce808eccd4b908a",
+        "bytes": 2244,
+        "type": "image/svg+xml"
+      },
+      "assets/Logos/endfield-wordmark.svg": {
+        "store": "blob",
+        "id": "e84c1fb55305af99be5c1f0899e2db71",
+        "bytes": 2244,
+        "type": "image/svg+xml"
+      },
+      "assets/References/color-line.png": {
+        "store": "blob",
+        "id": "03c2f2f955fe4e7c383b77c07a430a96",
+        "bytes": 680,
+        "type": "image/png"
+      },
+      "assets/References/menu-panel.png": {
+        "store": "blob",
+        "id": "ce8e06bbcee00f2e498681afac8f28e9",
+        "bytes": 82367,
+        "type": "image/png"
+      },
+      "assets/References/page-loader.webp": {
+        "store": "blob",
+        "id": "c408297c6033134e1d092eee2bb370c9",
+        "bytes": 55154,
+        "type": "image/webp"
+      },
+      "assets/References/section-title.png": {
+        "store": "blob",
+        "id": "14e35242887400614c5d214c132806a7",
+        "bytes": 18599,
+        "type": "image/png"
+      },
+      "assets/Textures/button-texture.png": {
+        "store": "blob",
+        "id": "36ffd2a482f81228cca50484ad359bd4",
+        "bytes": 10300,
+        "type": "image/png"
+      },
+      "assets/Textures/pag-button-texture.png": {
+        "store": "blob",
+        "id": "8d87152543033ba59f609ecfc7d0ecbe",
+        "bytes": 7641,
+        "type": "image/png"
+      },
+      "assets/Textures/points-bg.png": {
+        "store": "blob",
+        "id": "b2eebc34c6c6658209c01c60e1d51277",
+        "bytes": 8777,
+        "type": "image/png"
+      },
+      "assets/Textures/wave-bg.png": {
+        "store": "blob",
+        "id": "6b9d11aeb61fef6ed2660bc0382e361d",
+        "bytes": 22854,
+        "type": "image/png"
+      }
+    },
+    "blobBytesUsed": 430940
+  }
+}

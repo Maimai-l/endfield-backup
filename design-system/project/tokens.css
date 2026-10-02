@@ -1,0 +1,304 @@
+/* ENDFIELD — generated from tokens.json */
+:root, [data-theme="light"] {
+  --y-300: #fffa00; /* 品牌黄。只作纯色填充：强调按钮、勾选标记、侧边菜单与主标签选中块、深色模式焦点环。浅色面上不作文字、边框或焦点环（对白 1.11:1）。 */
+  --y-400: #efe701; /* 强调按钮悬停底色。 */
+  --y-500: #e6de01; /* 强调按钮按下底色；补充按钮按下。 */
+  --y-date: #fdfd1f; /* 深色面上的日期与读数文字（在 #131315 上 16:1）。 */
+  --color-bg-page: #ffffff; /* 页面、输入框底色。 */
+  --color-bg-surface: #fafafa; /* 卡片、面板、侧栏、表头底色。 */
+  --color-bg-raised: #ffffff; /* 对话框、下拉菜单底色。 */
+  --color-bg-muted: #e6e6e6; /* 中性标签、骨架块、头像底色。 */
+  --color-bg-selected: #e6e6e6; /* 选中的表格行与菜单项底色。 */
+  --color-bg-disabled: #f2f2f2; /* 禁用控件底色。 */
+  --color-bg-emphasis: #191919; /* 轻提示与悬浮说明的底色。 */
+  --color-bg-overlay: rgba(0,0,0,.6); /* 对话框遮罩；全系统唯一使用透明度的颜色。 */
+  --color-state-hover: #f2f2f2; /* 悬停底色。 */
+  --color-state-pressed: #d9d9d9; /* 按下底色。 */
+  --color-text-primary: #191919; /* 正文、标题、输入值；用于 color-bg-page、color-bg-surface、color-bg-raised 上（浅色 17.6:1，深色 15.9:1）。 */
+  --color-text-secondary: #666666; /* 次要文字、占位文字；用于 color-bg-page 与 color-bg-surface 上（浅色 5.7:1，深色 6.8:1）。 */
+  --color-text-tertiary: #7c7c7c; /* 补充说明，不承载必读信息。来源色值在 color-bg-surface 上为 4.00:1，未达 4.5:1，保留原值并在此注明。 */
+  --color-text-disabled: #b3b3b3; /* 禁用文字，不要求对比度。 */
+  --color-text-on-emphasis: #ffffff; /* color-bg-emphasis 上的文字。 */
+  --color-text-on-accent: #191919; /* 品牌黄填充上的文字（15.9:1）。 */
+  --color-text-link: #191919; /* 链接文字，始终带下划线；浅色为墨色，深色为品牌黄。 */
+  --color-border-subtle: #d9d9d9; /* 分隔线、卡片边框、表格线。 */
+  --color-border-control: #858585; /* 输入框、复选框、次要按钮边框；在 color-bg-surface 上 3.5:1。 */
+  --color-border-strong: #191919; /* 悬停与聚焦时的边框。 */
+  --color-focus-ring: #191919; /* 键盘焦点环，2px 实线；浅色墨色，深色品牌黄，在各自页面底色上均超过 15:1。 */
+  --color-accent: #fffa00; /* 强调按钮底色，每屏至多一个。 */
+  --color-accent-hover: #efe701; /* 强调按钮悬停。 */
+  --color-accent-active: #e6de01; /* 强调按钮按下；圆形翻页按钮按下。 */
+  --color-primary: #383838; /* 主要按钮底色。 */
+  --color-primary-hover: #484848; /* 主要按钮悬停。 */
+  --color-primary-active: #282828; /* 主要按钮按下。 */
+  --color-on-primary: #ffffff; /* 主要按钮文字与图标。 */
+  --color-primary-tick: #fffa00; /* 纯文字主要按钮左侧竖条（源站标志）。 */
+  --color-checked: #191919; /* 勾选底色、开关轨道、指示条、进度填充、选中分段；浅色墨色，深色品牌黄。 */
+  --color-on-checked: #fffa00; /* color-checked 上的勾选标记、开关滑块与文字。 */
+  --color-success: #00ffa2; /* 成功标记，只作纯色图标、状态点、左侧色条，外沿 1px color-mark-stroke 描边；不作文字。取自源站装饰色条。 */
+  --color-error: #d03c34; /* 错误标记、危险按钮底色（白字 4.80:1）、错误边框。取自游戏战斗界面血条。与 color-success 亮度对比 3.6:1，且始终配图标。 */
+  --color-error-hover: #b8342d; /* 危险按钮悬停。 */
+  --color-error-active: #a02d27; /* 危险按钮按下。 */
+  --color-warning: #fffa00; /* 警告标记与色条，配 color-mark-stroke 描边。 */
+  --color-info: #191919; /* 信息标记与色条。 */
+  --color-mark-stroke: #191919; /* 功能色标记的 1px 外沿描边与内部符号。 */
+  --color-error-text: #d03c34; /* 错误说明文字：浅色为错误红（白底 4.80:1），深色改用正文色并配错误图标。 */
+  --color-badge: #fb7803; /* 提醒角标，9px 橙色菱形，位于图标或标签右上角。取自游戏系统界面。 */
+  --strip: #2e2e2e; /* 条目卡片标题条底色。 */
+  --strip-fg: #ffffff; /* 条目卡片标题条文字。 */
+  --strip-meta: #a6a6a6; /* 条目卡片标题条右侧数值。 */
+  --hazard-ink: #191919; /* 强调按钮竖条与日期标签底色。 */
+  --dialog-head: #1f1f1f; /* 危险确认对话框标题栏底色。 */
+  --dialog-head-fg: #ffffff; /* 危险确认对话框标题文字。 */
+  --round-bg: #fafafa; /* 圆形翻页按钮底色。 */
+  --round-ring: #e6e6e6; /* 圆形翻页按钮内侧灰圈。 */
+  --round-ring-inner: #ffffff; /* 圆形翻页按钮外沿白圈。 */
+  --round-icon: #3c3c3c; /* 圆形翻页按钮箭头。 */
+  --nav-icon: #d9d9d9; /* 侧边导航图标默认色。 */
+  --nav-icon-hover: #858585; /* 侧边导航图标悬停色。 */
+  --nav-hover: #e5e5e5; /* 侧边导航展开时的悬停底色。 */
+  --nav-indicator: #e6e6e6; /* 侧边导航当前项指示块底色。 */
+  --nav-bar: #191919; /* 侧边导航指示块左侧 6px 竖条；浅色墨色，深色品牌黄。 */
+  --nav-capsule: #f2f2f2; /* 侧边导航底部工具区底色。 */
+  --nav-capsule-icon: #7c7c7c; /* 侧边导航底部工具区图标。 */
+  --grid-line: #f3f3f3; /* 规格页示例区的网格线，不用于产品界面。 */
+  --stripe-ink: #000000; /* 镂空条纹大字的条纹色。 */
+  --track-bg: #e6e6e6; /* 选择轨道底色：分段控件、翻页胶囊、进度条轨道。 */
+  --track-stripe: #d9d9d9; /* 选择轨道的 45 度细条纹。 */
+  --track-edge: #e6e6e6; /* 选择轨道外框。 */
+  --deco-pink: #ff1aac; /* 装饰色条第一段，只在三段色条中出现，不用于任何控件。 */
+  --deco-green: #00ffa2; /* 装饰色条第二段。 */
+  --deco-yellow: var(--y-300); /* 装饰色条第三段。 */
+  --shadow-sm: 0 0 2px rgba(0,0,0,.25); /* 按钮（源站 drop-shadow）。 */
+  --shadow-lg: 0 0 6px rgba(0,0,0,.4); /* 菜单、对话框、轻提示。 */
+  --shadow-panel: 0 0 8px rgba(0,0,0,.1); /* 侧边导航展开面板。 */
+}
+[data-theme="dark"] {
+  --color-bg-page: #131315;
+  --color-bg-surface: #1f1f22;
+  --color-bg-raised: #1f1f22;
+  --color-bg-muted: #35373c;
+  --color-bg-selected: #35373c;
+  --color-bg-disabled: #1f1f22;
+  --color-bg-emphasis: #35373c;
+  --color-bg-overlay: rgba(0,0,0,.7);
+  --color-state-hover: #2e2e2e;
+  --color-state-pressed: #383838;
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a6a6a6;
+  --color-text-tertiary: #999999;
+  --color-text-disabled: #626262;
+  --color-text-on-emphasis: #ededed;
+  --color-text-link: #fffa00;
+  --color-border-subtle: #35373c;
+  --color-border-strong: #ededed;
+  --color-focus-ring: #fffa00;
+  --color-primary: #ededed;
+  --color-primary-hover: #ffffff;
+  --color-primary-active: #d9d9d9;
+  --color-on-primary: #131315;
+  --color-primary-tick: #191919;
+  --color-checked: #fffa00;
+  --color-on-checked: #191919;
+  --color-info: #ededed;
+  --color-error-text: #ededed;
+  --nav-icon: #414348;
+  --nav-hover: #1f1f22;
+  --nav-indicator: #35373c;
+  --nav-bar: #fffa00;
+  --nav-capsule: #1f1f22;
+  --nav-capsule-icon: #999999;
+  --grid-line: #1a1a1d;
+  --stripe-ink: #ffffff;
+  --track-bg: #131315;
+  --track-stripe: #1f1f22;
+  --track-edge: #35373c;
+  --deco-yellow: var(--y-300);
+  --shadow-sm: 0 0 2px rgba(0,0,0,.6);
+  --shadow-lg: 0 0 8px rgba(0,0,0,.7);
+  --shadow-panel: 0 0 8px rgba(0,0,0,.6);
+}
+:root {
+  --space-1: 4px; /* 文字组内（工作页）：分类行与标题、标签与输入框。 */
+  --space-2: 8px; /* 元素内：图标与文字、按钮之间；内容页文字组内。 */
+  --space-3: 12px; /* 工作页小标题与其内容。 */
+  --space-4: 16px; /* 工作页组件内边距与同级组件间距；内容页元素内。 */
+  --space-5: 24px; /* 内容页列间距；工作页标题区与工具栏；页边距（768 至 1279）。 */
+  --space-6: 32px; /* 内容页媒体与文字；工作页区块之间；页边距（1280 以上）。 */
+  --space-7: 48px; /* 工作页大区块之间。 */
+  --space-8: 64px; /* 内容页小区块之间。 */
+  --space-9: 80px; /* 内容页列表行间距。 */
+  --space-10: 96px; /* 内容页区块之间，如列表与分页。 */
+  --radius-sm: 2px; /* 按钮（悬停 6px）、输入框、复选框、标签、轻提示。 */
+  --radius-md: 4px; /* 卡片、对话框、菜单。 */
+  --radius-full: 9999px; /* 头像、圆形按钮、胶囊按钮、额度胶囊。 */
+  --size-control-sm: 24px; /* 表格工具栏、行内操作、卡片底部、筛选条。 */
+  --size-control-md: 32px; /* 默认：表单、对话框底部、页面标题区、顶栏。 */
+  --size-control-lg: 40px; /* 触屏与单一主流程：移动端底部操作栏、登录与首次设置、空状态唯一主操作。 */
+  --z-dropdown: 100; /* 下拉菜单。 */
+  --z-sticky: 200; /* 吸顶表头与顶栏。 */
+  --z-modal: 300; /* 对话框与遮罩。 */
+  --z-toast: 400; /* 轻提示。 */
+  --z-tooltip: 500; /* 悬浮说明。 */
+  --duration-base: 0.2s; /* 颜色、边框、圆角、竖条变形。 */
+  --duration-slow: 0.3s; /* 开关滑块、图标动作、导航面板、指示块。 */
+  --font-body: SansRegular,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-medium: SansMedium,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-bold: SansBold,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --font-en: Gilroy-Medium,"Helvetica Neue",Arial,sans-serif;
+  --font-en-light: Gilroy-Light,"Helvetica Neue",Arial,sans-serif;
+  --font-numeric: Novecentosanswide-Medium,"Arial Narrow",Arial,sans-serif;
+  --font-giant: Novecentosanswide-Bold,"Arial Black",Arial,sans-serif;
+  --font-tech: SpaceGrotesk,ui-monospace,Menlo,monospace;
+  --text-fs-display: 700 40px/1.15 var(--font-bold); /* 页面标题。 */
+  --text-fs-h2: 700 28px/1.25 var(--font-bold); /* 区块标题。 */
+  --text-fs-h3: 500 18px/1.3 var(--font-medium); /* 控件与对话框标题。 */
+  --text-fs-lead: 500 16px/1.5 var(--font-medium); /* 卡片标题、lg 控件文字。 */
+  --text-fs-body: 400 14px/1.6 var(--font-body); /* 正文、md 输入框文字。 */
+  --text-fs-small: 400 13px/1.5 var(--font-body); /* 说明、表头、md 按钮文字。 */
+  --text-fs-caption: 400 12px/1.45 var(--font-body); /* 悬浮说明、时间戳、sm 控件文字。 */
+  --text-fs-overline: 500 11px/1.3 var(--font-en); /* 英文分组标签，一律大写，字距 0.12em。 */
+  --text-num-readout: 500 35px/1 var(--font-numeric); /* 百分比、页码、读数，等宽数字；只用数字与全大写字母。 */
+  --text-num-giant: 700 104px/0.9 var(--font-giant); /* 镂空条纹大字，只作装饰；只用全大写字母。 */
+  --text-tech: 400 12px/1.5 var(--font-tech); /* 编号、快捷键、代码、时间戳。 */
+}
+.fs-display {
+  font-family: var(--font-bold);
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.fs-h2 {
+  font-family: var(--font-bold);
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.fs-h3 {
+  font-family: var(--font-medium);
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.fs-lead {
+  font-family: var(--font-medium);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.fs-body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.fs-small {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.fs-caption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.fs-overline {
+  font-family: var(--font-en);
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+.num-readout {
+  font-family: var(--font-numeric);
+  font-size: 35px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.num-giant {
+  font-family: var(--font-giant);
+  font-size: 104px;
+  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.tech {
+  font-family: var(--font-tech);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@font-face {
+  font-family: "SansRegular";
+  src: url("fonts/SansRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SansMedium";
+  src: url("fonts/SansMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SansBold";
+  src: url("fonts/SansBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy-Light";
+  src: url("fonts/Gilroy-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url("fonts/Gilroy-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Novecentosanswide-Medium";
+  src: url("fonts/Novecentosanswide-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Novecentosanswide-DemiBold";
+  src: url("fonts/Novecentosanswide-DemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Novecentosanswide-Bold";
+  src: url("fonts/Novecentosanswide-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
