@@ -99,7 +99,7 @@ export interface SegmentedControlProps {
   className?: string;
 }
 
-/** 分段控件：2 至 5 个互斥选项，纯色轨道。 */
+/** 分段控件：2 至 5 个互斥选项，描边胶囊，选中项为内嵌胶囊。 */
 export function SegmentedControl({ options, value, defaultValue, onChange, ariaLabel, className }: SegmentedControlProps) {
   const [cur, setCur] = useControllable<string>(value, defaultValue !== undefined ? defaultValue : options[0].value, onChange);
   return (
@@ -214,16 +214,21 @@ export interface PageCapsuleProps {
   className?: string;
 }
 
-/** 源站翻页胶囊：两枚圆形按钮夹 4 个两位页码，用于轮播。 */
+/** 源站翻页胶囊：两枚圆形按钮夹一排两位页码，窗口显示 4 个；当前页越出窗口时整排平移。用于轮播。 */
 export function PageCapsule({ total, page, defaultPage = 1, onChange, className }: PageCapsuleProps) {
   const [cur, setCur] = useControllable<number>(page, defaultPage, onChange);
-  const start = Math.max(1, Math.min(cur - 1, total - 3));
-  const nums: number[] = [];
-  for (let n = start; n < start + 4 && n <= total; n++) nums.push(n);
+  const off = React.useRef(0);
+  let o = off.current;
+  if (cur - 1 < o) o = cur - 1;
+  if (cur - 1 > o + 3) o = cur - 4;
+  off.current = o = Math.max(0, Math.min(o, Math.max(0, total - 4)));
+  const nums = Array.from({ length: total }, (_, i) => i + 1);
   return (
     <div className={cx('pcap', className)}>
       <RoundButton direction="prev" disabled={cur <= 1} onClick={() => setCur(Math.max(1, cur - 1))} />
-      <span className="pnums" aria-live="polite">{nums.map((n) => <span key={n} aria-current={n === cur ? 'page' : undefined}>{(n < 10 ? '0' : '') + n}</span>)}</span>
+      <div className="pcar" aria-live="polite" style={{ '--off': o, '--n': Math.min(total, 4) } as React.CSSProperties}>
+        {nums.map((n) => <span key={n} className="pblk" style={{ '--i': n - 1 } as React.CSSProperties} aria-current={n === cur ? 'page' : undefined}>{(n < 10 ? '0' : '') + n}</span>)}
+      </div>
       <RoundButton direction="next" disabled={cur >= total} onClick={() => setCur(Math.min(total, cur + 1))} />
     </div>
   );

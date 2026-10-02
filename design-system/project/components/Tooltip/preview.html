@@ -1,22 +1,22 @@
-<!-- @dsCard group="反馈与提示" height=305 -->
+<!-- @dsCard group="反馈与提示" height=333 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <title>Tooltip</title>
-<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}.tip-grid{display:grid;grid-template-columns:repeat(3,192px);gap:24px}</style>
 </head>
 <body>
 <span class="prov">新增</span>
 <div class="stage">
-      <div class="row"><span class="row-label">单行</span><div class="items tip-stage" style="gap:24px 88px">
+      <div class="row"><span class="row-label" style="padding-top:46px">单行</span><div class="items tip-stage tip-grid">
         <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="刷新" aria-describedby="t1"><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg></button><span class="tip is-shown" id="t1" role="tooltip">刷新数据</span></span><span class="cap">纯文字</span></div>
         <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="搜索" aria-describedby="t2"><svg class="ic"><use href="#i-search"></use></svg></button><span class="tip is-shown" id="t2" role="tooltip">搜索项目<kbd>Ctrl K</kbd></span></span><span class="cap">带快捷键</span></div>
-        <div class="item"><span class="tip-host"><button class="btn btn--ghost btn--sm" type="button">悬停或聚焦此处</button><span class="tip" role="tooltip">500ms 后出现</span></span><span class="cap">实际交互</span></div>
+        <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="更多操作" aria-describedby="t5"><svg class="ic"><use href="#i-more"></use></svg></button><span class="tip" id="t5" role="tooltip">更多操作</span></span><span class="cap">实际交互，悬停 500ms 后出现</span></div>
       </div></div>
-      <div class="row"><span class="row-label">多行</span><div class="items tip-stage" style="gap:24px 280px">
-        <div class="item"><span class="tip-host"><span class="tag stat stat--warn" tabindex="0" aria-describedby="t3">待处理</span><span class="tip tip--start is-shown" id="t3" role="tooltip" style="width:220px;white-space:normal">距上次更新已 12 天，超过建议的 7 天周期</span></span><span class="cap">多行，最大宽 240</span></div>
-        <div class="item"><span class="tip-host"><span class="av" style="--s:36px" tabindex="0" aria-describedby="t4"><svg class="ic"><use href="#i-box"></use></svg></span><span class="tip tip--2 tip--start is-shown" id="t4" role="tooltip"><b>移动端应用</b><span>项目，运营部</span></span></span><span class="cap">双行，标题加类别</span></div>
+      <div class="row"><span class="row-label" style="padding-top:78px">多行</span><div class="items tip-stage tip-grid" style="padding-top:76px">
+        <div class="item"><span class="tip-host"><button class="btn btn--secondary ibtn" type="button" aria-label="同步状态" aria-describedby="t3"><svg class="ic"><use href="#i-info-plain"></use></svg></button><span class="tip tip--start is-shown" id="t3" role="tooltip" style="width:220px;white-space:normal">数据距上次更新已 12 天，超过建议的 7 天更新周期，请尽快同步。</span></span><span class="cap">多行，最大宽 240</span></div>
+        <div class="item" style="grid-column:3"><span class="tip-host"><span class="av" style="--s:32px" tabindex="0" aria-describedby="t4"><svg class="ic"><use href="#i-box"></use></svg></span><span class="tip tip--2 tip--start is-shown" id="t4" role="tooltip"><b>移动端应用</b><span>项目，运营部</span></span></span><span class="cap">双行，标题加类别</span></div>
       </div></div>
     </div>
 <script>window.Endfield&&Endfield.init(document)</script>

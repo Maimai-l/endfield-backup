@@ -675,7 +675,7 @@ export interface SegmentedControlProps {
     ariaLabel: string;
     className?: string;
 }
-/** 分段控件：2 至 5 个互斥选项，纯色轨道。 */
+/** 分段控件：2 至 5 个互斥选项，描边胶囊，选中项为内嵌胶囊。 */
 export declare function SegmentedControl({ options, value, defaultValue, onChange, ariaLabel, className }: SegmentedControlProps): React.JSX.Element;
 export interface Crumb {
     label: React.ReactNode;
@@ -722,7 +722,7 @@ export interface PageCapsuleProps {
     onChange?: (page: number) => void;
     className?: string;
 }
-/** 源站翻页胶囊：两枚圆形按钮夹 4 个两位页码，用于轮播。 */
+/** 源站翻页胶囊：两枚圆形按钮夹一排两位页码，窗口显示 4 个；当前页越出窗口时整排平移。用于轮播。 */
 export declare function PageCapsule({ total, page, defaultPage, onChange, className }: PageCapsuleProps): React.JSX.Element;
 export interface TopBarProps {
     /** 页面标题，过长时截断。 */

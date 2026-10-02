@@ -83,11 +83,16 @@ function init(root){
       pages.forEach(function(p,i){if(i===next)p.setAttribute('aria-current','page');else p.removeAttribute('aria-current')});
       var pv=pager.querySelector('[data-prev]'),nx=pager.querySelector('[data-next]');if(pv)pv.disabled=next===0;if(nx)nx.disabled=next===pages.length-1;})});
   /* 翻页胶囊 */
+  /* 翻页胶囊：页码一次排好，窗口显示 4 个；当前页越出窗口时整排平移，使其刚好落在窗口边缘。 */
   all(root,'[data-pcap]').forEach(function(c){if(!once(c,'pcap'))return;
-    var total=+c.dataset.total,box=c.querySelector('.pnums');
-    function draw(){var cur=+c.dataset.pcap,start=Math.max(1,Math.min(cur-1,total-3)),h='';
-      for(var n=start;n<start+4&&n<=total;n++){h+='<span'+(n===cur?' aria-current="page"':'')+'>'+(n<10?'0':'')+n+'</span>'}
-      box.innerHTML=h;c.querySelector('[data-step="-1"]').disabled=cur<=1;c.querySelector('[data-step="1"]').disabled=cur>=total}
+    var total=+c.dataset.total,car=c.querySelector('.pcar'),off=0,h='';
+    for(var n=1;n<=total;n++){h+='<span class="pblk" style="--i:'+(n-1)+'">'+(n<10?'0':'')+n+'</span>'}
+    car.innerHTML=h;car.style.setProperty('--n',Math.min(total,4));
+    function draw(){var cur=+c.dataset.pcap;
+      if(cur-1<off)off=cur-1;if(cur-1>off+3)off=cur-4;off=Math.max(0,Math.min(off,Math.max(0,total-4)));
+      car.style.setProperty('--off',off);
+      all(car,'.pblk').forEach(function(b,i){if(i===cur-1)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+      c.querySelector('[data-step="-1"]').disabled=cur<=1;c.querySelector('[data-step="1"]').disabled=cur>=total}
     c.addEventListener('click',function(e){var b=e.target.closest('[data-step]');if(!b)return;c.dataset.pcap=Math.min(total,Math.max(1,+c.dataset.pcap+ +b.dataset.step));draw()});
     draw();});
   /* 可选卡片、列表、入口菜单 */
