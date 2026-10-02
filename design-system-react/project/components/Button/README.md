@@ -19,8 +19,8 @@
 
 ## 规格
 
-- **尺寸**：高 24、32、40；最小宽度为高度的 4 倍（96、128、160），保持细长比例，文字居中；水平内边距 12、16、20；字号 12、13、14；胶囊按钮高 32、最小宽 144、全圆角，文字在箭头圆左侧的区域内居中，右侧 22px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有 2px 竖条（源站标志），悬停时竖条变为指向右侧的三角、圆角从 2px 变为 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90 度，箭头悬停右移 3px，刷新点击转一周
-- **Token**：`--color-primary --color-primary-hover --color-primary-active --color-primary-tick --color-accent --color-accent-hover --color-accent-active --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*`
+- **尺寸**：高 24、32、40；比例取自源站按钮（高 72、宽 320）：最小宽度为高度的 4.5 倍（108、144、180），文字居中并下移高度的 0.054 倍以补偿字形重心；水平内边距 12、16、20；字号为高度的 7/18（md 约 12.4、lg 约 15.6），sm 保持 12；主要、强调按钮的纹理覆盖在文字之上，外投影为高度的 1/18、25% 黑色；主要按钮文字为 #eeeeee，悬停变为 #ffffff；胶囊按钮高 32、最小宽 144、全圆角，文字在箭头圆左侧的区域内居中，右侧 22px 墨色圆内为箭头，悬停时圆变为黄色、箭头右移 2px，进行中为无边框灰底；纯文字的主要、强调、危险按钮左侧有竖条（源站标志），距左缘为高度的 1/9，宽为高度的 1/18，高为高度的 0.55 倍，垂直居中；悬停时竖条变为指向右侧的三角并右移高度的 0.194 倍，圆角从 2px 变为 6px；带前置图标的按钮与次要、幽灵按钮不显示竖条，改由图标执行动作：加号悬停转 90 度，箭头悬停右移 3px，刷新点击转一周
+- **Token**：`--color-primary --color-primary-hover --color-primary-active --color-primary-tick --color-on-primary --color-on-primary-hover --color-accent --color-accent-hover --color-accent-active --color-error --color-border-control --color-state-hover --color-state-pressed --radius-sm --size-control-*`
 - **键盘**：`Enter` 或 `Space` 触发；加载中不响应重复触发
 
 ## 结构
