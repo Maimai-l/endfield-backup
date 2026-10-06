@@ -142,4 +142,4 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 - 仓库 `components/` 下原有的 React 包装组件（`*.jsx`）与 `_ds_bundle.js` 未带入；本系统的控件为 HTML 加 CSS，交互由 `bundle.js` 提供。
 - 上表“未收录”的 5 个营销页控件未带入。
-- 原始规格页 `showcase.html` 与 `design-system-spec.md` 存放在 `archived/`。
+- 原始规格文档 `design-system-spec.md` 存放在 `archived/`。
