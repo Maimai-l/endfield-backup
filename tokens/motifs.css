@@ -1,5 +1,5 @@
 :root{
-/* Hazard stripe: the recurring 45° industrial stripe, used on CTA, headers, hollow text */
+/* 45° stripe fill for giant hollow display type only; never used as a hazard or warning stripe */
 --stripe-black:linear-gradient(-45deg,transparent,transparent 16.161%,#000 0,#000 33.839%,transparent 0,transparent 66.161%,#000 0,#000 83.839%,transparent 0,transparent); /* @kind other */
 --stripe-size:4px 4px; /* @kind other */
 /* Dark-scene fine stripe fill */

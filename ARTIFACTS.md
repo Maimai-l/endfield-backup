@@ -12,7 +12,7 @@
 
 ## 由设计系统页面生成的文件
 
-`design-system/project/` 下的 `tokens.css`、`manifest.json` 与 `api/` 由设计系统页面在保存时根据其他文件生成，仓库中保存的是线上版本的副本，只用于留档。不要手改，也不要发布它们。`api/assets/References.md` 对应一组已撤回的参考截图，图片保存在提交 3ac5bb4 中。
+`design-system/project/` 下的 `tokens.css`、`manifest.json` 与 `api/` 由设计系统页面在页面内保存时生成；从仓库发布 `tokens.json` 不会触发重新生成。修改 `tokens.json` 后运行 `python3 design-system/tools/compile-tokens.py`，它按页面的生成格式重建 `tokens.css` 与 `api/tokens.md`，再与 `tokens.json` 一起发布。`manifest.json` 与 `api/` 下的其他文件不要手改。`api/assets/References.md` 对应一组已撤回的参考截图，图片保存在提交 3ac5bb4 中。
 
 ## 发布时自动添加的内容
 

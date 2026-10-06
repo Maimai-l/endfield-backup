@@ -410,7 +410,7 @@ export interface DialogProps {
     open?: boolean;
     onClose?: () => void;
     title: React.ReactNode;
-    /** 危险确认：深色条纹标题栏，确认按钮为危险按钮。 */
+    /** 危险确认：深色实底标题栏，确认按钮为危险按钮。 */
     danger?: boolean;
     /** 正文。 */
     children?: React.ReactNode;
@@ -479,7 +479,7 @@ export interface ColorLineProps {
     /** horizontal 宽 196、高 4；vertical 宽 4、高 84。 */
     orientation?: 'horizontal' | 'vertical';
 }
-/** 源站粉、绿、黄三段装饰色条，每屏至多一处，不进入控件内部。 */
+/** 源站粉、青、黄三段装饰色条，每屏至多一处，不进入控件内部。 */
 export declare function ColorLine({ orientation }: ColorLineProps): React.JSX.Element;
 export interface SectionHeaderProps {
     /** 镂空条纹大字，全大写英文。 */
