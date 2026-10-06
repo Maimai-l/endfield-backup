@@ -1,6 +1,6 @@
 ---
 name: endfield-design
-description: Use this skill to generate interfaces and assets in the Endfield industrial sci-fi style (signal yellow on ink, hazard stripes, engineering deco), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping. Deliberately brand-free and generic.
+description: Use this skill to generate interfaces and assets in the Endfield industrial sci-fi style (signal yellow on ink, engineering deco), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping. Deliberately brand-free and generic.
 user-invocable: true
 ---
 
@@ -9,8 +9,9 @@ If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy as
 If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
 
 Key rules:
-- One accent only: signal yellow #fffa00 on ink #191919 / white. Pink #ff1aac + green #00ffa2 exist only inside the "color bar" deco.
-- Near-square radii (2px, 4px; 6px on hover), 45° hazard stripes, dot-matrix textures, soft ambient shadows only.
+- One accent only: signal yellow #fffa00 on ink #191919 / white. Pink #ff1aac and cyan #00ffa2 exist only inside the "color bar" deco and are never used for any functional color (success, warning, error, info, badges, status marks, progress, charts), control, text, border or background.
+- Near-square radii (2px, 4px; 6px on hover), dot-matrix textures, soft ambient shadows only.
+- No hazard or warning stripes anywhere (no yellow-black or ink 45° stripes); warning and danger states use solid color bars and status icons.
 - Fonts: SansRegular/Medium/Bold (UI, CJK), Gilroy (EN display labels), Novecento Sans Wide (numerals/giant type), Space Grotesk (tech readouts). All shipped in assets/fonts.
 - Icons: only the extracted inline SVGs in assets/icons (currentColor, angular). No emoji, no third-party icon sets, no social-network logos (pass your own to ShareButton).
 - Keep content generic: no game copy, no fake personal data (use neutral IDs like ID-000000).

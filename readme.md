@@ -1,6 +1,6 @@
 # Arknights: Endfield — Design System
 
-**Generalized** design system in the industrial sci-fi style of the Arknights: Endfield official website (endfield.hypergryph.com, official-v4 build): near-monochrome ink-on-white surfaces struck through with a single signal yellow, hazard stripes, engineering deco marks, and a dark "scene" mode. **Deliberately brand-free**: no game logos, wordmarks, character art, social-network logos, or game copy — this is a reusable visual language, not an Arknights site kit.
+**Generalized** design system in the industrial sci-fi style of the Arknights: Endfield official website (endfield.hypergryph.com, official-v4 build): near-monochrome ink-on-white surfaces struck through with a single signal yellow, engineering deco marks, and a dark "scene" mode. **Deliberately brand-free**: no game logos, wordmarks, character art, social-network logos, or game copy — this is a reusable visual language, not an Arknights site kit.
 
 ## Source
 - `uploads/endfield-controls-pack/` — extraction pack from the official site: 30 controls (original CSS, de-hashed class names, 1rem = 8px), 9 webfonts, textures/decorations. Original CSS source: `https://web.hycdn.cn/endfield/official-v4/_next/static/css/…`.
@@ -13,9 +13,9 @@
 - Decorative micro-text (coordinates, codes, brackets `[ ]`) is used as texture, not information.
 
 ## Visual foundations
-- **Color**: white/near-white surfaces (#fff → #fafafa → #f2f2f2), ink #191919, ONE accent: signal yellow #fffa00 (variants #fff500/#fdfd1f/#fff000; hover #efe701, active #e6de01). Dark scene mode #131315 with #35373c borders. Rare signal accents pink #ff1aac + green #00ffa2 appear only in the "color bar" deco.
+- **Color**: white/near-white surfaces (#fff → #fafafa → #f2f2f2), ink #191919, ONE accent: signal yellow #fffa00 (variants #fff500/#fdfd1f/#fff000; hover #efe701, active #e6de01). Dark scene mode #131315 with #35373c borders. Pink #ff1aac and cyan #00ffa2 appear only in the "color bar" deco and are never used for any functional color, control, text, border or background.
 - **Type**: SansRegular/Medium/Bold (CJK+latin UI); Gilroy Light/Medium (English display labels); Novecento Sans Wide Medium/DemiBold/Bold (numerals, giant hollow display); Space Grotesk (tech readouts, 2D/3D switch).
-- **Motifs**: 45° hazard stripes (black or scene-grey), dot-matrix points texture, topographic button texture, thick left accent bars (6px black or yellow), corner brackets, deco lines with gradient masks.
+- **Motifs**: dot-matrix points texture, topographic button texture, thick left accent bars (6px black or yellow), corner brackets, deco lines with gradient masks.
 - **Radii**: near-square. Buttons 2px → 6px on hover (radius animates!). Panels 2–4px. Circular buttons/capsules are fully round.
 - **Shadows**: soft ambient only — `0 0 4px rgba(0,0,0,.25)` cards, `drop-shadow 0 0 2px` buttons, `0 0 5px rgba(2,2,2,.3)` round buttons. No directional shadows.
 - **Hover states**: color shifts (dark #383838→#484848, yellow appears on round buttons), radius 2→6px, yellow tick morphs to arrow, close X rotates 90°, texture opacity rises. Press: darker shade (#282828, #eeea00).
