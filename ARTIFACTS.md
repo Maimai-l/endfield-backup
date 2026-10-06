@@ -6,7 +6,6 @@
 | --- | --- | --- | --- |
 | ENDFIELD（设计系统，HTML 版） | https://claude.ai/artifact/2TyxMUtY81986QL6AeaHkv | `design-system/project/` | 资源图片与字体的原件在 `assets/`、`fonts/` |
 | ENDFIELD React（设计系统，React 版） | https://claude.ai/artifact/Y7GzkWZhPQVDPaAWQf1Due | `design-system-react/project/` | 组件源码在 `project/components/src/`，预览源码在 `previews/`，构建脚本在 `tools/` |
-| Endfield 控件规范 | https://claude.ai/artifact/CMvEGc9kGeYE52LmHxiZk9 | `showcase.html` | |
 | ENDFIELD 设备台账 | https://claude.ai/artifact/QUcx7NFzZSuwssS7HWSDmQ | `samples/device-admin/` | |
 | ENDFIELD 文件转换 | https://claude.ai/artifact/JBpAn7CQYidRGZusFHCcQr | `samples/file-convert/` | |
 | Linear 风格文件转换 | https://claude.ai/artifact/G3wg8tCGU5pG9txfKjmuyN | `samples/linear-convert/` | |
@@ -17,4 +16,4 @@
 
 ## 发布时自动添加的内容
 
-单页 artifact（控件规范与三个样例）发布时会在页面外层加上 `<!doctype html>`、`<head>` 与 `<body>`，仓库中的源文件不含这一层。
+单页 artifact（三个样例）发布时会在页面外层加上 `<!doctype html>`、`<head>` 与 `<body>`，仓库中的源文件不含这一层。
