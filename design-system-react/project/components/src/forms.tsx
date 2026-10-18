@@ -119,7 +119,7 @@ function FieldShell({ id, label, required, help, error, className, style, childr
     <div className={cx('field', className)} style={style}>
       {label && <label className="field-label" htmlFor={id}>{label}{required && <span className="req">必填</span>}</label>}
       {children}
-      {err ? <div className="field-help field-err" id={id + '-help'}><Icon name="s-error" />{err}</div>
+      {err ? <div className="field-help field-err" id={id + '-help'}>{err}</div>
         : (help || helpExtra) ? <div className="field-help" id={id + '-help'}>{help}{helpExtra}</div> : null}
     </div>
   );
@@ -301,7 +301,7 @@ export function Select({ options, value, defaultValue, onChange, placeholder = '
     <div className={cx('field', className)} style={inline ? style : undefined}>
       {label && <span className="field-label" id={id + '-l'}>{label}</span>}
       {dd}
-      {error && error !== true ? <div className="field-help field-err"><Icon name="s-error" />{error}</div> : <div className="field-help">{help}</div>}
+      {error && error !== true ? <div className="field-help field-err">{error}</div> : <div className="field-help">{help}</div>}
     </div>
   );
 }

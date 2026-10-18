@@ -262,13 +262,11 @@
         "i-close.svg",
         "i-copy.svg",
         "i-doc.svg",
-        "i-error.svg",
         "i-filter.svg",
         "i-grid.svg",
         "i-home.svg",
         "i-inbox.svg",
         "i-info-plain.svg",
-        "i-info.svg",
         "i-list.svg",
         "i-menu.svg",
         "i-minus.svg",
@@ -279,12 +277,10 @@
         "i-sliders.svg",
         "i-sort-d.svg",
         "i-sort.svg",
-        "i-success.svg",
         "i-trash.svg",
         "i-tri-d.svg",
         "i-upload.svg",
         "i-user.svg",
-        "i-warning.svg",
         "k-down.svg",
         "k-left.svg",
         "k-right.svg",
@@ -293,11 +289,7 @@
         "n-home.svg",
         "n-lore.svg",
         "n-notice.svg",
-        "n-operator.svg",
-        "s-error.svg",
-        "s-info.svg",
-        "s-success.svg",
-        "s-warning.svg"
+        "n-operator.svg"
       ],
       "files": [
         {
@@ -345,10 +337,6 @@
           "id": "6d1f29628b7a8a65d1fbd3c46abc9134"
         },
         {
-          "path": "assets/Icons/i-error.svg",
-          "id": "3a5e8f6e388bd3b3e940f1310535bd67"
-        },
-        {
           "path": "assets/Icons/i-filter.svg",
           "id": "cd23900dae026d6ec4cd4e6cc1e25d57"
         },
@@ -367,10 +355,6 @@
         {
           "path": "assets/Icons/i-info-plain.svg",
           "id": "3eab564d434d50e34dff337da27e0d11"
-        },
-        {
-          "path": "assets/Icons/i-info.svg",
-          "id": "322e33f6e0a27088b5a0d0e4df0c9490"
         },
         {
           "path": "assets/Icons/i-list.svg",
@@ -413,10 +397,6 @@
           "id": "57e837058ffae193cd40130759f34ec4"
         },
         {
-          "path": "assets/Icons/i-success.svg",
-          "id": "23a5f836f97bd2cd2b75fc07bad601fc"
-        },
-        {
           "path": "assets/Icons/i-trash.svg",
           "id": "ef3c519b2c2387210e3f3adb7064ecdd"
         },
@@ -431,10 +411,6 @@
         {
           "path": "assets/Icons/i-user.svg",
           "id": "6efdc4205b8926b16e454ea62718302e"
-        },
-        {
-          "path": "assets/Icons/i-warning.svg",
-          "id": "1fefd2f56d87bf325f8c386596188e71"
         },
         {
           "path": "assets/Icons/k-down.svg",
@@ -471,22 +447,6 @@
         {
           "path": "assets/Icons/n-operator.svg",
           "id": "07fa1bdb7724664cc18724dbac9ffd35"
-        },
-        {
-          "path": "assets/Icons/s-error.svg",
-          "id": "f11ac0cc24ad95eb2736a5c62a74f512"
-        },
-        {
-          "path": "assets/Icons/s-info.svg",
-          "id": "662bc37c6a730e543f68191286170a53"
-        },
-        {
-          "path": "assets/Icons/s-success.svg",
-          "id": "34837070dc3e3b573f2e1c3f880e15c3"
-        },
-        {
-          "path": "assets/Icons/s-warning.svg",
-          "id": "c3f4ec3c8206b87651758ba37a2c40b6"
         }
       ]
     },
@@ -643,12 +603,6 @@
         "bytes": 244,
         "type": "image/svg+xml"
       },
-      "assets/Icons/i-error.svg": {
-        "store": "blob",
-        "id": "3a5e8f6e388bd3b3e940f1310535bd67",
-        "bytes": 283,
-        "type": "image/svg+xml"
-      },
       "assets/Icons/i-filter.svg": {
         "store": "blob",
         "id": "cd23900dae026d6ec4cd4e6cc1e25d57",
@@ -677,12 +631,6 @@
         "store": "blob",
         "id": "3eab564d434d50e34dff337da27e0d11",
         "bytes": 270,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/i-info.svg": {
-        "store": "blob",
-        "id": "322e33f6e0a27088b5a0d0e4df0c9490",
-        "bytes": 228,
         "type": "image/svg+xml"
       },
       "assets/Icons/i-list.svg": {
@@ -745,12 +693,6 @@
         "bytes": 262,
         "type": "image/svg+xml"
       },
-      "assets/Icons/i-success.svg": {
-        "store": "blob",
-        "id": "23a5f836f97bd2cd2b75fc07bad601fc",
-        "bytes": 234,
-        "type": "image/svg+xml"
-      },
       "assets/Icons/i-trash.svg": {
         "store": "blob",
         "id": "ef3c519b2c2387210e3f3adb7064ecdd",
@@ -773,12 +715,6 @@
         "store": "blob",
         "id": "6efdc4205b8926b16e454ea62718302e",
         "bytes": 246,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/i-warning.svg": {
-        "store": "blob",
-        "id": "1fefd2f56d87bf325f8c386596188e71",
-        "bytes": 236,
         "type": "image/svg+xml"
       },
       "assets/Icons/k-down.svg": {
@@ -833,30 +769,6 @@
         "store": "blob",
         "id": "07fa1bdb7724664cc18724dbac9ffd35",
         "bytes": 1009,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/s-error.svg": {
-        "store": "blob",
-        "id": "f11ac0cc24ad95eb2736a5c62a74f512",
-        "bytes": 400,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/s-info.svg": {
-        "store": "blob",
-        "id": "662bc37c6a730e543f68191286170a53",
-        "bytes": 351,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/s-success.svg": {
-        "store": "blob",
-        "id": "34837070dc3e3b573f2e1c3f880e15c3",
-        "bytes": 357,
-        "type": "image/svg+xml"
-      },
-      "assets/Icons/s-warning.svg": {
-        "store": "blob",
-        "id": "c3f4ec3c8206b87651758ba37a2c40b6",
-        "bytes": 351,
         "type": "image/svg+xml"
       },
       "assets/Illustrations/section_divider_icon_lore.png": {
@@ -944,6 +856,6 @@
         "type": "image/png"
       }
     },
-    "blobBytesUsed": 430940
+    "blobBytesUsed": 428500
   }
 }

@@ -4,16 +4,11 @@ import { cx, moveFocus, useControllable } from './util';
 
 /* ---------- 标签与状态 ---------- */
 
-export type StatusTone = 'ok' | 'warn' | 'err' | 'info' | 'off';
-
-/* 状态对应的图标；off 不带图标。 */
-const STATUS_ICON: Record<StatusTone, IconName | undefined> = { ok: 's-success', warn: 's-warning', err: 's-error', info: 's-info', off: undefined };
+export type StatusTone = 'default' | 'err' | 'off';
 
 export interface TagProps {
   /** neutral 中性（默认）；accent 品牌黄强调。 */
   variant?: 'neutral' | 'accent';
-  /** 状态标签：图标加文字；off 不带图标。 */
-  status?: StatusTone;
   /** sm 20，md 24（默认）。 */
   size?: 'sm' | 'md';
   /** 提供后显示移除按钮。 */
@@ -23,11 +18,10 @@ export interface TagProps {
   children?: React.ReactNode;
 }
 
-/** 方形标签：分类、状态或已选值。 */
-export function Tag({ variant = 'neutral', status, size = 'md', onRemove, tabIndex, className, children }: TagProps) {
+/** 方形标签：分类或已选值。 */
+export function Tag({ variant = 'neutral', size = 'md', onRemove, tabIndex, className, children }: TagProps) {
   return (
-    <span tabIndex={tabIndex} className={cx('tag', variant === 'accent' && 'tag--accent', size === 'sm' && 'tag--sm', status && 'stat', status && 'stat--' + status, className)}>
-      {status && STATUS_ICON[status] && <Icon name={STATUS_ICON[status] as IconName} still />}
+    <span tabIndex={tabIndex} className={cx('tag', variant === 'accent' && 'tag--accent', size === 'sm' && 'tag--sm', className)}>
       {children}
       {onRemove && <button className="rm" type="button" aria-label={'移除 ' + (typeof children === 'string' ? children : '')} onClick={onRemove}><Icon name="i-close" /></button>}
     </span>
@@ -35,16 +29,15 @@ export function Tag({ variant = 'neutral', status, size = 'md', onRemove, tabInd
 }
 
 export interface StatusProps {
-  /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（次要文字色，不带图标）。 */
-  tone: StatusTone;
+  /** default 正文色（默认）；err 错误类状态，错误文字色；off 已归档等失效状态，次要文字色。 */
+  tone?: StatusTone;
   children: React.ReactNode;
   className?: string;
 }
 
-/** 状态图标加文字，用于表格与列表。 */
-export function Status({ tone, children, className }: StatusProps) {
-  const ic = STATUS_ICON[tone];
-  return <span className={cx('stat', 'stat--' + tone, className)}>{ic && <Icon name={ic} />}{children}</span>;
+/** 状态文字，用于表格与列表。 */
+export function Status({ tone = 'default', children, className }: StatusProps) {
+  return <span className={cx('stat', tone !== 'default' && 'stat--' + tone, className)}>{children}</span>;
 }
 
 export interface TagDateProps { type: string; date: string; className?: string }

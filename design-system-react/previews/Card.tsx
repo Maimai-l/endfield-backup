@@ -11,7 +11,7 @@ mount(
     </div>
     <div className="cards">
       <Card eyebrow="Static" title="维护说明" footer={<><code>DOC-000031</code><Tag size="sm">文档</Tag></>}>每周一同步进度，每月底整理归档。</Card>
-      <Card eyebrow="Interactive" title="官网改版" href="#c-card" footer={<><code>PRJ-0142</code><Status tone="warn">待处理</Status></>}>产品部</Card>
+      <Card eyebrow="Interactive" title="官网改版" href="#c-card" footer={<><code>PRJ-0142</code><Status>待处理</Status></>}>产品部</Card>
       <Card eyebrow="Selectable" title="标准评审模板" selectable defaultSelected footer={<code>TPL-0007</code>}>12 个检查项，预计 25 分钟。</Card>
       <StatCard eyebrow="Readout" label="今日访问" value={18406} unit="次" delta={{ text: '+6.2% 较昨日', direction: 'up' }} />
       <Card eyebrow="Disabled" title="已归档" disabled>该项目已归档，数据仅供查阅。</Card>

@@ -2,7 +2,7 @@
 import type * as React from 'react';
 
 export declare const ICONS: Record<IconName, [string, string]>;
-export type IconName = "i-chev-l" | "i-chev-r" | "i-chev-d" | "i-tri-d" | "i-check" | "i-minus" | "i-close" | "i-arrow-r" | "i-arrow-dr" | "i-plus" | "i-search" | "i-info" | "i-success" | "i-warning" | "i-error" | "i-sort" | "i-sort-d" | "i-more" | "i-home" | "i-grid" | "i-list" | "i-box" | "i-user" | "i-sliders" | "i-doc" | "i-upload" | "i-filter" | "i-inbox" | "i-refresh" | "i-menu" | "i-trash" | "s-success" | "s-error" | "s-warning" | "s-info" | "n-home" | "n-operator" | "n-lore" | "n-calendar" | "n-notice" | "i-bolt" | "i-info-plain" | "k-up" | "k-down" | "k-left" | "k-right" | "i-copy";
+export type IconName = "i-chev-l" | "i-chev-r" | "i-chev-d" | "i-tri-d" | "i-check" | "i-minus" | "i-close" | "i-arrow-r" | "i-arrow-dr" | "i-plus" | "i-search" | "i-sort" | "i-sort-d" | "i-more" | "i-home" | "i-grid" | "i-list" | "i-box" | "i-user" | "i-sliders" | "i-doc" | "i-upload" | "i-filter" | "i-inbox" | "i-refresh" | "i-menu" | "i-trash" | "n-home" | "n-operator" | "n-lore" | "n-calendar" | "n-notice" | "i-bolt" | "i-info-plain" | "k-up" | "k-down" | "k-left" | "k-right" | "i-copy";
 
 /** 把全部图标写入页面一次，供 Icon 以 use 引用。组件包加载后自动调用。 */
 export declare function mountSprite(): void;
@@ -93,12 +93,10 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 /** 文字链接。行内链接始终带下划线；跳转到另一页面用链接，不用按钮。 */
 export declare function Link({ standalone, disabled, className, children, ...rest }: LinkProps): React.JSX.Element;
 
-export type StatusTone = 'ok' | 'warn' | 'err' | 'info' | 'off';
+export type StatusTone = 'default' | 'err' | 'off';
 export interface TagProps {
     /** neutral 中性（默认）；accent 品牌黄强调。 */
     variant?: 'neutral' | 'accent';
-    /** 状态标签：图标加文字；off 不带图标。 */
-    status?: StatusTone;
     /** sm 20，md 24（默认）。 */
     size?: 'sm' | 'md';
     /** 提供后显示移除按钮。 */
@@ -107,15 +105,15 @@ export interface TagProps {
     className?: string;
     children?: React.ReactNode;
 }
-/** 方形标签：分类、状态或已选值。 */
-export declare function Tag({ variant, status, size, onRemove, tabIndex, className, children }: TagProps): React.JSX.Element;
+/** 方形标签：分类或已选值。 */
+export declare function Tag({ variant, size, onRemove, tabIndex, className, children }: TagProps): React.JSX.Element;
 export interface StatusProps {
-    /** ok 进行中或成功（品牌黄）；warn 警告（橙）；err 错误（红）；info 信息（墨）；off 已归档（次要文字色，不带图标）。 */
-    tone: StatusTone;
+    /** default 正文色（默认）；err 错误类状态，错误文字色；off 已归档等失效状态，次要文字色。 */
+    tone?: StatusTone;
     children: React.ReactNode;
     className?: string;
 }
-/** 状态图标加文字，用于表格与列表。 */
+/** 状态文字，用于表格与列表。 */
 export declare function Status({ tone, children, className }: StatusProps): React.JSX.Element;
 export interface TagDateProps {
     type: string;
@@ -355,7 +353,7 @@ export declare function Glass({ as, style, className, children }: GlassProps): R
 
 export type Tone = 'info' | 'success' | 'warning' | 'error';
 export interface BannerProps {
-    /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条与图标随之变化。 */
+    /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条随之变化。 */
     type: Tone;
     title: React.ReactNode;
     /** 说明，可含链接。 */
@@ -366,7 +364,7 @@ export interface BannerProps {
 /** 页面内提示条，常驻在相关内容上方。 */
 export declare function Banner({ type, title, children, onClose }: BannerProps): React.JSX.Element;
 export interface ToastProps {
-    /** 省略为中性提示（无图标）。 */
+    /** 省略为中性提示；其余类型只改变左侧色条。 */
     type?: Tone;
     children: React.ReactNode;
     /** 操作文字，例如“撤销”。 */
