@@ -25,7 +25,6 @@
 
 ```html
 <div class="alert alert--warning" role="status">
-  <svg class="ic"><use href="#s-warning"></use></svg>
   <div class="alert-title">存储用量已超过 85%</div>
   <div class="alert-body">
     建议清理过期文件。

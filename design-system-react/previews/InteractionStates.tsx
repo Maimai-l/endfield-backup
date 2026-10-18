@@ -22,7 +22,7 @@ mount(
       <St name="选中" en="checked、aria-pressed" desc="墨色填充配黄色标记，深色主题反转。" cells={[<IconButton icon="i-grid" label="网格视图" defaultPressed />, <Switch defaultChecked>通知</Switch>, <Checkbox defaultChecked>启用</Checkbox>]} />
       <St name="禁用" en="disabled" desc="换为禁用色与禁用底，不用整体透明度。" cells={[<Button variant="primary" disabled>保存</Button>, <TextField size="sm" aria-label="编号" placeholder="编号" disabled />, <Checkbox defaultChecked disabled>启用</Checkbox>]} />
       <St name="错误" en="aria-invalid" desc="描边换为错误色，下方给出原因与图标。" msg cells={[null,
-        <><TextField size="sm" error aria-label="编号" defaultValue="ID-03" /><div className="field-help field-err"><E.Icon name="s-error" />应为 ID- 加 6 位数字</div></>,
+        <><TextField size="sm" error aria-label="编号" defaultValue="ID-03" /><div className="field-help field-err">应为 ID- 加 6 位数字</div></>,
         <Checkbox error>同意服务条款</Checkbox>]} />
       <St name="加载" en="aria-busy" desc="文字换为加载圈，按钮保持宽度。" cells={[<Button variant="primary" loading>保存</Button>, <Select size="sm" options={[]} loading="加载中" />, <Switch defaultChecked loading>同步</Switch>]} />
     </div>

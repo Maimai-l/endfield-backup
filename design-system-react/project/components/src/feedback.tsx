@@ -4,12 +4,11 @@ import { Button, CloseButton } from './actions';
 import { cx } from './util';
 
 export type Tone = 'info' | 'success' | 'warning' | 'error';
-const MARK = { info: 's-info', success: 's-success', warning: 's-warning', error: 's-error' } as const;
 
 /* ---------- 提示条 ---------- */
 
 export interface BannerProps {
-  /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条与图标随之变化。 */
+  /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条随之变化。 */
   type: Tone;
   title: React.ReactNode;
   /** 说明，可含链接。 */
@@ -22,7 +21,6 @@ export interface BannerProps {
 export function Banner({ type, title, children, onClose }: BannerProps) {
   return (
     <div className={'alert alert--' + type} role={type === 'error' ? 'alert' : 'status'}>
-      <Icon name={MARK[type]} />
       <div className="alert-title">{title}</div>
       {onClose && <button className="x" type="button" aria-label="关闭" onClick={onClose}><Icon name="i-close" /></button>}
       {children && <div className="alert-body">{children}</div>}
@@ -33,7 +31,7 @@ export function Banner({ type, title, children, onClose }: BannerProps) {
 /* ---------- 轻提示 ---------- */
 
 export interface ToastProps {
-  /** 省略为中性提示（无图标）。 */
+  /** 省略为中性提示；其余类型只改变左侧色条。 */
   type?: Tone;
   children: React.ReactNode;
   /** 操作文字，例如“撤销”。 */
@@ -49,7 +47,6 @@ export interface ToastProps {
 export function Toast({ type, children, action, onAction, onClose, onMouseEnter, onMouseLeave }: ToastProps) {
   return (
     <div className={cx('toast', type && 'toast--' + type)} role={type === 'error' ? 'alert' : 'status'} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      {type && <Icon name={MARK[type]} />}
       <div className="msg">{children}</div>
       {action && <button className="act" type="button" onClick={onAction}>{action}</button>}
       {onClose && <button className="x" type="button" aria-label="关闭" onClick={onClose}><Icon name="i-close" /></button>}
@@ -236,7 +233,7 @@ export function Progress({ value, label, valueText, thin, status, note, style }:
       aria-valuenow={indet ? undefined : value} aria-valuemin={indet ? undefined : 0} aria-valuemax={indet ? undefined : 100} aria-label={typeof label === 'string' ? label : undefined}>
       <div className="prog-top"><span>{label}</span><span className="v">{valueText || (indet ? '' : value + '%')}</span></div>
       <div className="prog-track"><div className="prog-fill" style={indet ? undefined : ({ '--v': value + '%' } as React.CSSProperties)} /></div>
-      {note && <span className="prog-note">{status === 'done' && <Icon name="s-success" />}{status === 'error' && <Icon name="s-error" />}{note}</span>}
+      {note && <span className="prog-note">{note}</span>}
     </div>
   );
 }
