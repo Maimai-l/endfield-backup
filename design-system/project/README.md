@@ -87,7 +87,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 ### 动效
 
-- 颜色、边框、圆角、竖条变形用 `duration-base`（0.2 秒），开关、图标动作、导航面板与指示块用 `duration-slow`（0.3 秒），缓动 ease，不用回弹。
+- 颜色、边框、圆角、竖条变形用 `duration-base`（0.2 秒），开关、图标动作、导航面板与指示块用 `duration-slow`（0.3 秒）。全部动效只用一条缓动曲线 ease，不用回弹；逐项复刻源站的动效保留源站原值：首屏加载的黄色覆盖为 `cubic-bezier(1, 0, .7, 1)`，加载图标匀速旋转。
 - 源站按钮的标志性竖条只用于纯文字的主要、强调、危险按钮：静止为 2px 竖条，悬停时变为指向右侧的三角。带图标的按钮由图标执行动作：加号转 90 度、箭头右移 3px、关闭转 90 度、刷新点击转一周。
 - 尊重系统的减少动效设置。
 
@@ -115,7 +115,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 
 ## 控件清单
 
-本系统的控件按工作界面的需要组织。源站控件包共 30 项，全部是营销站点控件；下表列出它们在本系统中的去向。
+本系统的控件按工作界面的需要组织。下表列出源站控件在本系统中的对应。
 
 | 源站控件 | 本系统 |
 | --- | --- |
@@ -134,12 +134,5 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 | avatar-switch | Avatar |
 | color-deco | ColorLine |
 | hollow-text、title-block、section-title、divider-band | SectionHeader；区块标题的折角箭头动作用于可交互卡片 |
-| cta、share-button、play-button、download-tile、item-icon | 未收录：营销页专用，工作界面没有对应场景 |
 
 有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏和条目卡片。List 的版式参照官网菜单面板。设计系统中新增的控件在卡片右上角标有“新增”。PageLoader 按源站首屏加载重建。
-
-## 未同步
-
-- 仓库 `components/` 下原有的 React 包装组件（`*.jsx`）与 `_ds_bundle.js` 未带入；本系统的控件为 HTML 加 CSS，交互由 `bundle.js` 提供。
-- 上表“未收录”的 5 个营销页控件未带入。
-- 原始规格文档 `design-system-spec.md` 存放在 `archived/`。
