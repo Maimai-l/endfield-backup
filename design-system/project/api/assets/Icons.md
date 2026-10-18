@@ -26,14 +26,14 @@
 | `assets/Icons/i-arrow-r.svg` | `read 94e7b1984453f8279cd5e6e271087342` |
 | `assets/Icons/i-bolt.svg` | `read 5102ab8f56f8c3fb517af563033b1b60` |
 | `assets/Icons/i-box.svg` | `read ead20b20948776da7e4e0667abead18d` |
-| `assets/Icons/i-check.svg` | `read 127071dc1d90cebf0f1ec9e7f10b046c` |
+| `assets/Icons/i-check.svg` | `read 51354423a3123ade6c11083aaee36f5f` |
 | `assets/Icons/i-chev-d.svg` | `read 133996ff2f190761a8cb25b3c1f84a02` |
 | `assets/Icons/i-chev-l.svg` | `read 6b1bcd0a8b8cb7b5d4057f35d8580ab6` |
 | `assets/Icons/i-chev-r.svg` | `read 0ca164316a5c00956bba8306cc91d038` |
 | `assets/Icons/i-close.svg` | `read c114de9900beef7a36fd63ccc00e47f0` |
 | `assets/Icons/i-copy.svg` | `read 14e0d6e98bc72ee97781527db6754e52` |
 | `assets/Icons/i-doc.svg` | `read 6d1f29628b7a8a65d1fbd3c46abc9134` |
-| `assets/Icons/i-filter.svg` | `read cd23900dae026d6ec4cd4e6cc1e25d57` |
+| `assets/Icons/i-filter.svg` | `read eaf7212073b6b715efa35c32280f582f` |
 | `assets/Icons/i-grid.svg` | `read 512962dafac4ab484a286632d7e8a6fb` |
 | `assets/Icons/i-home.svg` | `read 837dce98217e8fc1b8aa354a4913cb73` |
 | `assets/Icons/i-inbox.svg` | `read 7905d145a939ce2d0cd916e6cf3f9de5` |

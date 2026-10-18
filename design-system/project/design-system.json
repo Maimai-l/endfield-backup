@@ -103,13 +103,11 @@
     "i-close.svg",
     "i-copy.svg",
     "i-doc.svg",
-    "i-error.svg",
     "i-filter.svg",
     "i-grid.svg",
     "i-home.svg",
     "i-inbox.svg",
     "i-info-plain.svg",
-    "i-info.svg",
     "i-list.svg",
     "i-menu.svg",
     "i-minus.svg",
@@ -120,12 +118,10 @@
     "i-sliders.svg",
     "i-sort-d.svg",
     "i-sort.svg",
-    "i-success.svg",
     "i-trash.svg",
     "i-tri-d.svg",
     "i-upload.svg",
     "i-user.svg",
-    "i-warning.svg",
     "k-down.svg",
     "k-left.svg",
     "k-right.svg",
@@ -134,11 +130,7 @@
     "n-home.svg",
     "n-lore.svg",
     "n-notice.svg",
-    "n-operator.svg",
-    "s-error.svg",
-    "s-info.svg",
-    "s-success.svg",
-    "s-warning.svg"
+    "n-operator.svg"
    ],
    "files": {
     "i-arrow-dr.svg": {
@@ -167,8 +159,8 @@
     },
     "i-check.svg": {
      "name": "i-check.svg",
-     "blob": "127071dc1d90cebf0f1ec9e7f10b046c",
-     "size": 219,
+     "blob": "51354423a3123ade6c11083aaee36f5f",
+     "size": 215,
      "type": "image/svg+xml"
     },
     "i-chev-d.svg": {
@@ -207,16 +199,10 @@
      "size": 244,
      "type": "image/svg+xml"
     },
-    "i-error.svg": {
-     "name": "i-error.svg",
-     "blob": "3a5e8f6e388bd3b3e940f1310535bd67",
-     "size": 283,
-     "type": "image/svg+xml"
-    },
     "i-filter.svg": {
      "name": "i-filter.svg",
-     "blob": "cd23900dae026d6ec4cd4e6cc1e25d57",
-     "size": 228,
+     "blob": "eaf7212073b6b715efa35c32280f582f",
+     "size": 237,
      "type": "image/svg+xml"
     },
     "i-grid.svg": {
@@ -241,12 +227,6 @@
      "name": "i-info-plain.svg",
      "blob": "3eab564d434d50e34dff337da27e0d11",
      "size": 270,
-     "type": "image/svg+xml"
-    },
-    "i-info.svg": {
-     "name": "i-info.svg",
-     "blob": "322e33f6e0a27088b5a0d0e4df0c9490",
-     "size": 228,
      "type": "image/svg+xml"
     },
     "i-list.svg": {
@@ -309,12 +289,6 @@
      "size": 262,
      "type": "image/svg+xml"
     },
-    "i-success.svg": {
-     "name": "i-success.svg",
-     "blob": "23a5f836f97bd2cd2b75fc07bad601fc",
-     "size": 234,
-     "type": "image/svg+xml"
-    },
     "i-trash.svg": {
      "name": "i-trash.svg",
      "blob": "ef3c519b2c2387210e3f3adb7064ecdd",
@@ -337,12 +311,6 @@
      "name": "i-user.svg",
      "blob": "6efdc4205b8926b16e454ea62718302e",
      "size": 246,
-     "type": "image/svg+xml"
-    },
-    "i-warning.svg": {
-     "name": "i-warning.svg",
-     "blob": "1fefd2f56d87bf325f8c386596188e71",
-     "size": 236,
      "type": "image/svg+xml"
     },
     "k-down.svg": {
@@ -398,30 +366,6 @@
      "blob": "07fa1bdb7724664cc18724dbac9ffd35",
      "size": 1009,
      "type": "image/svg+xml"
-    },
-    "s-error.svg": {
-     "name": "s-error.svg",
-     "blob": "f11ac0cc24ad95eb2736a5c62a74f512",
-     "size": 400,
-     "type": "image/svg+xml"
-    },
-    "s-info.svg": {
-     "name": "s-info.svg",
-     "blob": "d446361277828d79f599a9c6ffc5b1dc",
-     "size": 351,
-     "type": "image/svg+xml"
-    },
-    "s-success.svg": {
-     "name": "s-success.svg",
-     "blob": "651b2384b8b78f6dd21f2dd08987567b",
-     "size": 357,
-     "type": "image/svg+xml"
-    },
-    "s-warning.svg": {
-     "name": "s-warning.svg",
-     "blob": "6947c8f98530d02d7eddba4a0355d912",
-     "size": 351,
-     "type": "image/svg+xml"
     }
    }
   },
@@ -455,8 +399,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-02T05:35:25Z",
+  "at": "2026-10-18T16:40:00Z",
   "via": "Claude Code",
-  "note": "表格加全选：表头左侧 6×6 方块，描边为未全选、实心黄为全选，无部分选中；Shift 连续选中，Ctrl/Cmd+A 全选，Esc 清除"
+  "note": "删除状态图标；状态改为文字与左侧色条；复选框与单选框改为正文色实底；对钩改为实心切口造型；带图标按钮的文字与图标垂直居中；对话框去掉描边"
  }
 }

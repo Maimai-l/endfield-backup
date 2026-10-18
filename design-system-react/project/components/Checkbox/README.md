@@ -12,13 +12,13 @@
 
 ## 规则
 
-- 浅色模式为墨色填充配黄色标记，深色模式反转（`color-checked` / `color-on-checked`）。
+- 选中与部分选中为正文色实底配页面底色的勾：浅色为墨底白勾，深色为浅灰底深色勾（`color-text-primary` / `color-bg-page`）。
 - 一组复选框放在 `fieldset` 内并给出 `legend`。
 
 ## 规格
 
 - **尺寸**：方框 16、20，圆角 2；可点击区域不小于 宽 24、高 24；与文字间距 8
-- **Token**：`--color-border-control --color-checked --color-on-checked --color-error --radius-sm`
+- **Token**：`--color-border-control --color-text-primary --color-bg-page --color-error --radius-sm`
 - **键盘**：`Space` 切换
 
 ## 结构

@@ -112,13 +112,11 @@
     "i-close.svg",
     "i-copy.svg",
     "i-doc.svg",
-    "i-error.svg",
     "i-filter.svg",
     "i-grid.svg",
     "i-home.svg",
     "i-inbox.svg",
     "i-info-plain.svg",
-    "i-info.svg",
     "i-list.svg",
     "i-menu.svg",
     "i-minus.svg",
@@ -129,12 +127,10 @@
     "i-sliders.svg",
     "i-sort-d.svg",
     "i-sort.svg",
-    "i-success.svg",
     "i-trash.svg",
     "i-tri-d.svg",
     "i-upload.svg",
     "i-user.svg",
-    "i-warning.svg",
     "k-down.svg",
     "k-left.svg",
     "k-right.svg",
@@ -143,11 +139,7 @@
     "n-home.svg",
     "n-lore.svg",
     "n-notice.svg",
-    "n-operator.svg",
-    "s-error.svg",
-    "s-info.svg",
-    "s-success.svg",
-    "s-warning.svg"
+    "n-operator.svg"
    ],
    "files": {
     "i-arrow-dr.svg": {
@@ -176,8 +168,8 @@
     },
     "i-check.svg": {
      "name": "i-check.svg",
-     "blob": "06d29f7e801e739052d6496963c958ba",
-     "size": 219,
+     "blob": "caa217118694b9c709bee4a94b07ddc4",
+     "size": 215,
      "type": "image/svg+xml"
     },
     "i-chev-d.svg": {
@@ -216,16 +208,10 @@
      "size": 244,
      "type": "image/svg+xml"
     },
-    "i-error.svg": {
-     "name": "i-error.svg",
-     "blob": "384a1c96fc86718fe30d326ea91077d9",
-     "size": 283,
-     "type": "image/svg+xml"
-    },
     "i-filter.svg": {
      "name": "i-filter.svg",
-     "blob": "5796c64f135779ef5b97a621f24f4dda",
-     "size": 228,
+     "blob": "1f79e8a1936a2c75d67e1849f82ce150",
+     "size": 237,
      "type": "image/svg+xml"
     },
     "i-grid.svg": {
@@ -250,12 +236,6 @@
      "name": "i-info-plain.svg",
      "blob": "bf929fdb8783159e2d661663b1051626",
      "size": 270,
-     "type": "image/svg+xml"
-    },
-    "i-info.svg": {
-     "name": "i-info.svg",
-     "blob": "d11097178d3f9d7f2585dfa1091f2683",
-     "size": 228,
      "type": "image/svg+xml"
     },
     "i-list.svg": {
@@ -318,12 +298,6 @@
      "size": 262,
      "type": "image/svg+xml"
     },
-    "i-success.svg": {
-     "name": "i-success.svg",
-     "blob": "70c0646b2e8e1e947f03a77e7e46485d",
-     "size": 234,
-     "type": "image/svg+xml"
-    },
     "i-trash.svg": {
      "name": "i-trash.svg",
      "blob": "a1accb52ba49be0e271c402a993250c7",
@@ -346,12 +320,6 @@
      "name": "i-user.svg",
      "blob": "f460ac8ff33e716151a58c87b8945a6e",
      "size": 246,
-     "type": "image/svg+xml"
-    },
-    "i-warning.svg": {
-     "name": "i-warning.svg",
-     "blob": "6b95f02c9a76bcc0a39f00bd047c44a6",
-     "size": 236,
      "type": "image/svg+xml"
     },
     "k-down.svg": {
@@ -407,30 +375,6 @@
      "blob": "c4131cf61de31095c74d8f956370d3cf",
      "size": 1009,
      "type": "image/svg+xml"
-    },
-    "s-error.svg": {
-     "name": "s-error.svg",
-     "blob": "8bf0b6c0e709023d995b9c0d4960cb7b",
-     "size": 400,
-     "type": "image/svg+xml"
-    },
-    "s-info.svg": {
-     "name": "s-info.svg",
-     "blob": "9d486a9e73294d23160b6525c9811abe",
-     "size": 351,
-     "type": "image/svg+xml"
-    },
-    "s-success.svg": {
-     "name": "s-success.svg",
-     "blob": "c213a8a01d5ef8cf17ac8c337ce6383c",
-     "size": 357,
-     "type": "image/svg+xml"
-    },
-    "s-warning.svg": {
-     "name": "s-warning.svg",
-     "blob": "c512d628ea17c37527550822d3af1645",
-     "size": 351,
-     "type": "image/svg+xml"
     }
    }
   },
@@ -464,8 +408,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-02T05:35:25Z",
+  "at": "2026-10-18T16:40:00Z",
   "via": "Claude Code",
-  "note": "同步 HTML 版：Table 加全选方块、Shift 连续选中与键盘全选"
+  "note": "删除状态图标；状态改为文字与左侧色条；复选框与单选框改为正文色实底；对钩改为实心切口造型；带图标按钮的文字与图标垂直居中；对话框去掉描边"
  }
 }
