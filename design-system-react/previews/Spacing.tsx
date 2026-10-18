@@ -9,7 +9,7 @@ function Page() {
   React.useEffect(() => {
     const root = ref.current!;
     const spx = Array.prototype.slice.call(root.querySelectorAll('.spx[data-w]')) as HTMLElement[];
-    const fit = () => spx.forEach((x) => x.style.setProperty('--z', String(Math.min(1, x.clientWidth / +(x.dataset.w as string)))));
+    const fit = () => spx.forEach((x) => x.style.setProperty('--z', String(Math.max(0.25, Math.min(1, Math.floor(x.clientWidth / +(x.dataset.w as string) * 4) / 4)))));
     fit();
     window.addEventListener('resize', fit);
     const t = root.querySelector<HTMLInputElement>('[data-sp-toggle]');

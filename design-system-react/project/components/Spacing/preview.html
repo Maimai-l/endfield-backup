@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="root"></div>
-<script>"use strict";(()=>{var w=Object.create;var n=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var R=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var r=(i,s)=>()=>{try{return s||i((s={exports:{}}).exports,s),s.exports}catch(t){throw s=0,t}};var E=(i,s,t,d)=>{if(s&&typeof s=="object"||typeof s=="function")for(let a of f(s))!k.call(i,a)&&a!==t&&n(i,a,{get:()=>s[a],enumerable:!(d=g(s,a))||d.enumerable});return i};var e=(i,s,t)=>(t=i!=null?w(R(i)):{},E(s||!i||!i.__esModule?n(t,"default",{value:i,enumerable:!0}):t,i));var c=r((P,o)=>{o.exports=window.React});var y=r((T,b)=>{b.exports=window.ReactDOM});var l=e(c());var m=e(c()),h=e(y()),M=window.Endfield;function x(i){(0,h.createRoot)(document.getElementById("root")).render(i)}var u=`<div style="padding:0 16px 16px">
+<script>"use strict";(()=>{var w=Object.create;var n=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var R=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var r=(i,s)=>()=>{try{return s||i((s={exports:{}}).exports,s),s.exports}catch(t){throw s=0,t}};var E=(i,s,t,d)=>{if(s&&typeof s=="object"||typeof s=="function")for(let a of f(s))!k.call(i,a)&&a!==t&&n(i,a,{get:()=>s[a],enumerable:!(d=g(s,a))||d.enumerable});return i};var e=(i,s,t)=>(t=i!=null?w(R(i)):{},E(s||!i||!i.__esModule?n(t,"default",{value:i,enumerable:!0}):t,i));var c=r((M,o)=>{o.exports=window.React});var m=r((P,b)=>{b.exports=window.ReactDOM});var l=e(c());var y=e(c()),h=e(m()),T=window.Endfield;function x(i){(0,h.createRoot)(document.getElementById("root")).render(i)}var u=`<div style="padding:0 16px 16px">
   
 
   <h3 class="sub-h">间距阶梯 <small>Scale</small></h3>
@@ -60,6 +60,6 @@
     </tbody>
   </table></div>
 </div>
-`;function S(){let i=l.useRef(null);return l.useEffect(()=>{let s=i.current,t=Array.prototype.slice.call(s.querySelectorAll(".spx[data-w]")),d=()=>t.forEach(p=>p.style.setProperty("--z",String(Math.min(1,p.clientWidth/+p.dataset.w))));d(),window.addEventListener("resize",d);let a=s.querySelector("[data-sp-toggle]"),v=()=>s.querySelectorAll(".spx").forEach(p=>p.classList.toggle("is-marked",!!a&&a.checked));return a&&a.addEventListener("change",v),()=>{window.removeEventListener("resize",d),a&&a.removeEventListener("change",v)}},[]),l.createElement("div",{ref:i,dangerouslySetInnerHTML:{__html:u}})}x(l.createElement(S,null));})();</script>
+`;function S(){let i=l.useRef(null);return l.useEffect(()=>{let s=i.current,t=Array.prototype.slice.call(s.querySelectorAll(".spx[data-w]")),d=()=>t.forEach(p=>p.style.setProperty("--z",String(Math.max(.25,Math.min(1,Math.floor(p.clientWidth/+p.dataset.w*4)/4)))));d(),window.addEventListener("resize",d);let a=s.querySelector("[data-sp-toggle]"),v=()=>s.querySelectorAll(".spx").forEach(p=>p.classList.toggle("is-marked",!!a&&a.checked));return a&&a.addEventListener("change",v),()=>{window.removeEventListener("resize",d),a&&a.removeEventListener("change",v)}},[]),l.createElement("div",{ref:i,dangerouslySetInnerHTML:{__html:u}})}x(l.createElement(S,null));})();</script>
 </body>
 </html>
