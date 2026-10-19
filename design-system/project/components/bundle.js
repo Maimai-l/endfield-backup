@@ -166,8 +166,8 @@ function init(root){
   all(root,'[data-ldr]').forEach(function(l){if(!once(l,'ldr'))return;runLoader(l)});
   all(root,'[data-ldr-replay]').forEach(function(b){if(!once(b,'rp'))return;b.addEventListener('click',function(){all(root,'[data-ldr]').forEach(runLoader)})});
   /* 间距样例：按容器宽度缩放，标注开关 */
-  var spx=all(root,'.spx[data-w]');function fit(){spx.forEach(function(x){x.style.setProperty('--z',Math.max(.25,Math.min(1,Math.floor(x.clientWidth/ +x.dataset.w*4)/4)))})}
-  if(spx.length){fit();window.addEventListener('resize',fit)}
+  var spx=all(root,'.spx[data-w]');function fit(){spx.forEach(function(x){var w=+x.dataset.w,z=Math.min(1,x.clientWidth/w),inner=x.querySelector('.spx-z');x.style.setProperty('--sw',w);x.style.setProperty('--z',z);x.style.setProperty('--sh',inner.offsetHeight*z+'px')})}
+  if(spx.length){fit();window.addEventListener('resize',fit);if(window.ResizeObserver)spx.forEach(function(x){new ResizeObserver(fit).observe(x.querySelector('.spx-z'))})}
   all(root,'[data-sp-toggle]').forEach(function(t){if(!once(t,'spt'))return;t.addEventListener('change',function(){all(root,'.spx').forEach(function(x){x.classList.toggle('is-marked',t.checked)})})});
 }
 function runLoader(l){

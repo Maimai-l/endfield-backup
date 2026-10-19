@@ -9,13 +9,15 @@ function Page() {
   React.useEffect(() => {
     const root = ref.current!;
     const spx = Array.prototype.slice.call(root.querySelectorAll('.spx[data-w]')) as HTMLElement[];
-    const fit = () => spx.forEach((x) => x.style.setProperty('--z', String(Math.max(0.25, Math.min(1, Math.floor(x.clientWidth / +(x.dataset.w as string) * 4) / 4)))));
+    const fit = () => spx.forEach((x) => { const w = +(x.dataset.w as string), z = Math.min(1, x.clientWidth / w), inner = x.querySelector('.spx-z') as HTMLElement; x.style.setProperty('--sw', String(w)); x.style.setProperty('--z', String(z)); x.style.setProperty('--sh', inner.offsetHeight * z + 'px'); });
     fit();
     window.addEventListener('resize', fit);
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(fit) : null;
+    if (ro) spx.forEach((x) => ro.observe(x.querySelector('.spx-z') as HTMLElement));
     const t = root.querySelector<HTMLInputElement>('[data-sp-toggle]');
     const flip = () => root.querySelectorAll('.spx').forEach((x) => x.classList.toggle('is-marked', !!t && t.checked));
     if (t) t.addEventListener('change', flip);
-    return () => { window.removeEventListener('resize', fit); if (t) t.removeEventListener('change', flip); };
+    return () => { window.removeEventListener('resize', fit); if (ro) ro.disconnect(); if (t) t.removeEventListener('change', flip); };
   }, []);
   return <div ref={ref} dangerouslySetInnerHTML={{ __html: body }} />;
 }

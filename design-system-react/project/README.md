@@ -36,6 +36,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 ### 字体
 
 - 界面文字用 `font-body`、`font-medium`、`font-bold`（SansRegular、SansMedium、SansBold）。标题 `fs-display`、`fs-h2` 用 Bold，`fs-h3`、`fs-lead` 用 Medium，正文 `fs-body`。
+- `components/bundle.css` 重新声明 SansRegular、SansMedium、SansBold，加纵向度量覆盖（ascent 99%、descent 18.2%），使中文字形在各平台的行框中都居中；控件内的文字不再单独做下移补偿。
 - 英文标签用 `font-en`（Gilroy），一律大写，字距 0.12em。
 - 数字读数、页码、百分比用 `font-numeric`（Novecento Sans Wide），等宽数字。镂空大字用 `font-giant`，只作装饰。
 - Novecento 只用数字与全大写字母，不与小写混排：它的小写字形是缩小的大写，混排后首字母会比其余字母大一圈。英文内容需要小写时改用 `font-en`。
