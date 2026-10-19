@@ -38,13 +38,13 @@
   --color-checked: #fffa00; /* 勾选底色、开关轨道、指示条、进度填充、选中分段；浅色墨色，深色品牌黄。 */
   --color-on-checked: #191919; /* color-checked 上的勾选标记、开关滑块与文字。 */
   --color-success: #fffa00; /* 成功、在线、运行中等正向状态。与品牌黄同值，只用于提示条与轻提示的左侧色条和头像在线标记；不画状态图标，不作文字。 */
-  --color-error: #d03c34; /* 错误类状态文字、失败的进度、危险按钮底色（白字 4.80:1）、错误边框。取自游戏战斗界面血条。红色只用于错误与危险操作。 */
-  --color-error-hover: #b8342d; /* 危险按钮悬停。 */
-  --color-error-active: #a02d27; /* 危险按钮按下。 */
-  --color-warning: #fb7803; /* 警告类提示条与轻提示的左侧色条，与提醒角标同色；不作文字。 */
+  --color-error: #d2575e; /* 错误类状态文字、失败的进度、危险按钮底色、错误边框。红色只用于错误与危险操作。 */
+  --color-error-hover: #ba4d53; /* 危险按钮悬停。 */
+  --color-error-active: #a24348; /* 危险按钮按下。 */
+  --color-warning: #e8806e; /* 警告类提示条与轻提示的左侧色条；不作文字。 */
   --color-info: #ededed; /* 信息类提示条的左侧色条。 */
   --color-mark-stroke: #191919; /* 头像在线标记的 1px 外沿描边。 */
-  --color-error-text: #ededed; /* 错误说明文字：浅色为错误红（白底 4.80:1），深色为正文色，错误由红色边框标出。 */
+  --color-error-text: #ededed; /* 错误说明文字：浅色为错误红，深色为正文色，错误由红色边框标出。 */
   --color-badge: #fb7803; /* 提醒角标，8px 橙色菱形。取自游戏系统界面。 */
   --strip: #2e2e2e; /* 条目卡片标题条底色。 */
   --strip-fg: #ffffff; /* 条目卡片标题条文字。 */
@@ -104,7 +104,7 @@
   --color-checked: #191919;
   --color-on-checked: #fffa00;
   --color-info: #191919;
-  --color-error-text: #d03c34;
+  --color-error-text: #d2575e;
   --nav-icon-hover: #191919;
   --nav-hover: #e5e5e5;
   --nav-indicator: #e6e6e6;

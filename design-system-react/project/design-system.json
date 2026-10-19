@@ -168,8 +168,8 @@
     },
     "i-check.svg": {
      "name": "i-check.svg",
-     "blob": "caa217118694b9c709bee4a94b07ddc4",
-     "size": 215,
+     "blob": "0b63d5b69cf9f006b7f51e2e95b53bf6",
+     "size": 216,
      "type": "image/svg+xml"
     },
     "i-chev-d.svg": {
@@ -408,8 +408,8 @@
  },
  "lastChange": {
   "by": "Claude",
-  "at": "2026-10-18T16:40:00Z",
+  "at": "2026-10-19T02:00:00Z",
   "via": "Claude Code",
-  "note": "删除状态图标；状态改为文字与左侧色条；复选框与单选框改为正文色实底；对钩改为实心切口造型；带图标按钮的文字与图标垂直居中；对话框去掉描边"
+  "note": "错误红改为 #d2575e，警告改为珊瑚色 #e8806e；对钩切口收窄"
  }
 }
