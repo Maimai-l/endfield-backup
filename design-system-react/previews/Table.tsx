@@ -20,9 +20,9 @@ mount(
         { key: 'id', label: '项目编号', kind: 'id', width: 128 },
         { key: 'name', label: '名称', kind: 'name' },
         { key: 'dept', label: '部门', width: 96 },
-        { key: 'stat', label: '状态', kind: 'status', width: 96, error: (r) => r.s === 3, sortValue: (r) => r.s },
-        { key: 'prog', label: '进度', kind: 'number', unit: '%', width: 112 },
-        { key: 'hours', label: '工时', kind: 'number', unit: 'h', width: 128 },
+        { key: 'stat', label: '状态', kind: 'status', width: 96, error: (r) => r.s === 3, active: (r) => r.s === 0, sortValue: (r) => r.s },
+        { key: 'prog', label: '进度', kind: 'progress', width: 160 },
+        { key: 'hours', label: '工时', kind: 'number', unit: 'h', width: 112 },
         { key: 'time', label: '更新时间', kind: 'time', width: 128 },
       ]} />
   </div></>

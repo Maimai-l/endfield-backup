@@ -285,8 +285,8 @@ export declare function EmptyState({ icon, title, children, action }: EmptyState
 export interface TableColumn<R> {
     key: string;
     label: string;
-    /** 单元格类型：id 编号、name 名称、status 状态、time 时间、text 普通文字（默认）、number 数值。 */
-    kind?: 'id' | 'name' | 'status' | 'time' | 'text' | 'number';
+    /** 单元格类型：id 编号、name 名称、status 状态、time 时间、text 普通文字（默认）、number 数值、progress 进度（0 至 100，显示进度条与百分比）。 */
+    kind?: 'id' | 'name' | 'status' | 'time' | 'text' | 'number' | 'progress';
     /** 数值的单位，跟在数字后。 */
     unit?: string;
     /** 列宽；名称列不设。 */
@@ -295,6 +295,8 @@ export interface TableColumn<R> {
     sortable?: boolean;
     /** 状态列：返回 true 时显示为错误状态。 */
     error?: (row: R) => boolean;
+    /** 状态列：返回 true 时为进行中状态，左侧色条为正文色。 */
+    active?: (row: R) => boolean;
     /** 自定义单元格内容。 */
     render?: (row: R) => React.ReactNode;
     /** 自定义排序值。 */
@@ -319,11 +321,11 @@ export interface TableProps<R extends Record<string, unknown>> {
     onSortChange?: (sort: TableSort) => void;
     /** 返回 true 的行为禁用行。 */
     isDisabled?: (row: R) => boolean;
-    /** 最小宽度，默认 880；容器更窄时横向滚动。 */
+    /** 最小宽度，默认 912；容器更窄时横向滚动。 */
     minWidth?: number;
     ariaLabel?: string;
 }
-/** 数据表格：深色表头，四角折线标记；单击表头排序，单击行选中。 */
+/** 数据表格：表头下方 2px 正文色线；单击表头排序，单击行选中。 */
 export declare function Table<R extends Record<string, unknown>>({ columns, rows, rowKey, selectable, selected, defaultSelected, onSelectedChange, sort, defaultSort, onSortChange, isDisabled, minWidth, ariaLabel }: TableProps<R>): React.JSX.Element;
 export interface SurfaceProps {
     /** brand 品牌黄整面；ink 墨色整面。色面不随主题变化。 */

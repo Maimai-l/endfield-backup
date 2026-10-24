@@ -22,7 +22,7 @@ color: var(--y-300);
 | `color-bg-surface` | #1f1f22 | #fafafa | 卡片、面板、侧栏、表头底色。 |
 | `color-bg-raised` | #1f1f22 | #ffffff | 对话框、下拉菜单底色。 |
 | `color-bg-muted` | #35373c | #e6e6e6 | 中性标签、骨架块、头像底色。 |
-| `color-bg-selected` | #35373c | #e6e6e6 | 下拉菜单中已选项的底色。表格选中行用 color-state-hover 加左侧竖条。 |
+| `color-bg-selected` | #35373c | #e6e6e6 | 下拉菜单已选项与表格选中行的底色；表格选中行另加左侧 4px 勾选色竖条。 |
 | `color-bg-disabled` | #1f1f22 | #f2f2f2 | 禁用控件底色。 |
 | `color-bg-emphasis` | #35373c | #191919 | 轻提示与悬浮说明的底色。 |
 | `color-bg-overlay` | rgba(0,0,0,.7) | rgba(0,0,0,.6) | 对话框遮罩。 |
