@@ -310,7 +310,7 @@
         },
         {
           "path": "assets/Icons/i-check.svg",
-          "id": "f0ed6aeae29f3d7d5d89aeb196278ee7"
+          "id": "b67900f5c9bb082b3b85fcc3653d2a35"
         },
         {
           "path": "assets/Icons/i-chev-d.svg",
@@ -563,7 +563,7 @@
       },
       "assets/Icons/i-check.svg": {
         "store": "blob",
-        "id": "f0ed6aeae29f3d7d5d89aeb196278ee7",
+        "id": "b67900f5c9bb082b3b85fcc3653d2a35",
         "bytes": 216,
         "type": "image/svg+xml"
       },
