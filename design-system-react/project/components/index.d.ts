@@ -127,11 +127,9 @@ export interface AvatarProps {
     size?: number;
     /** 图片地址。 */
     src?: string;
-    /** 图片或占位头像的无障碍名称。 */
+    /** 姓名，作为图片或占位头像的无障碍名称。 */
     alt?: string;
-    /** 文字头像：一个字。 */
-    children?: React.ReactNode;
-    /** 没有文字与图片时显示的图标，默认 i-user。 */
+    /** 没有图片时显示的图标，默认 i-user。 */
     icon?: IconName;
     /** 右下角状态点。 */
     status?: 'online' | 'off';
@@ -141,8 +139,8 @@ export interface AvatarProps {
     tabIndex?: number;
     className?: string;
 }
-/** 圆形头像：图片、文字或占位图标。 */
-export declare function Avatar({ size, src, alt, children, icon, status, onClick, label, tabIndex, className }: AvatarProps): React.JSX.Element;
+/** 圆形头像：图片，没有图片时显示占位图标。 */
+export declare function Avatar({ size, src, alt, icon, status, onClick, label, tabIndex, className }: AvatarProps): React.JSX.Element;
 export interface AvatarStackProps {
     /** 头像，统一尺寸。 */
     children: React.ReactNode;

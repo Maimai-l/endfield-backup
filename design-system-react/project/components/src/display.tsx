@@ -54,11 +54,9 @@ export interface AvatarProps {
   size?: number;
   /** 图片地址。 */
   src?: string;
-  /** 图片或占位头像的无障碍名称。 */
+  /** 姓名，作为图片或占位头像的无障碍名称。 */
   alt?: string;
-  /** 文字头像：一个字。 */
-  children?: React.ReactNode;
-  /** 没有文字与图片时显示的图标，默认 i-user。 */
+  /** 没有图片时显示的图标，默认 i-user。 */
   icon?: IconName;
   /** 右下角状态点。 */
   status?: 'online' | 'off';
@@ -69,16 +67,15 @@ export interface AvatarProps {
   className?: string;
 }
 
-/** 圆形头像：图片、文字或占位图标。 */
-export function Avatar({ size, src, alt, children, icon, status, onClick, label, tabIndex, className }: AvatarProps) {
+/** 圆形头像：图片，没有图片时显示占位图标。 */
+export function Avatar({ size, src, alt, icon, status, onClick, label, tabIndex, className }: AvatarProps) {
   const style: React.CSSProperties & Record<string, string> = {};
   if (size) style['--s'] = size + 'px';
-  if (src) { style.backgroundImage = 'url(' + src + ')'; style.backgroundSize = 'cover'; style.backgroundPosition = 'center'; }
-  const inner = <>{children !== undefined ? children : !src && (icon || !className || className.indexOf('av--img') < 0) ? <Icon name={icon || 'i-user'} /> : null}
+  if (src) style.backgroundImage = 'url(' + src + ')';
+  const inner = <>{!src && <Icon name={icon || 'i-user'} />}
     {status && <span className={cx('dotst', status === 'off' && 'off')} aria-label={status === 'online' ? '在线' : '已归档'} />}</>;
   if (onClick) return <button className={cx('av', className)} style={style} type="button" aria-label={label} onClick={onClick}>{inner}</button>;
-  const img = children === undefined;
-  return <span className={cx('av', className)} style={style} tabIndex={tabIndex} role={img ? 'img' : undefined} aria-label={img ? alt : undefined}>{inner}</span>;
+  return <span className={cx('av', className)} style={style} tabIndex={tabIndex} role="img" aria-label={alt}>{inner}</span>;
 }
 
 export interface AvatarStackProps {
@@ -94,7 +91,7 @@ export function AvatarStack({ children, more, size = 32 }: AvatarStackProps) {
   return (
     <div className="av-stack">
       {children}
-      {more ? <Avatar size={size} className="more" alt={'另外 ' + more + ' 人'} icon="i-more" /> : null}
+      {more ? <Avatar size={size} alt={'另外 ' + more + ' 人'} icon="i-more" /> : null}
     </div>
   );
 }

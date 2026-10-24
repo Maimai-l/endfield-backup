@@ -2,7 +2,7 @@ import * as React from 'react';
 import { E, mount, Stage, Row } from './_kit';
 const { TopBar, IconButton, Button, Avatar } = E;
 const crumbs = [{ label: '项目', href: '#c-topbar' }, { label: '产品部' }];
-const account = <Avatar size={28} label="账户：成员 302" onClick={() => undefined}>周</Avatar>;
+const account = <Avatar size={32} src="/_blob/1e7716566c55620aedae043991dca8e0" label="账户：管理员" onClick={() => undefined} />;
 
 mount(
   <Stage prov>

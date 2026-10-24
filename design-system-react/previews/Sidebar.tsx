@@ -78,7 +78,7 @@ mount(
         <div className="app-main">
           <TopBar title="产品部" crumbs={[{ label: '项目', href: '#c-nav' }, { label: '产品部' }]} search="搜索项目编号"
             actions={<IconButton variant="ghost" size="sm" icon="i-refresh" label="刷新" tooltip="below" />}
-            account={<Avatar size={28} label="账户：成员 302" onClick={() => undefined}>周</Avatar>} />
+            account={<Avatar size={32} src="/_blob/1e7716566c55620aedae043991dca8e0" label="账户：管理员" onClick={() => undefined} />} />
           <div className="app-body" aria-hidden="true">
             <Skeleton width="30%" height={14} />
             <div style={{ display: 'flex', gap: 12 }}><span className="skel" style={{ flex: 1, height: 72 }} /><span className="skel" style={{ flex: 1, height: 72 }} /><span className="skel" style={{ flex: 1, height: 72 }} /></div>
