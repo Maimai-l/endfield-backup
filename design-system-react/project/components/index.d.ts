@@ -321,11 +321,11 @@ export interface TableProps<R extends Record<string, unknown>> {
     onSortChange?: (sort: TableSort) => void;
     /** 返回 true 的行为禁用行。 */
     isDisabled?: (row: R) => boolean;
-    /** 最小宽度，默认 912；容器更窄时横向滚动。 */
+    /** 最小宽度，默认 912，可选表格 944；容器更窄时横向滚动。 */
     minWidth?: number;
     ariaLabel?: string;
 }
-/** 数据表格：表头下方 2px 正文色线；单击表头排序，单击行选中。 */
+/** 数据表格：浅灰表头条，行首复选框；单击表头排序，单击行选中。 */
 export declare function Table<R extends Record<string, unknown>>({ columns, rows, rowKey, selectable, selected, defaultSelected, onSelectedChange, sort, defaultSort, onSortChange, isDisabled, minWidth, ariaLabel }: TableProps<R>): React.JSX.Element;
 export interface SurfaceProps {
     /** brand 品牌黄整面；ink 墨色整面。色面不随主题变化。 */
