@@ -264,7 +264,7 @@ export interface QuotaPillProps {
 export declare function QuotaPill({ icon, value, max, unit, actionLabel, onAction }: QuotaPillProps): React.JSX.Element;
 export interface MetricBadgeProps {
     label: string;
-    /** 等级或编号，1 至 3 个字符。 */
+    /** 档位或编号，1 至 3 位数字。 */
     value: string;
     /** 说明按钮的无障碍名称。 */
     infoLabel: string;

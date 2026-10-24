@@ -36,11 +36,13 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 - 界面文字用 `font-body`、`font-medium`、`font-bold`（SansRegular、SansMedium、SansBold）。标题 `fs-display`、`fs-h2` 用 Bold，`fs-h3`、`fs-lead` 用 Medium，正文 `fs-body`。
 - `components/bundle.css` 重新声明 SansRegular、SansMedium、SansBold，加纵向度量覆盖（ascent 99%、descent 18.2%），使中文字形在各平台的行框中都居中；控件内的文字不再单独做下移补偿。
 - 英文标签用 `font-en`（Gilroy），一律大写，字距 0.12em。
-- 数字读数、页码、百分比用 `font-numeric`（Novecento Sans Wide），等宽数字。镂空大字用 `font-giant`，只作装饰。
-- Novecento 只用数字与全大写字母，不与小写混排：它的小写字形是缩小的大写，混排后首字母会比其余字母大一圈。英文内容需要小写时改用 `font-en`。
-- Novecento 的数字在行框中比中文偏下约 0.08em。数字与中文、图标在同一行居中排列时，数字上移 0.08em，使三者的笔画中心落在同一条中线上；与中文按基线排列（如进度百分比）时不做补偿。
+- 字体分工照源站：
+  - `font-numeric`（Novecento Sans Wide Medium）只排纯数字，可带小数点、冒号、逗号、斜杠与百分号：读数、页码、序号、百分比、日期。Novecento 的数字和小写字母都只有小型大写字母的高度，只有大写字母是全高，所以不与字母混排。
+  - `font-giant`（Novecento Sans Wide Bold）只排镂空大字，内容为全大写字母或纯数字，只作装饰。
+  - 编号、快捷键、计数、时间戳等字母与数字混排的短文本用 `font-en`（Gilroy），样式为 `code`。
+  - 中文用 Sans。
+- `components/bundle.css` 重新声明 Novecentosanswide-Medium，加纵向度量覆盖（ascent 87.7%、descent 32.3%），使数字在行框中居中；控件内的数字不再单独上移。数字与中文按基线排列时（如进度条上方的百分比）共用基线，不做居中处理。
 - 同一行中数字读数的笔画高度不超过所在控件高度的 40%，避免压过左侧名称形成倾斜感。
-- 编号、快捷键、时间戳用 `font-tech`（Space Grotesk）。
 
 ### 间距
 

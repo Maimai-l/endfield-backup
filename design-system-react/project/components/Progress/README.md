@@ -17,7 +17,7 @@
 
 ## 规格
 
-- **尺寸**：高 8（标准）、4（细型），圆角 1；百分比 12px Novecento，等宽数字
+- **尺寸**：高 8（标准）、4（细型），圆角 1；百分比 12px Novecento
 - **Token**：`--color-bg-muted --color-checked --color-error --font-numeric`
 - **键盘**：不可聚焦；使用 `role="progressbar"` 与 `aria-valuenow`
 
