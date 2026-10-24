@@ -22,7 +22,8 @@
   "Logos",
   "Icons",
   "Textures",
-  "Illustrations"
+  "Illustrations",
+  "Avatars"
  ],
  "assetGroups": {
   "Textures": {
@@ -397,6 +398,42 @@
      "blob": "10c02ab0b001f593fb36e2ba1330b523",
      "size": 2244,
      "type": "image/svg+xml"
+    }
+   }
+  },
+  "Avatars": {
+   "name": "Avatars",
+   "tile": "s",
+   "order": [
+    "endministrator1.png",
+    "perlica.png",
+    "chen.png",
+    "ember.png"
+   ],
+   "files": {
+    "endministrator1.png": {
+     "name": "endministrator1.png",
+     "blob": "bfafd6e49a332040d43efbc622a403a6",
+     "size": 18781,
+     "type": "image/png"
+    },
+    "perlica.png": {
+     "name": "perlica.png",
+     "blob": "4b11e0f4ddd8c01f80fb35886e0009f8",
+     "size": 18867,
+     "type": "image/png"
+    },
+    "chen.png": {
+     "name": "chen.png",
+     "blob": "673d6e60b9c584191faf5e0b7112af9e",
+     "size": 17456,
+     "type": "image/png"
+    },
+    "ember.png": {
+     "name": "ember.png",
+     "blob": "818a09dfe15f2ff0c12097360d0c7cf7",
+     "size": 18987,
+     "type": "image/png"
     }
    }
   }

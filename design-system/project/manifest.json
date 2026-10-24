@@ -3,6 +3,7 @@
   "name": "ENDFIELD",
   "namespace": "Endfield",
   "files": [
+    "assets/Avatars/README.md",
     "assets/Icons/README.md",
     "assets/Illustrations/README.md",
     "assets/Logos/README.md",
@@ -60,7 +61,7 @@
     {
       "name": "Avatar",
       "group": "内容展示",
-      "summary": "头像，含图片、文字、占位、状态点与堆叠。"
+      "summary": "头像，含图片、占位、状态点与堆叠。"
     },
     {
       "name": "Banner",
@@ -533,6 +534,34 @@
           "id": "03c2f2f955fe4e7c383b77c07a430a96"
         }
       ]
+    },
+    {
+      "name": "Avatars",
+      "tile": "s",
+      "order": [
+        "endministrator1.png",
+        "perlica.png",
+        "chen.png",
+        "ember.png"
+      ],
+      "files": [
+        {
+          "path": "assets/Avatars/endministrator1.png",
+          "id": "1e7716566c55620aedae043991dca8e0"
+        },
+        {
+          "path": "assets/Avatars/perlica.png",
+          "id": "57e297b9bac7e6869f8c0eaecac43cb7"
+        },
+        {
+          "path": "assets/Avatars/chen.png",
+          "id": "ba5c03334ddb5f040f0baffa11378408"
+        },
+        {
+          "path": "assets/Avatars/ember.png",
+          "id": "9c5c8ecd9b59fe135a9131b1fd68aad4"
+        }
+      ]
     }
   ],
   "storage": {
@@ -853,6 +882,30 @@
         "store": "blob",
         "id": "6b9d11aeb61fef6ed2660bc0382e361d",
         "bytes": 22854,
+        "type": "image/png"
+      },
+      "assets/Avatars/endministrator1.png": {
+        "store": "blob",
+        "id": "1e7716566c55620aedae043991dca8e0",
+        "bytes": 18781,
+        "type": "image/png"
+      },
+      "assets/Avatars/perlica.png": {
+        "store": "blob",
+        "id": "57e297b9bac7e6869f8c0eaecac43cb7",
+        "bytes": 18867,
+        "type": "image/png"
+      },
+      "assets/Avatars/chen.png": {
+        "store": "blob",
+        "id": "ba5c03334ddb5f040f0baffa11378408",
+        "bytes": 17456,
+        "type": "image/png"
+      },
+      "assets/Avatars/ember.png": {
+        "store": "blob",
+        "id": "9c5c8ecd9b59fe135a9131b1fd68aad4",
+        "bytes": 18987,
         "type": "image/png"
       }
     },
