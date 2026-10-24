@@ -26,7 +26,7 @@
 | `assets/Icons/i-arrow-r.svg` | `read 94e7b1984453f8279cd5e6e271087342` |
 | `assets/Icons/i-bolt.svg` | `read 5102ab8f56f8c3fb517af563033b1b60` |
 | `assets/Icons/i-box.svg` | `read ead20b20948776da7e4e0667abead18d` |
-| `assets/Icons/i-check.svg` | `read f0ed6aeae29f3d7d5d89aeb196278ee7` |
+| `assets/Icons/i-check.svg` | `read b67900f5c9bb082b3b85fcc3653d2a35` |
 | `assets/Icons/i-chev-d.svg` | `read 133996ff2f190761a8cb25b3c1f84a02` |
 | `assets/Icons/i-chev-l.svg` | `read 6b1bcd0a8b8cb7b5d4057f35d8580ab6` |
 | `assets/Icons/i-chev-r.svg` | `read 0ca164316a5c00956bba8306cc91d038` |
