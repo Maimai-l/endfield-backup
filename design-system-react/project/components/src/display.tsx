@@ -353,8 +353,8 @@ export function EmptyState({ icon, title, children, action }: EmptyStateProps) {
 export interface TableColumn<R> {
   key: string;
   label: string;
-  /** 单元格类型：id 编号、name 名称、status 状态、time 时间、text 普通文字（默认）、number 数值。 */
-  kind?: 'id' | 'name' | 'status' | 'time' | 'text' | 'number';
+  /** 单元格类型：id 编号、name 名称、status 状态、time 时间、text 普通文字（默认）、number 数值、progress 进度（0 至 100，显示进度条与百分比）。 */
+  kind?: 'id' | 'name' | 'status' | 'time' | 'text' | 'number' | 'progress';
   /** 数值的单位，跟在数字后。 */
   unit?: string;
   /** 列宽；名称列不设。 */
@@ -363,6 +363,8 @@ export interface TableColumn<R> {
   sortable?: boolean;
   /** 状态列：返回 true 时显示为错误状态。 */
   error?: (row: R) => boolean;
+  /** 状态列：返回 true 时为进行中状态，左侧色条为正文色。 */
+  active?: (row: R) => boolean;
   /** 自定义单元格内容。 */
   render?: (row: R) => React.ReactNode;
   /** 自定义排序值。 */
@@ -386,14 +388,14 @@ export interface TableProps<R extends Record<string, unknown>> {
   onSortChange?: (sort: TableSort) => void;
   /** 返回 true 的行为禁用行。 */
   isDisabled?: (row: R) => boolean;
-  /** 最小宽度，默认 880；容器更窄时横向滚动。 */
+  /** 最小宽度，默认 912；容器更窄时横向滚动。 */
   minWidth?: number;
   ariaLabel?: string;
 }
 
 const ARROW = <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor" /></svg>;
 
-/** 数据表格：深色表头，四角折线标记；单击表头排序，单击行选中。 */
+/** 数据表格：表头下方 2px 正文色线；单击表头排序，单击行选中。 */
 export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey = 'id', selectable, selected, defaultSelected, onSelectedChange, sort, defaultSort, onSortChange, isDisabled, minWidth, ariaLabel }: TableProps<R>) {
   const [sel, setSel] = useControllable<string[]>(selected, defaultSelected || [], onSelectedChange);
   const [srt, setSrt] = useControllable<TableSort | undefined>(sort, defaultSort, onSortChange as ((s: TableSort | undefined) => void) | undefined);
@@ -430,7 +432,7 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
     ? <button className="tbl-all" type="button" role="checkbox" aria-checked={allOn} aria-label="全选" onClick={() => setAll(!allOn)} />
     : null;
   const head = (c: TableColumn<R>, i: number) => {
-    const num = c.kind === 'number';
+    const num = c.kind === 'number' || c.kind === 'progress';
     const on = srt && srt.key === c.key;
     if (c.sortable === false) return <th key={c.key} scope="col" className={num ? 'num' : undefined}>{i === 0 && allBtn}{c.label}</th>;
     const next = (): TableSort => ({ key: c.key, dir: on ? (srt!.dir === 'descending' ? 'ascending' : 'descending') : (num ? 'descending' : 'ascending') });
@@ -445,19 +447,22 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
   };
   const cell = (c: TableColumn<R>, r: R) => {
     const v = r[c.key];
-    if (c.render) return <td key={c.key} className={c.kind === 'number' ? 'num' : undefined}>{c.render(r)}</td>;
+    if (c.render) return <td key={c.key} className={c.kind === 'number' ? 'num' : c.kind === 'progress' ? 'c-prog' : undefined}>{c.render(r)}</td>;
     switch (c.kind) {
       case 'id': return <td key={c.key} className="c-id">{v as React.ReactNode}</td>;
       case 'name': return <td key={c.key} className="c-name">{v as React.ReactNode}</td>;
       case 'time': return <td key={c.key} className="c-time">{v as React.ReactNode}</td>;
-      case 'status': return <td key={c.key} className={cx('c-stat', c.error && c.error(r) && 'is-err')}>{v as React.ReactNode}</td>;
+      case 'status': return <td key={c.key} className={cx('c-stat', c.error && c.error(r) ? 'is-err' : c.active && c.active(r) && 'is-on')}>{v as React.ReactNode}</td>;
+      case 'progress': {
+        const n = Math.max(0, Math.min(100, Number(v) || 0));
+        return <td key={c.key} className="c-prog"><span className="pv"><span className="bar"><i style={{ '--v': n + '%' } as React.CSSProperties} /></span><span className="n"><b>{n}</b>%</span></span></td>;
+      }
       case 'number': return <td key={c.key} className="num"><b>{typeof v === 'number' ? v.toLocaleString('en-US') : (v as React.ReactNode)}</b>{c.unit}</td>;
       default: return <td key={c.key}>{v as React.ReactNode}</td>;
     }
   };
   return (
     <div className="tbl-frame">
-      <i /><i /><i /><i />
       <div className="tbl-scroll">
         <table className="tbl" aria-multiselectable={selectable || undefined} aria-label={ariaLabel} style={minWidth !== undefined ? { minWidth } : undefined}
           onKeyDown={selectable ? (e) => {
