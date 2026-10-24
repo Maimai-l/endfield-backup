@@ -430,7 +430,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .menu-sep{height:1px;background:var(--color-border-subtle);margin:4px 0}
 .check{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:24px;cursor:pointer;font-size:14px;user-select:none}
 .check input{position:absolute;opacity:0;width:16px;height:16px;margin:0;left:0;top:50%;transform:translateY(-50%);cursor:pointer}
-.box{position:relative;display:grid;place-items:center;width:16px;height:16px;flex:none;border:1px solid var(--color-border-control);border-radius:var(--radius-sm);background:var(--color-bg-page);color:var(--color-bg-page);transition:background-color var(--duration-base) ease,border-color var(--duration-base) ease}
+.box{position:relative;display:grid;place-items:center;width:16px;height:16px;flex:none;border:1px solid var(--color-border-control);border-radius:var(--radius-md);background:var(--color-bg-page);color:var(--color-bg-page);transition:background-color var(--duration-base) ease,border-color var(--duration-base) ease}
 .box .ic{width:12px;height:12px;stroke-width:2.2;opacity:0}
 .box .ic.mix{position:absolute}
 .check:hover .box,.check.is-hover .box{border-color:var(--color-border-strong)}
@@ -751,7 +751,7 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .tbl thead th:first-child{position:relative}
 .tbl[aria-multiselectable] th:first-child button,.tbl[aria-multiselectable] th:first-child:not(:has(button)),.tbl[aria-multiselectable] td:first-child{padding-left:56px}
 .tbl thead th .tbl-all{position:absolute;left:20px;top:4px;z-index:1;display:block;width:24px;height:24px;padding:0;border:0;background:none;cursor:pointer}
-.tbl thead th .tbl-all::before,.tbl[aria-multiselectable] tbody td:first-child::before{content:"";position:absolute;left:4px;top:4px;width:16px;height:16px;box-sizing:border-box;border:1px solid var(--color-border-control);border-radius:var(--radius-sm);background:var(--color-bg-page);transition:background-color var(--duration-base) ease,border-color var(--duration-base) ease}
+.tbl thead th .tbl-all::before,.tbl[aria-multiselectable] tbody td:first-child::before{content:"";position:absolute;left:4px;top:4px;width:16px;height:16px;box-sizing:border-box;border:1px solid var(--color-border-control);border-radius:var(--radius-md);background:var(--color-bg-page);transition:background-color var(--duration-base) ease,border-color var(--duration-base) ease}
 .tbl[aria-multiselectable] tbody td:first-child::before{left:24px;top:50%;margin-top:-8px}
 .tbl thead th .tbl-all::after,.tbl[aria-multiselectable] tbody td:first-child::after{content:"";position:absolute;left:6px;top:6px;width:12px;height:12px;background:var(--color-bg-page);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M7.14,13.13 L14.83,5.45 A1.23,1.23 0 0 0 14.83,3.71 A1.23,1.23 0 0 0 13.08,3.71 L5.4,11.39 A1.23,1.23 0 0 0 5.4,13.13 A1.23,1.23 0 0 0 7.14,13.13 Z M1.29,8.43 L3.36,10.41 A1.23,1.23 0 0 0 5.11,10.36 A1.23,1.23 0 0 0 5.06,8.62 L2.98,6.65 A1.23,1.23 0 0 0 1.24,6.69 A1.23,1.23 0 0 0 1.29,8.43 Z'/%3E%3C/svg%3E") center/12px 12px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M7.14,13.13 L14.83,5.45 A1.23,1.23 0 0 0 14.83,3.71 A1.23,1.23 0 0 0 13.08,3.71 L5.4,11.39 A1.23,1.23 0 0 0 5.4,13.13 A1.23,1.23 0 0 0 7.14,13.13 Z M1.29,8.43 L3.36,10.41 A1.23,1.23 0 0 0 5.11,10.36 A1.23,1.23 0 0 0 5.06,8.62 L2.98,6.65 A1.23,1.23 0 0 0 1.24,6.69 A1.23,1.23 0 0 0 1.29,8.43 Z'/%3E%3C/svg%3E") center/12px 12px no-repeat;opacity:0;transition:opacity var(--duration-base) ease}
 .tbl[aria-multiselectable] tbody td:first-child::after{left:26px;top:50%;margin-top:-6px}
@@ -780,7 +780,7 @@ button.av:focus-visible{outline:2px solid var(--color-focus-ring);outline-offset
 .tbl .c-prog .bar i{position:absolute;left:0;top:0;bottom:0;width:var(--v,0%);background:var(--color-text-secondary)}
 .tbl .c-prog .n{flex:none;min-width:40px;text-align:right;font-size:12px}
 .tbl tbody tr[aria-disabled="true"]{cursor:default}
-.tbl tbody tr[aria-disabled="true"] td,.tbl tbody tr[aria-disabled="true"] td *{color:var(--color-text-disabled)}
+.tbl tbody tr[aria-disabled="true"] td,.tbl tbody tr[aria-disabled="true"] td *,.tbl tbody tr[aria-disabled="true"] .c-prog .n b{color:var(--color-text-disabled)}
 .tbl tbody tr[aria-disabled="true"] .c-prog .bar i{background:var(--color-text-disabled)}
 .tbl[aria-multiselectable] tbody tr[aria-disabled="true"] td:first-child::before{background:var(--color-bg-disabled);border-color:var(--color-border-subtle)}
 .tbl tbody tr[aria-disabled="true"]:hover td{background:var(--color-bg-page)}

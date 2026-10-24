@@ -17,8 +17,8 @@
 
 ## 规格
 
-- **尺寸**：方框 16、20，圆角 2；可点击区域不小于 宽 24、高 24；与文字间距 8
-- **Token**：`--color-border-control --color-text-primary --color-bg-page --color-error --radius-sm`
+- **尺寸**：方框 16、20，圆角 4；可点击区域不小于 宽 24、高 24；与文字间距 8
+- **Token**：`--color-border-control --color-text-primary --color-bg-page --color-error --radius-md`
 - **键盘**：`Space` 切换
 
 ## 结构

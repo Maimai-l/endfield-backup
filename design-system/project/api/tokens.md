@@ -186,8 +186,8 @@ padding: var(--space-1);
 
 | token | value | usage |
 | --- | --- | --- |
-| `radius-sm` | 2px | 按钮（悬停 6px）、复选框、标签、轻提示。 |
-| `radius-md` | 4px | 卡片、对话框、菜单。 |
+| `radius-sm` | 2px | 按钮（悬停 6px）、标签、轻提示。 |
+| `radius-md` | 4px | 复选框、卡片、对话框、菜单。 |
 | `radius-lg` | 16px | 多行文本框、多选下拉框等高度不固定的圆角控件。 |
 | `radius-full` | 9999px | 头像、圆形按钮、胶囊按钮、额度胶囊、单行输入框、下拉框、开关、列表条目。 |
 
