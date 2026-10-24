@@ -148,7 +148,7 @@
  {
   "name": "Table",
   "group": "内容展示",
-  "height": 601,
+  "height": 593,
   "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:13px/1.5 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}"
  },
  {

@@ -388,14 +388,14 @@ export interface TableProps<R extends Record<string, unknown>> {
   onSortChange?: (sort: TableSort) => void;
   /** 返回 true 的行为禁用行。 */
   isDisabled?: (row: R) => boolean;
-  /** 最小宽度，默认 912；容器更窄时横向滚动。 */
+  /** 最小宽度，默认 912，可选表格 944；容器更窄时横向滚动。 */
   minWidth?: number;
   ariaLabel?: string;
 }
 
 const ARROW = <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4 H10 L6 10 Z" fill="currentColor" /></svg>;
 
-/** 数据表格：表头下方 2px 正文色线；单击表头排序，单击行选中。 */
+/** 数据表格：浅灰表头条，行首复选框；单击表头排序，单击行选中。 */
 export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey = 'id', selectable, selected, defaultSelected, onSelectedChange, sort, defaultSort, onSortChange, isDisabled, minWidth, ariaLabel }: TableProps<R>) {
   const [sel, setSel] = useControllable<string[]>(selected, defaultSelected || [], onSelectedChange);
   const [srt, setSrt] = useControllable<TableSort | undefined>(sort, defaultSort, onSortChange as ((s: TableSort | undefined) => void) | undefined);
@@ -470,7 +470,7 @@ export function Table<R extends Record<string, unknown>>({ columns, rows, rowKey
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'a') { e.preventDefault(); setAll(true); }
             else if (e.key === 'Escape') setAll(false);
           } : undefined}>
-          <colgroup>{columns.map((c) => <col key={c.key} style={c.width ? { width: c.width } : undefined} />)}</colgroup>
+          <colgroup>{columns.map((c, i) => <col key={c.key} style={c.width ? { width: c.width + (selectable && i === 0 ? 32 : 0) } : undefined} />)}</colgroup>
           <thead><tr>{columns.map(head)}</tr></thead>
           <tbody ref={body}>
             {sorted.map((r) => {
