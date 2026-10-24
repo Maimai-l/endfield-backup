@@ -118,9 +118,9 @@ font-family: var(--font-body);   /* the family alone */
 | `fs-small` | `.fs-small`, `--text-fs-small` | 13px / 1.5 | 400 | `body` | 说明、表头、md 按钮文字。 |
 | `fs-caption` | `.fs-caption`, `--text-fs-caption` | 12px / 1.45 | 400 | `body` | 悬浮说明、时间戳、sm 控件文字。 |
 | `fs-overline` | `.fs-overline`, `--text-fs-overline` | 11px / 1.3 | 500 | `en` | 英文分组标签，一律大写，字距 0.12em。 |
-| `num-readout` | `.num-readout`, `--text-num-readout` | 35px / 1 | 500 | `numeric` | 百分比、页码、读数，等宽数字；只用数字与全大写字母。 |
-| `num-giant` | `.num-giant`, `--text-num-giant` | 104px / 0.9 | 700 | `giant` | 镂空条纹大字，只作装饰；只用全大写字母。 |
-| `tech` | `.tech`, `--text-tech` | 12px / 1.5 | 400 | `tech` | 编号、快捷键、代码、时间戳。 |
+| `num-readout` | `.num-readout`, `--text-num-readout` | 35px / 1 | 500 | `numeric` | 百分比、页码、读数等纯数字，等宽；不与字母混排。 |
+| `num-giant` | `.num-giant`, `--text-num-giant` | 104px / 0.9 | 700 | `giant` | 镂空条纹大字，只作装饰；只排全大写字母或纯数字，二者不混排。 |
+| `code` | `.code`, `--text-code` | 12px / 1.5 | 500 | `en` | 编号、快捷键、计数、时间戳等字母与数字混排的短文本。 |
 
 ### Families
 
@@ -131,9 +131,8 @@ font-family: var(--font-body);   /* the family alone */
 | `bold` | `--font-bold` | `SansBold,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif` |
 | `en` | `--font-en` | `Gilroy-Medium,"Helvetica Neue",Arial,sans-serif` |
 | `en-light` | `--font-en-light` | `Gilroy-Light,"Helvetica Neue",Arial,sans-serif` |
-| `numeric` | `--font-numeric` | `Novecentosanswide-Medium,"Arial Narrow",Arial,sans-serif` |
+| `numeric` | `--font-numeric` | `Novecentosanswide-Medium,SansRegular,"PingFang SC","Microsoft YaHei",sans-serif` |
 | `giant` | `--font-giant` | `Novecentosanswide-Bold,"Arial Black",Arial,sans-serif` |
-| `tech` | `--font-tech` | `SpaceGrotesk,ui-monospace,Menlo,monospace` |
 
 ### Font files
 
@@ -149,7 +148,6 @@ Fonts: one file per family is enough (below: the upright face nearest regular we
 | Novecentosanswide-Medium | `fonts/Novecentosanswide-Medium.woff2` (weight 500) | `read` the file with `project/` in front | `var(--font-numeric)` | `novecentosanswide-medium` |
 | Novecentosanswide-DemiBold | `fonts/Novecentosanswide-DemiBold.woff2` (weight 600) | `read` the file with `project/` in front |  | `novecentosanswide-demibold` |
 | Novecentosanswide-Bold | `fonts/Novecentosanswide-Bold.woff2` (weight 700) | `read` the file with `project/` in front | `var(--font-giant)` | `novecentosanswide-bold` |
-| SpaceGrotesk | `fonts/SpaceGrotesk.woff2` (weight 400) | `read` the file with `project/` in front | `var(--font-tech)` | `spacegrotesk` |
 
 ## Spacing
 

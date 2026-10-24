@@ -18,7 +18,7 @@
 ## 规格
 
 - **尺寸**：最大宽 240；内边距 6、8；字号 12；距目标 6；悬停 500ms 后显示，键盘焦点立即显示，Esc 隐藏
-- **Token**：`--color-bg-emphasis --color-text-on-emphasis --radius-sm --font-tech`
+- **Token**：`--color-bg-emphasis --color-text-on-emphasis --radius-sm --font-en`
 - **键盘**：聚焦目标时立即显示，`Esc` 隐藏
 
 ## 结构
