@@ -15,14 +15,14 @@
 ## 规则
 
 - 与官网来源的直角按钮分属两套体系：同一面板内只用一种，不把直角按钮与胶囊按钮并排。
-- 确认按钮的文字靠右，左侧细线随按钮宽度伸缩，不放其他内容。
+- 确认按钮的文字靠右，左侧细线随按钮宽度伸缩，不放其他内容；悬停只改变底色，不加其他动作。
 - 文字为动词或名词短语，2 至 6 个字；不在按钮上用 unicode 箭头或符号。
 - 浅色主题按设计系统惯例反转为深底浅字。
 
 ## 规格
 
-- **尺寸**：确认按钮高 40、最小宽 200，左内距 24、右内距 10，距外沿 2px 处有 1.5px `color-on-pill` 内圈；左侧细线 1px，两端 3px 圆点，颜色为文字色 20% 混入底色，与文字相隔 24；文字 16；右端图标圆 20，与文字相隔 12；右半部叠加源站等高线纹理；悬停底色变亮，图标圆变为品牌黄、图标转 180 度。实底胶囊按钮高 32、最小宽 144，左右内距 16，文字 16，尾部图标 16、线宽 2.4。小号高 24，文字 14，图标圆 16，四周内距 4。禁用为 `color-bg-disabled` 底与禁用文字色。
-- **Token**：`--color-primary --color-primary-hover --color-primary-active --color-on-pill --color-pill-muted --color-on-secondary --color-accent --color-text-on-accent --color-bg-disabled --color-text-disabled --radius-full`
+- **尺寸**：确认按钮按游戏截图逐像素叠合测定（截图中高 61，按 40 换算）：高 40、最小宽 192，右内距 12；距外沿 1.4px 处起为 1.25px `color-on-pill` 内圈；左侧细线粗 1.3、起点距左缘 24.9、终点距文字 20.6，颜色为 `color-on-pill` 19% 混入 `color-primary`，两端圆点直径 2.3，为 49% 混入；文字 16，SansRegular；右端图标圆 21，与文字相隔 10.4；纹理为 Textures 组的 `confirm-texture.png`，贴按钮右端，高度与按钮一致，颜色为 19% 混入 `color-primary`；细线、圆点与纹理用固定颜色，悬停时只有底色变为 `color-primary-hover`。实底胶囊按钮高 32、最小宽 144，左右内距 16，文字 16，尾部图标 16、线宽 2.4。小号高 24，文字 14，图标圆 16，四周内距 4。禁用为 `color-bg-disabled` 底与禁用文字色。
+- **Token**：`--color-primary --color-primary-hover --color-primary-active --color-on-pill --color-pill-muted --color-on-secondary --color-bg-disabled --color-text-disabled --radius-full`
 - **键盘**：`Enter` 或 `Space` 触发
 
 ## 结构

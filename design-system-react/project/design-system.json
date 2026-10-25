@@ -33,7 +33,8 @@
     "button-texture.png",
     "pag-button-texture.png",
     "points-bg.png",
-    "wave-bg.png"
+    "wave-bg.png",
+    "confirm-texture.png"
    ],
    "files": {
     "button-texture.png": {
@@ -58,6 +59,12 @@
      "name": "wave-bg.png",
      "blob": "f3ea6eb9de617253c9c36ef72550b92d",
      "size": 22854,
+     "type": "image/png"
+    },
+    "confirm-texture.png": {
+     "name": "confirm-texture.png",
+     "blob": "95cab3332d07a0d7632b3d90c6101283",
+     "size": 7187,
      "type": "image/png"
     }
    }
@@ -381,8 +388,8 @@
     },
     "i-cycle.svg": {
      "name": "i-cycle.svg",
-     "blob": "a7aad3525cc1980ad46bec7082cc1abd",
-     "size": 287,
+     "blob": "6fcc6597d32be91842d0230f55c3685f",
+     "size": 303,
      "type": "image/svg+xml"
     },
     "i-pin.svg": {

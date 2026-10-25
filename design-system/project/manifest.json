@@ -459,7 +459,7 @@
         },
         {
           "path": "assets/Icons/i-cycle.svg",
-          "id": "0f2761e0da38441152a9a3a1abdffd63"
+          "id": "768938ce39274dc780184d34710bad21"
         },
         {
           "path": "assets/Icons/i-pin.svg",
@@ -473,7 +473,8 @@
         "button-texture.png",
         "pag-button-texture.png",
         "points-bg.png",
-        "wave-bg.png"
+        "wave-bg.png",
+        "confirm-texture.png"
       ],
       "files": [
         {
@@ -491,6 +492,10 @@
         {
           "path": "assets/Textures/wave-bg.png",
           "id": "6b9d11aeb61fef6ed2660bc0382e361d"
+        },
+        {
+          "path": "assets/Textures/confirm-texture.png",
+          "id": "5e3878941bde86687fd35d5d00b3ba0a"
         }
       ]
     },
@@ -926,8 +931,8 @@
       },
       "assets/Icons/i-cycle.svg": {
         "store": "blob",
-        "id": "0f2761e0da38441152a9a3a1abdffd63",
-        "bytes": 287,
+        "id": "768938ce39274dc780184d34710bad21",
+        "bytes": 303,
         "type": "image/svg+xml"
       },
       "assets/Icons/i-pin.svg": {
@@ -935,6 +940,12 @@
         "id": "91b568b68285aeac251f16c63bdbc5f5",
         "bytes": 253,
         "type": "image/svg+xml"
+      },
+      "assets/Textures/confirm-texture.png": {
+        "store": "blob",
+        "id": "5e3878941bde86687fd35d5d00b3ba0a",
+        "bytes": 7187,
+        "type": "image/png"
       }
     },
     "blobBytesUsed": 428506
