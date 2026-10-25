@@ -61,5 +61,5 @@
 | `assets/Icons/n-lore.svg` | `read 1ab622d23a86f48cc863bc140e1af7e4` |
 | `assets/Icons/n-notice.svg` | `read 60b60c6c4909aeb1edf3142d9caea0fe` |
 | `assets/Icons/n-operator.svg` | `read 07fa1bdb7724664cc18724dbac9ffd35` |
-| `assets/Icons/i-cycle.svg` | `read 0f2761e0da38441152a9a3a1abdffd63` |
+| `assets/Icons/i-cycle.svg` | `read 768938ce39274dc780184d34710bad21` |
 | `assets/Icons/i-pin.svg` | `read 91b568b68285aeac251f16c63bdbc5f5` |
