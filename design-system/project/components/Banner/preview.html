@@ -1,4 +1,4 @@
-<!-- @dsCard group="反馈与提示" height=407 -->
+<!-- @dsCard group="反馈与提示" height=1564 -->
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -9,12 +9,36 @@
 <body>
 <span class="prov">新增</span>
 <div class="stage">
-      <div class="alerts">
+      <div class="row"><span class="row-label">类型</span><div class="items" style="width:100%">
+        <div class="alerts">
         <div class="alert alert--info" role="status"><div class="alert-title">今晚 22:00 至 23:30 进行系统维护</div><button class="x" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button><div class="alert-body">维护期间数据只读，请在此之前保存未提交的内容。</div></div>
         <div class="alert alert--success" role="status"><div class="alert-title">版本已更新至 4.2.1</div><div class="alert-body">共 18 个项目，全部完成迁移。</div></div>
         <div class="alert alert--warning" role="status"><div class="alert-title">存储用量已超过 85%</div><div class="alert-body">建议清理过期文件。<a class="link" href="#c-alert">查看用量</a></div></div>
         <div class="alert alert--error" role="alert"><div class="alert-title">同步服务中断</div><div class="alert-body">最后一次同步为 14:02，6 个项目的数据已停止更新。</div></div>
-      </div>
+        </div>
+      </div></div>
+      <div class="row"><span class="row-label">场景</span><div class="items" style="width:100%"><div class="bn-scns">
+        <div class="bn-scn"><div class="scn-h"><b>Page</b><span>页面级</span></div>
+          <div class="bn-frame">
+            <div class="bn-title"><ol class="crumbs"><li><a href="#c-alert">项目</a></li><li><span aria-current="page">产品部</span></li></ol><b>产品部</b></div>
+            <div class="alert alert--info" role="status"><div class="alert-title">今晚 22:00 至 23:30 进行系统维护</div><button class="x" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button><div class="alert-body">维护期间数据只读，请在此之前保存未提交的内容。</div></div>
+            <div class="entry"><div class="entry-strip">官网改版评审<span class="meta">12 / 18</span></div><div class="entry-body"><span class="desc">剩余 6 项待评审，预计 40 分钟。</span><button class="pill pill--sm" type="button"><span class="lbl">前往</span></button></div></div>
+          </div>
+          <p>影响整页时，放在标题区下方，作为正文的第一个元素。与标题区相隔 24，与其后的内容相隔 16；宽度与正文一致，不伸进页边距。</p>
+        </div>
+        <div class="bn-scn"><div class="scn-h"><b>Section</b><span>区块级</span></div>
+          <div class="bn-frame"><div class="bn-col">
+            <h4 class="bn-sec">成员权限</h4>
+            <div class="alert alert--warning" role="status"><div class="alert-title">3 名成员的权限将在 10 月 31 日到期</div><div class="alert-body">到期后这些成员只能查看项目。<a class="link" href="#c-alert">续期</a></div></div>
+            <ul class="list" aria-label="成员"><li class="li li--2" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-user"></use></svg></span><span class="main"><b>成员 302</b><span>10 月 31 日到期</span></span><span class="trail">编辑</span></li><li class="li li--2" tabindex="0"><span class="lead"><svg class="ic"><use href="#i-user"></use></svg></span><span class="main"><b>成员 418</b><span>长期有效</span></span><span class="trail">查看</span></li></ul>
+          </div></div>
+          <p>只影响某个区块时，放在该区块的小标题与内容之间。与小标题相隔 12，与内容相隔 16；宽度与区块内容一致，内容限宽时提示条随之限宽。</p>
+        </div>
+        <div class="bn-scn"><div class="scn-h"><b>Dialog</b><span>对话框内</span></div>
+          <div class="bn-dlg"><div class="dialog" role="dialog" aria-labelledby="bnd"><div class="dlg-head"><h4 id="bnd">提交任务</h4><button class="cbtn" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"></use></svg></button></div><div class="dlg-body"><div class="alert alert--error" role="alert"><div class="alert-title">审核人已离开项目</div><div class="alert-body">请重新选择审核人后再提交。</div></div><p>提交后任务将进入审核，审核期间不可修改内容。</p></div><div class="dlg-foot"><button class="btn btn--secondary btn--sm" type="button"><span class="lbl">取消</span></button><button class="btn btn--primary btn--sm" type="button"><span class="lbl">提交</span></button></div></div></div>
+          <p>对话框与卡片内放在正文的第一个位置，与其后的内容相隔 16，宽度与正文一致；随容器一起关闭，不显示关闭按钮。</p>
+        </div>
+      </div></div></div>
     </div>
 <script>window.Endfield&&Endfield.init(document)</script>
 </body>

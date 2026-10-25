@@ -148,7 +148,7 @@ export interface DialogProps {
   inline?: boolean;
 }
 
-/** 对话框：宽 480，Esc 关闭，焦点锁定在对话框内。 */
+/** 对话框：宽 400，Esc 关闭，焦点锁定在对话框内。 */
 export function Dialog({ open, onClose, title, danger, children, confirmText, confirmLabel, cancelLabel = '取消', onConfirm, footer, inline }: DialogProps) {
   const ref = React.useRef<HTMLDialogElement>(null);
   const tid = 'dlg' + React.useId().replace(/:/g, '');

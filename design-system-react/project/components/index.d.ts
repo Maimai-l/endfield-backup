@@ -454,7 +454,7 @@ export interface DialogProps {
     /** 嵌在页面中显示（规格展示），不打开模态。 */
     inline?: boolean;
 }
-/** 对话框：宽 480，Esc 关闭，焦点锁定在对话框内。 */
+/** 对话框：宽 400，Esc 关闭，焦点锁定在对话框内。 */
 export declare function Dialog({ open, onClose, title, danger, children, confirmText, confirmLabel, cancelLabel, onConfirm, footer, inline }: DialogProps): React.JSX.Element;
 export interface LoadingProps {
     /** 直径 16、20（默认）、32。 */
