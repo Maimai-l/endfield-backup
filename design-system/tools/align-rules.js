@@ -16,7 +16,6 @@ module.exports=[
   {comp:'Table',name:'部门表头文字左缘与部门单元格左缘重合',a:'.tbl thead th:nth-child(3) .in > span',b:'.tbl tbody tr:nth-child(2) td:nth-child(3)',edge:'left'},
   {comp:'Table',name:'四角标记在表格之外',a:'.tbl-frame > i:nth-child(1)',b:'.tbl',edgeA:'left',edgeB:'left',min:8},
   {comp:'QuotaPill',name:'加号圆在额度胶囊内四周内距相等',inset:['.rpill','.rplus']},
-  {comp:'Button',name:'箭头圆在胶囊按钮内四周内距相等',inset:['.cap-btn','.go']},
   {comp:'List',name:'图标圆在入口菜单条目内四周内距相等',inset:['.smi','.smi-ic']},
   {comp:'List',name:'图标圆在双行列表条目内四周内距相等',inset:['.li--2','.lead']},
   {comp:'MetricBadge',name:'名称、数值、说明按钮笔画中心在同一中线',ink:['.ipill',['.l','.v','.ibtn-i']]},

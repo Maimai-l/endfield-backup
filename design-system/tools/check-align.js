@@ -78,7 +78,7 @@ function edge(r,e){return {left:r.x,right:r.x+r.width,top:r.y,bottom:r.y+r.heigh
         const shape=e=>{const s=getComputedStyle(e),q=e.getBoundingClientRect();const r=parseFloat(s.borderTopLeftRadius)||0;
           const bounded=s.backgroundColor!=='rgba(0, 0, 0, 0)'||(parseFloat(s.borderTopWidth)>0&&s.borderTopStyle!=='none'&&s.borderTopColor!=='rgba(0, 0, 0, 0)');
           if(!bounded||q.width<16||q.height<16)return null;return r>=q.height/2-0.5?'round':r<=6?'square':null};
-        const ctl=[...document.querySelectorAll('.stage button,.stage .input,.stage .btn,.stage .seg,.stage .tag,.stage .card,.stage .rpill,.stage .rbtn,.stage .cap-btn,.stage .li,.stage .smi')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&q.height&&!e.closest('.row-label,.cap,.prov')});
+        const ctl=[...document.querySelectorAll('.stage button,.stage .input,.stage .btn,.stage .seg,.stage .tag,.stage .card,.stage .rpill,.stage .rbtn,.stage .li,.stage .smi')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&q.height&&!e.closest('.row-label,.cap,.prov')});
         for(let i=0;i<ctl.length;i++)for(let j=i+1;j<ctl.length;j++){const A=ctl[i],B=ctl[j];if(A.contains(B)||B.contains(A))continue;
           const sa=shape(A),sb=shape(B);if(!sa||!sb||sa===sb)continue;const a=A.getBoundingClientRect(),b=B.getBoundingClientRect();
           const sameRow=a.top<b.bottom&&b.top<a.bottom,gapX=Math.max(b.left-a.right,a.left-b.right),gapY=Math.max(b.top-a.bottom,a.top-b.bottom);

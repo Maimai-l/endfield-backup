@@ -79,12 +79,6 @@ export interface RoundButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLBu
 }
 /** 源站圆形翻页按钮，只用于轮播与图集翻页。 */
 export declare function RoundButton({ direction, size, label, className, ...rest }: RoundButtonProps): React.JSX.Element;
-export interface CapsuleButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-    /** 进行中或已完成：显示为无边框灰底文字，不可点击。 */
-    busy?: boolean;
-}
-/** 列表与卡片中的“前往”类胶囊按钮：文字居中，右侧墨色圆内为箭头。 */
-export declare function CapsuleButton({ busy, className, children, ...rest }: CapsuleButtonProps): React.JSX.Element;
 export interface ConfirmButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
     type?: 'button' | 'submit';
 }
@@ -237,12 +231,12 @@ export interface EntryCardProps {
     meta?: React.ReactNode;
     /** 正文说明。 */
     children?: React.ReactNode;
-    /** 右侧操作，通常为胶囊按钮。 */
+    /** 右侧操作，通常为小号胶囊按钮 PillButton；不可操作的状态用 Status。 */
     action?: React.ReactNode;
-    /** 未开放：读数改用正文字体。 */
+    /** 未开放的条目，读数写文字说明，例如“未开放”。 */
     off?: boolean;
 }
-/** 源站条目卡片：深色标题条加正文与胶囊按钮。 */
+/** 源站条目卡片：深色标题条加正文与右侧操作。 */
 export declare function EntryCard({ title, meta, children, action, off }: EntryCardProps): React.JSX.Element;
 export interface ListItemData {
     value: string;

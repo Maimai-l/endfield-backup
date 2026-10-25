@@ -7,7 +7,7 @@ HTML = ROOT.parent / 'design-system/project/components'
 OUT = ROOT / 'project/components'
 
 USES = {
-'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、提交中 `loading`、`disabled` 与原生按钮属性。胶囊按钮用 `CapsuleButton`，进行中传 `busy`。',
+'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
 'IconButton': '`icon`、`label`（无障碍名称，必填）、`variant`、`size`；`tooltip` 显示悬浮说明（`"below"` 显示在下方）；切换型按钮传 `pressed` 或 `defaultPressed` 与 `onPressedChange`；`badge` 显示提醒角标。关闭与返回用 `CloseButton`（`kind`、`inverse`），轮播翻页用 `RoundButton`（`direction`、`size`），数量加减与全屏面板关闭用 `CircleButton`（`kind`：solid、close；`icon`、`label`、`size`）。',
 'PillButton': '确认按钮用 `ConfirmButton`，文字 `children`；实底胶囊按钮用 `PillButton`：`variant`（default、muted）、`size`（md、sm）、`icon`（md 显示在文字后，sm 显示在左侧墨色圆内）、文字 `children`。',
 'Link': '`href` 与文字；独立链接传 `standalone`（后跟箭头）；不可用时传 `disabled`。',
@@ -44,7 +44,7 @@ USES = {
 }
 
 STRUCT = {
-'Button': '<Button variant="primary">保存设置</Button>\n<Button icon="i-plus">新建任务</Button>\n<CapsuleButton>前往</CapsuleButton>',
+'Button': '<Button variant="primary">保存设置</Button>\n<Button icon="i-plus">新建任务</Button>',
 'IconButton': '<IconButton icon="i-upload" label="上传" variant="primary" tooltip />\n<IconButton icon="i-grid" label="网格视图" defaultPressed />\n<CloseButton onClick={close} />\n<CircleButton icon="i-minus" label="减少" onClick={dec} />',
 'PillButton': '<ConfirmButton onClick={trade}>交易</ConfirmButton>\n<PillButton icon="i-menu">事务总览</PillButton>\n<PillButton size="sm" icon="i-pin">查看位置</PillButton>',
 'Link': '<Link href="/records">进度记录</Link>\n<Link href="/projects" standalone>查看全部项目</Link>',
@@ -60,7 +60,7 @@ STRUCT = {
 'TopBar': '<TopBar title="产品部" crumbs={[{ label: \'项目\', href: \'/\' }, { label: \'产品部\' }]} search="搜索项目编号"\n  actions={<Button variant="primary" icon="i-plus">新建项目</Button>} />',
 'Sidebar': '<Sidebar name="Ops Console" value={page} onChange={setPage}\n  items={[{ value: \'home\', label: \'总览\', icon: \'n-home\' }, { group: \'管理\' }, { value: \'arc\', label: \'归档\', icon: \'n-lore\' }]}\n  tools={[{ label: \'设置\', icon: \'i-sliders\', onClick: openSettings }]} />',
 'Avatar': '<Avatar size={32} src={url} alt="管理员" />\n<Avatar src={url} alt="陈千语" status="online" />\n<AvatarStack more={4}><Avatar size={32} src={a} alt="佩丽卡" /><Avatar size={32} src={b} alt="陈千语" /></AvatarStack>',
-'Card': '<Card eyebrow="Interactive" title="官网改版" href="/p/142" footer={<code>PRJ-0142</code>}>产品部</Card>\n<EntryCard title="官网改版评审" meta="12 / 18" action={<CapsuleButton>前往</CapsuleButton>}>剩余 6 项待评审。</EntryCard>',
+'Card': '<Card eyebrow="Interactive" title="官网改版" href="/p/142" footer={<code>PRJ-0142</code>}>产品部</Card>\n<EntryCard title="官网改版评审" meta="12 / 18" action={<PillButton size="sm">前往</PillButton>}>剩余 6 项待评审。</EntryCard>',
 'Divider': '<Divider />\n<Divider variant="label">以下为已归档记录</Divider>',
 'EmptyState': '<EmptyState icon="i-box" title="还没有项目" action={<Button variant="primary" size="sm" icon="i-plus">新建项目</Button>}>\n  新建第一个项目后，这里会显示它的进度与成员。\n</EmptyState>',
 'List': '<List variant="two-line" selectable ariaLabel="文件" items={[\n  { value: \'a\', icon: \'i-doc\', title: \'季度报告\', subtitle: \'9 月 30 日更新\', trailing: \'2.4 MB\' },\n]} />',
@@ -108,7 +108,7 @@ for comp in sorted(os.listdir(HTML)):
         else:
             secs.insert(0, ['## 使用方提供', '\n\n' + USES[comp] + '\n\n'])
         names = [s[0] for s in secs]
-        block = '\n\n```jsx\nconst { ' + ', '.join(sorted(set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])) - {'Button', 'Link', 'IconButton', 'CapsuleButton'} | set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])))) + ' } = window.Endfield;\n\n' + STRUCT[comp] + '\n```\n\n'
+        block = '\n\n```jsx\nconst { ' + ', '.join(sorted(set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])) - {'Button', 'Link', 'IconButton'} | set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])))) + ' } = window.Endfield;\n\n' + STRUCT[comp] + '\n```\n\n'
         if '## 结构' in names:
             secs[names.index('## 结构')][1] = block
         else:

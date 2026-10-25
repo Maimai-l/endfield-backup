@@ -198,13 +198,13 @@ export interface EntryCardProps {
   meta?: React.ReactNode;
   /** 正文说明。 */
   children?: React.ReactNode;
-  /** 右侧操作，通常为胶囊按钮。 */
+  /** 右侧操作，通常为小号胶囊按钮 PillButton；不可操作的状态用 Status。 */
   action?: React.ReactNode;
-  /** 未开放：读数改用正文字体。 */
+  /** 未开放的条目，读数写文字说明，例如“未开放”。 */
   off?: boolean;
 }
 
-/** 源站条目卡片：深色标题条加正文与胶囊按钮。 */
+/** 源站条目卡片：深色标题条加正文与右侧操作。 */
 export function EntryCard({ title, meta, children, action, off }: EntryCardProps) {
   return (
     <div className={cx('entry', off && 'is-off')}>

@@ -98,22 +98,6 @@ export function RoundButton({ direction, size = 'md', label, className, ...rest 
   );
 }
 
-export interface CapsuleButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  /** 进行中或已完成：显示为无边框灰底文字，不可点击。 */
-  busy?: boolean;
-}
-
-/** 列表与卡片中的“前往”类胶囊按钮：文字居中，右侧墨色圆内为箭头。 */
-export function CapsuleButton({ busy, className, children, ...rest }: CapsuleButtonProps) {
-  if (busy) return <span className={cx('cap-btn is-busy', className)} role="status">{children}</span>;
-  return (
-    <button {...rest} type="button" className={cx('cap-btn', className)}>
-      <span className="lbl">{children}</span>
-      <span className="go"><Icon name="i-chev-r" className="ic--arrow" /></span>
-    </button>
-  );
-}
-
 export interface ConfirmButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   type?: 'button' | 'submit';
 }
