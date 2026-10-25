@@ -1,14 +1,14 @@
 # Tag
 
-标签、状态文字与提醒角标。
+标签、胶囊标签、状态文字与提醒角标。
 
 ## 何时使用
 
-对象的状态、分类或数量提示。
+对象的状态、分类或数量提示。胶囊标签取自游戏界面，表示效果与能力，生效为实底，未生效为描边。
 
 ## 使用方提供
 
-文字 `children`；`variant`（neutral、accent）、`size`（sm、md）；可移除时传 `onRemove`。表格与列表中的状态用 `Status`（`tone`：省略为正文色，err 为错误文字色，off 为次要文字色），公告的类型加日期用 `TagDate`。
+文字 `children`；`variant`（neutral、accent）、`size`（sm、md）；可移除时传 `onRemove`。胶囊标签用 `PillTag`：`icon`、`off`（未生效）、文字 `children`。表格与列表中的状态用 `Status`（`tone`：省略为正文色，err 为错误文字色，off 为次要文字色），公告的类型加日期用 `TagDate`。
 
 ## 规则
 
@@ -17,21 +17,22 @@
 
 ## 规格
 
-- **尺寸**：高 20、24，水平内边距 6、8，字号 12、13，圆角 2；移除按钮 16；状态文字 13
-- **Token**：`--color-bg-muted --color-accent --color-text-on-accent --color-success --color-error --color-warning --radius-sm`
+- **尺寸**：高 20、24，水平内边距 6、8，字号 12、13，圆角 2；移除按钮 16；状态文字 13；胶囊标签高 24、全圆角，左内距 6、右内距 10，图标 14，与文字相隔 4，字号 14，生效为 `color-primary` 底与 `color-on-pill` 文字，未生效为 1px `color-border-control` 描边与次要文字色
+- **Token**：`--color-bg-muted --color-accent --color-text-on-accent --color-success --color-error --color-warning --radius-sm --color-primary --color-on-pill --color-border-control --radius-full`
 - **键盘**：移除按钮可用 `Tab` 到达，`Enter` 移除
 
 ## 结构
 
 ```jsx
-const { Status, Tag } = window.Endfield;
+const { PillTag, Status, Tag } = window.Endfield;
 
 <Tag>评审</Tag>
 <Tag onRemove={remove}>表格</Tag>
+<PillTag icon="i-bolt">变废为宝</PillTag>
 <Status>进行中</Status>
 <Status tone="err">已逾期</Status>
 ```
 
 ## 来源
 
-源站改造。LabelTag、TagDate
+源站改造。LabelTag、TagDate；胶囊标签取自游戏界面据点详情的效果标签

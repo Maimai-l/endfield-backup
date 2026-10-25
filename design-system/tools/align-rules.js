@@ -23,4 +23,9 @@ module.exports=[
   {comp:'QuotaPill',name:'数值与加号按钮笔画中心在同一中线',ink:['.rpill',['.v','.rplus']]},
   {comp:'Pagination',name:'页码数字与翻页箭头笔画中心在同一中线',ink:['.pager',['.pg:nth-of-type(2)','.pg[data-prev]','.total b']]},
   {comp:'Tag',name:'日期标签的类型与日期笔画中心在同一中线',ink:['.tagdate',['.t','.d'],true]},
+  {comp:'PillButton',name:'确认按钮文字与图标圆笔画中心在同一中线',ink:['.cfm',['.lbl','.cfm-ic'],true]},
+  {comp:'PillButton',name:'确认按钮图标圆四周内距相等',inset:['.cfm','.cfm-ic']},
+  {comp:'PillButton',name:'实底胶囊按钮文字与图标笔画中心在同一中线',ink:['.pill:not(.pill--sm)',['.lbl','.ic'],true]},
+  {comp:'PillButton',name:'小号胶囊按钮图标圆四周内距相等',inset:['.pill--sm','.pill-badge']},
+  {comp:'PillButton',name:'小号胶囊按钮文字与图标圆笔画中心在同一中线',ink:['.pill--sm',['.lbl','.pill-badge'],true]},
 ];

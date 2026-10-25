@@ -114,6 +114,63 @@ export function CapsuleButton({ busy, className, children, ...rest }: CapsuleBut
   );
 }
 
+export interface ConfirmButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  type?: 'button' | 'submit';
+}
+
+/** 游戏界面的确认按钮：左侧细线随宽度伸缩，文字靠右，右端墨色圆内为确认图标。每屏至多一个，放在面板右下角。 */
+export function ConfirmButton({ className, children, type = 'button', ...rest }: ConfirmButtonProps) {
+  return (
+    <button {...rest} type={type} className={cx('cfm', className)}>
+      <span className="cfm-line" />
+      <span className="lbl">{children}</span>
+      <span className="cfm-ic"><Icon name="i-cycle" /></span>
+    </button>
+  );
+}
+
+export interface PillButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+  /** default 实底（默认）；muted 灰色，次一级入口。 */
+  variant?: 'default' | 'muted';
+  /** md 32（默认），文字后带图标；sm 24，图标放在左侧墨色圆内。 */
+  size?: 'sm' | 'md';
+  /** 图标名，例如 i-menu、i-pin。 */
+  icon?: IconName;
+  type?: 'button' | 'submit';
+}
+
+/** 游戏界面的实底胶囊按钮：打开总览、简报等次级视图，或行内的就地操作。 */
+export function PillButton({ variant = 'default', size = 'md', icon, className, children, type = 'button', ...rest }: PillButtonProps) {
+  const sm = size === 'sm';
+  return (
+    <button {...rest} type={type} className={cx('pill', variant === 'muted' && 'pill--muted', sm && 'pill--sm', className)}>
+      {sm && icon && <span className="pill-badge"><Icon name={icon} still /></span>}
+      <span className="lbl">{children}</span>
+      {!sm && icon && <Icon name={icon} still />}
+    </button>
+  );
+}
+
+export interface CircleButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'aria-label'> {
+  /** solid 实底（默认），用于数量加减；close 全屏面板关闭。 */
+  kind?: 'solid' | 'close';
+  /** 实底按钮的图标，例如 i-plus、i-minus。 */
+  icon?: IconName;
+  /** 无障碍名称，必填。 */
+  label: string;
+  /** md 32（默认），sm 24。 */
+  size?: 'sm' | 'md';
+}
+
+/** 游戏界面的实底圆形图标按钮。 */
+export function CircleButton({ kind = 'solid', icon = 'i-plus', label, size = 'md', className, ...rest }: CircleButtonProps) {
+  return (
+    <button {...rest} type="button" aria-label={label} className={cx('cib', kind === 'close' && 'cib--close', size === 'sm' && 'cib--sm', className)}>
+      <Icon name={kind === 'close' ? 'i-close' : icon} still />
+    </button>
+  );
+}
+
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /** 独立链接：不带下划线，后跟箭头，悬停时箭头右移。 */
   standalone?: boolean;

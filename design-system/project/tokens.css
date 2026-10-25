@@ -40,6 +40,8 @@
   --color-secondary-active: #282828; /* 次要按钮按下底色。 */
   --color-secondary-hatch: #424242; /* 次要按钮的 45 度细斜线排线，周期 4px；浅色为源站 5% 黑线在 #e6e6e6 上的结果。 */
   --color-on-secondary: #ffffff; /* 次要按钮文字与图标。 */
+  --color-on-pill: #444444; /* 胶囊按钮、确认按钮、胶囊标签与圆形图标按钮的文字和图标，也是确认按钮内圈描边与图标圆的颜色；深色取游戏界面 #444，底色用 color-primary。 */
+  --color-pill-muted: #777777; /* 灰色胶囊按钮底色，文字用 color-on-secondary；深色取游戏界面 #777。 */
   --color-checked: #fffa00; /* 勾选底色、开关轨道、指示条、进度填充、选中分段；浅色墨色，深色品牌黄。 */
   --color-on-checked: #191919; /* color-checked 上的勾选标记、开关滑块与文字。 */
   --color-success: #fffa00; /* 成功、在线、运行中等正向状态。与品牌黄同值，只用于提示条与轻提示的左侧色条和头像在线标记；不画状态图标，不作文字。 */
@@ -112,6 +114,8 @@
   --color-secondary-active: #cecece;
   --color-secondary-hatch: #dbdbdb;
   --color-on-secondary: #191919;
+  --color-on-pill: #eeeeee;
+  --color-pill-muted: #d9d9d9;
   --color-checked: #191919;
   --color-on-checked: #fffa00;
   --color-info: #191919;

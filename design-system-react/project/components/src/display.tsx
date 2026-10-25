@@ -28,6 +28,20 @@ export function Tag({ variant = 'neutral', size = 'md', onRemove, tabIndex, clas
   );
 }
 
+export interface PillTagProps {
+  /** 前置图标。 */
+  icon?: IconName;
+  /** 未生效：描边与次要文字色。 */
+  off?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+/** 游戏界面的胶囊标签：效果与能力，生效为实底，未生效为描边。 */
+export function PillTag({ icon, off, className, children }: PillTagProps) {
+  return <span className={cx('ptag', off && 'ptag--off', className)}>{icon && <Icon name={icon} still />}{children}</span>;
+}
+
 export interface StatusProps {
   /** default 正文色（默认）；err 错误类状态，错误文字色；off 已归档等失效状态，次要文字色。 */
   tone?: StatusTone;

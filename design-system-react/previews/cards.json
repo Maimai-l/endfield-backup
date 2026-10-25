@@ -22,13 +22,19 @@
  {
   "name": "Button",
   "group": "基础操作",
-  "height": 814,
+  "height": 812,
   "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}"
  },
  {
   "name": "IconButton",
   "group": "基础操作",
-  "height": 373,
+  "height": 451,
+  "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}"
+ },
+ {
+  "name": "PillButton",
+  "group": "基础操作",
+  "height": 259,
   "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}"
  },
  {
@@ -154,7 +160,7 @@
  {
   "name": "Tag",
   "group": "内容展示",
-  "height": 239,
+  "height": 291,
   "style": "body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}"
  },
  {
