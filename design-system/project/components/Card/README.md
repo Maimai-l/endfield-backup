@@ -17,7 +17,7 @@
 
 ## 规格
 
-- **尺寸**：条目卡片：标题条高 32，底色 #2e2e2e，左端 12px 黄色三角，右侧数值 13px Novecento，内容区左缩进 38、右侧放胶囊按钮；信息卡片内边距 16、24；圆角 4；以 1px 边框区分层级，不使用阴影；选中为 2px 墨色边框加右上角三角勾选
+- **尺寸**：条目卡片：标题条高 32，底色 #2e2e2e，左端 12px 黄色三角，右侧数值 13px Novecento，内容区左缩进 38、右侧放小号实底胶囊按钮（PillButton），已完成等不可操作的状态改为状态文字；信息卡片内边距 16、24；圆角 4；以 1px 边框区分层级，不使用阴影；选中为 2px 墨色边框加右上角三角勾选
 - **Token**：`--color-bg-surface --color-border-subtle --color-border-strong --color-checked --color-on-checked --radius-md --font-numeric`
 - **键盘**：可交互卡片 `Enter` 打开；可选卡片 `Space` 或 `Enter` 切换选中
 

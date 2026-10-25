@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { E, mount, Stage, Row, Item } from './_kit';
-const { Button, CapsuleButton, TextField } = E;
+const { Button, TextField } = E;
 
 mount(
   <Stage>
@@ -10,13 +10,6 @@ mount(
       <Item cap="secondary 次要"><Button variant="secondary">导出</Button></Item>
       <Item cap="ghost 幽灵"><Button variant="ghost">取消</Button></Item>
       <Item cap="danger 危险"><Button variant="danger">删除项目</Button></Item>
-    </Row>
-    <Row label="胶囊">
-      <Item cap="default"><CapsuleButton>前往</CapsuleButton></Item>
-      <Item cap="hover"><CapsuleButton className="is-hover">前往</CapsuleButton></Item>
-      <Item cap="in progress"><CapsuleButton busy>进行中</CapsuleButton></Item>
-      <Item cap="disabled"><CapsuleButton disabled>前往</CapsuleButton></Item>
-      <Item><span className="cap" style={{ maxWidth: '30ch' }}>用于列表与卡片中的跳转类操作</span></Item>
     </Row>
     <Row label="尺寸">
       <Item cap="sm 24"><Button variant="primary" size="sm">保存</Button></Item>

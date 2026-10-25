@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { E, mount, Stage, Row, Item } from './_kit';
-const { IconButton, CloseButton, RoundButton } = E;
+const { IconButton, CloseButton, RoundButton, CircleButton } = E;
 
 mount(
   <Stage>
@@ -31,6 +31,14 @@ mount(
       <Item cap="44"><RoundButton direction="next" size="lg" /></Item>
       <Item cap="disabled"><RoundButton direction="prev" disabled /></Item>
       <Item><span className="cap" style={{ maxWidth: '26ch' }}>圆形保留源站样式，仅用于轮播与图集翻页</span></Item>
+    </Row>
+    <Row label="实底圆形">
+      <Item cap="减少"><CircleButton icon="i-minus" label="减少" /></Item>
+      <Item cap="hover"><CircleButton icon="i-plus" label="增加" className="is-hover" /></Item>
+      <Item cap="关闭"><CircleButton kind="close" label="关闭" /></Item>
+      <Item cap="24"><CircleButton size="sm" icon="i-plus" label="增加" /></Item>
+      <Item cap="disabled"><CircleButton icon="i-minus" label="减少" disabled /></Item>
+      <Item><span className="cap" style={{ maxWidth: '26ch' }}>取自游戏界面，用于数量加减与全屏面板关闭</span></Item>
     </Row>
   </Stage>
 );

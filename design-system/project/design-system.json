@@ -131,7 +131,9 @@
     "n-home.svg",
     "n-lore.svg",
     "n-notice.svg",
-    "n-operator.svg"
+    "n-operator.svg",
+    "i-cycle.svg",
+    "i-pin.svg"
    ],
    "files": {
     "i-arrow-dr.svg": {
@@ -366,6 +368,18 @@
      "name": "n-operator.svg",
      "blob": "07fa1bdb7724664cc18724dbac9ffd35",
      "size": 1009,
+     "type": "image/svg+xml"
+    },
+    "i-cycle.svg": {
+     "name": "i-cycle.svg",
+     "blob": "0f2761e0da38441152a9a3a1abdffd63",
+     "size": 287,
+     "type": "image/svg+xml"
+    },
+    "i-pin.svg": {
+     "name": "i-pin.svg",
+     "blob": "91b568b68285aeac251f16c63bdbc5f5",
+     "size": 253,
      "type": "image/svg+xml"
     }
    }

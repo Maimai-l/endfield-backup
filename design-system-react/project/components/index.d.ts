@@ -2,7 +2,7 @@
 import type * as React from 'react';
 
 export declare const ICONS: Record<IconName, [string, string]>;
-export type IconName = "i-chev-l" | "i-chev-r" | "i-chev-d" | "i-tri-d" | "i-check" | "i-minus" | "i-close" | "i-arrow-r" | "i-arrow-dr" | "i-plus" | "i-search" | "i-sort" | "i-sort-d" | "i-more" | "i-home" | "i-grid" | "i-list" | "i-box" | "i-user" | "i-sliders" | "i-doc" | "i-upload" | "i-filter" | "i-inbox" | "i-refresh" | "i-menu" | "i-trash" | "n-home" | "n-operator" | "n-lore" | "n-calendar" | "n-notice" | "i-bolt" | "i-info-plain" | "k-up" | "k-down" | "k-left" | "k-right" | "i-copy";
+export type IconName = "i-chev-l" | "i-chev-r" | "i-chev-d" | "i-tri-d" | "i-check" | "i-minus" | "i-close" | "i-arrow-r" | "i-arrow-dr" | "i-plus" | "i-search" | "i-sort" | "i-sort-d" | "i-more" | "i-home" | "i-grid" | "i-list" | "i-box" | "i-user" | "i-sliders" | "i-doc" | "i-upload" | "i-filter" | "i-inbox" | "i-refresh" | "i-menu" | "i-trash" | "n-home" | "n-operator" | "n-lore" | "n-calendar" | "n-notice" | "i-bolt" | "i-info-plain" | "k-up" | "k-down" | "k-left" | "k-right" | "i-copy" | "i-cycle" | "i-pin";
 
 /** 把全部图标写入页面一次，供 Icon 以 use 引用。组件包加载后自动调用。 */
 export declare function mountSprite(): void;
@@ -79,12 +79,34 @@ export interface RoundButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLBu
 }
 /** 源站圆形翻页按钮，只用于轮播与图集翻页。 */
 export declare function RoundButton({ direction, size, label, className, ...rest }: RoundButtonProps): React.JSX.Element;
-export interface CapsuleButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-    /** 进行中或已完成：显示为无边框灰底文字，不可点击。 */
-    busy?: boolean;
+export interface ConfirmButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+    type?: 'button' | 'submit';
 }
-/** 列表与卡片中的“前往”类胶囊按钮：文字居中，右侧墨色圆内为箭头。 */
-export declare function CapsuleButton({ busy, className, children, ...rest }: CapsuleButtonProps): React.JSX.Element;
+/** 游戏界面的确认按钮：左侧细线随宽度伸缩，文字靠右，右端墨色圆内为确认图标。每屏至多一个，放在面板右下角。 */
+export declare function ConfirmButton({ className, children, type, ...rest }: ConfirmButtonProps): React.JSX.Element;
+export interface PillButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+    /** default 实底（默认）；muted 灰色，次一级入口。 */
+    variant?: 'default' | 'muted';
+    /** md 32（默认），文字后带图标；sm 24，图标放在左侧墨色圆内。 */
+    size?: 'sm' | 'md';
+    /** 图标名，例如 i-menu、i-pin。 */
+    icon?: IconName;
+    type?: 'button' | 'submit';
+}
+/** 游戏界面的实底胶囊按钮：打开总览、简报等次级视图，或行内的就地操作。 */
+export declare function PillButton({ variant, size, icon, className, children, type, ...rest }: PillButtonProps): React.JSX.Element;
+export interface CircleButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'aria-label'> {
+    /** solid 实底（默认），用于数量加减；close 全屏面板关闭。 */
+    kind?: 'solid' | 'close';
+    /** 实底按钮的图标，例如 i-plus、i-minus。 */
+    icon?: IconName;
+    /** 无障碍名称，必填。 */
+    label: string;
+    /** md 32（默认），sm 24。 */
+    size?: 'sm' | 'md';
+}
+/** 游戏界面的实底圆形图标按钮。 */
+export declare function CircleButton({ kind, icon, label, size, className, ...rest }: CircleButtonProps): React.JSX.Element;
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** 独立链接：不带下划线，后跟箭头，悬停时箭头右移。 */
     standalone?: boolean;
@@ -107,6 +129,16 @@ export interface TagProps {
 }
 /** 方形标签：分类或已选值。 */
 export declare function Tag({ variant, size, onRemove, tabIndex, className, children }: TagProps): React.JSX.Element;
+export interface PillTagProps {
+    /** 前置图标。 */
+    icon?: IconName;
+    /** 未生效：描边与次要文字色。 */
+    off?: boolean;
+    className?: string;
+    children?: React.ReactNode;
+}
+/** 游戏界面的胶囊标签：效果与能力，生效为实底，未生效为描边。 */
+export declare function PillTag({ icon, off, className, children }: PillTagProps): React.JSX.Element;
 export interface StatusProps {
     /** default 正文色（默认）；err 错误类状态，错误文字色；off 已归档等失效状态，次要文字色。 */
     tone?: StatusTone;
@@ -199,12 +231,12 @@ export interface EntryCardProps {
     meta?: React.ReactNode;
     /** 正文说明。 */
     children?: React.ReactNode;
-    /** 右侧操作，通常为胶囊按钮。 */
+    /** 右侧操作，通常为小号胶囊按钮 PillButton；不可操作的状态用 Status。 */
     action?: React.ReactNode;
-    /** 未开放：读数改用正文字体。 */
+    /** 未开放的条目，读数写文字说明，例如“未开放”。 */
     off?: boolean;
 }
-/** 源站条目卡片：深色标题条加正文与胶囊按钮。 */
+/** 源站条目卡片：深色标题条加正文与右侧操作。 */
 export declare function EntryCard({ title, meta, children, action, off }: EntryCardProps): React.JSX.Element;
 export interface ListItemData {
     value: string;

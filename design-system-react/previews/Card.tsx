@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { E, mount } from './_kit';
-const { Card, StatCard, EntryCard, CapsuleButton, Tag, Status } = E;
+const { Card, StatCard, EntryCard, PillButton, Tag, Status } = E;
 
 mount(
   <div className="stage">
     <div style={{ width: '100%' }}>
-      <EntryCard title="官网改版评审" meta="12 / 18" action={<CapsuleButton>前往</CapsuleButton>}>剩余 6 项待评审，预计 40 分钟。</EntryCard>
-      <EntryCard title="季度规划" meta="3 / 3" action={<CapsuleButton busy>已完成</CapsuleButton>}>本周规划项已全部完成。</EntryCard>
-      <EntryCard off title="上线复盘" meta="未开放" action={<CapsuleButton disabled>查看</CapsuleButton>}>归档期间不生成复盘记录。</EntryCard>
+      <EntryCard title="官网改版评审" meta="12 / 18" action={<PillButton size="sm">前往</PillButton>}>剩余 6 项待评审，预计 40 分钟。</EntryCard>
+      <EntryCard title="季度规划" meta="3 / 3" action={<Status tone="off">已完成</Status>}>本周规划项已全部完成。</EntryCard>
+      <EntryCard off title="上线复盘" meta="未开放" action={<PillButton size="sm" disabled>查看</PillButton>}>归档期间不生成复盘记录。</EntryCard>
     </div>
     <div className="cards">
       <Card eyebrow="Static" title="维护说明" footer={<><code>DOC-000031</code><Tag size="sm">文档</Tag></>}>每周一同步进度，每月底整理归档。</Card>

@@ -7,8 +7,9 @@ HTML = ROOT.parent / 'design-system/project/components'
 OUT = ROOT / 'project/components'
 
 USES = {
-'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、提交中 `loading`、`disabled` 与原生按钮属性。胶囊按钮用 `CapsuleButton`，进行中传 `busy`。',
-'IconButton': '`icon`、`label`（无障碍名称，必填）、`variant`、`size`；`tooltip` 显示悬浮说明（`"below"` 显示在下方）；切换型按钮传 `pressed` 或 `defaultPressed` 与 `onPressedChange`；`badge` 显示提醒角标。关闭与返回用 `CloseButton`（`kind`、`inverse`），轮播翻页用 `RoundButton`（`direction`、`size`）。',
+'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
+'IconButton': '`icon`、`label`（无障碍名称，必填）、`variant`、`size`；`tooltip` 显示悬浮说明（`"below"` 显示在下方）；切换型按钮传 `pressed` 或 `defaultPressed` 与 `onPressedChange`；`badge` 显示提醒角标。关闭与返回用 `CloseButton`（`kind`、`inverse`），轮播翻页用 `RoundButton`（`direction`、`size`），数量加减与全屏面板关闭用 `CircleButton`（`kind`：solid、close；`icon`、`label`、`size`）。',
+'PillButton': '确认按钮用 `ConfirmButton`，文字 `children`；实底胶囊按钮用 `PillButton`：`variant`（default、muted）、`size`（md、sm）、`icon`（md 显示在文字后，sm 显示在左侧墨色圆内）、文字 `children`。',
 'Link': '`href` 与文字；独立链接传 `standalone`（后跟箭头）；不可用时传 `disabled`。',
 'Checkbox': '文字 `children`；`checked` 或 `defaultChecked` 与 `onChange`；`indeterminate` 部分选中；`error`、`disabled`、`size`（md、lg）。成组时放在 `OptionGroup`（`legend`）内。',
 'Radio': '文字 `children`、同组相同的 `name`；`checked` 或 `defaultChecked`；`error`、`disabled`、`size`。成组时放在 `OptionGroup` 内。',
@@ -29,7 +30,7 @@ USES = {
 'MetricBadge': '`label`、`value`（1 至 3 位数字）、`infoLabel`（说明按钮的无障碍名称）与 `onInfo`。',
 'QuotaPill': '`icon`、`value` 用量、`max` 上限、`unit`、`actionLabel`（加号按钮的无障碍名称）与 `onAction`。用量达到上限时自动显示为已满。',
 'Table': '`columns`（`{ key, label, kind?, unit?, width?, sortable?, error?, active?, render?, sortValue? }`，kind 为 id、name、status、time、text、number、progress；状态列用 `error` 与 `active` 标出逾期与进行中）、`rows`、`rowKey`（默认 id）；行可选时传 `selectable` 与 `selected` 或 `defaultSelected`、`onSelectedChange`，行首与表头自动出现复选框，并支持 `Shift` 连续选中、`Ctrl/Cmd+A` 全选、`Esc` 清除；排序 `sort` 或 `defaultSort`（`{ key, dir }`）与 `onSortChange`；`isDisabled` 返回禁用行；`minWidth`（默认 912，可选表格 944；可选表格的首列自动加宽 32，用来放复选框）。',
-'Tag': '文字 `children`；`variant`（neutral、accent）、`size`（sm、md）；可移除时传 `onRemove`。表格与列表中的状态用 `Status`（`tone`：省略为正文色，err 为错误文字色，off 为次要文字色），公告的类型加日期用 `TagDate`。',
+'Tag': '文字 `children`；`variant`（neutral、accent）、`size`（sm、md）；可移除时传 `onRemove`。胶囊标签用 `PillTag`：`icon`、`off`（未生效）、文字 `children`。表格与列表中的状态用 `Status`（`tone`：省略为正文色，err 为错误文字色，off 为次要文字色），公告的类型加日期用 `TagDate`。',
 'Banner': '`type`（info、success、warning、error）、`title`、说明 `children`（可含链接）；可关闭时传 `onClose`。',
 'Dialog': '`open` 与 `onClose`、`title`、正文 `children`；危险确认传 `danger`，需要输入确认文字时传 `confirmText`；`confirmLabel`、`cancelLabel`、`onConfirm`；自定义底部用 `footer`。嵌在页面中作规格展示时传 `inline`。',
 'Loading': '`size`（16、20、32）；旁边需要文字时传 `label`。骨架占位用 `Skeleton`（`width`、`height`、`round`）。',
@@ -43,8 +44,9 @@ USES = {
 }
 
 STRUCT = {
-'Button': '<Button variant="primary">保存设置</Button>\n<Button icon="i-plus">新建任务</Button>\n<CapsuleButton>前往</CapsuleButton>',
-'IconButton': '<IconButton icon="i-upload" label="上传" variant="primary" tooltip />\n<IconButton icon="i-grid" label="网格视图" defaultPressed />\n<CloseButton onClick={close} />',
+'Button': '<Button variant="primary">保存设置</Button>\n<Button icon="i-plus">新建任务</Button>',
+'IconButton': '<IconButton icon="i-upload" label="上传" variant="primary" tooltip />\n<IconButton icon="i-grid" label="网格视图" defaultPressed />\n<CloseButton onClick={close} />\n<CircleButton icon="i-minus" label="减少" onClick={dec} />',
+'PillButton': '<ConfirmButton onClick={trade}>交易</ConfirmButton>\n<PillButton icon="i-menu">事务总览</PillButton>\n<PillButton size="sm" icon="i-pin">查看位置</PillButton>',
 'Link': '<Link href="/records">进度记录</Link>\n<Link href="/projects" standalone>查看全部项目</Link>',
 'Checkbox': '<OptionGroup legend="通知渠道">\n  <Checkbox defaultChecked>站内消息</Checkbox>\n  <Checkbox>短信</Checkbox>\n</OptionGroup>',
 'Radio': '<OptionGroup legend="评审频率">\n  <Radio name="freq" defaultChecked>每日一次</Radio>\n  <Radio name="freq">每周一次</Radio>\n</OptionGroup>',
@@ -58,14 +60,14 @@ STRUCT = {
 'TopBar': '<TopBar title="产品部" crumbs={[{ label: \'项目\', href: \'/\' }, { label: \'产品部\' }]} search="搜索项目编号"\n  actions={<Button variant="primary" icon="i-plus">新建项目</Button>} />',
 'Sidebar': '<Sidebar name="Ops Console" value={page} onChange={setPage}\n  items={[{ value: \'home\', label: \'总览\', icon: \'n-home\' }, { group: \'管理\' }, { value: \'arc\', label: \'归档\', icon: \'n-lore\' }]}\n  tools={[{ label: \'设置\', icon: \'i-sliders\', onClick: openSettings }]} />',
 'Avatar': '<Avatar size={32} src={url} alt="管理员" />\n<Avatar src={url} alt="陈千语" status="online" />\n<AvatarStack more={4}><Avatar size={32} src={a} alt="佩丽卡" /><Avatar size={32} src={b} alt="陈千语" /></AvatarStack>',
-'Card': '<Card eyebrow="Interactive" title="官网改版" href="/p/142" footer={<code>PRJ-0142</code>}>产品部</Card>\n<EntryCard title="官网改版评审" meta="12 / 18" action={<CapsuleButton>前往</CapsuleButton>}>剩余 6 项待评审。</EntryCard>',
+'Card': '<Card eyebrow="Interactive" title="官网改版" href="/p/142" footer={<code>PRJ-0142</code>}>产品部</Card>\n<EntryCard title="官网改版评审" meta="12 / 18" action={<PillButton size="sm">前往</PillButton>}>剩余 6 项待评审。</EntryCard>',
 'Divider': '<Divider />\n<Divider variant="label">以下为已归档记录</Divider>',
 'EmptyState': '<EmptyState icon="i-box" title="还没有项目" action={<Button variant="primary" size="sm" icon="i-plus">新建项目</Button>}>\n  新建第一个项目后，这里会显示它的进度与成员。\n</EmptyState>',
 'List': '<List variant="two-line" selectable ariaLabel="文件" items={[\n  { value: \'a\', icon: \'i-doc\', title: \'季度报告\', subtitle: \'9 月 30 日更新\', trailing: \'2.4 MB\' },\n]} />',
 'MetricBadge': '<MetricBadge label="评审等级" value="02" infoLabel="评审等级说明" onInfo={explain} />',
 'QuotaPill': '<QuotaPill icon="i-box" value={820} max={1000} unit="GB" actionLabel="扩容存储" onAction={expand} />',
 'Table': '<Table rows={rows} selectable defaultSort={{ key: \'prog\', dir: \'descending\' }} isDisabled={(r) => r.archived}\n  columns={[\n    { key: \'id\', label: \'项目编号\', kind: \'id\', width: 128 },\n    { key: \'name\', label: \'名称\', kind: \'name\' },\n    { key: \'prog\', label: \'进度\', kind: \'progress\', width: 160 },\n  ]} />',
-'Tag': '<Tag>评审</Tag>\n<Tag onRemove={remove}>表格</Tag>\n<Status>进行中</Status>\n<Status tone="err">已逾期</Status>',
+'Tag': '<Tag>评审</Tag>\n<Tag onRemove={remove}>表格</Tag>\n<PillTag icon="i-bolt">变废为宝</PillTag>\n<Status>进行中</Status>\n<Status tone="err">已逾期</Status>',
 'Banner': '<Banner type="warning" title="存储用量已超过 85%">建议清理过期文件。<Link href="/usage">查看用量</Link></Banner>',
 'Dialog': '<Dialog open={open} onClose={() => setOpen(false)} danger title="删除项目" confirmText="PRJ-0142" onConfirm={remove}>\n  <p>删除后该项目的记录将一并清除，且无法恢复。</p>\n</Dialog>',
 'Loading': '<Loading size={16} label="正在读取 18 个文件" />\n<Skeleton width="60%" height={12} />',
@@ -106,7 +108,7 @@ for comp in sorted(os.listdir(HTML)):
         else:
             secs.insert(0, ['## 使用方提供', '\n\n' + USES[comp] + '\n\n'])
         names = [s[0] for s in secs]
-        block = '\n\n```jsx\nconst { ' + ', '.join(sorted(set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])) - {'Button', 'Link', 'IconButton', 'CapsuleButton'} | set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])))) + ' } = window.Endfield;\n\n' + STRUCT[comp] + '\n```\n\n'
+        block = '\n\n```jsx\nconst { ' + ', '.join(sorted(set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])) - {'Button', 'Link', 'IconButton'} | set(re.findall(r'<([A-Z][A-Za-z]+)', STRUCT[comp])))) + ' } = window.Endfield;\n\n' + STRUCT[comp] + '\n```\n\n'
         if '## 结构' in names:
             secs[names.index('## 结构')][1] = block
         else:

@@ -1,0 +1,30 @@
+<!-- @dsCard group="基础操作" height=259 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PillButton</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}</style>
+</head>
+<body>
+<div class="stage">
+      <div class="row"><span class="row-label">确认</span><div class="items">
+        <div class="item"><button class="cfm" type="button" style="width:240px"><span class="cfm-line"></span><span class="lbl">交易</span><span class="cfm-ic"><svg class="ic"><use href="#i-cycle"></use></svg></span></button><span class="cap">default</span></div>
+        <div class="item"><button class="cfm is-hover" type="button" style="width:240px"><span class="cfm-line"></span><span class="lbl">开始追踪</span><span class="cfm-ic"><svg class="ic"><use href="#i-cycle"></use></svg></span></button><span class="cap">hover</span></div>
+        <div class="item"><button class="cfm" type="button" style="width:240px" disabled=""><span class="cfm-line"></span><span class="lbl">交易</span><span class="cfm-ic"><svg class="ic"><use href="#i-cycle"></use></svg></span></button><span class="cap">disabled</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">实底</span><div class="items">
+        <div class="item"><button class="pill" type="button"><span class="lbl">事务总览</span><svg class="ic"><use href="#i-menu"></use></svg></button><span class="cap">default</span></div>
+        <div class="item"><button class="pill pill--muted" type="button"><span class="lbl">收支简报</span><svg class="ic"><use href="#n-calendar"></use></svg></button><span class="cap">muted</span></div>
+        <div class="item"><button class="pill is-hover" type="button"><span class="lbl">事务总览</span><svg class="ic"><use href="#i-menu"></use></svg></button><span class="cap">hover</span></div>
+        <div class="item"><button class="pill" type="button" disabled=""><span class="lbl">事务总览</span><svg class="ic"><use href="#i-menu"></use></svg></button><span class="cap">disabled</span></div>
+      </div></div>
+      <div class="row"><span class="row-label">小号</span><div class="items">
+        <div class="item"><button class="pill pill--sm" type="button"><span class="pill-badge"><svg class="ic"><use href="#i-pin"></use></svg></span><span class="lbl">查看位置</span></button><span class="cap">带图标</span></div>
+        <div class="item"><button class="pill pill--sm" type="button"><span class="lbl">更换货品</span></button><span class="cap">纯文字</span></div>
+        <div class="item"><button class="pill pill--sm" type="button" disabled=""><span class="pill-badge"><svg class="ic"><use href="#i-pin"></use></svg></span><span class="lbl">查看位置</span></button><span class="cap">disabled</span></div>
+      </div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

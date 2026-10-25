@@ -27,6 +27,7 @@
     "components/MetricBadge/README.md",
     "components/PageLoader/README.md",
     "components/Pagination/README.md",
+    "components/PillButton/README.md",
     "components/Progress/README.md",
     "components/QuotaPill/README.md",
     "components/Radio/README.md",
@@ -147,6 +148,11 @@
       "name": "Pagination",
       "group": "导航",
       "summary": "分页器：完整分页、简洁分页与源站翻页胶囊。"
+    },
+    {
+      "name": "PillButton",
+      "group": "基础操作",
+      "summary": "游戏界面来源的全圆角按钮：确认按钮与实底胶囊按钮。"
     },
     {
       "name": "Progress",
@@ -290,7 +296,9 @@
         "n-home.svg",
         "n-lore.svg",
         "n-notice.svg",
-        "n-operator.svg"
+        "n-operator.svg",
+        "i-cycle.svg",
+        "i-pin.svg"
       ],
       "files": [
         {
@@ -448,6 +456,14 @@
         {
           "path": "assets/Icons/n-operator.svg",
           "id": "07fa1bdb7724664cc18724dbac9ffd35"
+        },
+        {
+          "path": "assets/Icons/i-cycle.svg",
+          "id": "0f2761e0da38441152a9a3a1abdffd63"
+        },
+        {
+          "path": "assets/Icons/i-pin.svg",
+          "id": "91b568b68285aeac251f16c63bdbc5f5"
         }
       ]
     },
@@ -907,6 +923,18 @@
         "id": "9c5c8ecd9b59fe135a9131b1fd68aad4",
         "bytes": 18987,
         "type": "image/png"
+      },
+      "assets/Icons/i-cycle.svg": {
+        "store": "blob",
+        "id": "0f2761e0da38441152a9a3a1abdffd63",
+        "bytes": 287,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/i-pin.svg": {
+        "store": "blob",
+        "id": "91b568b68285aeac251f16c63bdbc5f5",
+        "bytes": 253,
+        "type": "image/svg+xml"
       }
     },
     "blobBytesUsed": 428506

@@ -13,7 +13,7 @@
 
 # Icons
 
-- 全部为 16 网格的单色 SVG，墨色 `#191919`，1.6px 描边，直角端点与斜接转角；`i-check` 例外，为两段圆头粗线，取自启动器复选框。文件与 `bundle.js` 内置雪碧图同名同形；在页面中优先用 `<svg class="ic"><use href="#…"/></svg>`，它随文字颜色变化，`<img>` 只能显示墨色。
+- 全部为 16 网格的单色 SVG，墨色 `#191919`，1.6px 描边，直角端点与斜接转角；`i-check` 例外，为两段圆头粗线，取自启动器复选框；`i-cycle`（确认按钮图标，两段圆弧）与 `i-pin`（定位针）取自游戏界面，为实心形状。文件与 `bundle.js` 内置雪碧图同名同形；在页面中优先用 `<svg class="ic"><use href="#…"/></svg>`，它随文字颜色变化，`<img>` 只能显示墨色。
 - `i-*`：界面图标。`i-chev-*` 为源站翻页按钮的粗折线箭头，`i-arrow-dr` 为源站区块标题的折角箭头，`i-arrow-r` 由它旋转得到。
 - `k-*`：键盘方向键，用于快捷键说明。
 - `n-*`：源站侧边导航图标。
@@ -61,3 +61,5 @@
 | `assets/Icons/n-lore.svg` | `read 1ab622d23a86f48cc863bc140e1af7e4` |
 | `assets/Icons/n-notice.svg` | `read 60b60c6c4909aeb1edf3142d9caea0fe` |
 | `assets/Icons/n-operator.svg` | `read 07fa1bdb7724664cc18724dbac9ffd35` |
+| `assets/Icons/i-cycle.svg` | `read 0f2761e0da38441152a9a3a1abdffd63` |
+| `assets/Icons/i-pin.svg` | `read 91b568b68285aeac251f16c63bdbc5f5` |
