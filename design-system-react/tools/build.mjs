@@ -39,6 +39,7 @@ const ids = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools/asset-ids.json'), 
 const remap = (t) => t.replace(/\/_blob\/([0-9a-f]{32})/g, (m, id) => '/_blob/' + (ids[id] || id));
 fs.writeFileSync(path.join(COMP, 'bundle.css'), remap(fs.readFileSync(path.join(HTML, 'components/bundle.css'), 'utf8')));
 fs.copyFileSync(path.join(HTML, 'tokens.json'), path.join(ROOT, 'project/tokens.json'));
+fs.copyFileSync(path.join(HTML, 'tokens.css'), path.join(ROOT, 'project/tokens.css'));
 
 const tsc = path.join(ROOT, 'node_modules/.bin/tsc');
 execFileSync(tsc, ['-p', path.join(ROOT, 'tsconfig.json')], { stdio: 'inherit' });
