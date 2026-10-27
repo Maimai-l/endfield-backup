@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=268 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Readout</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var x=Object.create;var i=Object.defineProperty;var S=Object.getOwnPropertyDescriptor;var b=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var d=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var h=(e,t,o,l)=>{if(t&&typeof t=="object"||typeof t=="function")for(let n of b(t))!g.call(e,n)&&n!==o&&i(e,n,{get:()=>t[n],enumerable:!(l=S(t,n))||l.enumerable});return e};var s=(e,t,o)=>(o=e!=null?x(E(e)):{},h(t||!e||!e.__esModule?i(o,"default",{value:e,enumerable:!0}):o,e));var c=d((P,p)=>{p.exports=window.React});var u=d((F,m)=>{m.exports=window.ReactDOM});var r=s(c());var a=s(c()),R=s(u()),v=window.Endfield;function f(e){(0,R.createRoot)(document.getElementById("root")).render(e)}function k(){return a.createElement("span",{className:"prov"},"新增")}function N({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(k,null),a.createElement("div",{className:"stage"},e))}function w({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}function y({cap:e,children:t,style:o}){return a.createElement("div",{className:"item",style:o},t,e!==void 0&&a.createElement("span",{className:"cap"},e))}var{Readout:C}=v;f(r.createElement(N,{prov:!0},r.createElement(w,{label:"示例"},r.createElement(y,{cap:"数字 Novecento，编号与域名 Gilroy，中文 Sans",style:{paddingTop:4}},r.createElement(C,{style:{width:280},items:[{label:"地址",value:"mcp.local",kind:"code"},{label:"端口",value:"8400",kind:"num"},{label:"连接数",value:"3",kind:"num"},{label:"最近响应",value:"12:04:31",kind:"num"},{label:"所属分组",value:"渲染节点"}]})))));})();</script>
+</body>
+</html>

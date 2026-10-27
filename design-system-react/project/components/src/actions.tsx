@@ -16,15 +16,17 @@ export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonE
   iconEnd?: IconName;
   /** 提交中：文字换为加载圈，按钮保持宽度并忽略点击。 */
   loading?: boolean;
+  /** 全宽：宽度随容器，用于状态卡底部等每个对象各有一个动作的位置。 */
+  block?: boolean;
   type?: 'button' | 'submit' | 'reset';
 }
 
 /** 触发一个动作的方形按钮。文字以动词开头，2 至 6 个字。 */
-export function Button({ variant = 'secondary', size = 'md', icon, iconEnd, loading, className, children, type = 'button', onClick, ...rest }: ButtonProps) {
+export function Button({ variant = 'secondary', size = 'md', icon, iconEnd, loading, block, className, children, type = 'button', onClick, ...rest }: ButtonProps) {
   return (
     <button {...rest} type={type} aria-busy={loading || undefined}
       onClick={loading ? undefined : onClick}
-      className={cx('btn', 'btn--' + variant, size !== 'md' && 'btn--' + size, loading && 'is-loading', className)}>
+      className={cx('btn', 'btn--' + variant, size !== 'md' && 'btn--' + size, block && 'btn--block', loading && 'is-loading', className)}>
       <span className="lbl">{icon && <Icon name={icon} />}{children}{iconEnd && <Icon name={iconEnd} />}</span>
       {loading && <span className="spin" aria-hidden="true" />}
     </button>

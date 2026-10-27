@@ -1,0 +1,29 @@
+<!-- @dsCard group="内容展示" height=584 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>StatusCard</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+      <div class="row"><span class="row-label">链路</span><div class="items" style="width:100%"><div class="chain">
+          <div class="card card--status"><div class="cs-top"><span class="cs-no">01</span><code>Client</code></div><span class="cs-name">客户端</span><span class="cs-state">已连接</span><dl class="readout"><div><dt>地址</dt><dd><code>localhost</code></dd></div><div><dt>请求</dt><dd class="num">1,284</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">断开</span></button></div>
+          <span class="chain-link" aria-hidden="true"></span>
+          <div class="card card--status"><div class="cs-top"><span class="cs-no">02</span><code>Gateway</code></div><span class="cs-name">网关</span><span class="cs-state">运行中</span><dl class="readout"><div><dt>端口</dt><dd class="num">8400</dd></div><div><dt>连接数</dt><dd class="num">3</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">停止</span></button></div>
+          <span class="chain-link is-off" aria-hidden="true"></span>
+          <div class="card card--status"><div class="cs-top"><span class="cs-no">03</span><code>Plugin</code></div><span class="cs-name">插件</span><span class="cs-state is-off">未连接</span><dl class="readout"><div><dt>版本</dt><dd class="num">1.4.2</dd></div><div><dt>最近连接</dt><dd class="num">09:12</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">连接</span></button></div>
+          <span class="chain-link is-off" aria-hidden="true"></span>
+          <div class="card card--status"><div class="cs-top"><span class="cs-no">04</span><code>Render</code></div><span class="cs-name">渲染服务</span><span class="cs-state is-off">已停止</span><dl class="readout"><div><dt>端口</dt><dd class="num">9876</dd></div><div><dt>队列</dt><dd class="num">0</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">启动</span></button></div>
+      </div></div></div>
+      <div class="row"><span class="row-label">并列</span><div class="items" style="width:100%"><div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div class="card card--status"><div class="cs-top"><code>Health</code></div><span class="cs-name">接口检查</span><span class="cs-state">正常</span><dl class="readout"><div><dt>响应码</dt><dd class="num">200</dd></div><div><dt>最近检测</dt><dd class="num">12:04</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">检测</span></button></div>
+          <div class="card card--status"><div class="cs-top"><code>Health</code></div><span class="cs-name">存储检查</span><span class="cs-state is-err">异常</span><dl class="readout"><div><dt>响应码</dt><dd class="num">502</dd></div><div><dt>最近检测</dt><dd class="num">12:04</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">检测</span></button></div>
+          <div class="card card--status"><div class="cs-top"><code>Health</code></div><span class="cs-name">队列检查</span><span class="cs-state is-off">未检测</span><dl class="readout"><div><dt>响应码</dt><dd>无</dd></div><div><dt>最近检测</dt><dd>无</dd></div></dl><button class="btn btn--primary btn--sm btn--block" type="button"><span class="lbl">检测</span></button></div>
+      </div></div></div>
+    </div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

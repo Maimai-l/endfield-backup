@@ -7,7 +7,7 @@ HTML = ROOT.parent / 'design-system/project/components'
 OUT = ROOT / 'project/components'
 
 USES = {
-'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
+'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、全宽 `block`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
 'IconButton': '`icon`、`label`（无障碍名称，必填）、`variant`、`size`；`tooltip` 显示悬浮说明（`"below"` 显示在下方）；切换型按钮传 `pressed` 或 `defaultPressed` 与 `onPressedChange`；`badge` 显示提醒角标。关闭与返回用 `CloseButton`（`kind`、`inverse`），轮播翻页用 `RoundButton`（`direction`、`size`），数量加减与全屏面板关闭用 `CircleButton`（`kind`：solid、close；`icon`、`label`、`size`）。',
 'PillButton': '确认按钮用 `ConfirmButton`，文字 `children`；实底胶囊按钮用 `PillButton`：`variant`（default、muted）、`size`（md、sm）、`icon`（md 显示在文字后，sm 显示在左侧墨色圆内）、文字 `children`。',
 'Link': '`href` 与文字；独立链接传 `standalone`（后跟箭头）；不可用时传 `disabled`。',
@@ -24,6 +24,8 @@ USES = {
 'Sidebar': '`name` 产品名、`items`（`{ value, label, icon, href?, badge? }`，分组标题为 `{ group }`）、`value` 或 `defaultValue` 与 `onChange`、`tools`（底部工具区，`{ label, icon, onClick? }`，1 至 3 个）。悬停或聚焦时展开，单击左上角标记固定展开。',
 'Avatar': '图片传 `src` 与 `alt`（姓名）；没有图片时显示 `icon`（默认 i-user）；`size` 直径、`status`（online、off）；可点击时传 `onClick` 与 `label`。堆叠用 `AvatarStack`（`more` 为其余人数）。',
 'Card': '`eyebrow`（英文分类）、`title`、正文 `children`、`footer`；链接卡片传 `href`；可选卡片传 `selectable` 与 `selected` 或 `defaultSelected`、`onSelectedChange`；`disabled`。读数卡片用 `StatCard`（`label`、`value`、`unit`、`delta`），源站条目卡片用 `EntryCard`（`title`、`meta`、正文、`action`、`off`）。',
+'Readout': '`items`（`{ label, value, kind? }`，kind 为 num 纯数字、code 字母与数字混排，省略为中文）、`style`。',
+'StatusCard': '`index`（有先后关系时的序号）、`code` 英文标识、`name`、`state` 状态词、`tone`（off、err）、`readout`（同 Readout 的 `items`）、`action` 下一步动作的文字与 `onAction`、`loading`。有先后关系时用 `Chain` 包住各卡，`links` 为相邻两项是否接通的数组。',
 'Divider': '`variant`（line、label、section、vertical）；label 与 section 传文字 `children`。',
 'EmptyState': '`icon`、`title`、说明 `children`（原因与下一步）、唯一的操作 `action`。',
 'List': '`variant`（two-line、single、compact）、`items`（`{ value, title, subtitle?, icon?, trailing?, disabled? }`）；可选列表传 `selectable` 与 `value` 或 `defaultValue`、`onChange`、`ariaLabel`。入口菜单用 `EntryMenu`（`items`：`{ value, label, icon, href? }`）。',
@@ -61,6 +63,8 @@ STRUCT = {
 'Sidebar': '<Sidebar name="Ops Console" value={page} onChange={setPage}\n  items={[{ value: \'home\', label: \'总览\', icon: \'n-home\' }, { group: \'管理\' }, { value: \'arc\', label: \'归档\', icon: \'n-lore\' }]}\n  tools={[{ label: \'设置\', icon: \'i-sliders\', onClick: openSettings }]} />',
 'Avatar': '<Avatar size={32} src={url} alt="管理员" />\n<Avatar src={url} alt="陈千语" status="online" />\n<AvatarStack more={4}><Avatar size={32} src={a} alt="佩丽卡" /><Avatar size={32} src={b} alt="陈千语" /></AvatarStack>',
 'Card': '<Card eyebrow="Interactive" title="官网改版" href="/p/142" footer={<code>PRJ-0142</code>}>产品部</Card>\n<EntryCard title="官网改版评审" meta="12 / 18" action={<PillButton size="sm">前往</PillButton>}>剩余 6 项待评审。</EntryCard>',
+'Readout': '<Readout items={[\n  { label: \'地址\', value: \'mcp.local\', kind: \'code\' },\n  { label: \'端口\', value: \'8400\', kind: \'num\' },\n  { label: \'所属分组\', value: \'渲染节点\' },\n]} />',
+'StatusCard': '<Chain links={[false]}>\n  <StatusCard index="01" code="Gateway" name="网关" state="运行中" action="停止" onAction={stop}\n    readout={[{ label: \'端口\', value: \'8400\', kind: \'num\' }]} />\n  <StatusCard index="02" code="Render" name="渲染服务" state="已停止" tone="off" action="启动" onAction={start}\n    readout={[{ label: \'端口\', value: \'9876\', kind: \'num\' }]} />\n</Chain>',
 'Divider': '<Divider />\n<Divider variant="label">以下为已归档记录</Divider>',
 'EmptyState': '<EmptyState icon="i-box" title="还没有项目" action={<Button variant="primary" size="sm" icon="i-plus">新建项目</Button>}>\n  新建第一个项目后，这里会显示它的进度与成员。\n</EmptyState>',
 'List': '<List variant="two-line" selectable ariaLabel="文件" items={[\n  { value: \'a\', icon: \'i-doc\', title: \'季度报告\', subtitle: \'9 月 30 日更新\', trailing: \'2.4 MB\' },\n]} />',
