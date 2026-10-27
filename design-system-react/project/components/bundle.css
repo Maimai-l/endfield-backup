@@ -313,6 +313,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn--danger{--btn-bg:var(--color-error);--btn-bg-h:var(--color-error-hover);--btn-bg-a:var(--color-error-active);--btn-fg:#ffffff;--btn-tick:#ffffff;--tick:block}
 .btn--sm{--h:var(--size-control-sm);--px:12px;font-size:12px}
 .btn--lg{--h:var(--size-control-lg);--px:20px}
+.btn--block{display:flex;width:100%;min-width:0}
 .btn:disabled,.btn.is-disabled{--btn-bg:var(--color-bg-disabled);--btn-fg:var(--color-text-disabled);--btn-bd:var(--color-border-subtle);--btn-tick:var(--color-text-disabled);--tex:0;--btn-shadow:none;cursor:not-allowed}
 .btn--ghost:disabled,.btn--ghost.is-disabled{--btn-bg:transparent;--btn-bd:transparent}
 .btn .lbl{display:inline-flex;align-items:center;gap:6px}
@@ -665,6 +666,29 @@ dialog.real::backdrop{background:var(--color-bg-overlay)}
 .card--stat .num{display:flex;align-items:baseline;gap:6px}
 .card--stat .num b{font:34px/1 var(--font-numeric);font-weight:400}
 .card--stat .num span{font:12px var(--font-en);color:var(--color-text-tertiary)}
+/* 读数 */
+.readout{display:flex;flex-direction:column;gap:8px;margin:0}
+.readout > div{display:flex;align-items:center;justify-content:space-between;gap:16px;min-width:0}
+.readout dt{flex:none;font:12px/20px var(--font-body);color:var(--color-text-secondary)}
+.readout dd{min-width:0;margin:0;overflow:hidden;font:14px/20px var(--font-body);color:var(--color-text-primary);text-align:right;white-space:nowrap;text-overflow:ellipsis}
+.readout dd.num{font-family:var(--font-numeric)}
+.readout dd code{font:500 12px/20px var(--font-en);vertical-align:top}
+/* 状态卡与链路 */
+.card--status{gap:0}
+.cs-top{display:flex;align-items:center;justify-content:space-between;gap:8px;height:16px;color:var(--color-text-tertiary)}
+.cs-no{font:12px/16px var(--font-numeric)}
+.cs-top code{margin-left:auto;font:11px/16px var(--font-en);letter-spacing:.12em;text-transform:uppercase}
+.cs-name{margin-top:12px;font:14px/20px var(--font-medium);color:var(--color-text-secondary)}
+.cs-state{margin-top:4px;font:24px/32px var(--font-bold);color:var(--color-text-primary)}
+.cs-state.is-off{color:var(--color-text-secondary)}
+.cs-state.is-err{color:var(--color-error)}
+.card--status .readout{flex:1 0 auto;margin-top:16px;padding-top:16px;border-top:1px solid var(--color-border-subtle)}
+.card--status > .btn{margin-top:16px}
+.chain{display:flex;align-items:stretch;width:100%}
+.chain > .card{flex:1 1 0;min-width:0}
+.chain-link{flex:none;align-self:flex-start;width:16px;height:2px;margin-top:84px;background:var(--color-checked)}
+.chain-link.is-off{background:repeating-linear-gradient(90deg,var(--color-border-control) 0 4px,transparent 4px 6px)}
+@media (max-width:640px){.chain{flex-direction:column}.chain > .card{flex:none}.chain-link{align-self:center;width:2px;height:16px;margin-top:0}.chain-link.is-off{background:repeating-linear-gradient(180deg,var(--color-border-control) 0 4px,transparent 4px 6px)}}
 .delta{display:inline-flex;align-items:center;gap:4px;font:12px var(--font-en)}
 .delta{color:var(--color-text-secondary)}
 .tag{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 8px;border:1px solid transparent;border-radius:var(--radius-sm);background:var(--color-bg-muted);color:var(--color-text-primary);font-size:13px;line-height:1;white-space:nowrap}

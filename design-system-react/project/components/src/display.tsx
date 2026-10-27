@@ -214,6 +214,83 @@ export function EntryCard({ title, meta, children, action, off }: EntryCardProps
   );
 }
 
+/* ---------- 读数与状态卡 ---------- */
+
+export interface ReadoutItem {
+  label: React.ReactNode;
+  /** 没有数值时传“无”。 */
+  value: React.ReactNode;
+  /** num 纯数字（Novecento）；code 字母与数字混排（Gilroy）；省略为中文。 */
+  kind?: 'num' | 'code';
+}
+
+export interface ReadoutProps {
+  items: ReadoutItem[];
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+/** 读数：多行的标签与数值。标签居左，数值居右。 */
+export function Readout({ items, style, className }: ReadoutProps) {
+  return (
+    <dl className={cx('readout', className)} style={style}>
+      {items.map((it, i) => (
+        <div key={i}><dt>{it.label}</dt><dd className={it.kind === 'num' ? 'num' : undefined}>{it.kind === 'code' ? <code>{it.value}</code> : it.value}</dd></div>
+      ))}
+    </dl>
+  );
+}
+
+export interface StatusCardProps {
+  /** 有先后关系时的序号，例如 01；没有先后关系时省略。 */
+  index?: string;
+  /** 英文标识，显示为大写。 */
+  code: string;
+  name: React.ReactNode;
+  /** 状态词，取自 README 的术语。 */
+  state: React.ReactNode;
+  /** off 不工作（次要文字色）；err 出错（错误色）；省略为工作中。 */
+  tone?: 'off' | 'err';
+  readout: ReadoutItem[];
+  /** 下一步动作的文字，例如“停止”。 */
+  action: React.ReactNode;
+  onAction?: () => void;
+  /** 动作处理中：按钮显示加载圈并忽略点击。 */
+  loading?: boolean;
+}
+
+/** 状态卡：受控对象的编号、名称、状态与读数，底部为全宽动作按钮。 */
+export function StatusCard({ index, code, name, state, tone, readout, action, onAction, loading }: StatusCardProps) {
+  return (
+    <div className="card card--status">
+      <div className="cs-top">{index && <span className="cs-no">{index}</span>}<code>{code}</code></div>
+      <span className="cs-name">{name}</span>
+      <span className={cx('cs-state', tone && 'is-' + tone)}>{state}</span>
+      <Readout items={readout} />
+      <button className={cx('btn btn--primary btn--sm btn--block', loading && 'is-loading')} type="button" aria-busy={loading || undefined} onClick={loading ? undefined : onAction}>
+        <span className="lbl">{action}</span>{loading && <span className="spin" aria-hidden="true" />}
+      </button>
+    </div>
+  );
+}
+
+export interface ChainProps {
+  /** 按顺序排列的状态卡。 */
+  children: React.ReactNode;
+  /** 相邻两项之间是否接通，长度为卡片数减一；省略时全部接通。 */
+  links?: boolean[];
+}
+
+/** 链路：有先后关系的状态卡排成一行，连线表示通断。 */
+export function Chain({ children, links }: ChainProps) {
+  const items = React.Children.toArray(children);
+  return (
+    <div className="chain">
+      {items.map((c, i) => <React.Fragment key={i}>{i > 0 && <span className={cx('chain-link', links && links[i - 1] === false && 'is-off')} aria-hidden="true" />}{c}</React.Fragment>)}
+    </div>
+  );
+}
+
 /* ---------- 列表 ---------- */
 
 export interface ListItemData {

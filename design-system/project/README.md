@@ -112,6 +112,7 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 - 方与圆不做等大的完全对齐。两者同时出现时满足以下之一：尺寸不同且留出距离；方形不完整显示（被裁切或出血）；方形没有明显边界。例如源站轮播的圆形翻页按钮压在图片底边上，而不是与图片边缘对齐；侧边导航收起时，底部工具区（圆）窄于当前项指示块（方）且与之隔开；工具栏中胶囊搜索框高 24，方形主要按钮高 32，二者相隔至少 24。
 - 圆形展开为方形时，展开后的边必须与已有方形元素的边严丝合缝：底部工具区展开后，左边与导航项悬停底色重合，右边与当前项指示块重合。
 - 圆中套圆时四周内距相等。
+- 有先后关系的对象（例如请求依次经过的客户端、网关、服务）按顺序排成一行并编号，相邻两项之间的连线表示是否接通：接通为 2px `color-checked` 实线，断开为 2px `color-border-control` 虚线。没有先后关系的对象不编号，不画连线。见 StatusCard。
 - 发布前运行 `design-system/tools/check-align.js`：它按 `align-rules.js` 中声明的对齐关系逐条测量，并扫描同一卡片内相差 1 至 3px 的边与中线，结果必须为零；同时在浅色与深色、收起与展开、静止与悬停下截取放大图逐一核对。
 
 ### 尺寸
@@ -182,4 +183,4 @@ ENDFIELD 的视觉语言取自《明日方舟：终末地》官网与游戏系�
 | color-deco | ColorLine |
 | hollow-text、title-block、section-title、divider-band | SectionHeader；区块标题的折角箭头动作用于可交互卡片 |
 
-有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏和条目卡片。List 的版式参照官网菜单面板。设计系统中新增的控件在卡片右上角标有“新增”。PageLoader 按源站首屏加载重建。
+有意新增（源站没有，工作界面必需）：Link、TextField、TextArea、Checkbox、Radio、Switch、Banner、Tooltip、Loading、Progress、Breadcrumb、List、Table、EmptyState、Readout、StatusCard，以及取自游戏系统界面的 QuotaPill、MetricBadge、主标签栏和条目卡片。List 的版式参照官网菜单面板。设计系统中新增的控件在卡片右上角标有“新增”。PageLoader 按源站首屏加载重建。

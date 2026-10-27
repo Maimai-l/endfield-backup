@@ -18,6 +18,9 @@ mount(
       <Item cap="图标加文字"><Button icon="i-plus">新建任务</Button></Item>
       <Item cap="文字加图标"><Button iconEnd="i-arrow-r">下一步</Button></Item>
     </Row>
+    <Row label="全宽">
+      <Item cap="block，与 sm、md、lg 任一档组合" style={{ width: 240 }}><Button variant="primary" size="sm" block>启动</Button></Item>
+    </Row>
     <Row label="场景" style={{ width: '100%' }}>
       <div className="scn-grid">
         <div className="scn"><div className="scn-h"><b>sm 24</b><span>密集区域</span></div>
