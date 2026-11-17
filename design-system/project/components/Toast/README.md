@@ -13,19 +13,20 @@
 ## 规则
 
 - 停留 4 秒，含操作时 8 秒，悬停暂停；错误类不自动消失。
+- 只有一种样式，不按类型加色条或换底色；结果写在文字里。`type` 只决定停留时间与 `role`。
 - 同时最多 3 条，新的在下。
 - 文案说明结果，不写“成功！”这类空话。
 
 ## 规格
 
-- **尺寸**：宽 320 到 420，最小高 44，墨色底，左侧 4px 纯色色条；停留 4 秒，含操作时 8 秒，悬停暂停；错误类不自动消失
-- **Token**：`--color-bg-emphasis --color-text-on-emphasis --color-success --color-error --color-warning --shadow-lg --radius-sm`
+- **尺寸**：宽度随内容，最宽 380，最小高 44，墨色底，圆角 4，内边距上 12、右 12、下 12、左 20；停留 4 秒，含操作时 8 秒，悬停暂停；错误类不自动消失
+- **Token**：`--color-bg-emphasis --color-text-on-emphasis --y-300 --shadow-lg --radius-md`
 - **键盘**：不抢占焦点；操作按钮与关闭按钮可用 `Tab` 到达；错误类需手动关闭
 
 ## 结构
 
 ```html
-<div class="toast toast--success">
+<div class="toast" role="status">
   <div class="msg">任务 TK-0930 已关闭</div>
   <button class="act" type="button">撤销</button>
 </div>

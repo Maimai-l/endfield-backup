@@ -16,7 +16,7 @@ function Demo() {
 mount(
   <div className="stage">
     <ToastProvider>
-      <Row label="变体" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: 10 }}>
+      <Row label="变体" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: 12 }}>
         <Toast>筛选条件已重置</Toast>
         <Toast type="success" action="撤销">任务 TK-0930 已关闭</Toast>
         <Toast type="warning">3 个项目未同步，将在联网后重试</Toast>

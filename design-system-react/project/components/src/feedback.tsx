@@ -7,23 +7,41 @@ export type Tone = 'info' | 'success' | 'warning' | 'error';
 
 /* ---------- 提示条 ---------- */
 
+const BANNER_STATE: Record<Tone, string> = { info: '通知', success: '完成', warning: '警告', error: '错误' };
+
 export interface BannerProps {
-  /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条随之变化。 */
+  /** info 通知、success 完成、warning 警告、error 错误；决定状态词，error 的状态词为警示色。 */
   type: Tone;
+  /** 标题条上的标题，一行。 */
   title: React.ReactNode;
-  /** 说明，可含链接。 */
+  /** 标题条右侧的时间或读数，例如 14:02。 */
+  meta?: React.ReactNode;
+  /** 替换默认的状态词。 */
+  state?: string;
+  /** 说明，至多两行。 */
   children?: React.ReactNode;
-  /** 提供后显示关闭按钮。 */
+  /** 右侧操作，至多一个，用小号胶囊按钮 PillButton。 */
+  action?: React.ReactNode;
+  /** 提供后在标题条右端显示关闭按钮。 */
   onClose?: () => void;
 }
 
-/** 页面内提示条，常驻在相关内容上方。 */
-export function Banner({ type, title, children, onClose }: BannerProps) {
+/** 页面内提示条，常驻在相关内容上方：条目卡片的标题条加一行内容，状态写成状态词。 */
+export function Banner({ type, title, meta, state, children, action, onClose }: BannerProps) {
   return (
-    <div className={'alert alert--' + type} role={type === 'error' ? 'alert' : 'status'}>
-      <div className="alert-title">{title}</div>
-      {onClose && <button className="x" type="button" aria-label="关闭" onClick={onClose}><Icon name="i-close" /></button>}
-      {children && <div className="alert-body">{children}</div>}
+    <div className="alert" role={type === 'error' ? 'alert' : 'status'}>
+      <div className="alert-strip">
+        <span className="alert-title">{title}</span>
+        {meta !== undefined && <span className="meta">{meta}</span>}
+        {onClose && <CloseButton inverse onClick={onClose} />}
+      </div>
+      {(children || action) && (
+        <div className="alert-body">
+          <span className={cx('stat', type === 'info' && 'stat--off', type === 'error' && 'stat--err')}>{state || BANNER_STATE[type]}</span>
+          <span className="desc">{children}</span>
+          {action}
+        </div>
+      )}
     </div>
   );
 }
@@ -31,7 +49,7 @@ export function Banner({ type, title, children, onClose }: BannerProps) {
 /* ---------- 轻提示 ---------- */
 
 export interface ToastProps {
-  /** 省略为中性提示；其余类型只改变左侧色条。 */
+  /** 只决定行为：error 不自动消失并使用 role="alert"；样式只有一种。 */
   type?: Tone;
   children: React.ReactNode;
   /** 操作文字，例如“撤销”。 */
@@ -43,10 +61,10 @@ export interface ToastProps {
   onMouseLeave?: () => void;
 }
 
-/** 轻提示：深色底，左侧 4px 色条；一句话说明结果，至多一个操作。 */
+/** 轻提示：深色底白字，只有一种样式；一句话说明结果，至多一个操作。 */
 export function Toast({ type, children, action, onAction, onClose, onMouseEnter, onMouseLeave }: ToastProps) {
   return (
-    <div className={cx('toast', type && 'toast--' + type)} role={type === 'error' ? 'alert' : 'status'} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <div className="toast" role={type === 'error' ? 'alert' : 'status'} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className="msg">{children}</div>
       {action && <button className="act" type="button" onClick={onAction}>{action}</button>}
       {onClose && <button className="x" type="button" aria-label="关闭" onClick={onClose}><Icon name="i-close" /></button>}
@@ -171,7 +189,7 @@ export function Dialog({ open, onClose, title, danger, children, confirmText, co
       <div className="dlg-foot">
         {footer || <>
           <Button variant="secondary" size="sm" onClick={onClose}>{cancelLabel}</Button>
-          <Button variant={danger ? 'danger' : 'primary'} size="sm" disabled={!ok} onClick={() => { if (onConfirm) onConfirm(); if (onClose) onClose(); }}>{confirmLabel || (danger ? '删除' : '确定')}</Button>
+          <Button variant="primary" size="sm" disabled={!ok} onClick={() => { if (onConfirm) onConfirm(); if (onClose) onClose(); }}>{confirmLabel || (danger ? '删除' : '确定')}</Button>
         </>}
       </div>
     </div>
@@ -216,24 +234,29 @@ export interface ProgressProps {
   label: React.ReactNode;
   /** 替换右侧的百分比文字，例如“校验中”。 */
   valueText?: string;
-  /** 细型 4px。 */
-  thin?: boolean;
-  /** done 完成；error 失败（红色填充）；paused 暂停（灰色填充）。 */
+  /** 加载进度：线的两端加方括号，用于整页或整个面板等待载入。 */
+  frame?: boolean;
+  /** done 完成；error 中止（灰色填充，状态词为警示色）；paused 暂停（灰色填充）。 */
   status?: 'done' | 'error' | 'paused';
+  /** 状态词，显示在说明之前，例如“已中止”。 */
+  state?: string;
   /** 下方说明。 */
   note?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-/** 进度条：墨色填充（深色为黄色），纯色轨道。 */
-export function Progress({ value, label, valueText, thin, status, note, style }: ProgressProps) {
+/** 进度条：4px 实线，数值在线的右侧；填充为正文色，未完成部分为斜纹。 */
+export function Progress({ value, label, valueText, frame, status, state, note, style }: ProgressProps) {
   const indet = value === undefined;
   return (
-    <div className={cx('prog', thin && 'prog--thin', indet && 'prog-indet', status && 'is-' + status)} style={style} role="progressbar"
+    <div className={cx('prog', frame && 'prog--frame', indet && 'prog-indet', status && 'is-' + status)} style={style} role="progressbar"
       aria-valuenow={indet ? undefined : value} aria-valuemin={indet ? undefined : 0} aria-valuemax={indet ? undefined : 100} aria-label={typeof label === 'string' ? label : undefined}>
-      <div className="prog-top"><span>{label}</span><span className="v">{valueText || (indet ? '' : value + '%')}</span></div>
-      <div className="prog-track"><div className="prog-fill" style={indet ? undefined : ({ '--v': value + '%' } as React.CSSProperties)} /></div>
-      {note && <span className="prog-note">{note}</span>}
+      <span className="prog-label">{label}</span>
+      <div className="prog-line">
+        <div className="prog-track"><div className="prog-fill" style={indet ? undefined : ({ '--v': value + '%' } as React.CSSProperties)} /></div>
+        <span className="v">{valueText || (indet ? '' : value + '%')}</span>
+      </div>
+      {(state || note) && <span className="prog-note">{state && <span className={cx('stat', status === 'error' && 'stat--err')}>{state}</span>}{note}</span>}
     </div>
   );
 }

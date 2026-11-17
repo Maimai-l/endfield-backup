@@ -9,7 +9,6 @@ mount(
       <Item cap="accent"><IconButton variant="accent" icon="i-plus" label="新建" tooltip /></Item>
       <Item cap="secondary"><IconButton icon="i-filter" label="筛选" tooltip /></Item>
       <Item cap="ghost"><IconButton variant="ghost" icon="i-more" label="更多操作" tooltip /></Item>
-      <Item cap="danger"><IconButton variant="danger" icon="i-trash" label="删除" tooltip /></Item>
       <Item cap="toggle 已按下"><IconButton icon="i-grid" label="网格视图" defaultPressed /></Item>
     </Row>
     <Row label="尺寸">

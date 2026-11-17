@@ -26,10 +26,10 @@ export declare function useControllable<T>(value: T | undefined, defaultValue: T
 /** 列表内的方向键移动焦点，跳过禁用项；Home、End 到首尾。 */
 export declare function moveFocus(e: React.KeyboardEvent, box: HTMLElement | null, selector: string, prev: string[], next: string[]): HTMLElement | null;
 
-export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'ghost' | 'danger';
+export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'ghost';
 export type ControlSize = 'sm' | 'md' | 'lg';
 export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-    /** primary 主要；accent 强调，每屏至多 1 个；secondary 次要；ghost 幽灵；danger 危险。 */
+    /** primary 主要；accent 强调，每屏至多 1 个；secondary 次要；ghost 幽灵。删除等不可撤销的操作用 primary，危险由确认对话框承担。 */
     variant?: ButtonVariant;
     /** sm 24、md 32（默认）、lg 40。同一行内的方形按钮取同一档。 */
     size?: ControlSize;
@@ -428,18 +428,25 @@ export declare function Glass({ as, style, className, children }: GlassProps): R
 
 export type Tone = 'info' | 'success' | 'warning' | 'error';
 export interface BannerProps {
-    /** info 信息、success 成功、warning 警告、error 错误；左侧 4px 色条随之变化。 */
+    /** info 通知、success 完成、warning 警告、error 错误；决定状态词，error 的状态词为警示色。 */
     type: Tone;
+    /** 标题条上的标题，一行。 */
     title: React.ReactNode;
-    /** 说明，可含链接。 */
+    /** 标题条右侧的时间或读数，例如 14:02。 */
+    meta?: React.ReactNode;
+    /** 替换默认的状态词。 */
+    state?: string;
+    /** 说明，至多两行。 */
     children?: React.ReactNode;
-    /** 提供后显示关闭按钮。 */
+    /** 右侧操作，至多一个，用小号胶囊按钮 PillButton。 */
+    action?: React.ReactNode;
+    /** 提供后在标题条右端显示关闭按钮。 */
     onClose?: () => void;
 }
-/** 页面内提示条，常驻在相关内容上方。 */
-export declare function Banner({ type, title, children, onClose }: BannerProps): React.JSX.Element;
+/** 页面内提示条，常驻在相关内容上方：条目卡片的标题条加一行内容，状态写成状态词。 */
+export declare function Banner({ type, title, meta, state, children, action, onClose }: BannerProps): React.JSX.Element;
 export interface ToastProps {
-    /** 省略为中性提示；其余类型只改变左侧色条。 */
+    /** 只决定行为：error 不自动消失并使用 role="alert"；样式只有一种。 */
     type?: Tone;
     children: React.ReactNode;
     /** 操作文字，例如“撤销”。 */
@@ -450,7 +457,7 @@ export interface ToastProps {
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
 }
-/** 轻提示：深色底，左侧 4px 色条；一句话说明结果，至多一个操作。 */
+/** 轻提示：深色底白字，只有一种样式；一句话说明结果，至多一个操作。 */
 export declare function Toast({ type, children, action, onAction, onClose, onMouseEnter, onMouseLeave }: ToastProps): React.JSX.Element;
 type ShowToast = (type: Tone | undefined, msg: string, action?: string, onAction?: () => void) => void;
 /** 取得显示轻提示的函数：show(type, 文案, 操作?, 操作回调?)。需在 ToastProvider 内使用。 */
@@ -523,16 +530,18 @@ export interface ProgressProps {
     label: React.ReactNode;
     /** 替换右侧的百分比文字，例如“校验中”。 */
     valueText?: string;
-    /** 细型 4px。 */
-    thin?: boolean;
-    /** done 完成；error 失败（红色填充）；paused 暂停（灰色填充）。 */
+    /** 加载进度：线的两端加方括号，用于整页或整个面板等待载入。 */
+    frame?: boolean;
+    /** done 完成；error 中止（灰色填充，状态词为警示色）；paused 暂停（灰色填充）。 */
     status?: 'done' | 'error' | 'paused';
+    /** 状态词，显示在说明之前，例如“已中止”。 */
+    state?: string;
     /** 下方说明。 */
     note?: React.ReactNode;
     style?: React.CSSProperties;
 }
-/** 进度条：墨色填充（深色为黄色），纯色轨道。 */
-export declare function Progress({ value, label, valueText, thin, status, note, style }: ProgressProps): React.JSX.Element;
+/** 进度条：4px 实线，数值在线的右侧；填充为正文色，未完成部分为斜纹。 */
+export declare function Progress({ value, label, valueText, frame, status, state, note, style }: ProgressProps): React.JSX.Element;
 export interface PageLoaderProps {
     /** vertical 纵向（黄色矩形自下而上铺满）；horizontal 横向窄屏。 */
     orientation?: 'vertical' | 'horizontal';

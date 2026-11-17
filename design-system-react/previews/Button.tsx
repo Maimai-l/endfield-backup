@@ -9,7 +9,6 @@ mount(
       <Item cap="accent 强调，每屏至多 1 个"><Button variant="accent">发布到线上</Button></Item>
       <Item cap="secondary 次要"><Button variant="secondary">导出</Button></Item>
       <Item cap="ghost 幽灵"><Button variant="ghost">取消</Button></Item>
-      <Item cap="danger 危险"><Button variant="danger">删除项目</Button></Item>
     </Row>
     <Row label="尺寸">
       <Item cap="sm 24"><Button variant="primary" size="sm">保存</Button></Item>

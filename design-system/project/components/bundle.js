@@ -23,7 +23,7 @@ function arrows(box,sel,prevKeys,nextKeys,onMove){
   });
 }
 function toast(stack,type,msg,action){
-  var t=document.createElement('div');t.className='toast'+(type?' toast--'+type:'');t.setAttribute('role',type==='error'?'alert':'status');
+  var t=document.createElement('div');t.className='toast';t.setAttribute('role',type==='error'?'alert':'status');
   t.innerHTML='<div class="msg"></div>'+(action?'<button class="act" type="button"></button>':'')+'<button class="x" type="button" aria-label="关闭"><svg class="ic ic--close"><use href="#i-close"/></svg></button>';
   t.querySelector('.msg').textContent=msg;if(action)t.querySelector('.act').textContent=action;
   while(stack.children.length>=3)stack.removeChild(stack.firstChild);

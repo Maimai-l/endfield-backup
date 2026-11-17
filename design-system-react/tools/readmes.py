@@ -7,7 +7,7 @@ HTML = ROOT.parent / 'design-system/project/components'
 OUT = ROOT / 'project/components'
 
 USES = {
-'Button': '`variant`（primary、accent、secondary、ghost、danger，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、全宽 `block`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
+'Button': '`variant`（primary、accent、secondary、ghost，默认 secondary）、`size`（sm、md、lg）、文字 `children`（动词开头，2 至 6 个字）；可选前置图标 `icon`、后置图标 `iconEnd`、全宽 `block`、提交中 `loading`、`disabled` 与原生按钮属性。游戏界面的确认按钮与胶囊按钮见 PillButton。',
 'IconButton': '`icon`、`label`（无障碍名称，必填）、`variant`、`size`；`tooltip` 显示悬浮说明（`"below"` 显示在下方）；切换型按钮传 `pressed` 或 `defaultPressed` 与 `onPressedChange`；`badge` 显示提醒角标。关闭与返回用 `CloseButton`（`kind`、`inverse`），轮播翻页用 `RoundButton`（`direction`、`size`），数量加减与全屏面板关闭用 `CircleButton`（`kind`：solid、close；`icon`、`label`、`size`）。',
 'PillButton': '确认按钮用 `ConfirmButton`，文字 `children`；实底胶囊按钮用 `PillButton`：`variant`（default、muted）、`size`（md、sm）、`icon`（md 显示在文字后，sm 显示在左侧墨色圆内）、文字 `children`。',
 'Link': '`href` 与文字；独立链接传 `standalone`（后跟箭头）；不可用时传 `disabled`。',
@@ -33,12 +33,12 @@ USES = {
 'QuotaPill': '`icon`、`value` 用量、`max` 上限、`unit`、`actionLabel`（加号按钮的无障碍名称）与 `onAction`。用量达到上限时自动显示为已满。',
 'Table': '`columns`（`{ key, label, kind?, unit?, width?, sortable?, error?, active?, render?, sortValue? }`，kind 为 id、name、status、time、text、number、progress；状态列用 `error` 与 `active` 标出逾期与进行中）、`rows`、`rowKey`（默认 id）；行可选时传 `selectable` 与 `selected` 或 `defaultSelected`、`onSelectedChange`，行首与表头自动出现复选框，并支持 `Shift` 连续选中、`Ctrl/Cmd+A` 全选、`Esc` 清除；排序 `sort` 或 `defaultSort`（`{ key, dir }`）与 `onSortChange`；`isDisabled` 返回禁用行；`minWidth`（默认 912，可选表格 944；可选表格的首列自动加宽 32，用来放复选框）。',
 'Tag': '文字 `children`；`variant`（neutral、accent）、`size`（sm、md）；可移除时传 `onRemove`。胶囊标签用 `PillTag`：`icon`、`off`（未生效）、文字 `children`。表格与列表中的状态用 `Status`（`tone`：省略为正文色，err 为错误文字色，off 为次要文字色），公告的类型加日期用 `TagDate`。',
-'Banner': '`type`（info、success、warning、error）、`title`、说明 `children`（可含链接）；可关闭时传 `onClose`。',
+'Banner': '`type`（info、success、warning、error，决定状态词）、`title`、说明 `children`；可选标题条右侧的 `meta`、右侧操作 `action`（小号 PillButton）、替换状态词的 `state`；可关闭时传 `onClose`。',
 'Dialog': '`open` 与 `onClose`、`title`、正文 `children`；危险确认传 `danger`，需要输入确认文字时传 `confirmText`；`confirmLabel`、`cancelLabel`、`onConfirm`；自定义底部用 `footer`。嵌在页面中作规格展示时传 `inline`。',
 'Loading': '`size`（16、20、32）；旁边需要文字时传 `label`。骨架占位用 `Skeleton`（`width`、`height`、`round`）。',
 'PageLoader': '`orientation`（vertical、horizontal）、`label`、`appTitle`；由外部控制进度时传 `progress`（0 至 100），省略时自动演示一次；`replayKey` 改变时重新演示；`onDone`。',
-'Progress': '`label`、`value`（0 至 100，省略为不确定进度）、`valueText`、`thin`、`status`（done、error、paused）、`note`。',
-'Toast': '在页面根部放一次 `ToastProvider`，在组件内用 `useToast()` 取得 `show(type, 文案, 操作?, 操作回调?)`。单条静态提示用 `Toast`（`type`、文字、`action` 与 `onAction`、`onClose`）。',
+'Progress': '`label`、`value`（0 至 100，省略为不确定进度）、`valueText`、`frame`（加载进度，两端加方括号）、`status`（done、error、paused）、状态词 `state`、`note`。',
+'Toast': '在页面根部放一次 `ToastProvider`，在组件内用 `useToast()` 取得 `show(type, 文案, 操作?, 操作回调?)`。单条静态提示用 `Toast`（文字、`action` 与 `onAction`、`onClose`；`type` 只决定停留时间与 role）。',
 'Tooltip': '触发元素作为唯一的子元素（需可聚焦）；`content`；`shortcut` 快捷键；双行说明传 `title`；`placement`（top、below、start）、`multiline`；规格展示中常显传 `open`。',
 'Surface': '`tone`（brand 黄色整面、ink 墨色整面）、`contour` 等高线纹理与 `numeral` 巨型数字（只用于黄色整面）；内容作为 `children`，由使用方定位。磨砂玻璃用 `Glass`（`as` 可为 nav），只放在墨色整面上。',
 'ColorLine': '`orientation`（horizontal、vertical）。',
@@ -72,11 +72,11 @@ STRUCT = {
 'QuotaPill': '<QuotaPill icon="i-box" value={820} max={1000} unit="GB" actionLabel="扩容存储" onAction={expand} />',
 'Table': '<Table rows={rows} selectable defaultSort={{ key: \'prog\', dir: \'descending\' }} isDisabled={(r) => r.archived}\n  columns={[\n    { key: \'id\', label: \'项目编号\', kind: \'id\', width: 128 },\n    { key: \'name\', label: \'名称\', kind: \'name\' },\n    { key: \'prog\', label: \'进度\', kind: \'progress\', width: 160 },\n  ]} />',
 'Tag': '<Tag>评审</Tag>\n<Tag onRemove={remove}>表格</Tag>\n<PillTag icon="i-bolt">变废为宝</PillTag>\n<Status>进行中</Status>\n<Status tone="err">已逾期</Status>',
-'Banner': '<Banner type="warning" title="存储用量已超过 85%">建议清理过期文件。<Link href="/usage">查看用量</Link></Banner>',
+'Banner': '<Banner type="warning" title="存储用量已超过 85%" meta="11:40" action={<PillButton size="sm">查看用量</PillButton>}>建议清理过期文件。</Banner>',
 'Dialog': '<Dialog open={open} onClose={() => setOpen(false)} danger title="删除项目" confirmText="PRJ-0142" onConfirm={remove}>\n  <p>删除后该项目的记录将一并清除，且无法恢复。</p>\n</Dialog>',
 'Loading': '<Loading size={16} label="正在读取 18 个文件" />\n<Skeleton width="60%" height={12} />',
 'PageLoader': '<PageLoader label="正在载入工作区" progress={progress} onDone={show} />',
-'Progress': '<Progress label="版本上传" value={64} />\n<Progress label="同步 B-11" value={72} status="error" note="项目无响应，已中止" />',
+'Progress': '<Progress label="版本上传" value={64} />\n<Progress label="同步 B-11" value={72} status="error" state="已中止" note="项目无响应" />',
 'Toast': 'function Save() {\n  const show = useToast();\n  return <Button onClick={() => show(\'success\', \'任务已关闭\', \'撤销\', undo)}>关闭任务</Button>;\n}\n<ToastProvider><Save /></ToastProvider>',
 'Tooltip': '<Tooltip content="搜索项目" shortcut="Ctrl K">\n  <IconButton icon="i-search" label="搜索" />\n</Tooltip>',
 'Surface': '<Surface tone="ink">\n  <div>…列表…</div>\n  <Glass as="nav">…标题与导航项…</Glass>\n</Surface>',
@@ -85,6 +85,8 @@ STRUCT = {
 }
 
 FIX = {
+    '整页或整个面板等待载入时用加载进度 `prog--frame`。': '整页或整个面板等待载入时用加载进度 `frame`。',
+    '中止用 `.stat.stat--err`；不用警示色铺填充。': '中止传 `status="error"` 与 `state`；不用警示色铺填充。',
     '每屏至多一个强调按钮 `btn--accent`；主要操作用 `btn--primary`。': '每屏至多一个强调按钮 `variant="accent"`；主要操作用 `variant="primary"`。',
     '图标一律用 `bundle.js` 提供的 SVG。': '图标一律用 `Icon` 组件或组件的 `icon` 属性。',
     '不可选的项加 `is-disabled` 与 `aria-disabled` 并说明原因。': '不可选的项设 `disabled: true`，并用 `meta` 说明原因。',

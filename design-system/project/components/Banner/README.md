@@ -8,7 +8,7 @@
 
 ## 使用方提供
 
-类型类 `alert--info|success|warning|error`、标题、正文、可选操作链接与关闭按钮。
+标题、状态词、正文；可选标题条右侧的时间、一个操作按钮与关闭按钮。
 
 ## 规则
 
@@ -18,29 +18,36 @@
   - 对话框与卡片内：放在正文的第一个位置，与其后的内容相隔 16；随容器一起关闭，不显示关闭按钮。
 - 宽度等于所提示内容的宽度：页面级与正文同宽，区块级与区块内容同宽，内容限宽时提示条随之限宽，对话框内与正文同宽。不设固定宽度，不伸进页边距，不跨出所在容器的内边距。
 - 左边与相关内容的左边对齐，不缩进，不居中。
-- 标题一行；正文至多两行；操作链接至多一个，放在正文末尾。
+- 标题一行，写在标题条上；正文至多两行；操作至多一个，用小号胶囊按钮（PillButton），放在正文右侧。
+- 状态写成状态词，放在正文之前，画法与表格的状态列一致：通知为次要文字色，完成与警告为正文色，错误为 `color-error`。四个词取自：通知、完成、警告、错误。
 - 同一范围内只放一条：多条信息合并为一条，类型取其中最严重的一种。
 - 不浮在内容上方，不随滚动吸顶。
-- 左侧 4px 色条使用对应功能色。
+- 不加色条，不按类型换底色；标题条与条目卡片相同，两者出现在同一页时属于同一套画法。
 
 ## 规格
 
-- **尺寸**：宽度随所在内容，无固定宽度与最大宽度；面板底色，1px 边框，圆角 2；内边距上 12、右 12、下 12、左 18；左侧 4px 纯色色条；标题 14 Medium，正文 13；关闭按钮 24，位于右上角
-- **Token**：`--color-bg-surface --color-border-subtle --color-success --color-error --color-warning --color-info --radius-sm --space-3 --space-4 --space-5`
+- **尺寸**：宽度随所在内容，无固定宽度与最大宽度；面板底色，1px 边框，直角；标题条高 32，底色 #2e2e2e，左端 12px 黄色三角，标题 15 Medium 白色，右侧时间 13px Novecento，关闭按钮 24、图标 16，位于标题条右端；内容行左缩进 38，与标题文字左缘对齐，状态词 13 Medium，正文 13，两者相隔 12
+- **Token**：`--color-bg-surface --color-border-subtle --strip --strip-fg --strip-meta --y-300 --color-text-primary --color-text-secondary --color-error --font-numeric --space-3 --space-4 --space-5`
 - **键盘**：关闭按钮可用 `Tab` 到达；错误类使用 `role="alert"`，其余使用 `role="status"`
 
 ## 结构
 
 ```html
-<div class="alert alert--warning" role="status">
-  <div class="alert-title">存储用量已超过 85%</div>
+<div class="alert" role="status">
+  <div class="alert-strip">
+    <span class="alert-title">存储用量已超过 85%</span>
+    <span class="meta">11:40</span>
+  </div>
   <div class="alert-body">
-    建议清理过期文件。
-    <a class="link" href="#c-alert">查看用量</a>
+    <span class="stat">警告</span>
+    <span class="desc">建议清理过期文件。</span>
+    <button class="pill pill--sm" type="button">
+      <span class="lbl">查看用量</span>
+    </button>
   </div>
 </div>
 ```
 
 ## 来源
 
-新增。无，源站没有对应控件。
+新增。标题条取自游戏系统界面的条目卡片（见 Card），状态词与表格状态列同一画法。

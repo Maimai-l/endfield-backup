@@ -13,7 +13,7 @@
 ## 规则
 
 - 宽 400、560、800 三档；底部按钮用 sm 档，主要操作在最右，取消用次要按钮，与主要按钮同宽。
-- 危险确认的标题栏为深色实底，不加条纹；红色只出现在确认按钮上。
+- 危险确认的标题栏为深色实底，不加条纹；确认按钮为主要按钮，不用警示色。危险由深色标题栏与输入编号这一步表达。
 - Esc 关闭，焦点锁定在对话框内，关闭后回到触发按钮。
 
 ## 规格
@@ -46,7 +46,7 @@
     <button class="btn btn--secondary btn--sm" type="button">
       <span class="lbl">取消</span>
     </button>
-    <button class="btn btn--danger btn--sm" type="button">
+    <button class="btn btn--primary btn--sm" type="button">
       <span class="lbl">删除</span>
     </button>
   </div>

@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Icon, IconName } from './icons';
 import { cx, useControllable } from './util';
 
-export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'ghost' | 'danger';
+export type ButtonVariant = 'primary' | 'accent' | 'secondary' | 'ghost';
 export type ControlSize = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  /** primary 主要；accent 强调，每屏至多 1 个；secondary 次要；ghost 幽灵；danger 危险。 */
+  /** primary 主要；accent 强调，每屏至多 1 个；secondary 次要；ghost 幽灵。删除等不可撤销的操作用 primary，危险由确认对话框承担。 */
   variant?: ButtonVariant;
   /** sm 24、md 32（默认）、lg 40。同一行内的方形按钮取同一档。 */
   size?: ControlSize;
