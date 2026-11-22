@@ -1,0 +1,42 @@
+<!-- @dsCard group="内容展示" height=600 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Route</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<span class="prov">新增</span>
+<div class="stage">
+  <div class="row"><span class="row-label">接通</span><div class="items" style="width:100%">
+    <div class="route" style="grid-template-columns:232px 196px 196px">
+      <div class="route-st"><span class="name">Blender</span><span class="m">bmcp.maimaiqiu.work</span><span class="res"><b>正常</b></span></div>
+      <div class="route-st"><span class="m">:8080</span><div class="ln"><span class="v">运行中</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">停止</span></button></div></div>
+      <div class="route-st" data-next="none"><span class="m">Blender 插件 :9876</span><div class="ln"><span class="v">已连接</span></div></div>
+    </div>
+  </div></div>
+  <div class="row"><span class="row-label">断开</span><div class="items" style="width:100%">
+    <div class="route" style="grid-template-columns:232px 196px 196px">
+      <div class="route-st" data-next="off"><span class="name">Unity</span><span class="m">umcp.maimaiqiu.work</span><span class="res"><b class="is-err">不通</b>断在服务</span></div>
+      <div class="route-st is-down" data-next="off"><span class="m">:8082</span><div class="ln"><span class="v is-err">已停止</span><button class="pill pill--sm" type="button"><span class="lbl">启动</span></button></div></div>
+      <div class="route-st is-down" data-next="none"><span class="m">Unity 编辑器 :6400</span><div class="ln"><span class="v is-off">未连接</span></div></div>
+    </div>
+  </div></div>
+  <div class="row"><span class="row-label">两段</span><div class="items" style="width:100%">
+    <div class="route" style="grid-template-columns:232px 196px 196px">
+      <div class="route-st"><span class="name">命令执行</span><span class="m">xmcp.maimaiqiu.work</span><span class="res"><b>正常</b></span></div>
+      <div class="route-st" data-next="none"><span class="m">:8084</span><div class="ln"><span class="v">运行中</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">停止</span></button></div></div>
+    </div>
+  </div></div>
+  <div class="row"><span class="row-label">上游断开</span><div class="items" style="width:100%">
+    <div class="route is-cut" style="--route-lead:40px;grid-template-columns:232px 196px 196px">
+      <div class="route-st is-down" data-next="off"><span class="name">临时授权</span><span class="m">tmcp.maimaiqiu.work</span><span class="res"><b class="is-err">不通</b>断在外网</span></div>
+      <div class="route-st is-down" data-next="off"><span class="m">:8086</span><div class="ln"><span class="v">运行中</span></div></div>
+      <div class="route-st is-down" data-next="none"><span class="m">生效 1，待确认 2</span><div class="ln"><span class="v is-off">授权管理</span></div></div>
+    </div>
+  </div></div>
+</div>
+<script>window.Endfield&&Endfield.init(document)</script>
+</body>
+</html>

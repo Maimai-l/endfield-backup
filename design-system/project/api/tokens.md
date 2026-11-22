@@ -117,6 +117,7 @@ font-family: var(--font-body);   /* the family alone */
 | `fs-caption` | `.fs-caption`, `--text-fs-caption` | 12px / 1.45 | 400 | `body` | 悬浮说明、时间戳、sm 控件文字。 |
 | `fs-overline` | `.fs-overline`, `--text-fs-overline` | 11px / 1.3 | 500 | `en` | 英文分组标签，一律大写，字距 0.12em。 |
 | `num-readout` | `.num-readout`, `--text-num-readout` | 35px / 1 | 500 | `numeric` | 百分比、页码、读数等纯数字，等宽；不与字母混排。 |
+| `num-key` | `.num-key`, `--text-num-key` | 168px / 1 | 500 | `numeric` | 主读数（KeyFigure）：这一屏所回答问题的答案，一屏至多一个；只排纯数字。 |
 | `num-giant` | `.num-giant`, `--text-num-giant` | 104px / 0.9 | 700 | `giant` | 镂空条纹大字，只作装饰；只排全大写字母或纯数字，二者不混排。 |
 | `code` | `.code`, `--text-code` | 12px / 1.5 | 500 | `en` | 编号、快捷键、计数、时间戳等字母与数字混排的短文本。 |
 
@@ -162,12 +163,12 @@ padding: var(--space-1);
 | token | value | usage |
 | --- | --- | --- |
 | `space-1` | 4px | 文字组内（工作页）：分类行与标题、标签与输入框。 |
-| `space-2` | 8px | 元素内：图标与文字、按钮之间；内容页文字组内。 |
+| `space-2` | 8px | 元素内：图标与文字、按钮之间；工作页一团之内；内容页文字组内。 |
 | `space-3` | 12px | 工作页小标题与其内容。 |
 | `space-4` | 16px | 工作页组件内边距与同级组件间距；内容页元素内。 |
 | `space-5` | 24px | 内容页列间距；工作页标题区与工具栏；页边距（768 至 1279）。 |
 | `space-6` | 32px | 内容页媒体与文字；工作页区块之间；页边距（1280 以上）。 |
-| `space-7` | 48px | 工作页大区块之间。 |
+| `space-7` | 48px | 工作页大区块之间：主体与其余内容之间，互不相关的两团之间。 |
 | `space-8` | 64px | 内容页小区块之间。 |
 | `space-9` | 80px | 内容页列表行间距。 |
 | `space-10` | 96px | 内容页区块之间，如列表与分页。 |

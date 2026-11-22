@@ -425,6 +425,60 @@ export declare function Glass({ as, style, className, children }: GlassProps): R
     className: string;
     style: React.CSSProperties | undefined;
 }, HTMLElement>;
+export interface KeyFigureProps {
+    /** 英文标签，显示为大写，是中文名称的直译。 */
+    en: string;
+    /** 中文名称，说明这个数是什么；单位写在这里。 */
+    label: React.ReactNode;
+    /** 纯数字。 */
+    value: React.ReactNode;
+    /** 总数，显示为“/总数”。 */
+    total?: string | number;
+    className?: string;
+    style?: React.CSSProperties;
+}
+/** 主读数：一屏所回答问题的答案，一屏至多一个。 */
+export declare function KeyFigure({ en, label, value, total, className, style }: KeyFigureProps): React.JSX.Element;
+export type PlateProps = React.HTMLAttributes<HTMLDivElement>;
+/** 实底块：需要整块强调的对象。深色实底，不随主题变化，内部按深色主题取色。 */
+export declare function Plate({ className, children, ...rest }: PlateProps): React.JSX.Element;
+export interface RouteProps {
+    /** 各段的列宽，写法同 grid-template-columns；多条线路用同一组列宽。 */
+    columns?: string;
+    /** 上游有总开关时，线路左侧引线的长度（px）。 */
+    lead?: number;
+    /** 上游已断开：引线画成虚线。 */
+    cut?: boolean;
+    children?: React.ReactNode;
+    className?: string;
+    style?: React.CSSProperties;
+}
+/** 线路：有先后关系的几段排成一行，实线为接通，虚线为断开。 */
+export declare function Route({ columns, lead, cut, className, style, children }: RouteProps): React.JSX.Element;
+export interface RouteStationProps {
+    /** 线路名称，只写在第一段。 */
+    name?: React.ReactNode;
+    /** 小标：域名、端口、下游名称。 */
+    meta?: React.ReactNode;
+    /** 状态词。 */
+    state?: React.ReactNode;
+    /** off 不可达或未启用；err 断点。 */
+    tone?: 'off' | 'err';
+    /** 状态词后的动作，用小号胶囊按钮 PillButton。 */
+    action?: React.ReactNode;
+    /** 检测结果：正常或不通，只写在第一段。 */
+    result?: React.ReactNode;
+    /** 检测结果为不通时传 err。 */
+    resultTone?: 'err';
+    /** 检测结果后的说明，例如“断在服务”。 */
+    note?: React.ReactNode;
+    /** 到下一段的线：on 接通（默认）、off 断开、none 本段是最后一段。 */
+    next?: 'on' | 'off' | 'none';
+    /** 本段不可达：节点画成空心。 */
+    down?: boolean;
+}
+/** 线路上的一段。 */
+export declare function RouteStation({ name, meta, state, tone, action, result, resultTone, note, next, down }: RouteStationProps): React.JSX.Element;
 
 export type Tone = 'info' | 'success' | 'warning' | 'error';
 export interface BannerProps {

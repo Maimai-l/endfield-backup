@@ -1,0 +1,13 @@
+<!-- @dsCard group="内容展示" height=341 -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>KeyFigure</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}body{padding-top:32px}.prov{position:absolute;top:12px;right:16px;z-index:5;display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--color-checked);color:var(--color-on-checked);font:12px/1 var(--font-medium)}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>"use strict";(()=>{var S=Object.create;var l=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,I=Object.prototype.hasOwnProperty;var d=(e,t)=>()=>{try{return t||e((t={exports:{}}).exports,t),t.exports}catch(o){throw t=0,o}};var h=(e,t,o,p)=>{if(t&&typeof t=="object"||typeof t=="function")for(let r of E(t))!I.call(e,r)&&r!==o&&l(e,r,{get:()=>t[r],enumerable:!(p=g(t,r))||p.enumerable});return e};var s=(e,t,o)=>(o=e!=null?S(b(e)):{},h(t||!e||!e.__esModule?l(o,"default",{value:e,enumerable:!0}):o,e));var c=d((F,m)=>{m.exports=window.React});var u=d((M,R)=>{R.exports=window.ReactDOM});var n=s(c());var a=s(c()),v=s(u()),f=window.Endfield;function N(e){(0,v.createRoot)(document.getElementById("root")).render(e)}function C(){return a.createElement("span",{className:"prov"},"新增")}function w({children:e,prov:t}){return a.createElement(a.Fragment,null,t&&a.createElement(C,null),a.createElement("div",{className:"stage"},e))}function x({label:e,children:t,style:o}){return a.createElement("div",{className:"row"},a.createElement("span",{className:"row-label"},e),a.createElement("div",{className:"items",style:o},t))}function i({cap:e,children:t,style:o}){return a.createElement("div",{className:"item",style:o},t,e!==void 0&&a.createElement("span",{className:"cap"},e))}var{KeyFigure:y}=f;N(n.createElement(w,{prov:!0},n.createElement(x,{label:"示例",style:{gap:"24px 96px"}},n.createElement(i,{cap:"带分母"},n.createElement(y,{en:"Routes Online",label:"通畅线路",value:"3",total:"4"})),n.createElement(i,{cap:"单个数"},n.createElement(y,{en:"Active Grants",label:"生效中的授权",value:"1"})))));})();</script>
+</body>
+</html>

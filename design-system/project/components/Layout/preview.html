@@ -1,0 +1,131 @@
+<!-- @dsCard group="基础" height=999 page -->
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Layout</title>
+<style>body{margin:0;background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body)}.stage{border:0;border-radius:0}.stage::before,.stage::after{display:none}.lay .row{align-items:flex-start}.lay-fit{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--color-bg-page)}.lay-screen{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;transform:scale(var(--k,.75));background:var(--color-bg-page);color:var(--color-text-primary);font:14px/1.6 var(--font-body);overflow:hidden}.lay-screen p,.lay-screen dl,.lay-screen dd,.lay-screen dt{margin:0}.lay-k{font:12px/20px var(--font-body);color:var(--color-text-secondary)}.lay-v{font:16px/24px var(--font-medium)}.lay-n{font-family:var(--font-numeric)}.lay-m{font:500 11px/16px var(--font-en);letter-spacing:.04em;text-transform:uppercase;color:var(--color-text-tertiary);white-space:nowrap}.lay-top{position:absolute;left:32px;right:32px;top:0;height:72px;display:flex;align-items:center;gap:40px}.lay-brand{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--font-en);letter-spacing:.12em;text-transform:uppercase}.lay-brand i{width:16px;height:16px;background:var(--y-300);clip-path:polygon(0 0,100% 0,100% 60%,60% 100%,0 100%)}.lay-top .mtabs{padding:0;overflow:visible}.lay-hud{margin-left:auto;display:flex;gap:8px}.lay-chip{display:inline-flex;align-items:center;gap:12px;height:32px;padding:0 16px;border-radius:var(--radius-full);background:var(--strip);color:var(--strip-meta);font:13px/1 var(--font-body)}.lay-chip b{font:500 16px/1 var(--font-numeric);color:var(--strip-fg)}.lay-lead{position:absolute;left:32px;top:120px;width:320px}.lay-act{display:flex;align-items:center;gap:16px;margin-top:32px}.lay-meta{display:flex;flex-direction:column}.lay-side{position:absolute;left:32px;bottom:32px;width:320px;display:flex;flex-direction:column;gap:4px}.lay-side-row{display:flex;align-items:center;gap:12px}.lay-side-row .pill{margin-left:auto}.lay-board{position:absolute;left:416px;top:104px;width:832px;display:grid;grid-template-columns:168px minmax(0,1fr);grid-template-rows:56px auto}.lay-colh{grid-column:2;display:grid;grid-template-columns:232px 196px 196px;padding-left:40px}.lay-colh div{display:flex;flex-direction:column}.lay-colh .lay-k{line-height:16px}.lay-gate{grid-column:1;grid-row:2;display:flex;flex-direction:column}.lay-gate .kf-en,.lay-gate .lay-k{color:var(--strip-meta)}.lay-gate-state{margin-top:4px;font:28px/36px var(--font-bold)}.lay-gate .readout{margin-top:16px}.lay-gate .pill{margin-top:auto;align-self:flex-start}.lay-routes{grid-column:2;grid-row:2;display:flex;flex-direction:column}.lay-routes .route{--route-lead:40px;grid-template-columns:232px 196px 196px}.lay-main{position:absolute;left:416px;top:104px;width:832px;display:flex;flex-direction:column;gap:16px}.lay-bar{display:flex;align-items:center;justify-content:space-between;height:32px}.lay-grant{display:grid;grid-template-columns:minmax(0,1fr) 168px 168px auto;gap:32px;align-items:center;padding:20px 24px}.lay-grant-name{font:20px/28px var(--font-medium)}.lay-tags{display:flex;gap:16px;margin-top:8px}.lay-tags span{font:12px/20px var(--font-body);color:var(--color-text-secondary)}.lay-tags b{margin-left:8px;font-family:var(--font-medium);font-weight:400;color:var(--color-text-primary)}.lay-grant .prog{width:auto}.lay-grant-act{display:flex;align-items:center;gap:8px}.lay-loghead{display:flex;align-items:baseline;gap:12px;margin-top:16px}.lay-log{display:grid;grid-template-columns:80px 64px minmax(0,1fr) 72px 168px 56px;column-gap:16px;align-items:center}.lay-log > *{display:flex;align-items:center;height:36px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13px}.lay-log .h{height:32px;font-size:12px;color:var(--color-text-secondary)}.lay-log .e{justify-content:flex-end}.lay-log .t,.lay-log .d{font:500 12px/1 var(--font-numeric);color:var(--color-text-secondary)}.lay-log .d{justify-content:flex-end}.lay-log .c{font:500 12px/1 var(--font-en);letter-spacing:.02em}.lay-log .o,.lay-log .x{color:var(--color-text-secondary)}.lay-log .s{font-family:var(--font-medium)}.lay-log .s.is-err{color:var(--color-error)}.lay-log .s.is-off{color:var(--color-text-secondary)}.lay-pend{position:absolute;right:32px;bottom:32px;width:376px}.lay-pend::before{content:"";position:absolute;left:12px;right:12px;top:-8px;height:8px;background:var(--ink-fixed)}.lay-pend-card{position:relative;padding:0;box-shadow:var(--shadow-lg)}.lay-pend-body{display:flex;flex-direction:column;gap:12px;padding:16px 16px 16px 38px}.lay-cmd{font:500 14px/20px var(--font-en);letter-spacing:.02em;overflow-wrap:anywhere}.lay-pend dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px}.lay-pend dt{font:12px/20px var(--font-body);color:var(--color-text-secondary)}.lay-pend dd{overflow:hidden;font:500 12px/20px var(--font-en);white-space:nowrap;text-overflow:ellipsis}.lay-pend-act{display:flex;gap:8px}.lay-pend-act .pill{flex:1;justify-content:center}</style>
+</head>
+<body>
+<div class="stage lay">
+  <div class="row"><span class="row-label">连接状态</span><div class="items" style="width:100%">
+    <div class="lay-fit"><div class="lay-screen">
+      <header class="lay-top">
+        <div class="lay-brand"><i></i><span>MCP Console</span></div>
+        <div class="mtabs" role="tablist" aria-label="页面"><span class="key" aria-hidden="true">Q</span><button class="mtab" type="button" role="tab" aria-selected="true"><svg class="ic"><use href="#i-bolt"></use></svg>连接状态</button><button class="mtab" type="button" role="tab" aria-selected="false"><svg class="ic"><use href="#i-inbox"></use></svg>临时授权<span class="badge" aria-label="有待确认"></span></button><span class="key" aria-hidden="true">E</span></div>
+        <div class="lay-hud"><span class="lay-chip">待确认<b>2</b></span><span class="lay-chip">生效授权<b>1</b></span></div>
+      </header>
+      <section class="lay-lead">
+        <div class="kf"><span class="kf-en">Routes Online</span><span class="kf-zh">通畅线路</span><p class="kf-num"><b>3</b><span>/4</span></p></div>
+        <div class="lay-act">
+          <button class="pill" type="button"><span class="lbl">检测</span><svg class="ic ic--refresh"><use href="#i-refresh"></use></svg></button>
+          <div class="lay-meta"><span class="lay-k">上次检测</span><span class="lay-m">14:02:31</span></div>
+        </div>
+      </section>
+      <section class="lay-side">
+        <span class="kf-en">Proxy</span>
+        <div class="lay-side-row"><span class="lay-k">网络代理</span><span class="lay-v">已开启</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">关闭</span></button></div>
+        <span class="lay-m">Clash :7897</span>
+      </section>
+      <section class="lay-board">
+        <div class="lay-colh">
+          <div><span class="kf-en">Domain</span><span class="lay-k">外网域名</span></div>
+          <div><span class="kf-en">Service</span><span class="lay-k">MCP 服务</span></div>
+          <div><span class="kf-en">App</span><span class="lay-k">下游应用</span></div>
+        </div>
+        <div class="plate lay-gate" data-theme="dark">
+          <span class="kf-en">Tunnel</span>
+          <span class="lay-k">外网访问</span>
+          <p class="lay-gate-state">已开启</p>
+          <dl class="readout"><div><dt>隧道连接</dt><dd class="num">4</dd></div></dl>
+          <button class="pill pill--sm" type="button"><span class="lbl">关闭</span></button>
+        </div>
+        <div class="lay-routes">
+          <div class="route">
+            <div class="route-st"><span class="name">Blender</span><span class="m">bmcp.maimaiqiu.work</span><span class="res"><b>正常</b></span></div>
+            <div class="route-st"><span class="m">:8080</span><div class="ln"><span class="v">运行中</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">停止</span></button></div></div>
+            <div class="route-st" data-next="none"><span class="m">Blender 插件 :9876</span><div class="ln"><span class="v">已连接</span></div></div>
+          </div>
+          <div class="route">
+            <div class="route-st" data-next="off"><span class="name">Unity</span><span class="m">umcp.maimaiqiu.work</span><span class="res"><b class="is-err">不通</b>断在服务</span></div>
+            <div class="route-st is-down" data-next="off"><span class="m">:8082</span><div class="ln"><span class="v is-err">已停止</span><button class="pill pill--sm" type="button"><span class="lbl">启动</span></button></div></div>
+            <div class="route-st is-down" data-next="none"><span class="m">Unity 编辑器 :6400</span><div class="ln"><span class="v is-off">未连接</span></div></div>
+          </div>
+          <div class="route">
+            <div class="route-st"><span class="name">命令执行</span><span class="m">xmcp.maimaiqiu.work</span><span class="res"><b>正常</b></span></div>
+            <div class="route-st" data-next="none"><span class="m">:8084</span><div class="ln"><span class="v">运行中</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">停止</span></button></div></div>
+          </div>
+          <div class="route">
+            <div class="route-st"><span class="name">临时授权</span><span class="m">tmcp.maimaiqiu.work</span><span class="res"><b>正常</b></span></div>
+            <div class="route-st"><span class="m">:8086</span><div class="ln"><span class="v">运行中</span><button class="pill pill--sm pill--muted" type="button"><span class="lbl">停止</span></button></div></div>
+            <div class="route-st" data-next="none"><span class="m">生效 1，待确认 2</span><div class="ln"><span class="v">授权管理</span><button class="pill pill--sm" type="button"><span class="lbl">进入</span></button></div></div>
+          </div>
+        </div>
+      </section>
+    </div></div>
+  </div></div>
+  <div class="row"><span class="row-label">临时授权</span><div class="items" style="width:100%">
+    <div class="lay-fit"><div class="lay-screen">
+      <header class="lay-top">
+        <div class="lay-brand"><i></i><span>MCP Console</span></div>
+        <div class="mtabs" role="tablist" aria-label="页面"><span class="key" aria-hidden="true">Q</span><button class="mtab" type="button" role="tab" aria-selected="false"><svg class="ic"><use href="#i-bolt"></use></svg>连接状态</button><button class="mtab" type="button" role="tab" aria-selected="true"><svg class="ic"><use href="#i-inbox"></use></svg>临时授权</button><span class="key" aria-hidden="true">E</span></div>
+        <div class="lay-hud"><span class="lay-chip">待确认<b>2</b></span><span class="lay-chip">生效授权<b>1</b></span></div>
+      </header>
+      <section class="lay-lead">
+        <div class="kf"><span class="kf-en">Active Grants</span><span class="kf-zh">生效中的授权</span><p class="kf-num"><b>1</b></p></div>
+        <div class="lay-act">
+          <button class="btn btn--accent" type="button"><span class="lbl">签发</span></button>
+          <button class="btn btn--ghost" type="button"><span class="lbl">查看规则</span></button>
+        </div>
+      </section>
+      <section class="lay-side">
+        <span class="kf-en">Blocked Today</span>
+        <div class="lay-side-row"><span class="lay-k">今日拦截</span><span class="lay-v lay-n">3</span></div>
+        <span class="lay-m">沙盒账号 aitemp</span>
+      </section>
+      <section class="lay-main">
+        <div class="lay-bar">
+          <span class="kf-en">Grants</span>
+          <div class="seg" role="group" aria-label="授权范围"><button type="button" aria-pressed="true">生效中</button><button type="button" aria-pressed="false">全部</button></div>
+        </div>
+        <div class="plate lay-grant" data-theme="dark">
+          <div>
+            <p class="lay-grant-name">blender-assets</p>
+            <span class="lay-m">D:\Projects\blender-assets</span>
+            <p class="lay-tags"><span>联网<b>不允许</b></span><span>执行前确认<b>需要</b></span></p>
+          </div>
+          <div class="prog" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="剩余时间"><span class="prog-label">剩余时间</span><div class="prog-line"><div class="prog-track"><div class="prog-fill" style="--v:70%"></div></div><span class="v">42:10</span></div></div>
+          <div class="prog" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="已用次数"><span class="prog-label">已用次数</span><div class="prog-line"><div class="prog-track"><div class="prog-fill" style="--v:35%"></div></div><span class="v">7/20</span></div></div>
+          <div class="lay-grant-act">
+            <button class="pill pill--sm" type="button"><span class="lbl">查看记录</span></button>
+            <button class="btn btn--ghost ibtn btn--sm" type="button" aria-label="吊销"><svg class="ic"><use href="#i-trash"></use></svg></button>
+          </div>
+        </div>
+        <div class="lay-loghead"><span class="kf-en">Log</span><span class="lay-v">执行记录</span></div>
+        <div class="lay-log">
+          <span class="h">时间</span><span class="h">操作</span><span class="h">命令或路径</span><span class="h">结果</span><span class="h">说明</span><span class="h e">用时</span>
+          <span class="t">14:05:02</span><span class="o">执行</span><span class="c">pip install trimesh</span><span class="s is-err">已拦截</span><span class="x">联网限制</span><span class="d">0.0s</span>
+          <span class="t">14:04:40</span><span class="o">写入</span><span class="c">tools/export_glb.py</span><span class="s">已执行</span><span class="x">2.1 KB</span><span class="d">0.1s</span>
+          <span class="t">14:04:11</span><span class="o">执行</span><span class="c">python tools/export_glb.py --all</span><span class="s">已执行</span><span class="x">退出码 0</span><span class="d">3.2s</span>
+          <span class="t">14:03:58</span><span class="o">读取</span><span class="c">scenes/hangar.blend</span><span class="s">已执行</span><span class="x">48.6 MB</span><span class="d">0.4s</span>
+          <span class="t">14:03:20</span><span class="o">执行</span><span class="c">reg query HKLM\SOFTWARE</span><span class="s is-err">已拦截</span><span class="x">注册表</span><span class="d">0.0s</span>
+          <span class="t">14:02:47</span><span class="o">执行</span><span class="c">del /s /q scenes\backup</span><span class="s is-off">已拒绝</span><span class="x">主人拒绝</span><span class="d">0.0s</span>
+          <span class="t">14:02:31</span><span class="o">列目录</span><span class="c">scenes/</span><span class="s">已执行</span><span class="x">12 项</span><span class="d">0.0s</span>
+        </div>
+      </section>
+      <section class="lay-pend">
+        <div class="plate lay-pend-card" data-theme="dark">
+          <div class="alert-strip"><span class="alert-title">待确认</span><span class="meta">1/2</span></div>
+          <div class="lay-pend-body">
+            <p class="lay-cmd">blender -b scenes/hangar.blend -P tools/bake.py</p>
+            <dl><dt>授权</dt><dd>blender-assets</dd><dt>工作目录</dt><dd>D:\Projects\blender-assets</dd><dt>请求时间</dt><dd>14:05:12</dd></dl>
+            <div class="lay-pend-act"><button class="pill" type="button"><span class="lbl">拒绝</span></button><button class="pill" type="button"><span class="lbl">允许</span></button></div>
+          </div>
+        </div>
+      </section>
+    </div></div>
+  </div></div>
+</div>
+<script>window.Endfield&&Endfield.init(document);(function(){function fit(){var f=document.querySelectorAll('.lay-fit');for(var i=0;i<f.length;i++)f[i].style.setProperty('--k',f[i].clientWidth/1280)}fit();window.addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(document.body)})();</script>
+</body>
+</html>
